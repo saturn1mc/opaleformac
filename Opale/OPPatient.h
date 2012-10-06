@@ -2,14 +2,14 @@
 //  OPPatient.h
 //  Opale
 //
-//  Created by Camille on 22/09/12.
+//  Created by Camille on 06/10/12.
 //
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class OPConsultation;
+@class OPConsultation, OPGrowth;
 
 @interface OPPatient : NSManagedObject
 
@@ -21,7 +21,7 @@
 @property (nonatomic, retain) NSString * tel1;
 @property (nonatomic, retain) NSString * tel2;
 @property (nonatomic, retain) NSSet *consultations;
-
+@property (nonatomic, retain) NSSet *growths;
 @end
 
 @interface OPPatient (CoreDataGeneratedAccessors)
@@ -30,5 +30,10 @@
 - (void)removeConsultationsObject:(OPConsultation *)value;
 - (void)addConsultations:(NSSet *)values;
 - (void)removeConsultations:(NSSet *)values;
+
+- (void)addGrowthsObject:(OPGrowth *)value;
+- (void)removeGrowthsObject:(OPGrowth *)value;
+- (void)addGrowths:(NSSet *)values;
+- (void)removeGrowths:(NSSet *)values;
 
 @end

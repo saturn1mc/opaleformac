@@ -14,14 +14,18 @@
 
 @synthesize parent, nextView, previousView;
 
+-(NSManagedObjectContext *)managedObjectContext{
+    OPAppDelegate* appDelegate = (OPAppDelegate*)parent.delegate;
+    return appDelegate.managedObjectContext;
+}
+
 -(void)saveAction{
     OPAppDelegate* appDelegate = (OPAppDelegate*)parent.delegate;
     [appDelegate saveAction:self];
 }
 
--(NSManagedObjectContext *)managedObjectContext{
-    OPAppDelegate* appDelegate = (OPAppDelegate*)parent.delegate;
-    return appDelegate.managedObjectContext;
+-(void)resetView{
+    //Nothing
 }
 
 -(BOOL)isFlipped{

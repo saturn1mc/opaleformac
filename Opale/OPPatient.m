@@ -2,12 +2,13 @@
 //  OPPatient.m
 //  Opale
 //
-//  Created by Camille on 22/09/12.
+//  Created by Camille on 06/10/12.
 //
 //
 
 #import "OPPatient.h"
 #import "OPConsultation.h"
+#import "OPGrowth.h"
 
 
 @implementation OPPatient
@@ -20,5 +21,6 @@
 @dynamic tel1;
 @dynamic tel2;
 @dynamic consultations;
+@dynamic growths;
 
 @end

@@ -21,8 +21,11 @@
 @property (nonatomic, retain) OPView* nextView;
 @property (nonatomic, retain) OPView* previousView;
 
--(void)saveAction;
+
 -(NSManagedObjectContext *)managedObjectContext;
+
+-(void)saveAction;
+-(void)resetView;
 -(BOOL)quitView;
 -(BOOL)canGoToPreviousView;
 -(BOOL)canGoToNextView;
