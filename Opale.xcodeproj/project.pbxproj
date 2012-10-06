@@ -1,0 +1,665 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9110A8E0150D1CE9002FDE8B /* opale.png in Resources */ = {isa = PBXBuildFile; fileRef = 9110A8DF150D1CE9002FDE8B /* opale.png */; };
+		911E7F8415B4133000FC2A3F /* OPAdultFemalePatientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 911E7F8315B4133000FC2A3F /* OPAdultFemalePatientView.m */; };
+		911F92411508A05C00FD3B34 /* OPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 911F92401508A05C00FD3B34 /* OPView.m */; };
+		91360C8D150E6FA1000E00D2 /* OPNewPatientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91360C8C150E6FA1000E00D2 /* OPNewPatientView.m */; };
+		9157711015067B73009E2B73 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9157710F15067B73009E2B73 /* Cocoa.framework */; };
+		9157711A15067B73009E2B73 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9157711815067B73009E2B73 /* InfoPlist.strings */; };
+		9157711C15067B73009E2B73 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9157711B15067B73009E2B73 /* main.m */; };
+		9157712015067B73009E2B73 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9157711E15067B73009E2B73 /* Credits.rtf */; };
+		9157712315067B73009E2B73 /* OPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9157712215067B73009E2B73 /* OPAppDelegate.m */; };
+		9157712615067B74009E2B73 /* OPMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9157712415067B74009E2B73 /* OPMainWindow.xib */; };
+		9157712915067B74009E2B73 /* Opale.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9157712715067B74009E2B73 /* Opale.xcdatamodeld */; };
+		9157713115067B74009E2B73 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9157713015067B74009E2B73 /* SenTestingKit.framework */; };
+		9157713215067B74009E2B73 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9157710F15067B73009E2B73 /* Cocoa.framework */; };
+		9157713A15067B74009E2B73 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9157713815067B74009E2B73 /* InfoPlist.strings */; };
+		9157713D15067B74009E2B73 /* OpaleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9157713C15067B74009E2B73 /* OpaleTests.m */; };
+		9157714815068769009E2B73 /* OPMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9157714715068769009E2B73 /* OPMainWindow.m */; };
+		915CEF82150E3FE6007E6E6D /* OPCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CEF81150E3FE6007E6E6D /* OPCalendarView.m */; };
+		915CEF85150E4442007E6E6D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 915CEF84150E4442007E6E6D /* WebKit.framework */; };
+		915CEF88150E499E007E6E6D /* new_user.png in Resources */ = {isa = PBXBuildFile; fileRef = 915CEF86150E499E007E6E6D /* new_user.png */; };
+		915CEF89150E499E007E6E6D /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 915CEF87150E499E007E6E6D /* search.png */; };
+		9171736E1535E2E100D1D702 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9171736D1535E2E100D1D702 /* libsqlite3.dylib */; };
+		917173791535EB0600D1D702 /* Maquette.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = 917173781535EB0600D1D702 /* Maquette.xlsx */; };
+		91ACB7FD1508CEF200DB0393 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91ACB7FC1508CEF200DB0393 /* Quartz.framework */; };
+		91B128651598A4BB00AFC5B9 /* OPAdultMalePatientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B128641598A4BB00AFC5B9 /* OPAdultMalePatientView.m */; };
+		91CAD6CB1598B71B00163FB1 /* OPExistingPatientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CAD6CA1598B71B00163FB1 /* OPExistingPatientView.m */; };
+		91CEF6F2159C618A001D5265 /* OPAdultChildConsultationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CEF6F1159C618A001D5265 /* OPAdultChildConsultationView.m */; };
+		91D197F0160DFDBB007DCAC3 /* OPConsultation.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D197EF160DFDBB007DCAC3 /* OPConsultation.m */; };
+		91D197F4160DFDD6007DCAC3 /* OPLetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D197F3160DFDD6007DCAC3 /* OPLetter.m */; };
+		91D197FD160DFE32007DCAC3 /* OPMotive.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D197FC160DFE32007DCAC3 /* OPMotive.m */; };
+		91D19800160DFE46007DCAC3 /* OPObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D197FF160DFE46007DCAC3 /* OPObject.m */; };
+		91D19803160DFE51007DCAC3 /* OPPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19802160DFE51007DCAC3 /* OPPatient.m */; };
+		91D19809160DFE8B007DCAC3 /* OPPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19808160DFE8B007DCAC3 /* OPPayment.m */; };
+		91E7320D150E2D0300F74EBB /* OPPatientsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7320C150E2D0300F74EBB /* OPPatientsView.m */; };
+		91E73210150E2D6C00F74EBB /* OPPatientSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7320F150E2D6C00F74EBB /* OPPatientSearchView.m */; };
+		91EF2C2C150BBAAC008D7F3A /* accounting.png in Resources */ = {isa = PBXBuildFile; fileRef = 91EF2C25150BBAAC008D7F3A /* accounting.png */; };
+		91EF2C2D150BBAAC008D7F3A /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 91EF2C26150BBAAC008D7F3A /* calendar.png */; };
+		91EF2C2E150BBAAC008D7F3A /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 91EF2C27150BBAAC008D7F3A /* home.png */; };
+		91EF2C2F150BBAAC008D7F3A /* network.png in Resources */ = {isa = PBXBuildFile; fileRef = 91EF2C28150BBAAC008D7F3A /* network.png */; };
+		91EF2C31150BBAAC008D7F3A /* patients.png in Resources */ = {isa = PBXBuildFile; fileRef = 91EF2C2A150BBAAC008D7F3A /* patients.png */; };
+		91EF2C32150BBAAC008D7F3A /* statistics.png in Resources */ = {isa = PBXBuildFile; fileRef = 91EF2C2B150BBAAC008D7F3A /* statistics.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9157713315067B74009E2B73 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9157710215067B73009E2B73 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9157710A15067B73009E2B73;
+			remoteInfo = Opale;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9110A8DF150D1CE9002FDE8B /* opale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = opale.png; path = ../opale.png; sourceTree = "<group>"; };
+		911E7F8215B4133000FC2A3F /* OPAdultFemalePatientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPAdultFemalePatientView.h; sourceTree = "<group>"; };
+		911E7F8315B4133000FC2A3F /* OPAdultFemalePatientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPAdultFemalePatientView.m; sourceTree = "<group>"; };
+		911F923F1508A05C00FD3B34 /* OPView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPView.h; sourceTree = "<group>"; };
+		911F92401508A05C00FD3B34 /* OPView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPView.m; sourceTree = "<group>"; };
+		91360C8B150E6FA1000E00D2 /* OPNewPatientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPNewPatientView.h; sourceTree = "<group>"; };
+		91360C8C150E6FA1000E00D2 /* OPNewPatientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPNewPatientView.m; sourceTree = "<group>"; };
+		9157710B15067B73009E2B73 /* Opale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Opale.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9157710F15067B73009E2B73 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		9157711215067B73009E2B73 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		9157711315067B73009E2B73 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		9157711415067B73009E2B73 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9157711715067B73009E2B73 /* Opale-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Opale-Info.plist"; sourceTree = "<group>"; };
+		9157711915067B73009E2B73 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9157711B15067B73009E2B73 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9157711D15067B73009E2B73 /* Opale-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Opale-Prefix.pch"; sourceTree = "<group>"; };
+		9157711F15067B73009E2B73 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		9157712115067B73009E2B73 /* OPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OPAppDelegate.h; sourceTree = "<group>"; };
+		9157712215067B73009E2B73 /* OPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OPAppDelegate.m; sourceTree = "<group>"; };
+		9157712515067B74009E2B73 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/OPMainWindow.xib; sourceTree = "<group>"; };
+		9157712815067B74009E2B73 /* Opale.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Opale.xcdatamodel; sourceTree = "<group>"; };
+		9157712F15067B74009E2B73 /* OpaleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpaleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9157713015067B74009E2B73 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		9157713715067B74009E2B73 /* OpaleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OpaleTests-Info.plist"; sourceTree = "<group>"; };
+		9157713915067B74009E2B73 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9157713B15067B74009E2B73 /* OpaleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpaleTests.h; sourceTree = "<group>"; };
+		9157713C15067B74009E2B73 /* OpaleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpaleTests.m; sourceTree = "<group>"; };
+		9157714615068769009E2B73 /* OPMainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPMainWindow.h; sourceTree = "<group>"; };
+		9157714715068769009E2B73 /* OPMainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPMainWindow.m; sourceTree = "<group>"; };
+		915CEF80150E3FE6007E6E6D /* OPCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPCalendarView.h; sourceTree = "<group>"; };
+		915CEF81150E3FE6007E6E6D /* OPCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPCalendarView.m; sourceTree = "<group>"; };
+		915CEF84150E4442007E6E6D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		915CEF86150E499E007E6E6D /* new_user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_user.png; sourceTree = "<group>"; };
+		915CEF87150E499E007E6E6D /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
+		9171736D1535E2E100D1D702 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		917173781535EB0600D1D702 /* Maquette.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Maquette.xlsx; sourceTree = "<group>"; };
+		91ACB7FC1508CEF200DB0393 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		91B128631598A4BB00AFC5B9 /* OPAdultMalePatientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPAdultMalePatientView.h; sourceTree = "<group>"; };
+		91B128641598A4BB00AFC5B9 /* OPAdultMalePatientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPAdultMalePatientView.m; sourceTree = "<group>"; };
+		91CAD6C91598B71B00163FB1 /* OPExistingPatientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPExistingPatientView.h; sourceTree = "<group>"; };
+		91CAD6CA1598B71B00163FB1 /* OPExistingPatientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPExistingPatientView.m; sourceTree = "<group>"; };
+		91CEF6F0159C618A001D5265 /* OPAdultChildConsultationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPAdultChildConsultationView.h; sourceTree = "<group>"; };
+		91CEF6F1159C618A001D5265 /* OPAdultChildConsultationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPAdultChildConsultationView.m; sourceTree = "<group>"; };
+		91D197EE160DFDBB007DCAC3 /* OPConsultation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPConsultation.h; sourceTree = "<group>"; };
+		91D197EF160DFDBB007DCAC3 /* OPConsultation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPConsultation.m; sourceTree = "<group>"; };
+		91D197F2160DFDD6007DCAC3 /* OPLetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPLetter.h; sourceTree = "<group>"; };
+		91D197F3160DFDD6007DCAC3 /* OPLetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPLetter.m; sourceTree = "<group>"; };
+		91D197FB160DFE32007DCAC3 /* OPMotive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPMotive.h; sourceTree = "<group>"; };
+		91D197FC160DFE32007DCAC3 /* OPMotive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPMotive.m; sourceTree = "<group>"; };
+		91D197FE160DFE46007DCAC3 /* OPObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPObject.h; sourceTree = "<group>"; };
+		91D197FF160DFE46007DCAC3 /* OPObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPObject.m; sourceTree = "<group>"; };
+		91D19801160DFE50007DCAC3 /* OPPatient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPPatient.h; sourceTree = "<group>"; };
+		91D19802160DFE51007DCAC3 /* OPPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPPatient.m; sourceTree = "<group>"; };
+		91D19807160DFE8B007DCAC3 /* OPPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPPayment.h; sourceTree = "<group>"; };
+		91D19808160DFE8B007DCAC3 /* OPPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPPayment.m; sourceTree = "<group>"; };
+		91E7320B150E2D0300F74EBB /* OPPatientsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPPatientsView.h; sourceTree = "<group>"; };
+		91E7320C150E2D0300F74EBB /* OPPatientsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPPatientsView.m; sourceTree = "<group>"; };
+		91E7320E150E2D6C00F74EBB /* OPPatientSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPPatientSearchView.h; sourceTree = "<group>"; };
+		91E7320F150E2D6C00F74EBB /* OPPatientSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPPatientSearchView.m; sourceTree = "<group>"; };
+		91EF2C25150BBAAC008D7F3A /* accounting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = accounting.png; sourceTree = "<group>"; };
+		91EF2C26150BBAAC008D7F3A /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
+		91EF2C27150BBAAC008D7F3A /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		91EF2C28150BBAAC008D7F3A /* network.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = network.png; sourceTree = "<group>"; };
+		91EF2C2A150BBAAC008D7F3A /* patients.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patients.png; sourceTree = "<group>"; };
+		91EF2C2B150BBAAC008D7F3A /* statistics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statistics.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9157710815067B73009E2B73 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9171736E1535E2E100D1D702 /* libsqlite3.dylib in Frameworks */,
+				915CEF85150E4442007E6E6D /* WebKit.framework in Frameworks */,
+				91ACB7FD1508CEF200DB0393 /* Quartz.framework in Frameworks */,
+				9157711015067B73009E2B73 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9157712B15067B74009E2B73 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9157713115067B74009E2B73 /* SenTestingKit.framework in Frameworks */,
+				9157713215067B74009E2B73 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9157710015067B73009E2B73 = {
+			isa = PBXGroup;
+			children = (
+				9157711515067B73009E2B73 /* Opale */,
+				9157713515067B74009E2B73 /* OpaleTests */,
+				9157710E15067B73009E2B73 /* Frameworks */,
+				9157710C15067B73009E2B73 /* Products */,
+			);
+			sourceTree = "<group>";
+			usesTabs = 0;
+		};
+		9157710C15067B73009E2B73 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9157710B15067B73009E2B73 /* Opale.app */,
+				9157712F15067B74009E2B73 /* OpaleTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9157710E15067B73009E2B73 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9171736D1535E2E100D1D702 /* libsqlite3.dylib */,
+				915CEF84150E4442007E6E6D /* WebKit.framework */,
+				91ACB7FC1508CEF200DB0393 /* Quartz.framework */,
+				9157710F15067B73009E2B73 /* Cocoa.framework */,
+				9157713015067B74009E2B73 /* SenTestingKit.framework */,
+				9157711115067B73009E2B73 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9157711115067B73009E2B73 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9157711215067B73009E2B73 /* AppKit.framework */,
+				9157711315067B73009E2B73 /* CoreData.framework */,
+				9157711415067B73009E2B73 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		9157711515067B73009E2B73 /* Opale */ = {
+			isa = PBXGroup;
+			children = (
+				91E73209150E288500F74EBB /* Model */,
+				91E73207150E286F00F74EBB /* View */,
+				9157711615067B73009E2B73 /* Supporting Files */,
+			);
+			path = Opale;
+			sourceTree = "<group>";
+		};
+		9157711615067B73009E2B73 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9157711715067B73009E2B73 /* Opale-Info.plist */,
+				9157711815067B73009E2B73 /* InfoPlist.strings */,
+				9157711B15067B73009E2B73 /* main.m */,
+				9157711D15067B73009E2B73 /* Opale-Prefix.pch */,
+				9157711E15067B73009E2B73 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9157713515067B74009E2B73 /* OpaleTests */ = {
+			isa = PBXGroup;
+			children = (
+				9157713B15067B74009E2B73 /* OpaleTests.h */,
+				9157713C15067B74009E2B73 /* OpaleTests.m */,
+				9157713615067B74009E2B73 /* Supporting Files */,
+			);
+			path = OpaleTests;
+			sourceTree = "<group>";
+		};
+		9157713615067B74009E2B73 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9157713715067B74009E2B73 /* OpaleTests-Info.plist */,
+				9157713815067B74009E2B73 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		91577152150698B2009E2B73 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				915CEF86150E499E007E6E6D /* new_user.png */,
+				915CEF87150E499E007E6E6D /* search.png */,
+				9110A8DF150D1CE9002FDE8B /* opale.png */,
+				91EF2C25150BBAAC008D7F3A /* accounting.png */,
+				91EF2C26150BBAAC008D7F3A /* calendar.png */,
+				91EF2C27150BBAAC008D7F3A /* home.png */,
+				91EF2C28150BBAAC008D7F3A /* network.png */,
+				91EF2C2A150BBAAC008D7F3A /* patients.png */,
+				91EF2C2B150BBAAC008D7F3A /* statistics.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		91C5A3E0150882F60070BB12 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9157712115067B73009E2B73 /* OPAppDelegate.h */,
+				9157712215067B73009E2B73 /* OPAppDelegate.m */,
+				9157714615068769009E2B73 /* OPMainWindow.h */,
+				9157714715068769009E2B73 /* OPMainWindow.m */,
+				911F923F1508A05C00FD3B34 /* OPView.h */,
+				911F92401508A05C00FD3B34 /* OPView.m */,
+				91E7320B150E2D0300F74EBB /* OPPatientsView.h */,
+				91E7320C150E2D0300F74EBB /* OPPatientsView.m */,
+				91E7320E150E2D6C00F74EBB /* OPPatientSearchView.h */,
+				91E7320F150E2D6C00F74EBB /* OPPatientSearchView.m */,
+				91360C8B150E6FA1000E00D2 /* OPNewPatientView.h */,
+				91360C8C150E6FA1000E00D2 /* OPNewPatientView.m */,
+				91CAD6C91598B71B00163FB1 /* OPExistingPatientView.h */,
+				91CAD6CA1598B71B00163FB1 /* OPExistingPatientView.m */,
+				91B128631598A4BB00AFC5B9 /* OPAdultMalePatientView.h */,
+				91B128641598A4BB00AFC5B9 /* OPAdultMalePatientView.m */,
+				911E7F8215B4133000FC2A3F /* OPAdultFemalePatientView.h */,
+				911E7F8315B4133000FC2A3F /* OPAdultFemalePatientView.m */,
+				915CEF80150E3FE6007E6E6D /* OPCalendarView.h */,
+				915CEF81150E3FE6007E6E6D /* OPCalendarView.m */,
+				91CEF6F0159C618A001D5265 /* OPAdultChildConsultationView.h */,
+				91CEF6F1159C618A001D5265 /* OPAdultChildConsultationView.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		91C5A3E1150883050070BB12 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				9157712415067B74009E2B73 /* OPMainWindow.xib */,
+				917173781535EB0600D1D702 /* Maquette.xlsx */,
+			);
+			name = Design;
+			sourceTree = "<group>";
+		};
+		91E73207150E286F00F74EBB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				91C5A3E1150883050070BB12 /* Design */,
+				91C5A3E0150882F60070BB12 /* Classes */,
+				91577152150698B2009E2B73 /* Resources */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		91E73209150E288500F74EBB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9157712715067B74009E2B73 /* Opale.xcdatamodeld */,
+				91D197FE160DFE46007DCAC3 /* OPObject.h */,
+				91D197FF160DFE46007DCAC3 /* OPObject.m */,
+				91D197F2160DFDD6007DCAC3 /* OPLetter.h */,
+				91D197F3160DFDD6007DCAC3 /* OPLetter.m */,
+				91D197EE160DFDBB007DCAC3 /* OPConsultation.h */,
+				91D197EF160DFDBB007DCAC3 /* OPConsultation.m */,
+				91D197FB160DFE32007DCAC3 /* OPMotive.h */,
+				91D197FC160DFE32007DCAC3 /* OPMotive.m */,
+				91D19801160DFE50007DCAC3 /* OPPatient.h */,
+				91D19802160DFE51007DCAC3 /* OPPatient.m */,
+				91D19807160DFE8B007DCAC3 /* OPPayment.h */,
+				91D19808160DFE8B007DCAC3 /* OPPayment.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9157710A15067B73009E2B73 /* Opale */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9157714015067B74009E2B73 /* Build configuration list for PBXNativeTarget "Opale" */;
+			buildPhases = (
+				9157710715067B73009E2B73 /* Sources */,
+				9157710815067B73009E2B73 /* Frameworks */,
+				9157710915067B73009E2B73 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Opale;
+			productName = Opale;
+			productReference = 9157710B15067B73009E2B73 /* Opale.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9157712E15067B74009E2B73 /* OpaleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9157714315067B74009E2B73 /* Build configuration list for PBXNativeTarget "OpaleTests" */;
+			buildPhases = (
+				9157712A15067B74009E2B73 /* Sources */,
+				9157712B15067B74009E2B73 /* Frameworks */,
+				9157712C15067B74009E2B73 /* Resources */,
+				9157712D15067B74009E2B73 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9157713415067B74009E2B73 /* PBXTargetDependency */,
+			);
+			name = OpaleTests;
+			productName = OpaleTests;
+			productReference = 9157712F15067B74009E2B73 /* OpaleTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9157710215067B73009E2B73 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = OP;
+				LastUpgradeCheck = 0440;
+			};
+			buildConfigurationList = 9157710515067B73009E2B73 /* Build configuration list for PBXProject "Opale" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9157710015067B73009E2B73;
+			productRefGroup = 9157710C15067B73009E2B73 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9157710A15067B73009E2B73 /* Opale */,
+				9157712E15067B74009E2B73 /* OpaleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9157710915067B73009E2B73 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9157711A15067B73009E2B73 /* InfoPlist.strings in Resources */,
+				9157712015067B73009E2B73 /* Credits.rtf in Resources */,
+				9157712615067B74009E2B73 /* OPMainWindow.xib in Resources */,
+				91EF2C2C150BBAAC008D7F3A /* accounting.png in Resources */,
+				91EF2C2D150BBAAC008D7F3A /* calendar.png in Resources */,
+				91EF2C2E150BBAAC008D7F3A /* home.png in Resources */,
+				91EF2C2F150BBAAC008D7F3A /* network.png in Resources */,
+				91EF2C31150BBAAC008D7F3A /* patients.png in Resources */,
+				91EF2C32150BBAAC008D7F3A /* statistics.png in Resources */,
+				9110A8E0150D1CE9002FDE8B /* opale.png in Resources */,
+				915CEF88150E499E007E6E6D /* new_user.png in Resources */,
+				915CEF89150E499E007E6E6D /* search.png in Resources */,
+				917173791535EB0600D1D702 /* Maquette.xlsx in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9157712C15067B74009E2B73 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9157713A15067B74009E2B73 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9157712D15067B74009E2B73 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9157710715067B73009E2B73 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9157711C15067B73009E2B73 /* main.m in Sources */,
+				9157712315067B73009E2B73 /* OPAppDelegate.m in Sources */,
+				9157712915067B74009E2B73 /* Opale.xcdatamodeld in Sources */,
+				9157714815068769009E2B73 /* OPMainWindow.m in Sources */,
+				911F92411508A05C00FD3B34 /* OPView.m in Sources */,
+				91E7320D150E2D0300F74EBB /* OPPatientsView.m in Sources */,
+				91E73210150E2D6C00F74EBB /* OPPatientSearchView.m in Sources */,
+				915CEF82150E3FE6007E6E6D /* OPCalendarView.m in Sources */,
+				91360C8D150E6FA1000E00D2 /* OPNewPatientView.m in Sources */,
+				91B128651598A4BB00AFC5B9 /* OPAdultMalePatientView.m in Sources */,
+				91CAD6CB1598B71B00163FB1 /* OPExistingPatientView.m in Sources */,
+				91CEF6F2159C618A001D5265 /* OPAdultChildConsultationView.m in Sources */,
+				911E7F8415B4133000FC2A3F /* OPAdultFemalePatientView.m in Sources */,
+				91D197F0160DFDBB007DCAC3 /* OPConsultation.m in Sources */,
+				91D197F4160DFDD6007DCAC3 /* OPLetter.m in Sources */,
+				91D197FD160DFE32007DCAC3 /* OPMotive.m in Sources */,
+				91D19800160DFE46007DCAC3 /* OPObject.m in Sources */,
+				91D19803160DFE51007DCAC3 /* OPPatient.m in Sources */,
+				91D19809160DFE8B007DCAC3 /* OPPayment.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9157712A15067B74009E2B73 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9157713D15067B74009E2B73 /* OpaleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9157713415067B74009E2B73 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9157710A15067B73009E2B73 /* Opale */;
+			targetProxy = 9157713315067B74009E2B73 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9157711815067B73009E2B73 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9157711915067B73009E2B73 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9157711E15067B73009E2B73 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9157711F15067B73009E2B73 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		9157712415067B74009E2B73 /* OPMainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9157712515067B74009E2B73 /* en */,
+			);
+			name = OPMainWindow.xib;
+			sourceTree = "<group>";
+		};
+		9157713815067B74009E2B73 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9157713915067B74009E2B73 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9157713E15067B74009E2B73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		9157713F15067B74009E2B73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		9157714115067B74009E2B73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Opale/Opale-Prefix.pch";
+				INFOPLIST_FILE = "Opale/Opale-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9157714215067B74009E2B73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Opale/Opale-Prefix.pch";
+				INFOPLIST_FILE = "Opale/Opale-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		9157714415067B74009E2B73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Opale.app/Contents/MacOS/Opale";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Opale/Opale-Prefix.pch";
+				INFOPLIST_FILE = "OpaleTests/OpaleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		9157714515067B74009E2B73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Opale.app/Contents/MacOS/Opale";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Opale/Opale-Prefix.pch";
+				INFOPLIST_FILE = "OpaleTests/OpaleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9157710515067B73009E2B73 /* Build configuration list for PBXProject "Opale" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9157713E15067B74009E2B73 /* Debug */,
+				9157713F15067B74009E2B73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9157714015067B74009E2B73 /* Build configuration list for PBXNativeTarget "Opale" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9157714115067B74009E2B73 /* Debug */,
+				9157714215067B74009E2B73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9157714315067B74009E2B73 /* Build configuration list for PBXNativeTarget "OpaleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9157714415067B74009E2B73 /* Debug */,
+				9157714515067B74009E2B73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9157712715067B74009E2B73 /* Opale.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9157712815067B74009E2B73 /* Opale.xcdatamodel */,
+			);
+			currentVersion = 9157712815067B74009E2B73 /* Opale.xcdatamodel */;
+			path = Opale.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 9157710215067B73009E2B73 /* Project object */;
+}
