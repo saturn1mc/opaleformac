@@ -16,8 +16,7 @@
 		912C0EC516208A59009A5090 /* Header.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 912C0EC416208A59009A5090 /* Header.jpg */; };
 		912C0ECE16208B4A009A5090 /* OPGrowth.m in Sources */ = {isa = PBXBuildFile; fileRef = 912C0ECD16208B4A009A5090 /* OPGrowth.m */; };
 		912C0ED416208C16009A5090 /* OPPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = 912C0ED316208C16009A5090 /* OPPatient.m */; };
-		912C0ED716208D7D009A5090 /* OPGraphTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 912C0ED616208D7D009A5090 /* OPGraphTest.m */; };
-		912C0EEC16209248009A5090 /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 912C0EE71620913F009A5090 /* CorePlot.framework */; };
+		912C0ED716208D7D009A5090 /* OPGrowthGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 912C0ED616208D7D009A5090 /* OPGrowthGraphView.m */; };
 		91360C8D150E6FA1000E00D2 /* OPNewPatientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91360C8C150E6FA1000E00D2 /* OPNewPatientView.m */; };
 		9157711015067B73009E2B73 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9157710F15067B73009E2B73 /* Cocoa.framework */; };
 		9157711A15067B73009E2B73 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9157711815067B73009E2B73 /* InfoPlist.strings */; };
@@ -45,6 +44,7 @@
 		91D197FD160DFE32007DCAC3 /* OPMotive.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D197FC160DFE32007DCAC3 /* OPMotive.m */; };
 		91D19800160DFE46007DCAC3 /* OPObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D197FF160DFE46007DCAC3 /* OPObject.m */; };
 		91D19809160DFE8B007DCAC3 /* OPPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19808160DFE8B007DCAC3 /* OPPayment.m */; };
+		91D3AA7C1629BAC300941E2C /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91D3AA761629BA8800941E2C /* CorePlot.framework */; };
 		91E7320D150E2D0300F74EBB /* OPPatientsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7320C150E2D0300F74EBB /* OPPatientsView.m */; };
 		91E73210150E2D6C00F74EBB /* OPPatientSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7320F150E2D6C00F74EBB /* OPPatientSearchView.m */; };
 		91EF2C2C150BBAAC008D7F3A /* accounting.png in Resources */ = {isa = PBXBuildFile; fileRef = 91EF2C25150BBAAC008D7F3A /* accounting.png */; };
@@ -56,33 +56,33 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		912C0EE61620913F009A5090 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 912C0EDD1620913E009A5090 /* CorePlot.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
-			remoteInfo = CorePlot;
-		};
-		912C0EE81620913F009A5090 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 912C0EDD1620913E009A5090 /* CorePlot.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 0730F600109492D800E95162;
-			remoteInfo = UnitTests;
-		};
-		912C0EEA16209231009A5090 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 912C0EDD1620913E009A5090 /* CorePlot.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = CorePlot;
-		};
 		9157713315067B74009E2B73 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9157710215067B73009E2B73 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 9157710A15067B73009E2B73;
 			remoteInfo = Opale;
+		};
+		91D3AA751629BA8800941E2C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91D3AA6C1629BA8800941E2C /* CorePlot.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = CorePlot;
+		};
+		91D3AA771629BA8800941E2C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91D3AA6C1629BA8800941E2C /* CorePlot.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0730F600109492D800E95162;
+			remoteInfo = UnitTests;
+		};
+		91D3AA7A1629BAB600941E2C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91D3AA6C1629BA8800941E2C /* CorePlot.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = CorePlot;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -100,9 +100,8 @@
 		912C0ECD16208B4A009A5090 /* OPGrowth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPGrowth.m; sourceTree = "<group>"; };
 		912C0ED216208C16009A5090 /* OPPatient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPPatient.h; sourceTree = "<group>"; };
 		912C0ED316208C16009A5090 /* OPPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPPatient.m; sourceTree = "<group>"; };
-		912C0ED516208D7D009A5090 /* OPGraphTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPGraphTest.h; sourceTree = "<group>"; };
-		912C0ED616208D7D009A5090 /* OPGraphTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPGraphTest.m; sourceTree = "<group>"; };
-		912C0EDD1620913E009A5090 /* CorePlot.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CorePlot.xcodeproj; path = CorePlot/Source/framework/CorePlot.xcodeproj; sourceTree = "<group>"; };
+		912C0ED516208D7D009A5090 /* OPGrowthGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPGrowthGraphView.h; sourceTree = "<group>"; };
+		912C0ED616208D7D009A5090 /* OPGrowthGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPGrowthGraphView.m; sourceTree = "<group>"; };
 		91360C8B150E6FA1000E00D2 /* OPNewPatientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPNewPatientView.h; sourceTree = "<group>"; };
 		91360C8C150E6FA1000E00D2 /* OPNewPatientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPNewPatientView.m; sourceTree = "<group>"; };
 		9157710B15067B73009E2B73 /* Opale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Opale.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +150,7 @@
 		91D197FF160DFE46007DCAC3 /* OPObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPObject.m; sourceTree = "<group>"; };
 		91D19807160DFE8B007DCAC3 /* OPPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPPayment.h; sourceTree = "<group>"; };
 		91D19808160DFE8B007DCAC3 /* OPPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPPayment.m; sourceTree = "<group>"; };
+		91D3AA6C1629BA8800941E2C /* CorePlot.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CorePlot.xcodeproj; path = CorePlot/Source/framework/CorePlot.xcodeproj; sourceTree = "<group>"; };
 		91E7320B150E2D0300F74EBB /* OPPatientsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPPatientsView.h; sourceTree = "<group>"; };
 		91E7320C150E2D0300F74EBB /* OPPatientsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPPatientsView.m; sourceTree = "<group>"; };
 		91E7320E150E2D6C00F74EBB /* OPPatientSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPPatientSearchView.h; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				912C0EEC16209248009A5090 /* CorePlot.framework in Frameworks */,
+				91D3AA7C1629BAC300941E2C /* CorePlot.framework in Frameworks */,
 				9171736E1535E2E100D1D702 /* libsqlite3.dylib in Frameworks */,
 				915CEF85150E4442007E6E6D /* WebKit.framework in Frameworks */,
 				91ACB7FD1508CEF200DB0393 /* Quartz.framework in Frameworks */,
@@ -188,19 +188,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		912C0EDE1620913E009A5090 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				912C0EE71620913F009A5090 /* CorePlot.framework */,
-				912C0EE91620913F009A5090 /* UnitTests.octest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		9157710015067B73009E2B73 = {
 			isa = PBXGroup;
 			children = (
-				912C0EDD1620913E009A5090 /* CorePlot.xcodeproj */,
+				91D3AA6C1629BA8800941E2C /* CorePlot.xcodeproj */,
 				9157711515067B73009E2B73 /* Opale */,
 				9157713515067B74009E2B73 /* OpaleTests */,
 				9157710E15067B73009E2B73 /* Frameworks */,
@@ -327,8 +318,8 @@
 				915CEF81150E3FE6007E6E6D /* OPCalendarView.m */,
 				91CEF6F0159C618A001D5265 /* OPAdultChildConsultationView.h */,
 				91CEF6F1159C618A001D5265 /* OPAdultChildConsultationView.m */,
-				912C0ED516208D7D009A5090 /* OPGraphTest.h */,
-				912C0ED616208D7D009A5090 /* OPGraphTest.m */,
+				912C0ED516208D7D009A5090 /* OPGrowthGraphView.h */,
+				912C0ED616208D7D009A5090 /* OPGrowthGraphView.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -340,6 +331,15 @@
 				917173781535EB0600D1D702 /* Maquette.xlsx */,
 			);
 			name = Design;
+			sourceTree = "<group>";
+		};
+		91D3AA6D1629BA8800941E2C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				91D3AA761629BA8800941E2C /* CorePlot.framework */,
+				91D3AA781629BA8800941E2C /* UnitTests.octest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		91E73207150E286F00F74EBB /* View */ = {
@@ -388,7 +388,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				912C0EEB16209231009A5090 /* PBXTargetDependency */,
+				91D3AA7B1629BAB600941E2C /* PBXTargetDependency */,
 			);
 			name = Opale;
 			productName = Opale;
@@ -436,8 +436,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 912C0EDE1620913E009A5090 /* Products */;
-					ProjectRef = 912C0EDD1620913E009A5090 /* CorePlot.xcodeproj */;
+					ProductGroup = 91D3AA6D1629BA8800941E2C /* Products */;
+					ProjectRef = 91D3AA6C1629BA8800941E2C /* CorePlot.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -449,18 +449,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		912C0EE71620913F009A5090 /* CorePlot.framework */ = {
+		91D3AA761629BA8800941E2C /* CorePlot.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = CorePlot.framework;
-			remoteRef = 912C0EE61620913F009A5090 /* PBXContainerItemProxy */;
+			remoteRef = 91D3AA751629BA8800941E2C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		912C0EE91620913F009A5090 /* UnitTests.octest */ = {
+		91D3AA781629BA8800941E2C /* UnitTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = UnitTests.octest;
-			remoteRef = 912C0EE81620913F009A5090 /* PBXContainerItemProxy */;
+			remoteRef = 91D3AA771629BA8800941E2C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -540,7 +540,7 @@
 				91D19809160DFE8B007DCAC3 /* OPPayment.m in Sources */,
 				912C0ECE16208B4A009A5090 /* OPGrowth.m in Sources */,
 				912C0ED416208C16009A5090 /* OPPatient.m in Sources */,
-				912C0ED716208D7D009A5090 /* OPGraphTest.m in Sources */,
+				912C0ED716208D7D009A5090 /* OPGrowthGraphView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,15 +555,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		912C0EEB16209231009A5090 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CorePlot;
-			targetProxy = 912C0EEA16209231009A5090 /* PBXContainerItemProxy */;
-		};
 		9157713415067B74009E2B73 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9157710A15067B73009E2B73 /* Opale */;
 			targetProxy = 9157713315067B74009E2B73 /* PBXContainerItemProxy */;
+		};
+		91D3AA7B1629BAB600941E2C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CorePlot;
+			targetProxy = 91D3AA7A1629BAB600941E2C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -655,20 +655,11 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/CorePlot_1.0/Binaries/MacOS\"",
-					"\"$(SRCROOT)/CorePlot_1.0/Source/build/Debug\"",
-					"\"$(SRCROOT)/CorePlot/Binaries/MacOS\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Opale/Opale-Prefix.pch";
 				INFOPLIST_FILE = "Opale/Opale-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/CorePlot_1.0/Binaries/iOS\"",
-					"\"$(SRCROOT)/CorePlot/Binaries/iOS\"",
-				);
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -679,20 +670,11 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/CorePlot_1.0/Binaries/MacOS\"",
-					"\"$(SRCROOT)/CorePlot_1.0/Source/build/Debug\"",
-					"\"$(SRCROOT)/CorePlot/Binaries/MacOS\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Opale/Opale-Prefix.pch";
 				INFOPLIST_FILE = "Opale/Opale-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/CorePlot_1.0/Binaries/iOS\"",
-					"\"$(SRCROOT)/CorePlot/Binaries/iOS\"",
-				);
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -6,18 +6,21 @@
 //
 //
 
-#import "OPGraphTest.h"
+#import "OPGrowthGraphView.h"
 #import "OPView.h"
 #import "CorePlot/CorePlot.h"
 
 static const NSTimeInterval oneDay = 24 * 60 * 60;
 
-@implementation OPGraphTest
+@implementation OPGrowthGraphView
 
 - (void)awakeFromNib{
-		graph	 = nil;
-		plotData = nil;
-        title = @"Test title";
+    graph	 = nil;
+	plotData = nil;
+    title = @"Test title";
+    
+    [self generateData];
+    [self renderInLayer:self];
 }
 
 -(void)generateData
@@ -45,7 +48,7 @@ static const NSTimeInterval oneDay = 24 * 60 * 60;
 	}
 }
 
--(void)renderInLayer:(CPTGraphHostingView *)layerHostingView withTheme:(CPTTheme *)theme
+-(void)renderInLayer:(CPTGraphHostingView *)layerHostingView
 {
 	// If you make sure your dates are calculated at noon, you shouldn't have to
 	// worry about daylight savings. If you use midnight, you will have to adjust
@@ -56,7 +59,7 @@ static const NSTimeInterval oneDay = 24 * 60 * 60;
     
 	graph = [(CPTXYGraph *)[CPTXYGraph alloc] initWithFrame:bounds];
 	layerHostingView.hostedGraph = graph;
-    [graph applyTheme:[CPTTheme themeNamed:kCPTStocksTheme]];
+    [graph applyTheme:[CPTTheme themeNamed:kCPTPlainWhiteTheme]];
     
 	graph.title = title;
 	CPTMutableTextStyle *textStyle = [CPTMutableTextStyle textStyle];
