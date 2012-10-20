@@ -660,6 +660,7 @@
 				GCC_PREFIX_HEADER = "Opale/Opale-Prefix.pch";
 				INFOPLIST_FILE = "Opale/Opale-Info.plist";
 				LIBRARY_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -675,6 +676,7 @@
 				GCC_PREFIX_HEADER = "Opale/Opale-Prefix.pch";
 				INFOPLIST_FILE = "Opale/Opale-Info.plist";
 				LIBRARY_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
