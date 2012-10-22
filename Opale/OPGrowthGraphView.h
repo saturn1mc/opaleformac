@@ -18,6 +18,8 @@
     NSString* sourceFile;
     NSMutableArray* plotNames;
 	NSMutableArray* plotData;
+    NSMutableArray* plotColors;
+    NSMutableArray* plotLineStyles;
     
     CPTXYGraph* graph;
     
@@ -32,6 +34,8 @@
 @property (nonatomic, retain) NSString* sourceFile;
 @property (nonatomic, retain) NSMutableArray* plotNames;
 @property (nonatomic, retain) NSMutableArray* plotData;
+@property (nonatomic, retain) NSMutableArray* plotColors;
+@property (nonatomic, retain) NSMutableArray* plotLineStyles;
 @property (nonatomic, retain) CPTXYGraph* graph;
 @property (nonatomic) float xMin;
 @property (nonatomic) float yMin;
@@ -44,6 +48,7 @@
 -(void)initPatientPlots;
 -(void)initGraph;
 -(void)initAxis;
+-(void)initLegend;
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot;
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index;
 

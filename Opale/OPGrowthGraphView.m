@@ -11,15 +11,28 @@
 #import "CorePlot/CorePlot.h"
 #import "OPPatient.h"
 
+static const NSString* patientPlotId = @"Patient";
+static NSString* defaultFont = @"Helvetica";
+static NSString* titleFont = @"Helvetica-Bold";
+
 @implementation OPGrowthGraphView
-@synthesize patient, title, sourceFile, plotNames, plotData, graph, xMin, yMin, xMax, yMax;
+@synthesize patient, title, sourceFile, plotNames, plotData, plotColors, plotLineStyles, graph, xMin, yMin, xMax, yMax;
 
 - (void)awakeFromNib{
+    title = nil;
     sourceFile = @"avg_height";
     graph	 = nil;
 	plotNames = nil;
     plotData = nil;
-    title = nil;
+    
+    plotColors = [NSMutableArray arrayWithObjects:[CPTColor purpleColor], [CPTColor blueColor], [CPTColor blueColor], [CPTColor purpleColor], nil];
+    
+    
+    NSArray* plainPattern = [[NSArray alloc] init];
+    
+    NSArray* dashedPattern = [NSArray arrayWithObjects:[NSDecimalNumber numberWithInt:2],[NSDecimalNumber numberWithInt:3], nil];
+    
+    plotLineStyles = [NSMutableArray arrayWithObjects:plainPattern, dashedPattern, dashedPattern, plainPattern, nil];
     
     xMin = FLT_MAX;
     yMin = FLT_MAX;
@@ -32,6 +45,7 @@
     [self initReferencePlots];
     [self initPatientPlots];
     [self initAxis];
+    [self initLegend];
 }
 
 
@@ -86,17 +100,16 @@
     [graph applyTheme:[CPTTheme themeNamed:kCPTPlainWhiteTheme]];
     self.hostedGraph = graph;
     
-    title = @"Courbes de croissance";
+    title = @"Courbe de taille";
     graph.title = title;
     
     CPTMutableTextStyle *titleStyle = [CPTMutableTextStyle textStyle];
-    titleStyle.color = [CPTColor whiteColor];
-    titleStyle.fontName = @"Helvetica-Bold";
+    titleStyle.color = [CPTColor blackColor];
+    titleStyle.fontName = titleFont;
     titleStyle.fontSize = 16.0f;
     graph.titleTextStyle = titleStyle;
     graph.titlePlotAreaFrameAnchor = CPTRectAnchorTop;
     graph.titleDisplacement = CGPointMake(0.0f, 10.0f);
-    
     
     CPTXYPlotSpace* plotSpace = (CPTXYPlotSpace*) graph.defaultPlotSpace;
     plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(xMin) length:CPTDecimalFromFloat(xMax)];
@@ -109,7 +122,10 @@
     NSMutableArray* plots = [[NSMutableArray alloc] init];
     
     for(NSString* pName in plotNames){
-        if([plotNames indexOfObject:pName] > 0){
+        
+        NSUInteger index = [plotNames indexOfObject:pName];
+        
+        if(index > 0){
             CPTScatterPlot *linePlot = [[CPTScatterPlot alloc] init];
             linePlot.identifier = pName;
             linePlot.cachePrecision = CPTPlotCachePrecisionDouble;
@@ -119,12 +135,10 @@
             linePlot.delegate = self;
             
             CPTMutableLineStyle *lineStyle = [linePlot.dataLineStyle mutableCopy];
-            lineStyle.lineWidth = 1.5;
-            lineStyle.lineColor = [CPTColor redColor];
+            lineStyle.lineWidth = 1.5f;
+            lineStyle.lineColor = [plotColors objectAtIndex:(index-1)];
+            lineStyle.dashPattern = [plotLineStyles objectAtIndex:(index-1)];
             linePlot.dataLineStyle = lineStyle;
-            
-            CPTMutableLineStyle *symbolLineStyle = [CPTMutableLineStyle lineStyle];
-            symbolLineStyle.lineColor = [CPTColor redColor];
             
             [graph addPlot:linePlot toPlotSpace:plotSpace];
             [plots addObject:linePlot];
@@ -147,7 +161,7 @@
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
     
     CPTScatterPlot *linePlot = [[CPTScatterPlot alloc] init];
-    linePlot.identifier = @"Patient"; //TODO switch with patient name
+    linePlot.identifier = patientPlotId; //TODO switch with patient name
     linePlot.cachePrecision = CPTPlotCachePrecisionDouble;
     linePlot.interpolation = CPTScatterPlotInterpolationLinear;
     
@@ -156,14 +170,14 @@
     
     CPTMutableLineStyle *lineStyle = [linePlot.dataLineStyle mutableCopy];
     lineStyle.lineWidth = 2.0f;
-    lineStyle.lineColor = [CPTColor greenColor];
+    lineStyle.lineColor = [CPTColor redColor];
     linePlot.dataLineStyle = lineStyle;
     
     CPTMutableLineStyle *symbolLineStyle = [CPTMutableLineStyle lineStyle];
-    symbolLineStyle.lineColor = [CPTColor greenColor];
+    symbolLineStyle.lineColor = [CPTColor redColor];
     
     CPTPlotSymbol *symbol = [CPTPlotSymbol trianglePlotSymbol];
-    symbol.fill = [CPTFill fillWithColor:[CPTColor greenColor]];
+    symbol.fill = [CPTFill fillWithColor:[CPTColor redColor]];
     symbol.lineStyle = symbolLineStyle;
     symbol.size = CGSizeMake(10.0f, 10.0f);
     linePlot.plotSymbol = symbol;
@@ -175,7 +189,7 @@
     //Line styles
     CPTMutableTextStyle *axisTitleStyle = [CPTMutableTextStyle textStyle];
     axisTitleStyle.color = [CPTColor blackColor];
-    axisTitleStyle.fontName = @"Helvetica-Bold";
+    axisTitleStyle.fontName = titleFont;
     axisTitleStyle.fontSize = 12.0f;
     
     CPTMutableLineStyle *axisLineStyle = [CPTMutableLineStyle lineStyle];
@@ -184,7 +198,7 @@
     
     CPTMutableTextStyle *axisTextStyle = [[CPTMutableTextStyle alloc] init];
     axisTextStyle.color = [CPTColor blackColor];
-    axisTextStyle.fontName = @"Helvetica-Bold";
+    axisTextStyle.fontName = defaultFont;
     axisTextStyle.fontSize = 9.0f;
     
     CPTMutableLineStyle *tickLineStyle = [CPTMutableLineStyle lineStyle];
@@ -194,6 +208,7 @@
     CPTMutableLineStyle *gridLineStyle = [CPTMutableLineStyle lineStyle];
     gridLineStyle.lineColor = [CPTColor grayColor];
     gridLineStyle.lineWidth = 0.5f;
+    gridLineStyle.dashPattern = [NSArray arrayWithObjects:[NSDecimalNumber numberWithInt:2],[NSDecimalNumber numberWithInt:3], nil];
     
     //X Axis
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *) graph.axisSet;
@@ -201,7 +216,7 @@
     CPTXYAxis *x = axisSet.xAxis;
     x.title = @"Age en mois";
     x.titleTextStyle = axisTitleStyle;
-    x.titleOffset = -20.0f;
+    x.titleOffset = -25.0f;
     x.axisLineStyle = axisLineStyle;
     x.labelingPolicy = CPTAxisLabelingPolicyNone;
     x.labelTextStyle = axisTextStyle;
@@ -280,11 +295,56 @@
     y.minorTickLocations = yMinorLocations;
 }
 
-#pragma mark -
-#pragma mark Plot Data Source Methods
+-(void)initLegend{
+    
+    CPTMutableTextStyle* legendTextStyle = [CPTMutableTextStyle textStyle];
+    legendTextStyle.color = [CPTColor blackColor];
+    legendTextStyle.fontName = defaultFont;
+    legendTextStyle.fontSize = 8.0;
+    
+    CPTMutableLineStyle *legendLineStyle = [CPTMutableLineStyle lineStyle];
+    legendLineStyle.lineWidth = 1.0f;
+    legendLineStyle.lineColor = [CPTColor grayColor];
 
+    
+    graph.legend = [CPTLegend legendWithGraph:graph];
+    graph.legend.textStyle = legendTextStyle;
+    graph.legend.fill = [CPTFill fillWithColor:[CPTColor whiteColor]];
+    graph.legend.borderLineStyle = legendLineStyle;
+    graph.legend.cornerRadius = 5.0f;
+    graph.legend.swatchSize = CGSizeMake(15.0f, 15.0f);
+    graph.legendAnchor = CPTRectAnchorTopLeft;
+    graph.legendDisplacement = CGPointMake(100.0f, -50.0f);
+}
+
+#pragma mark - Delegate methods
+-(CPTLayer *)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)index {
+    static CPTMutableTextStyle* labelTextStyle = nil;
+    
+    if (!labelTextStyle) {
+        labelTextStyle= [[CPTMutableTextStyle alloc] init];
+        labelTextStyle.color = [CPTColor blackColor];
+        labelTextStyle.fontName = defaultFont;
+        labelTextStyle.fontSize = 10.0;
+    }
+    
+    if([plot.identifier isEqual:patientPlotId]){
+        //TODO
+        return nil;
+    }
+    else{
+        if(index == ([plotData count] - 1)){ //Labelling only last point
+            return [[CPTTextLayer alloc] initWithText:(NSString*)plot.identifier style:labelTextStyle];
+        }
+        else{
+            return nil;
+        }
+    }
+}
+
+#pragma mark - Data source methods
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot{
-    if([plot.identifier isEqual:@"Patient"]){
+    if([plot.identifier isEqual:patientPlotId]){
         //TODO count patient growth points
         return 3;
     }
@@ -295,7 +355,7 @@
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index{
     
-    if([plot.identifier isEqual:@"Patient"]){
+    if([plot.identifier isEqual:patientPlotId]){
         
         //TODO use patient history
         
@@ -316,7 +376,7 @@
                 case 0:
                     return [NSDecimalNumber numberWithFloat:48];
                 case 1:
-                    return [NSDecimalNumber numberWithFloat:70];
+                    return [NSDecimalNumber numberWithFloat:75];
                 case 2:
                     return [NSDecimalNumber numberWithFloat:80];
                 default:
