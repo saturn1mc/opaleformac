@@ -1,8 +1,8 @@
 //
-//  OPGrowthGraphView.h
+//  OPWeightGraphView.h
 //  Opale
 //
-//  Created by Camille on 06/10/12.
+//  Created by Camille on 26/10/12.
 //
 //
 
@@ -10,11 +10,11 @@
 
 @class OPPatient;
 
-@interface OPGrowthGraphView : CPTGraphHostingView <CPTPlotSpaceDelegate, CPTPlotDataSource>{
+@interface OPWeightGraphView : CPTGraphHostingView <CPTPlotSpaceDelegate, CPTPlotDataSource>{
     OPPatient* patient;
     
     NSString* title;
-
+    
     NSString* sourceFile;
     NSMutableArray* plotNames;
 	NSMutableArray* plotData;

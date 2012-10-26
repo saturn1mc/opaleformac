@@ -15,13 +15,17 @@
 #import "OPPatientsView.h"
 #import "OPAdultMalePatientView.h"
 #import "OPAdultFemalePatientView.h"
+#import "OPBabyPatientView.h"
 #import "OPAdultChildConsultationView.h"
 #import "OPCalendarView.h"
 #import "OPView.h"
 
+static const NSInteger babyAgeLimit  = 4;
+static const NSInteger childAgeLimit = 17;
+
 @implementation OPMainWindow
 
-@synthesize nextButton, previousButton, currentScrollView, currentView, homeView, patientsView, calendarView, accountingView, statsView, networkView, adultMalePatientView, adultFemalePatientView, adultChildConsultationView;
+@synthesize nextButton, previousButton, currentScrollView, currentView, homeView, patientsView, calendarView, accountingView, statsView, networkView, adultMalePatientView, adultFemalePatientView, babyPatientView, adultChildConsultationView;
 
 - (void)awakeFromNib{
     
@@ -76,13 +80,37 @@
 
 -(IBAction)showPatientViewFor:(OPPatient*)patient{
     //TODO take age into account
-    if([patient.sex isEqualToString:@"Homme"]){
-        [adultMalePatientView loadPatient:patient];
-        [self fadeSubview:adultMalePatientView];
-    }
-    else{
-        [adultFemalePatientView loadPatient:patient];
-        [self fadeSubview:adultFemalePatientView];
+    NSDate* today = [NSDate date];
+    
+    NSCalendar *sysCalendar = [NSCalendar currentCalendar];
+    unsigned int unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit;
+    
+    NSDateComponents *breakdownInfo = [sysCalendar components:unitFlags fromDate:patient.birthday  toDate:today  options:0];
+    
+    NSInteger ageInYears = breakdownInfo.year;
+    
+    if(ageInYears < babyAgeLimit){ //Baby
+        [babyPatientView loadPatient:patient];
+        [self fadeSubview:babyPatientView];
+    }else if (ageInYears < childAgeLimit){ //Child
+        //TODO child views
+        if([patient.sex isEqualToString:@"Homme"]){
+            [adultMalePatientView loadPatient:patient];
+            [self fadeSubview:adultMalePatientView];
+        }
+        else{
+            [adultFemalePatientView loadPatient:patient];
+            [self fadeSubview:adultFemalePatientView];
+        }
+    }else{ //Adult
+        if([patient.sex isEqualToString:@"Homme"]){
+            [adultMalePatientView loadPatient:patient];
+            [self fadeSubview:adultMalePatientView];
+        }
+        else{
+            [adultFemalePatientView loadPatient:patient];
+            [self fadeSubview:adultFemalePatientView];
+        }
     }
 }
 

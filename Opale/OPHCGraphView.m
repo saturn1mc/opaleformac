@@ -1,12 +1,12 @@
 //
-//  OPGrowthGraphView.m
+//  OPWeightGraphView.m
 //  Opale
 //
-//  Created by Camille on 06/10/12.
+//  Created by Camille on 26/10/12.
 //
 //
 
-#import "OPGrowthGraphView.h"
+#import "OPHCGraphView.h"
 #import "OPView.h"
 #import "CorePlot/CorePlot.h"
 #import "OPPatient.h"
@@ -15,12 +15,12 @@ static const NSString* patientPlotId = @"Patient";
 static NSString* defaultFont = @"Helvetica";
 static NSString* titleFont = @"Helvetica-Bold";
 
-@implementation OPGrowthGraphView
+@implementation OPHCGraphView
 @synthesize patient, title, sourceFile, plotNames, plotData, plotColors, plotLineStyles, graph, xMin, yMin, xMax, yMax;
 
 - (void)awakeFromNib{
     title = nil;
-    sourceFile = @"avg_height";
+    sourceFile = @"avg_hc";
     graph	 = nil;
 	plotNames = nil;
     plotData = nil;
@@ -100,7 +100,7 @@ static NSString* titleFont = @"Helvetica-Bold";
     [graph applyTheme:[CPTTheme themeNamed:kCPTPlainWhiteTheme]];
     self.hostedGraph = graph;
     
-    title = @"Courbe de taille";
+    title = @"Périmètre cranien";
     graph.title = title;
     
     CPTMutableTextStyle *titleStyle = [CPTMutableTextStyle textStyle];
@@ -305,7 +305,7 @@ static NSString* titleFont = @"Helvetica-Bold";
     CPTMutableLineStyle *legendLineStyle = [CPTMutableLineStyle lineStyle];
     legendLineStyle.lineWidth = 1.0f;
     legendLineStyle.lineColor = [CPTColor grayColor];
-
+    
     
     graph.legend = [CPTLegend legendWithGraph:graph];
     graph.legend.textStyle = legendTextStyle;
@@ -346,7 +346,7 @@ static NSString* titleFont = @"Helvetica-Bold";
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot{
     if([plot.identifier isEqual:patientPlotId]){
         //TODO count patient growth points
-        return 3;
+        return 0;
     }
     else{
         return plotData.count;
@@ -361,14 +361,14 @@ static NSString* titleFont = @"Helvetica-Bold";
         
         if(fieldEnum == CPTScatterPlotFieldX){
             switch (index){
-            case 0:
-                return [NSDecimalNumber numberWithFloat:0];
-            case 1:
-                return [NSDecimalNumber numberWithFloat:10];
-            case 2:
-                return [NSDecimalNumber numberWithFloat:20];
-            default:
-                return [NSDecimalNumber numberWithFloat:0];
+                case 0:
+                    return [NSDecimalNumber numberWithFloat:0];
+                case 1:
+                    return [NSDecimalNumber numberWithFloat:10];
+                case 2:
+                    return [NSDecimalNumber numberWithFloat:20];
+                default:
+                    return [NSDecimalNumber numberWithFloat:0];
             }
         }
         else{
@@ -383,7 +383,7 @@ static NSString* titleFont = @"Helvetica-Bold";
                     return [NSDecimalNumber numberWithFloat:0];
             }
         }
-    
+        
     }
     else{ //Reference plots
         if(fieldEnum == CPTScatterPlotFieldX){

@@ -16,7 +16,7 @@
 		912C0EC516208A59009A5090 /* Header.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 912C0EC416208A59009A5090 /* Header.jpg */; };
 		912C0ECE16208B4A009A5090 /* OPGrowth.m in Sources */ = {isa = PBXBuildFile; fileRef = 912C0ECD16208B4A009A5090 /* OPGrowth.m */; };
 		912C0ED416208C16009A5090 /* OPPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = 912C0ED316208C16009A5090 /* OPPatient.m */; };
-		912C0ED716208D7D009A5090 /* OPGrowthGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 912C0ED616208D7D009A5090 /* OPGrowthGraphView.m */; };
+		912C0ED716208D7D009A5090 /* OPHeightGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 912C0ED616208D7D009A5090 /* OPHeightGraphView.m */; };
 		91360C8D150E6FA1000E00D2 /* OPNewPatientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91360C8C150E6FA1000E00D2 /* OPNewPatientView.m */; };
 		9157711015067B73009E2B73 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9157710F15067B73009E2B73 /* Cocoa.framework */; };
 		9157711A15067B73009E2B73 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9157711815067B73009E2B73 /* InfoPlist.strings */; };
@@ -35,6 +35,9 @@
 		915CEF88150E499E007E6E6D /* new_user.png in Resources */ = {isa = PBXBuildFile; fileRef = 915CEF86150E499E007E6E6D /* new_user.png */; };
 		915CEF89150E499E007E6E6D /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 915CEF87150E499E007E6E6D /* search.png */; };
 		9171736E1535E2E100D1D702 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9171736D1535E2E100D1D702 /* libsqlite3.dylib */; };
+		91773DB7163B0C09000F8673 /* OPWeightGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91773DB6163B0C09000F8673 /* OPWeightGraphView.m */; };
+		91773DBA163B0C66000F8673 /* OPHCGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91773DB9163B0C66000F8673 /* OPHCGraphView.m */; };
+		91773DBD163B11E2000F8673 /* OPBabyPatientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91773DBC163B11E2000F8673 /* OPBabyPatientView.m */; };
 		91ACB7FD1508CEF200DB0393 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91ACB7FC1508CEF200DB0393 /* Quartz.framework */; };
 		91B128651598A4BB00AFC5B9 /* OPAdultMalePatientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B128641598A4BB00AFC5B9 /* OPAdultMalePatientView.m */; };
 		91CAD6CB1598B71B00163FB1 /* OPExistingPatientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CAD6CA1598B71B00163FB1 /* OPExistingPatientView.m */; };
@@ -100,8 +103,8 @@
 		912C0ECD16208B4A009A5090 /* OPGrowth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPGrowth.m; sourceTree = "<group>"; };
 		912C0ED216208C16009A5090 /* OPPatient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPPatient.h; sourceTree = "<group>"; };
 		912C0ED316208C16009A5090 /* OPPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPPatient.m; sourceTree = "<group>"; };
-		912C0ED516208D7D009A5090 /* OPGrowthGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPGrowthGraphView.h; sourceTree = "<group>"; };
-		912C0ED616208D7D009A5090 /* OPGrowthGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPGrowthGraphView.m; sourceTree = "<group>"; };
+		912C0ED516208D7D009A5090 /* OPHeightGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPHeightGraphView.h; sourceTree = "<group>"; };
+		912C0ED616208D7D009A5090 /* OPHeightGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPHeightGraphView.m; sourceTree = "<group>"; };
 		91360C8B150E6FA1000E00D2 /* OPNewPatientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPNewPatientView.h; sourceTree = "<group>"; };
 		91360C8C150E6FA1000E00D2 /* OPNewPatientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPNewPatientView.m; sourceTree = "<group>"; };
 		9157710B15067B73009E2B73 /* Opale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Opale.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +136,12 @@
 		915CEF87150E499E007E6E6D /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
 		9171736D1535E2E100D1D702 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		917173781535EB0600D1D702 /* Maquette.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Maquette.xlsx; sourceTree = "<group>"; };
+		91773DB5163B0C09000F8673 /* OPWeightGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPWeightGraphView.h; sourceTree = "<group>"; };
+		91773DB6163B0C09000F8673 /* OPWeightGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPWeightGraphView.m; sourceTree = "<group>"; };
+		91773DB8163B0C66000F8673 /* OPHCGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPHCGraphView.h; sourceTree = "<group>"; };
+		91773DB9163B0C66000F8673 /* OPHCGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPHCGraphView.m; sourceTree = "<group>"; };
+		91773DBB163B11E2000F8673 /* OPBabyPatientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPBabyPatientView.h; sourceTree = "<group>"; };
+		91773DBC163B11E2000F8673 /* OPBabyPatientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPBabyPatientView.m; sourceTree = "<group>"; };
 		91ACB7FC1508CEF200DB0393 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		91B128631598A4BB00AFC5B9 /* OPAdultMalePatientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPAdultMalePatientView.h; sourceTree = "<group>"; };
 		91B128641598A4BB00AFC5B9 /* OPAdultMalePatientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPAdultMalePatientView.m; sourceTree = "<group>"; };
@@ -314,12 +323,18 @@
 				91B128641598A4BB00AFC5B9 /* OPAdultMalePatientView.m */,
 				911E7F8215B4133000FC2A3F /* OPAdultFemalePatientView.h */,
 				911E7F8315B4133000FC2A3F /* OPAdultFemalePatientView.m */,
+				91773DBB163B11E2000F8673 /* OPBabyPatientView.h */,
+				91773DBC163B11E2000F8673 /* OPBabyPatientView.m */,
 				915CEF80150E3FE6007E6E6D /* OPCalendarView.h */,
 				915CEF81150E3FE6007E6E6D /* OPCalendarView.m */,
 				91CEF6F0159C618A001D5265 /* OPAdultChildConsultationView.h */,
 				91CEF6F1159C618A001D5265 /* OPAdultChildConsultationView.m */,
-				912C0ED516208D7D009A5090 /* OPGrowthGraphView.h */,
-				912C0ED616208D7D009A5090 /* OPGrowthGraphView.m */,
+				912C0ED516208D7D009A5090 /* OPHeightGraphView.h */,
+				912C0ED616208D7D009A5090 /* OPHeightGraphView.m */,
+				91773DB5163B0C09000F8673 /* OPWeightGraphView.h */,
+				91773DB6163B0C09000F8673 /* OPWeightGraphView.m */,
+				91773DB8163B0C66000F8673 /* OPHCGraphView.h */,
+				91773DB9163B0C66000F8673 /* OPHCGraphView.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -540,7 +555,10 @@
 				91D19809160DFE8B007DCAC3 /* OPPayment.m in Sources */,
 				912C0ECE16208B4A009A5090 /* OPGrowth.m in Sources */,
 				912C0ED416208C16009A5090 /* OPPatient.m in Sources */,
-				912C0ED716208D7D009A5090 /* OPGrowthGraphView.m in Sources */,
+				912C0ED716208D7D009A5090 /* OPHeightGraphView.m in Sources */,
+				91773DB7163B0C09000F8673 /* OPWeightGraphView.m in Sources */,
+				91773DBA163B0C66000F8673 /* OPHCGraphView.m in Sources */,
+				91773DBD163B11E2000F8673 /* OPBabyPatientView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

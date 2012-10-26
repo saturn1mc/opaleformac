@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import <Quartz/Quartz.h>
 
-@class OPView, OPPatient, OPConsultation, OPPatientsView, OPCalendarView, OPAdultMalePatientView, OPAdultFemalePatientView, OPAdultChildConsultationView;
+@class OPView, OPPatient, OPConsultation, OPPatientsView, OPCalendarView, OPAdultMalePatientView, OPAdultFemalePatientView, OPBabyPatientView, OPAdultChildConsultationView;
 
 @interface OPMainWindow : NSWindow {
     
@@ -28,6 +28,7 @@
     
     IBOutlet OPAdultMalePatientView* adultMalePatientView;
     IBOutlet OPAdultFemalePatientView* adultFemalePatientView;
+    IBOutlet OPBabyPatientView* babyPatientView;
     IBOutlet OPAdultChildConsultationView* adultChildConsultationView;
     
     CATransition *transition;
@@ -49,6 +50,7 @@
 
 @property (nonatomic, retain) IBOutlet OPAdultMalePatientView* adultMalePatientView;
 @property (nonatomic, retain) IBOutlet OPAdultFemalePatientView* adultFemalePatientView;
+@property (nonatomic, retain) IBOutlet OPBabyPatientView* babyPatientView;
 @property (nonatomic, retain) IBOutlet OPAdultChildConsultationView* adultChildConsultationView;
 
 -(IBAction)showHomeView:(id)sender;
