@@ -10,13 +10,17 @@
 
 @class OPConsultation;
 
-@interface OPAdultChildConsultationView : OPView{
+@interface OPAdultChildConsultationView : OPView <NSTableViewDelegate, NSTableViewDataSource>{
     OPConsultation* consultation;
     
     IBOutlet NSDatePicker*  consultationDate;
     IBOutlet NSTextView*    textTests;
     IBOutlet NSTextView*    textTreatments;
     IBOutlet NSTextView*    textAdvises;
+    
+    IBOutlet NSTableView* lettersTable;
+    IBOutlet NSTableColumn* colLetterName;
+    IBOutlet NSTableColumn* colLetterFilePath;
 }
 
 @property (nonatomic, retain) OPConsultation* consultation;
@@ -26,7 +30,12 @@
 @property (nonatomic, retain) IBOutlet NSTextView*    textTreatments;
 @property (nonatomic, retain) IBOutlet NSTextView*    textAdvises;
 
+@property (nonatomic, retain) IBOutlet IBOutlet NSTableView* lettersTable;
+@property (nonatomic, retain) IBOutlet NSTableColumn* colLetterName;
+@property (nonatomic, retain) IBOutlet NSTableColumn* colLetterFilePath;
+
 -(void)loadConsultation:(OPConsultation *)nConsultation;
 -(IBAction)saveConsultation:(id)sender;
+-(IBAction)createNewLetter:(id)sender;
 
 @end

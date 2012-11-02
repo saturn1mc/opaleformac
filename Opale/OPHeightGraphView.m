@@ -305,7 +305,7 @@ static NSString* titleFont = @"Helvetica-Bold";
     CPTMutableLineStyle *legendLineStyle = [CPTMutableLineStyle lineStyle];
     legendLineStyle.lineWidth = 1.0f;
     legendLineStyle.lineColor = [CPTColor grayColor];
-
+    
     
     graph.legend = [CPTLegend legendWithGraph:graph];
     graph.legend.textStyle = legendTextStyle;
@@ -361,14 +361,14 @@ static NSString* titleFont = @"Helvetica-Bold";
         
         if(fieldEnum == CPTScatterPlotFieldX){
             switch (index){
-            case 0:
-                return [NSDecimalNumber numberWithFloat:0];
-            case 1:
-                return [NSDecimalNumber numberWithFloat:10];
-            case 2:
-                return [NSDecimalNumber numberWithFloat:20];
-            default:
-                return [NSDecimalNumber numberWithFloat:0];
+                case 0:
+                    return [NSDecimalNumber numberWithFloat:0];
+                case 1:
+                    return [NSDecimalNumber numberWithFloat:10];
+                case 2:
+                    return [NSDecimalNumber numberWithFloat:20];
+                default:
+                    return [NSDecimalNumber numberWithFloat:0];
             }
         }
         else{
@@ -383,24 +383,37 @@ static NSString* titleFont = @"Helvetica-Bold";
                     return [NSDecimalNumber numberWithFloat:0];
             }
         }
-    
+        
     }
     else{ //Reference plots
-        if(fieldEnum == CPTScatterPlotFieldX){
-            NSMutableDictionary* data = [plotData objectAtIndex:index];
-            NSString* strValue = [data objectForKey:[plotNames objectAtIndex:0]];
-            
-            if(strValue){
-                return [NSDecimalNumber numberWithFloat:[strValue floatValue]];
+        switch(fieldEnum){
+            case CPTScatterPlotFieldX:
+            {
+                NSMutableDictionary* data = [plotData objectAtIndex:index];
+                NSString* strValue = [data objectForKey:[plotNames objectAtIndex:0]];
+                
+                if(strValue){
+                    return [NSDecimalNumber numberWithFloat:[strValue floatValue]];
+                }
+                
+                break;
             }
-        }
-        else if(fieldEnum == CPTScatterPlotFieldY){
-            NSMutableDictionary* data = [plotData objectAtIndex:index];
-            NSString* strValue = [data objectForKey:plot.identifier];
-            
-            if(strValue){
-                return [NSDecimalNumber numberWithFloat:[strValue floatValue]];
+                
+            case CPTScatterPlotFieldY:
+            {
+                NSMutableDictionary* data = [plotData objectAtIndex:index];
+                NSString* strValue = [data objectForKey:plot.identifier];
+                
+                if(strValue){
+                    return [NSDecimalNumber numberWithFloat:[strValue floatValue]];
+                }
+                
+                break;
             }
+                
+            default:
+                return [NSDecimalNumber zero];
+                break;
         }
     }
     

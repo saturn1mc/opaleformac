@@ -10,15 +10,17 @@
 
 #import "OPPatient.h"
 #import "OPConsultation.h"
+#import "OPLetter.h"
 
 #import "OPMainWindow.h"
+#import "OPAppDelegate.h"
+#import "OPView.h"
 #import "OPPatientsView.h"
 #import "OPAdultMalePatientView.h"
 #import "OPAdultFemalePatientView.h"
 #import "OPBabyPatientView.h"
 #import "OPAdultChildConsultationView.h"
 #import "OPCalendarView.h"
-#import "OPView.h"
 
 static const NSInteger babyAgeLimit  = 4;
 static const NSInteger childAgeLimit = 17;
@@ -36,6 +38,28 @@ static const NSInteger childAgeLimit = 17;
     [mainView setWantsLayer:YES];
     
     [self showHomeView:self];
+}
+
+#pragma marks - Model methods
+
+-(NSURL*)directoryFor:(OPPatient*)patient{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+   
+    OPAppDelegate* appDelegate = (OPAppDelegate*) self.delegate;
+    
+    NSURL* patientDirectory = [[appDelegate applicationFilesDirectory] URLByAppendingPathComponent:[[[patient objectID] URIRepresentation] path]];
+    
+    BOOL isDir = NO;
+    
+    if(!([fileManager fileExistsAtPath:[patientDirectory path] isDirectory:&isDir] && isDir)){
+        [fileManager createDirectoryAtURL:patientDirectory withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    
+    return patientDirectory;
+}
+
+-(void)openLetter:(OPLetter *)letter{
+    [[NSWorkspace sharedWorkspace] openFile:[letter filePath] withApplication:@"Microsoft Word.app"];
 }
 
 #pragma marks - Views

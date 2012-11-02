@@ -250,7 +250,7 @@ static NSString* titleFont = @"Helvetica-Bold";
     
     //Y Axis
     CPTXYAxis *y = axisSet.yAxis;
-    y.title = @"Taille en cm";
+    y.title = @"PC en cm";
     y.titleTextStyle = axisTitleStyle;
     y.titleOffset = -35.0f;
     y.axisLineStyle = axisLineStyle;
@@ -386,21 +386,34 @@ static NSString* titleFont = @"Helvetica-Bold";
         
     }
     else{ //Reference plots
-        if(fieldEnum == CPTScatterPlotFieldX){
-            NSMutableDictionary* data = [plotData objectAtIndex:index];
-            NSString* strValue = [data objectForKey:[plotNames objectAtIndex:0]];
-            
-            if(strValue){
-                return [NSDecimalNumber numberWithFloat:[strValue floatValue]];
+        switch(fieldEnum){
+            case CPTScatterPlotFieldX:
+            {
+                NSMutableDictionary* data = [plotData objectAtIndex:index];
+                NSString* strValue = [data objectForKey:[plotNames objectAtIndex:0]];
+                
+                if(strValue){
+                    return [NSDecimalNumber numberWithFloat:[strValue floatValue]];
+                }
+                
+                break;
             }
-        }
-        else if(fieldEnum == CPTScatterPlotFieldY){
-            NSMutableDictionary* data = [plotData objectAtIndex:index];
-            NSString* strValue = [data objectForKey:plot.identifier];
-            
-            if(strValue){
-                return [NSDecimalNumber numberWithFloat:[strValue floatValue]];
+                
+            case CPTScatterPlotFieldY:
+            {
+                NSMutableDictionary* data = [plotData objectAtIndex:index];
+                NSString* strValue = [data objectForKey:plot.identifier];
+                
+                if(strValue){
+                    return [NSDecimalNumber numberWithFloat:[strValue floatValue]];
+                }
+                
+                break;
             }
+                
+            default:
+                return [NSDecimalNumber zero];
+                break;
         }
     }
     

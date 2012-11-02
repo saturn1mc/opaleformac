@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="12C54" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="12C60" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Consultation" representedClassName="OPConsultation" syncable="YES">
         <attribute name="advises" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" attributeType="Date" indexed="YES" syncable="YES"/>
@@ -9,19 +9,9 @@
         <relationship name="motives" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Motive" inverseName="consultation" inverseEntity="Motive" syncable="YES"/>
         <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="consultations" inverseEntity="Patient" syncable="YES"/>
     </entity>
-    <entity name="Growth" representedClassName="OPGrowth" syncable="YES">
-        <attribute name="date" attributeType="Date" syncable="YES"/>
-        <attribute name="hc" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="height" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="weight" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="patient" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="growths" inverseEntity="Patient" syncable="YES"/>
-    </entity>
     <entity name="Letter" representedClassName="OPLetter" syncable="YES">
-        <attribute name="date" optional="YES" attributeType="Date" indexed="YES" syncable="YES"/>
-        <attribute name="label" attributeType="String" syncable="YES"/>
-        <attribute name="receiver" attributeType="String" indexed="YES" syncable="YES"/>
-        <relationship name="consultation" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Consultation" inverseName="letters" inverseEntity="Consultation" syncable="YES"/>
-        <relationship name="objects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Object" inverseName="letter" inverseEntity="Object" syncable="YES"/>
+        <attribute name="filePath" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="consultation" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Consultation" inverseName="letters" inverseEntity="Consultation" syncable="YES"/>
     </entity>
     <entity name="Motive" representedClassName="OPMotive" syncable="YES">
         <attribute name="label" optional="YES" attributeType="String" syncable="YES"/>
@@ -29,7 +19,7 @@
     </entity>
     <entity name="Object" representedClassName="OPObject" syncable="YES">
         <attribute name="label" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="letter" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Letter" inverseName="objects" inverseEntity="Letter" syncable="YES"/>
+        <relationship name="letter" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Letter" syncable="YES"/>
     </entity>
     <entity name="Patient" representedClassName="OPPatient" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
@@ -40,18 +30,16 @@
         <attribute name="tel1" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tel2" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="consultations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Consultation" inverseName="patient" inverseEntity="Consultation" syncable="YES"/>
-        <relationship name="growths" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Growth" inverseName="patient" inverseEntity="Growth" syncable="YES"/>
     </entity>
     <entity name="Payment" representedClassName="OPPayment" syncable="YES">
         <attribute name="type" attributeType="String" indexed="YES" syncable="YES"/>
     </entity>
     <elements>
         <element name="Consultation" positionX="360" positionY="171" width="128" height="150"/>
-        <element name="Letter" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Letter" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Motive" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Object" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="Patient" positionX="126" positionY="342" width="128" height="180"/>
+        <element name="Patient" positionX="126" positionY="342" width="128" height="165"/>
         <element name="Payment" positionX="243" positionY="324" width="128" height="60"/>
-        <element name="Growth" positionX="160" positionY="192" width="128" height="120"/>
     </elements>
 </model>

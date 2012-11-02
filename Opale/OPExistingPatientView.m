@@ -62,9 +62,10 @@
 
 -(void)sortConsultations{
     [sortedConsultations removeAllObjects];
+    [sortedConsultations addObjectsFromArray:[patient.consultations allObjects]];
     
     //TODO SORT
-    [sortedConsultations addObjectsFromArray:[patient.consultations allObjects]];
+    
     [consultationHistoryTable reloadData];
 }
 
@@ -109,11 +110,12 @@
     NSString* value = [[NSString alloc] init];
     
     //TODO load motives summary
-    if([[tableColumn identifier] isEqualToString:@"date"]){
+    
+    if([[tableColumn identifier] isEqualToString:colDate.identifier]){
         NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"dd/MM/yyyy"];
         value = [dateFormatter stringFromDate:[consultation valueForKey:tableColumn.identifier]];
-    }else if([[tableColumn identifier] isEqualToString:@"motives"]){
+    }else if([[tableColumn identifier] isEqualToString:colMotives.identifier]){
         NSString* testValue = [consultation valueForKey:@"tests"];
         
         if(testValue){

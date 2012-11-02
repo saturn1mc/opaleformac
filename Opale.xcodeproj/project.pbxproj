@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		910CB9E616433B960065834D /* Letter_Template.docx in Resources */ = {isa = PBXBuildFile; fileRef = 910CB9E516433B950065834D /* Letter_Template.docx */; };
 		9110A8E0150D1CE9002FDE8B /* opale.png in Resources */ = {isa = PBXBuildFile; fileRef = 9110A8DF150D1CE9002FDE8B /* opale.png */; };
 		911E7F8415B4133000FC2A3F /* OPAdultFemalePatientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 911E7F8315B4133000FC2A3F /* OPAdultFemalePatientView.m */; };
 		911F92411508A05C00FD3B34 /* OPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 911F92401508A05C00FD3B34 /* OPView.m */; };
 		912C0EC1162087BC009A5090 /* avg_hc.csv in Resources */ = {isa = PBXBuildFile; fileRef = 912C0EBE162087BC009A5090 /* avg_hc.csv */; };
 		912C0EC2162087BC009A5090 /* avg_height.csv in Resources */ = {isa = PBXBuildFile; fileRef = 912C0EBF162087BC009A5090 /* avg_height.csv */; };
 		912C0EC3162087BC009A5090 /* avg_weight.csv in Resources */ = {isa = PBXBuildFile; fileRef = 912C0EC0162087BC009A5090 /* avg_weight.csv */; };
-		912C0EC516208A59009A5090 /* Header.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 912C0EC416208A59009A5090 /* Header.jpg */; };
-		912C0ECE16208B4A009A5090 /* OPGrowth.m in Sources */ = {isa = PBXBuildFile; fileRef = 912C0ECD16208B4A009A5090 /* OPGrowth.m */; };
 		912C0ED416208C16009A5090 /* OPPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = 912C0ED316208C16009A5090 /* OPPatient.m */; };
 		912C0ED716208D7D009A5090 /* OPHeightGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 912C0ED616208D7D009A5090 /* OPHeightGraphView.m */; };
 		91360C8D150E6FA1000E00D2 /* OPNewPatientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91360C8C150E6FA1000E00D2 /* OPNewPatientView.m */; };
+		914E35801643DA2100D5CAB4 /* OPLetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 914E357F1643DA2100D5CAB4 /* OPLetter.m */; };
 		9157711015067B73009E2B73 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9157710F15067B73009E2B73 /* Cocoa.framework */; };
 		9157711A15067B73009E2B73 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9157711815067B73009E2B73 /* InfoPlist.strings */; };
 		9157711C15067B73009E2B73 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9157711B15067B73009E2B73 /* main.m */; };
@@ -43,7 +43,6 @@
 		91CAD6CB1598B71B00163FB1 /* OPExistingPatientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CAD6CA1598B71B00163FB1 /* OPExistingPatientView.m */; };
 		91CEF6F2159C618A001D5265 /* OPAdultChildConsultationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CEF6F1159C618A001D5265 /* OPAdultChildConsultationView.m */; };
 		91D197F0160DFDBB007DCAC3 /* OPConsultation.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D197EF160DFDBB007DCAC3 /* OPConsultation.m */; };
-		91D197F4160DFDD6007DCAC3 /* OPLetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D197F3160DFDD6007DCAC3 /* OPLetter.m */; };
 		91D197FD160DFE32007DCAC3 /* OPMotive.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D197FC160DFE32007DCAC3 /* OPMotive.m */; };
 		91D19800160DFE46007DCAC3 /* OPObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D197FF160DFE46007DCAC3 /* OPObject.m */; };
 		91D19809160DFE8B007DCAC3 /* OPPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19808160DFE8B007DCAC3 /* OPPayment.m */; };
@@ -90,6 +89,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		910CB9E516433B950065834D /* Letter_Template.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Letter_Template.docx; sourceTree = "<group>"; };
 		9110A8DF150D1CE9002FDE8B /* opale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = opale.png; path = ../opale.png; sourceTree = "<group>"; };
 		911E7F8215B4133000FC2A3F /* OPAdultFemalePatientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPAdultFemalePatientView.h; sourceTree = "<group>"; };
 		911E7F8315B4133000FC2A3F /* OPAdultFemalePatientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPAdultFemalePatientView.m; sourceTree = "<group>"; };
@@ -98,15 +98,14 @@
 		912C0EBE162087BC009A5090 /* avg_hc.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = avg_hc.csv; sourceTree = "<group>"; };
 		912C0EBF162087BC009A5090 /* avg_height.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = avg_height.csv; sourceTree = "<group>"; };
 		912C0EC0162087BC009A5090 /* avg_weight.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = avg_weight.csv; sourceTree = "<group>"; };
-		912C0EC416208A59009A5090 /* Header.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Header.jpg; sourceTree = "<group>"; };
-		912C0ECC16208B49009A5090 /* OPGrowth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPGrowth.h; sourceTree = "<group>"; };
-		912C0ECD16208B4A009A5090 /* OPGrowth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPGrowth.m; sourceTree = "<group>"; };
 		912C0ED216208C16009A5090 /* OPPatient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPPatient.h; sourceTree = "<group>"; };
 		912C0ED316208C16009A5090 /* OPPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPPatient.m; sourceTree = "<group>"; };
 		912C0ED516208D7D009A5090 /* OPHeightGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPHeightGraphView.h; sourceTree = "<group>"; };
 		912C0ED616208D7D009A5090 /* OPHeightGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPHeightGraphView.m; sourceTree = "<group>"; };
 		91360C8B150E6FA1000E00D2 /* OPNewPatientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPNewPatientView.h; sourceTree = "<group>"; };
 		91360C8C150E6FA1000E00D2 /* OPNewPatientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPNewPatientView.m; sourceTree = "<group>"; };
+		914E357E1643DA2000D5CAB4 /* OPLetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPLetter.h; sourceTree = "<group>"; };
+		914E357F1643DA2100D5CAB4 /* OPLetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPLetter.m; sourceTree = "<group>"; };
 		9157710B15067B73009E2B73 /* Opale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Opale.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9157710F15067B73009E2B73 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9157711215067B73009E2B73 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -151,8 +150,6 @@
 		91CEF6F1159C618A001D5265 /* OPAdultChildConsultationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPAdultChildConsultationView.m; sourceTree = "<group>"; };
 		91D197EE160DFDBB007DCAC3 /* OPConsultation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPConsultation.h; sourceTree = "<group>"; };
 		91D197EF160DFDBB007DCAC3 /* OPConsultation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPConsultation.m; sourceTree = "<group>"; };
-		91D197F2160DFDD6007DCAC3 /* OPLetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPLetter.h; sourceTree = "<group>"; };
-		91D197F3160DFDD6007DCAC3 /* OPLetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPLetter.m; sourceTree = "<group>"; };
 		91D197FB160DFE32007DCAC3 /* OPMotive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPMotive.h; sourceTree = "<group>"; };
 		91D197FC160DFE32007DCAC3 /* OPMotive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPMotive.m; sourceTree = "<group>"; };
 		91D197FE160DFE46007DCAC3 /* OPObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPObject.h; sourceTree = "<group>"; };
@@ -285,7 +282,7 @@
 		91577152150698B2009E2B73 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				912C0EC416208A59009A5090 /* Header.jpg */,
+				91ECDA63163DCE4500480773 /* Templates */,
 				912C0EBE162087BC009A5090 /* avg_hc.csv */,
 				912C0EBF162087BC009A5090 /* avg_height.csv */,
 				912C0EC0162087BC009A5090 /* avg_weight.csv */,
@@ -371,14 +368,12 @@
 			isa = PBXGroup;
 			children = (
 				9157712715067B74009E2B73 /* Opale.xcdatamodeld */,
+				914E357E1643DA2000D5CAB4 /* OPLetter.h */,
+				914E357F1643DA2100D5CAB4 /* OPLetter.m */,
 				912C0ED216208C16009A5090 /* OPPatient.h */,
 				912C0ED316208C16009A5090 /* OPPatient.m */,
-				912C0ECC16208B49009A5090 /* OPGrowth.h */,
-				912C0ECD16208B4A009A5090 /* OPGrowth.m */,
 				91D197FE160DFE46007DCAC3 /* OPObject.h */,
 				91D197FF160DFE46007DCAC3 /* OPObject.m */,
-				91D197F2160DFDD6007DCAC3 /* OPLetter.h */,
-				91D197F3160DFDD6007DCAC3 /* OPLetter.m */,
 				91D197EE160DFDBB007DCAC3 /* OPConsultation.h */,
 				91D197EF160DFDBB007DCAC3 /* OPConsultation.m */,
 				91D197FB160DFE32007DCAC3 /* OPMotive.h */,
@@ -387,6 +382,14 @@
 				91D19808160DFE8B007DCAC3 /* OPPayment.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		91ECDA63163DCE4500480773 /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				910CB9E516433B950065834D /* Letter_Template.docx */,
+			);
+			path = Templates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -500,7 +503,7 @@
 				912C0EC1162087BC009A5090 /* avg_hc.csv in Resources */,
 				912C0EC2162087BC009A5090 /* avg_height.csv in Resources */,
 				912C0EC3162087BC009A5090 /* avg_weight.csv in Resources */,
-				912C0EC516208A59009A5090 /* Header.jpg in Resources */,
+				910CB9E616433B960065834D /* Letter_Template.docx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,16 +552,15 @@
 				91CEF6F2159C618A001D5265 /* OPAdultChildConsultationView.m in Sources */,
 				911E7F8415B4133000FC2A3F /* OPAdultFemalePatientView.m in Sources */,
 				91D197F0160DFDBB007DCAC3 /* OPConsultation.m in Sources */,
-				91D197F4160DFDD6007DCAC3 /* OPLetter.m in Sources */,
 				91D197FD160DFE32007DCAC3 /* OPMotive.m in Sources */,
 				91D19800160DFE46007DCAC3 /* OPObject.m in Sources */,
 				91D19809160DFE8B007DCAC3 /* OPPayment.m in Sources */,
-				912C0ECE16208B4A009A5090 /* OPGrowth.m in Sources */,
 				912C0ED416208C16009A5090 /* OPPatient.m in Sources */,
 				912C0ED716208D7D009A5090 /* OPHeightGraphView.m in Sources */,
 				91773DB7163B0C09000F8673 /* OPWeightGraphView.m in Sources */,
 				91773DBA163B0C66000F8673 /* OPHCGraphView.m in Sources */,
 				91773DBD163B11E2000F8673 /* OPBabyPatientView.m in Sources */,
+				914E35801643DA2100D5CAB4 /* OPLetter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

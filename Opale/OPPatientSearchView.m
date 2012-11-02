@@ -121,7 +121,7 @@
         value = [patient valueForKey:tableColumn.identifier];
     }
     else{
-        value = @"TODO";
+        value = @"TODO"; //TODO
     }
     
     return value;

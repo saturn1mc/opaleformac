@@ -21,7 +21,6 @@
 @property (nonatomic, retain) NSString * tel1;
 @property (nonatomic, retain) NSString * tel2;
 @property (nonatomic, retain) NSSet *consultations;
-@property (nonatomic, retain) NSSet *growths;
 @end
 
 @interface OPPatient (CoreDataGeneratedAccessors)
@@ -30,10 +29,5 @@
 - (void)removeConsultationsObject:(OPConsultation *)value;
 - (void)addConsultations:(NSSet *)values;
 - (void)removeConsultations:(NSSet *)values;
-
-- (void)addGrowthsObject:(OPGrowth *)value;
-- (void)removeGrowthsObject:(OPGrowth *)value;
-- (void)addGrowths:(NSSet *)values;
-- (void)removeGrowths:(NSSet *)values;
 
 @end

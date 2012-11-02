@@ -16,6 +16,8 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) IBOutlet NSManagedObjectContext *managedObjectContext;
 
+- (NSURL*)applicationFilesDirectory;
+
 - (IBAction)saveAction:(id)sender;
 
 @end
