@@ -14,11 +14,17 @@
 
 @implementation OPAdultChildConsultationView
 
-@synthesize consultation, consultationDate, textTests, textTreatments, textAdvises, lettersTable, colLetterName, colLetterFilePath;
+@synthesize consultation, consultationDate, textTests, textTreatments, textAdvises, lettersTable, colLetterName, colLetterFilePath, motivesTable, colMotiveLabel;
 
 - (void)awakeFromNib{
+    [lettersTable setDoubleAction:@selector(openLetter:)];
+    
+    [lettersTable setIdentifier:@"letters"];
     [colLetterName setIdentifier:@"name"];
     [colLetterFilePath setIdentifier:@"path"];
+    
+    [motivesTable setIdentifier:@"motives"];
+    [colMotiveLabel setIdentifier:@"label"];
 }
 
 -(void)loadConsultation:(OPConsultation *)nConsultation{
@@ -49,6 +55,8 @@
     }
 }
 
+#pragma mark - Actions
+
 -(IBAction)saveConsultation:(id)sender{
     
     consultation.date = [consultationDate dateValue];
@@ -57,6 +65,10 @@
     consultation.advises = [[NSString alloc] initWithString:[textAdvises string]];
     
     [self saveAction];
+}
+
+-(IBAction)scanDocument:(id)sender{
+    [parent showScanningView:self];
 }
 
 -(IBAction)createNewLetter:(id)sender{
@@ -91,6 +103,11 @@
     }
 }
 
+-(IBAction)openLetter:(id)sender{
+    OPLetter* letter = [[consultation.letters allObjects] objectAtIndex:lettersTable.clickedRow];
+    [parent openLetter:letter];
+}
+
 #pragma mark - Result table content management
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
@@ -107,13 +124,15 @@
 -(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
     
     OPLetter* letter = (OPLetter*)[[consultation.letters allObjects]objectAtIndex:row];
+    NSURL* letterURL = [NSURL fileURLWithPath:letter.filePath];
+    
     NSString* value = nil;
     
     if([tableColumn.identifier isEqualToString:colLetterName.identifier]){
-        value = [[[letter objectID] URIRepresentation] lastPathComponent];
+        value = [[letterURL lastPathComponent] stringByDeletingPathExtension];
     }
     else if([tableColumn.identifier isEqualToString:colLetterFilePath.identifier]){
-        value = letter.filePath;
+        value = [letterURL path];
     }
     
     return value;

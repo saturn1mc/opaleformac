@@ -21,13 +21,15 @@
 #import "OPBabyPatientView.h"
 #import "OPAdultChildConsultationView.h"
 #import "OPCalendarView.h"
+#import "OPProfessionalSearchView.h"
+#import "OPScanningView.h"
 
 static const NSInteger babyAgeLimit  = 4;
 static const NSInteger childAgeLimit = 17;
 
 @implementation OPMainWindow
 
-@synthesize nextButton, previousButton, currentScrollView, currentView, homeView, patientsView, calendarView, accountingView, statsView, networkView, adultMalePatientView, adultFemalePatientView, babyPatientView, adultChildConsultationView;
+@synthesize nextButton, previousButton, currentScrollView, currentView, homeView, patientsView, calendarView, accountingView, statsView, adultMalePatientView, adultFemalePatientView, babyPatientView, adultChildConsultationView, professionalListView, scanningView;
 
 - (void)awakeFromNib{
     
@@ -96,10 +98,10 @@ static const NSInteger childAgeLimit = 17;
     [self openNewView:statsView];
 }
 
--(IBAction)showNetworkView:(id)sender{
+-(IBAction)showProfessionalView:(id)sender{
     [statsView setAutoresizingMask:NSViewHeightSizable|NSViewWidthSizable];
     [transition setType:kCATransitionFade];
-    [self openNewView:networkView];
+    [self openNewView:professionalListView];
 }
 
 -(IBAction)showPatientViewFor:(OPPatient*)patient{
@@ -142,6 +144,10 @@ static const NSInteger childAgeLimit = 17;
     //TODO switch view given patient age and/or sex
     [adultChildConsultationView loadConsultation:consultation];
     [self pushSubview:adultChildConsultationView];
+}
+
+-(IBAction)showScanningView:(id)sender{
+    [self fadeSubview:scanningView];
 }
 
 #pragma marks - Subview

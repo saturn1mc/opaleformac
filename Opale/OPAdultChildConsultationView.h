@@ -21,6 +21,9 @@
     IBOutlet NSTableView* lettersTable;
     IBOutlet NSTableColumn* colLetterName;
     IBOutlet NSTableColumn* colLetterFilePath;
+    
+    IBOutlet NSTableView* motivesTable;
+    IBOutlet NSTableColumn* colMotiveLabel;
 }
 
 @property (nonatomic, retain) OPConsultation* consultation;
@@ -34,8 +37,15 @@
 @property (nonatomic, retain) IBOutlet NSTableColumn* colLetterName;
 @property (nonatomic, retain) IBOutlet NSTableColumn* colLetterFilePath;
 
+@property (nonatomic, retain) IBOutlet IBOutlet NSTableView* motivesTable;
+@property (nonatomic, retain) IBOutlet NSTableColumn* colMotiveLabel;
+
 -(void)loadConsultation:(OPConsultation *)nConsultation;
 -(IBAction)saveConsultation:(id)sender;
+
+-(IBAction)scanDocument:(id)sender;
+
 -(IBAction)createNewLetter:(id)sender;
+-(IBAction)openLetter:(id)sender;
 
 @end

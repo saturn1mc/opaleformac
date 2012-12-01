@@ -12,6 +12,7 @@
     <entity name="Letter" representedClassName="OPLetter" syncable="YES">
         <attribute name="filePath" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="consultation" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Consultation" inverseName="letters" inverseEntity="Consultation" syncable="YES"/>
+        <relationship name="professionnal" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Professionnal" inverseName="letters" inverseEntity="Professionnal" syncable="YES"/>
     </entity>
     <entity name="Motive" representedClassName="OPMotive" syncable="YES">
         <attribute name="label" optional="YES" attributeType="String" syncable="YES"/>
@@ -19,7 +20,6 @@
     </entity>
     <entity name="Object" representedClassName="OPObject" syncable="YES">
         <attribute name="label" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="letter" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Letter" syncable="YES"/>
     </entity>
     <entity name="Patient" representedClassName="OPPatient" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
@@ -34,12 +34,19 @@
     <entity name="Payment" representedClassName="OPPayment" syncable="YES">
         <attribute name="type" attributeType="String" indexed="YES" syncable="YES"/>
     </entity>
+    <entity name="Professionnal" representedClassName="OPProfessionnal" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="speciality" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tel" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="letters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Letter" inverseName="professionnal" inverseEntity="Letter" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Consultation" positionX="360" positionY="171" width="128" height="150"/>
-        <element name="Letter" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="Letter" positionX="160" positionY="192" width="128" height="90"/>
         <element name="Motive" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="Object" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="Object" positionX="160" positionY="192" width="128" height="60"/>
         <element name="Patient" positionX="126" positionY="342" width="128" height="165"/>
         <element name="Payment" positionX="243" positionY="324" width="128" height="60"/>
+        <element name="Professionnal" positionX="160" positionY="192" width="128" height="105"/>
     </elements>
 </model>

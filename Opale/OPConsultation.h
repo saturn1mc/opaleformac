@@ -2,7 +2,7 @@
 //  OPConsultation.h
 //  Opale
 //
-//  Created by Camille on 22/09/12.
+//  Created by Camille on 02/11/12.
 //
 //
 
@@ -20,7 +20,6 @@
 @property (nonatomic, retain) NSSet *letters;
 @property (nonatomic, retain) NSSet *motives;
 @property (nonatomic, retain) OPPatient *patient;
-
 @end
 
 @interface OPConsultation (CoreDataGeneratedAccessors)
@@ -29,10 +28,8 @@
 - (void)removeLettersObject:(OPLetter *)value;
 - (void)addLetters:(NSSet *)values;
 - (void)removeLetters:(NSSet *)values;
-
 - (void)addMotivesObject:(OPMotive *)value;
 - (void)removeMotivesObject:(OPMotive *)value;
 - (void)addMotives:(NSSet *)values;
 - (void)removeMotives:(NSSet *)values;
-
 @end

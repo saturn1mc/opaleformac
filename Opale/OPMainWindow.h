@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import <Quartz/Quartz.h>
 
-@class OPView, OPPatient, OPConsultation, OPLetter, OPPatientsView, OPCalendarView, OPAdultMalePatientView, OPAdultFemalePatientView, OPBabyPatientView, OPAdultChildConsultationView;
+@class OPView, OPPatient, OPConsultation, OPLetter, OPPatientsView, OPCalendarView, OPAdultMalePatientView, OPAdultFemalePatientView, OPBabyPatientView, OPAdultChildConsultationView, OPProfessionalSearchView, OPScanningView;
 
 @interface OPMainWindow : NSWindow {
     
@@ -24,12 +24,14 @@
     IBOutlet OPCalendarView* calendarView;
     IBOutlet OPView* accountingView;
     IBOutlet OPView* statsView;
-    IBOutlet OPView* networkView;
+    IBOutlet OPProfessionalSearchView* professionalListView;
     
     IBOutlet OPAdultMalePatientView* adultMalePatientView;
     IBOutlet OPAdultFemalePatientView* adultFemalePatientView;
     IBOutlet OPBabyPatientView* babyPatientView;
     IBOutlet OPAdultChildConsultationView* adultChildConsultationView;
+    
+    IBOutlet OPScanningView* scanningView;
     
     CATransition *transition;
 }
@@ -46,12 +48,14 @@
 @property (nonatomic, retain) IBOutlet OPCalendarView* calendarView;
 @property (nonatomic, retain) IBOutlet OPView* accountingView;
 @property (nonatomic, retain) IBOutlet OPView* statsView;
-@property (nonatomic, retain) IBOutlet OPView* networkView;
+@property (nonatomic, retain) IBOutlet OPProfessionalSearchView* professionalListView;
 
 @property (nonatomic, retain) IBOutlet OPAdultMalePatientView* adultMalePatientView;
 @property (nonatomic, retain) IBOutlet OPAdultFemalePatientView* adultFemalePatientView;
 @property (nonatomic, retain) IBOutlet OPBabyPatientView* babyPatientView;
 @property (nonatomic, retain) IBOutlet OPAdultChildConsultationView* adultChildConsultationView;
+
+@property (nonatomic, retain) IBOutlet OPScanningView* scanningView;
 
 -(NSURL*)directoryFor:(OPPatient*)patient;
 -(void)openLetter:(OPLetter*)letter;
@@ -61,10 +65,12 @@
 -(IBAction)showCalendarView:(id)sender;
 -(IBAction)showAccountingView:(id)sender;
 -(IBAction)showStatsView:(id)sender;
--(IBAction)showNetworkView:(id)sender;
+-(IBAction)showProfessionalView:(id)sender;
 
 -(IBAction)showPatientViewFor:(OPPatient*)patient;
 -(IBAction)showConsultationViewFor:(OPConsultation*)consultation;
+
+-(IBAction)showScanningView:(id)sender;
 
 -(void)pushSubview:(OPView *)newView;
 -(void)fadeSubview:(OPView *)newView;

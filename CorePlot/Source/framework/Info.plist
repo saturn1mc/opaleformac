@@ -3,34 +3,24 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>fr_FR</string>
+	<string>English</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
-	<string>opale.png</string>
+	<string></string>
 	<key>CFBundleIdentifier</key>
-	<string>CaM.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>org.coreplot.${PRODUCT_NAME:identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
-	<string>APPL</string>
-	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>FMWK</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
-	<key>LSApplicationCategoryType</key>
-	<string>public.app-category.medical</string>
-	<key>LSMinimumSystemVersion</key>
-	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
-	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2012 Camille Maurice. All rights reserved.</string>
-	<key>NSMainNibFile</key>
-	<string>OPMainWindow</string>
+	<string>1.0</string>
 	<key>NSPrincipalClass</key>
-	<string>NSApplication</string>
+	<string></string>
 </dict>
 </plist>

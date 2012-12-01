@@ -61,13 +61,19 @@
 #pragma mark - Consultations management
 
 -(void)sortConsultations{
-    [sortedConsultations removeAllObjects];
-    [sortedConsultations addObjectsFromArray:[patient.consultations allObjects]];
+    //[sortedConsultations addObjectsFromArray:[patient.consultations allObjects]];
+    NSArray* consultations = [patient.consultations allObjects];
     
-    //TODO SORT
+    sortedConsultations = [consultations sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        OPConsultation* consultation1 = (OPConsultation*) obj1;
+        OPConsultation* consultation2 = (OPConsultation*) obj2;
+        
+        return [consultation1.date compare:consultation2.date];
+    }];
     
     [consultationHistoryTable reloadData];
 }
+
 
 -(IBAction)newConsultation:(id)sender{
     OPConsultation* nConsultation = [NSEntityDescription insertNewObjectForEntityForName:@"Consultation" inManagedObjectContext:[self managedObjectContext]];
@@ -78,15 +84,14 @@
     [self saveAction];
     
     [parent showConsultationViewFor:nConsultation];
-    [sortedConsultations addObject:nConsultation];
+    
+    [self sortConsultations];
     
     [consultationHistoryTable reloadData];
 }
 
 -(IBAction)showConsultation:(id)sender{
-    
-    OPConsultation* consultation = (OPConsultation*)[[patient.consultations allObjects] objectAtIndex:consultationHistoryTable.selectedRow];
-    
+    OPConsultation* consultation = (OPConsultation*)[sortedConsultations objectAtIndex:consultationHistoryTable.selectedRow];
     [parent showConsultationViewFor:consultation];
 }
 

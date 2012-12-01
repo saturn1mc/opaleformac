@@ -12,7 +12,7 @@
 
 @interface OPExistingPatientView : OPView <NSTableViewDelegate, NSTableViewDataSource>{
     OPPatient* patient;
-    NSMutableArray* sortedConsultations;
+    NSArray* sortedConsultations;
     
     IBOutlet NSFormCell* cellFirstName;
     IBOutlet NSFormCell* cellLastName;
@@ -29,7 +29,7 @@
 }
 
 @property (nonatomic, retain) OPPatient* patient;
-@property (nonatomic, retain) NSMutableArray* sortedConsultations;
+@property (nonatomic, retain) NSArray* sortedConsultations;
 
 @property (nonatomic, retain) IBOutlet NSFormCell*  cellFirstName;
 @property (nonatomic, retain) IBOutlet NSFormCell*  cellLastName;
