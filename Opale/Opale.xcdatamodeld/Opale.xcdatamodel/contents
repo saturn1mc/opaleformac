@@ -9,6 +9,11 @@
         <relationship name="motives" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Motive" inverseName="consultation" inverseEntity="Motive" syncable="YES"/>
         <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="consultations" inverseEntity="Patient" syncable="YES"/>
     </entity>
+    <entity name="Document" representedClassName="OPDocument" syncable="YES">
+        <attribute name="filePath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="patient" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="documents" inverseEntity="Patient" syncable="YES"/>
+    </entity>
     <entity name="Letter" representedClassName="OPLetter" syncable="YES">
         <attribute name="filePath" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="consultation" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Consultation" inverseName="letters" inverseEntity="Consultation" syncable="YES"/>
@@ -30,6 +35,7 @@
         <attribute name="tel1" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tel2" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="consultations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Consultation" inverseName="patient" inverseEntity="Consultation" syncable="YES"/>
+        <relationship name="documents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Document" inverseName="patient" inverseEntity="Document" syncable="YES"/>
     </entity>
     <entity name="Payment" representedClassName="OPPayment" syncable="YES">
         <attribute name="type" attributeType="String" indexed="YES" syncable="YES"/>
@@ -45,8 +51,9 @@
         <element name="Letter" positionX="160" positionY="192" width="128" height="90"/>
         <element name="Motive" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Object" positionX="160" positionY="192" width="128" height="60"/>
-        <element name="Patient" positionX="126" positionY="342" width="128" height="165"/>
+        <element name="Patient" positionX="126" positionY="342" width="128" height="180"/>
         <element name="Payment" positionX="243" positionY="324" width="128" height="60"/>
         <element name="Professionnal" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Document" positionX="160" positionY="192" width="128" height="90"/>
     </elements>
 </model>

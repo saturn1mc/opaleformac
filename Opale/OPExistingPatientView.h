@@ -26,6 +26,10 @@
     
     IBOutlet NSTableColumn* colDate;
     IBOutlet NSTableColumn* colMotives;
+    
+    IBOutlet NSTableView* documentsTable;
+    IBOutlet NSTableColumn* colDocumentTitle;
+    IBOutlet NSTableColumn* colDocumentFilePath;
 }
 
 @property (nonatomic, retain) OPPatient* patient;
@@ -43,9 +47,14 @@
 @property (nonatomic, retain) IBOutlet NSTableColumn* colDate;
 @property (nonatomic, retain) IBOutlet NSTableColumn* colMotives;
 
+@property (nonatomic, retain) IBOutlet NSTableView* documentsTable;
+@property (nonatomic, retain) IBOutlet NSTableColumn* colDocumentTitle;
+@property (nonatomic, retain) IBOutlet NSTableColumn* colDocumentFilePath;
+
 
 -(void)loadPatient:(OPPatient*)patientToLoad;
 -(IBAction)savePatient:(id)sender;
+-(IBAction)scanDocument:(id)sender;
 -(void)sortConsultations;
 -(IBAction)newConsultation:(id)sender;
 -(IBAction)showConsultation:(id)sender;

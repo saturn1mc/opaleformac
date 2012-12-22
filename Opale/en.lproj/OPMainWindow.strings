@@ -1,0 +1,1074 @@
+
+/* Class = "NSMenuItem"; title = "Bring All to Front"; ObjectID = "5"; */
+"5.title" = "Bring All to Front";
+
+/* Class = "NSMenuItem"; title = "Window"; ObjectID = "19"; */
+"19.title" = "Window";
+
+/* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "23"; */
+"23.title" = "Minimize";
+
+/* Class = "NSMenu"; title = "Window"; ObjectID = "24"; */
+"24.title" = "Window";
+
+/* Class = "NSMenu"; title = "OpaleMainMenu"; ObjectID = "29"; */
+"29.title" = "OpaleMainMenu";
+
+/* Class = "NSMenuItem"; title = "Opale"; ObjectID = "56"; */
+"56.title" = "Opale";
+
+/* Class = "NSMenu"; title = "Opale"; ObjectID = "57"; */
+"57.title" = "Opale";
+
+/* Class = "NSMenuItem"; title = "About Opale"; ObjectID = "58"; */
+"58.title" = "About Opale";
+
+/* Class = "NSMenuItem"; title = "Open…"; ObjectID = "72"; */
+"72.title" = "Open…";
+
+/* Class = "NSMenuItem"; title = "Close"; ObjectID = "73"; */
+"73.title" = "Close";
+
+/* Class = "NSMenuItem"; title = "Save…"; ObjectID = "75"; */
+"75.title" = "Save…";
+
+/* Class = "NSMenuItem"; title = "Page Setup..."; ObjectID = "77"; */
+"77.title" = "Page Setup...";
+
+/* Class = "NSMenuItem"; title = "Print…"; ObjectID = "78"; */
+"78.title" = "Print…";
+
+/* Class = "NSMenu"; title = "File"; ObjectID = "81"; */
+"81.title" = "File";
+
+/* Class = "NSMenuItem"; title = "New"; ObjectID = "82"; */
+"82.title" = "New";
+
+/* Class = "NSMenuItem"; title = "File"; ObjectID = "83"; */
+"83.title" = "File";
+
+/* Class = "NSMenuItem"; title = "Revert to Saved"; ObjectID = "112"; */
+"112.title" = "Revert to Saved";
+
+/* Class = "NSMenuItem"; title = "Open Recent"; ObjectID = "124"; */
+"124.title" = "Open Recent";
+
+/* Class = "NSMenu"; title = "Open Recent"; ObjectID = "125"; */
+"125.title" = "Open Recent";
+
+/* Class = "NSMenuItem"; title = "Clear Menu"; ObjectID = "126"; */
+"126.title" = "Clear Menu";
+
+/* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "129"; */
+"129.title" = "Preferences…";
+
+/* Class = "NSMenu"; title = "Services"; ObjectID = "130"; */
+"130.title" = "Services";
+
+/* Class = "NSMenuItem"; title = "Services"; ObjectID = "131"; */
+"131.title" = "Services";
+
+/* Class = "NSMenuItem"; title = "Hide Opale"; ObjectID = "134"; */
+"134.title" = "Hide Opale";
+
+/* Class = "NSMenuItem"; title = "Quit Opale"; ObjectID = "136"; */
+"136.title" = "Quit Opale";
+
+/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "145"; */
+"145.title" = "Hide Others";
+
+/* Class = "NSMenuItem"; title = "Show All"; ObjectID = "150"; */
+"150.title" = "Show All";
+
+/* Class = "NSMenuItem"; title = "Stop Speaking"; ObjectID = "195"; */
+"195.title" = "Stop Speaking";
+
+/* Class = "NSMenuItem"; title = "Start Speaking"; ObjectID = "196"; */
+"196.title" = "Start Speaking";
+
+/* Class = "NSMenuItem"; title = "Copy"; ObjectID = "197"; */
+"197.title" = "Copy";
+
+/* Class = "NSMenuItem"; title = "Select All"; ObjectID = "198"; */
+"198.title" = "Select All";
+
+/* Class = "NSMenuItem"; title = "Cut"; ObjectID = "199"; */
+"199.title" = "Cut";
+
+/* Class = "NSMenu"; title = "Spelling and Grammar"; ObjectID = "200"; */
+"200.title" = "Spelling and Grammar";
+
+/* Class = "NSMenuItem"; title = "Check Document Now"; ObjectID = "201"; */
+"201.title" = "Check Document Now";
+
+/* Class = "NSMenuItem"; title = "Delete"; ObjectID = "202"; */
+"202.title" = "Delete";
+
+/* Class = "NSMenuItem"; title = "Paste"; ObjectID = "203"; */
+"203.title" = "Paste";
+
+/* Class = "NSMenuItem"; title = "Show Spelling and Grammar"; ObjectID = "204"; */
+"204.title" = "Show Spelling and Grammar";
+
+/* Class = "NSMenu"; title = "Edit"; ObjectID = "205"; */
+"205.title" = "Edit";
+
+/* Class = "NSMenuItem"; title = "Undo"; ObjectID = "207"; */
+"207.title" = "Undo";
+
+/* Class = "NSMenuItem"; title = "Find Next"; ObjectID = "208"; */
+"208.title" = "Find Next";
+
+/* Class = "NSMenuItem"; title = "Find…"; ObjectID = "209"; */
+"209.title" = "Find…";
+
+/* Class = "NSMenuItem"; title = "Jump to Selection"; ObjectID = "210"; */
+"210.title" = "Jump to Selection";
+
+/* Class = "NSMenuItem"; title = "Speech"; ObjectID = "211"; */
+"211.title" = "Speech";
+
+/* Class = "NSMenu"; title = "Speech"; ObjectID = "212"; */
+"212.title" = "Speech";
+
+/* Class = "NSMenuItem"; title = "Find Previous"; ObjectID = "213"; */
+"213.title" = "Find Previous";
+
+/* Class = "NSMenuItem"; title = "Redo"; ObjectID = "215"; */
+"215.title" = "Redo";
+
+/* Class = "NSMenuItem"; title = "Spelling and Grammar"; ObjectID = "216"; */
+"216.title" = "Spelling and Grammar";
+
+/* Class = "NSMenuItem"; title = "Edit"; ObjectID = "217"; */
+"217.title" = "Edit";
+
+/* Class = "NSMenuItem"; title = "Find"; ObjectID = "218"; */
+"218.title" = "Find";
+
+/* Class = "NSMenuItem"; title = "Check Spelling While Typing"; ObjectID = "219"; */
+"219.title" = "Check Spelling While Typing";
+
+/* Class = "NSMenu"; title = "Find"; ObjectID = "220"; */
+"220.title" = "Find";
+
+/* Class = "NSMenuItem"; title = "Use Selection for Find"; ObjectID = "221"; */
+"221.title" = "Use Selection for Find";
+
+/* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "239"; */
+"239.title" = "Zoom";
+
+/* Class = "NSMenuItem"; title = "View"; ObjectID = "295"; */
+"295.title" = "View";
+
+/* Class = "NSMenu"; title = "View"; ObjectID = "296"; */
+"296.title" = "View";
+
+/* Class = "NSMenuItem"; title = "Show Toolbar"; ObjectID = "297"; */
+"297.title" = "Show Toolbar";
+
+/* Class = "NSMenuItem"; title = "Customize Toolbar…"; ObjectID = "298"; */
+"298.title" = "Customize Toolbar…";
+
+/* Class = "NSMenuItem"; title = "Check Grammar With Spelling"; ObjectID = "346"; */
+"346.title" = "Check Grammar With Spelling";
+
+/* Class = "NSMenuItem"; title = "Substitutions"; ObjectID = "348"; */
+"348.title" = "Substitutions";
+
+/* Class = "NSMenu"; title = "Substitutions"; ObjectID = "349"; */
+"349.title" = "Substitutions";
+
+/* Class = "NSMenuItem"; title = "Smart Copy/Paste"; ObjectID = "350"; */
+"350.title" = "Smart Copy/Paste";
+
+/* Class = "NSMenuItem"; title = "Smart Quotes"; ObjectID = "351"; */
+"351.title" = "Smart Quotes";
+
+/* Class = "NSMenuItem"; title = "Smart Links"; ObjectID = "354"; */
+"354.title" = "Smart Links";
+
+/* Class = "OPMainWindow"; title = "Opale"; ObjectID = "371"; */
+"371.title" = "Opale";
+
+/* Class = "NSMenuItem"; title = "Format"; ObjectID = "375"; */
+"375.title" = "Format";
+
+/* Class = "NSMenu"; title = "Format"; ObjectID = "376"; */
+"376.title" = "Format";
+
+/* Class = "NSMenuItem"; title = "Font"; ObjectID = "377"; */
+"377.title" = "Font";
+
+/* Class = "NSMenu"; title = "Font"; ObjectID = "388"; */
+"388.title" = "Font";
+
+/* Class = "NSMenuItem"; title = "Show Fonts"; ObjectID = "389"; */
+"389.title" = "Show Fonts";
+
+/* Class = "NSMenuItem"; title = "Bold"; ObjectID = "390"; */
+"390.title" = "Bold";
+
+/* Class = "NSMenuItem"; title = "Italic"; ObjectID = "391"; */
+"391.title" = "Italic";
+
+/* Class = "NSMenuItem"; title = "Underline"; ObjectID = "392"; */
+"392.title" = "Underline";
+
+/* Class = "NSMenuItem"; title = "Bigger"; ObjectID = "394"; */
+"394.title" = "Bigger";
+
+/* Class = "NSMenuItem"; title = "Smaller"; ObjectID = "395"; */
+"395.title" = "Smaller";
+
+/* Class = "NSMenuItem"; title = "Kern"; ObjectID = "397"; */
+"397.title" = "Kern";
+
+/* Class = "NSMenuItem"; title = "Ligature"; ObjectID = "398"; */
+"398.title" = "Ligature";
+
+/* Class = "NSMenuItem"; title = "Baseline"; ObjectID = "399"; */
+"399.title" = "Baseline";
+
+/* Class = "NSMenuItem"; title = "Show Colors"; ObjectID = "401"; */
+"401.title" = "Show Colors";
+
+/* Class = "NSMenuItem"; title = "Copy Style"; ObjectID = "403"; */
+"403.title" = "Copy Style";
+
+/* Class = "NSMenuItem"; title = "Paste Style"; ObjectID = "404"; */
+"404.title" = "Paste Style";
+
+/* Class = "NSMenu"; title = "Baseline"; ObjectID = "405"; */
+"405.title" = "Baseline";
+
+/* Class = "NSMenuItem"; title = "Use Default"; ObjectID = "406"; */
+"406.title" = "Use Default";
+
+/* Class = "NSMenuItem"; title = "Superscript"; ObjectID = "407"; */
+"407.title" = "Superscript";
+
+/* Class = "NSMenuItem"; title = "Subscript"; ObjectID = "408"; */
+"408.title" = "Subscript";
+
+/* Class = "NSMenuItem"; title = "Raise"; ObjectID = "409"; */
+"409.title" = "Raise";
+
+/* Class = "NSMenuItem"; title = "Lower"; ObjectID = "410"; */
+"410.title" = "Lower";
+
+/* Class = "NSMenu"; title = "Ligature"; ObjectID = "411"; */
+"411.title" = "Ligature";
+
+/* Class = "NSMenuItem"; title = "Use Default"; ObjectID = "412"; */
+"412.title" = "Use Default";
+
+/* Class = "NSMenuItem"; title = "Use None"; ObjectID = "413"; */
+"413.title" = "Use None";
+
+/* Class = "NSMenuItem"; title = "Use All"; ObjectID = "414"; */
+"414.title" = "Use All";
+
+/* Class = "NSMenu"; title = "Kern"; ObjectID = "415"; */
+"415.title" = "Kern";
+
+/* Class = "NSMenuItem"; title = "Use Default"; ObjectID = "416"; */
+"416.title" = "Use Default";
+
+/* Class = "NSMenuItem"; title = "Use None"; ObjectID = "417"; */
+"417.title" = "Use None";
+
+/* Class = "NSMenuItem"; title = "Tighten"; ObjectID = "418"; */
+"418.title" = "Tighten";
+
+/* Class = "NSMenuItem"; title = "Loosen"; ObjectID = "419"; */
+"419.title" = "Loosen";
+
+/* Class = "NSMenuItem"; title = "Transformations"; ObjectID = "450"; */
+"450.title" = "Transformations";
+
+/* Class = "NSMenu"; title = "Transformations"; ObjectID = "451"; */
+"451.title" = "Transformations";
+
+/* Class = "NSMenuItem"; title = "Make Upper Case"; ObjectID = "452"; */
+"452.title" = "Make Upper Case";
+
+/* Class = "NSMenuItem"; title = "Correct Spelling Automatically"; ObjectID = "454"; */
+"454.title" = "Correct Spelling Automatically";
+
+/* Class = "NSMenuItem"; title = "Show Substitutions"; ObjectID = "457"; */
+"457.title" = "Show Substitutions";
+
+/* Class = "NSMenuItem"; title = "Smart Dashes"; ObjectID = "460"; */
+"460.title" = "Smart Dashes";
+
+/* Class = "NSMenuItem"; title = "Text Replacement"; ObjectID = "462"; */
+"462.title" = "Text Replacement";
+
+/* Class = "NSMenuItem"; title = "Make Lower Case"; ObjectID = "465"; */
+"465.title" = "Make Lower Case";
+
+/* Class = "NSMenuItem"; title = "Capitalize"; ObjectID = "466"; */
+"466.title" = "Capitalize";
+
+/* Class = "NSMenuItem"; title = "Paste and Match Style"; ObjectID = "485"; */
+"485.title" = "Paste and Match Style";
+
+/* Class = "NSMenuItem"; title = "Help"; ObjectID = "490"; */
+"490.title" = "Help";
+
+/* Class = "NSMenu"; title = "Help"; ObjectID = "491"; */
+"491.title" = "Help";
+
+/* Class = "NSMenuItem"; title = "Opale Help"; ObjectID = "492"; */
+"492.title" = "Opale Help";
+
+/* Class = "NSMenuItem"; title = "Text"; ObjectID = "496"; */
+"496.title" = "Text";
+
+/* Class = "NSMenu"; title = "Text"; ObjectID = "497"; */
+"497.title" = "Text";
+
+/* Class = "NSMenuItem"; title = "Align Left"; ObjectID = "498"; */
+"498.title" = "Align Left";
+
+/* Class = "NSMenuItem"; title = "Center"; ObjectID = "499"; */
+"499.title" = "Center";
+
+/* Class = "NSMenuItem"; title = "Justify"; ObjectID = "500"; */
+"500.title" = "Justify";
+
+/* Class = "NSMenuItem"; title = "Align Right"; ObjectID = "501"; */
+"501.title" = "Align Right";
+
+/* Class = "NSMenuItem"; title = "Writing Direction"; ObjectID = "503"; */
+"503.title" = "Writing Direction";
+
+/* Class = "NSMenuItem"; title = "Show Ruler"; ObjectID = "505"; */
+"505.title" = "Show Ruler";
+
+/* Class = "NSMenuItem"; title = "Copy Ruler"; ObjectID = "506"; */
+"506.title" = "Copy Ruler";
+
+/* Class = "NSMenuItem"; title = "Paste Ruler"; ObjectID = "507"; */
+"507.title" = "Paste Ruler";
+
+/* Class = "NSMenu"; title = "Writing Direction"; ObjectID = "508"; */
+"508.title" = "Writing Direction";
+
+/* Class = "NSMenuItem"; title = "Paragraph"; ObjectID = "509"; */
+"509.title" = "Paragraph";
+
+/* Class = "NSMenuItem"; title = "\tDefault"; ObjectID = "510"; */
+"510.title" = "\tDefault";
+
+/* Class = "NSMenuItem"; title = "\tLeft to Right"; ObjectID = "511"; */
+"511.title" = "\tLeft to Right";
+
+/* Class = "NSMenuItem"; title = "\tRight to Left"; ObjectID = "512"; */
+"512.title" = "\tRight to Left";
+
+/* Class = "NSMenuItem"; title = "Selection"; ObjectID = "514"; */
+"514.title" = "Selection";
+
+/* Class = "NSMenuItem"; title = "\tDefault"; ObjectID = "515"; */
+"515.title" = "\tDefault";
+
+/* Class = "NSMenuItem"; title = "\tLeft to Right"; ObjectID = "516"; */
+"516.title" = "\tLeft to Right";
+
+/* Class = "NSMenuItem"; title = "\tRight to Left"; ObjectID = "517"; */
+"517.title" = "\tRight to Left";
+
+/* Class = "NSMenuItem"; title = "Find and Replace…"; ObjectID = "534"; */
+"534.title" = "Find and Replace…";
+
+/* Class = "NSToolbarItem"; label = "Précédent"; ObjectID = "873"; */
+"873.label" = "Précédent";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Précédent"; ObjectID = "873"; */
+"873.paletteLabel" = "Précédent";
+
+/* Class = "NSToolbarItem"; label = "Suivant"; ObjectID = "874"; */
+"874.label" = "Suivant";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Suivant"; ObjectID = "874"; */
+"874.paletteLabel" = "Suivant";
+
+/* Class = "NSToolbarItem"; label = "Patients"; ObjectID = "876"; */
+"876.label" = "Patients";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Patients"; ObjectID = "876"; */
+"876.paletteLabel" = "Patients";
+
+/* Class = "NSToolbarItem"; label = "Calendrier"; ObjectID = "877"; */
+"877.label" = "Calendrier";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Calendrier"; ObjectID = "877"; */
+"877.paletteLabel" = "Calendrier";
+
+/* Class = "NSToolbarItem"; label = "Comptabilité"; ObjectID = "878"; */
+"878.label" = "Comptabilité";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Comptabilité"; ObjectID = "878"; */
+"878.paletteLabel" = "Comptabilité";
+
+/* Class = "NSToolbarItem"; label = "Statistiques"; ObjectID = "879"; */
+"879.label" = "Statistiques";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Statistiques"; ObjectID = "879"; */
+"879.paletteLabel" = "Statistiques";
+
+/* Class = "NSToolbarItem"; label = "Réseau Pro."; ObjectID = "881"; */
+"881.label" = "Réseau Pro.";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Réseau Pro."; ObjectID = "881"; */
+"881.paletteLabel" = "Réseau Pro.";
+
+/* Class = "NSButtonCell"; title = "Nouveau Patient"; ObjectID = "930"; */
+"930.title" = "Nouveau Patient";
+
+/* Class = "NSButtonCell"; title = "Rechercher Patient"; ObjectID = "934"; */
+"934.title" = "Rechercher Patient";
+
+/* Class = "NSButtonCell"; title = "Patients"; ObjectID = "976"; */
+"976.title" = "Patients";
+
+/* Class = "NSButtonCell"; title = "Calendrier"; ObjectID = "1187"; */
+"1187.title" = "Calendrier";
+
+/* Class = "NSButtonCell"; title = "Comptabilité"; ObjectID = "1312"; */
+"1312.title" = "Comptabilité";
+
+/* Class = "NSButtonCell"; title = "Statistiques"; ObjectID = "1321"; */
+"1321.title" = "Statistiques";
+
+/* Class = "NSButtonCell"; title = "Réseau Pro."; ObjectID = "1334"; */
+"1334.title" = "Réseau Pro.";
+
+/* Class = "NSToolbarItem"; label = "Accueil"; ObjectID = "1385"; */
+"1385.label" = "Accueil";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Accueil"; ObjectID = "1385"; */
+"1385.paletteLabel" = "Accueil";
+
+/* Class = "NSFormCell"; title = "Field:"; ObjectID = "1553"; */
+"1553.title" = "Field:";
+
+/* Class = "NSFormCell"; title = "Nom:"; ObjectID = "1554"; */
+"1554.title" = "Nom:";
+
+/* Class = "NSFormCell"; title = "Prénom:"; ObjectID = "1555"; */
+"1555.title" = "Prénom:";
+
+/* Class = "NSFormCell"; title = "Téléphone:"; ObjectID = "1566"; */
+"1566.title" = "Téléphone:";
+
+/* Class = "NSFormCell"; title = "Adresse:"; ObjectID = "1571"; */
+"1571.title" = "Adresse:";
+
+/* Class = "NSTableColumn"; headerCell.title = "Nom"; ObjectID = "1597"; */
+"1597.headerCell.title" = "Nom";
+
+/* Class = "NSTableColumn"; headerCell.title = "Dernière visite"; ObjectID = "1598"; */
+"1598.headerCell.title" = "Dernière visite";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "1599"; */
+"1599.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "1600"; */
+"1600.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "Prénom"; ObjectID = "1632"; */
+"1632.headerCell.title" = "Prénom";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "1633"; */
+"1633.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "Téléphone 1"; ObjectID = "1634"; */
+"1634.headerCell.title" = "Téléphone 1";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "1635"; */
+"1635.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "TODO : Accounting"; ObjectID = "1686"; */
+"1686.title" = "TODO : Accounting";
+
+/* Class = "NSFormCell"; title = "Field:"; ObjectID = "1890"; */
+"1890.title" = "Field:";
+
+/* Class = "NSFormCell"; title = "Nom:"; ObjectID = "1891"; */
+"1891.title" = "Nom:";
+
+/* Class = "NSFormCell"; title = "Prénom:"; ObjectID = "1892"; */
+"1892.title" = "Prénom:";
+
+/* Class = "NSFormCell"; title = "Field:"; ObjectID = "1906"; */
+"1906.title" = "Field:";
+
+/* Class = "NSFormCell"; title = "Tel. 1:"; ObjectID = "1907"; */
+"1907.title" = "Tel. 1:";
+
+/* Class = "NSFormCell"; title = "Tel. 2:"; ObjectID = "1908"; */
+"1908.title" = "Tel. 2:";
+
+/* Class = "NSFormCell"; title = "Adresse:"; ObjectID = "1922"; */
+"1922.title" = "Adresse:";
+
+/* Class = "NSButtonCell"; title = "Valider"; ObjectID = "2142"; */
+"2142.title" = "Valider";
+
+/* Class = "NSButtonCell"; title = "Radio"; ObjectID = "2183"; */
+"2183.title" = "Radio";
+
+/* Class = "NSButtonCell"; title = "Homme"; ObjectID = "2184"; */
+"2184.title" = "Homme";
+
+/* Class = "NSButtonCell"; title = "Femme"; ObjectID = "2185"; */
+"2185.title" = "Femme";
+
+/* Class = "NSTextFieldCell"; title = "Date de naissance:"; ObjectID = "2225"; */
+"2225.title" = "Date de naissance:";
+
+/* Class = "NSTableColumn"; headerCell.title = "Téléphone 2"; ObjectID = "2421"; */
+"2421.headerCell.title" = "Téléphone 2";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "2422"; */
+"2422.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; alternateTitle = "Rechercher"; ObjectID = "2441"; */
+"2441.alternateTitle" = "Rechercher";
+
+/* Class = "NSTextFieldCell"; title = "Date de consultation"; ObjectID = "6072"; */
+"6072.title" = "Date de consultation";
+
+/* Class = "NSTextFieldCell"; title = "Motifs"; ObjectID = "6080"; */
+"6080.title" = "Motifs";
+
+/* Class = "NSTableColumn"; headerCell.title = "Chronologie"; ObjectID = "6090"; */
+"6090.headerCell.title" = "Chronologie";
+
+/* Class = "NSTableColumn"; headerCell.title = "Objets liés"; ObjectID = "6091"; */
+"6091.headerCell.title" = "Objets liés";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "6092"; */
+"6092.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "6093"; */
+"6093.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "Intitulé"; ObjectID = "6105"; */
+"6105.headerCell.title" = "Intitulé";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "6106"; */
+"6106.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "Facteur déclenchant"; ObjectID = "6107"; */
+"6107.headerCell.title" = "Facteur déclenchant";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "6108"; */
+"6108.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "Facteur majorant"; ObjectID = "6109"; */
+"6109.headerCell.title" = "Facteur majorant";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "6110"; */
+"6110.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "Facteur minorant"; ObjectID = "6111"; */
+"6111.headerCell.title" = "Facteur minorant";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "6112"; */
+"6112.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "Allure"; ObjectID = "6113"; */
+"6113.headerCell.title" = "Allure";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "6114"; */
+"6114.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "Signes associés"; ObjectID = "6115"; */
+"6115.headerCell.title" = "Signes associés";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "6116"; */
+"6116.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "Examens complémentaires"; ObjectID = "6117"; */
+"6117.headerCell.title" = "Examens complémentaires";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "6118"; */
+"6118.title" = "Text Cell";
+
+/* Class = "NSTabViewItem"; label = "Tests"; ObjectID = "6120"; */
+"6120.label" = "Tests";
+
+/* Class = "NSTabViewItem"; label = "Traitements"; ObjectID = "6121"; */
+"6121.label" = "Traitements";
+
+/* Class = "NSTabViewItem"; label = "Conseils suite PEC"; ObjectID = "6147"; */
+"6147.label" = "Conseils suite PEC";
+
+/* Class = "NSTabViewItem"; label = "Lettres"; ObjectID = "6149"; */
+"6149.label" = "Lettres";
+
+/* Class = "NSTableColumn"; headerCell.title = "Nom"; ObjectID = "6226"; */
+"6226.headerCell.title" = "Nom";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "6229"; */
+"6229.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "Emplacement"; ObjectID = "6239"; */
+"6239.headerCell.title" = "Emplacement";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "6240"; */
+"6240.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "Nouvelle"; ObjectID = "6242"; */
+"6242.title" = "Nouvelle";
+
+/* Class = "NSButtonCell"; title = "Importer"; ObjectID = "6247"; */
+"6247.title" = "Importer";
+
+/* Class = "NSButtonCell"; title = "Valider consultation"; ObjectID = "6339"; */
+"6339.title" = "Valider consultation";
+
+/* Class = "NSButtonCell"; title = "Facturation"; ObjectID = "6346"; */
+"6346.title" = "Facturation";
+
+/* Class = "NSTabViewItem"; label = "Consultations"; ObjectID = "6479"; */
+"6479.label" = "Consultations";
+
+/* Class = "NSTabViewItem"; label = "Antécédents"; ObjectID = "6480"; */
+"6480.label" = "Antécédents";
+
+/* Class = "NSTabViewItem"; label = "Général"; ObjectID = "6481"; */
+"6481.label" = "Général";
+
+/* Class = "NSFormCell"; title = "Field:"; ObjectID = "6500"; */
+"6500.title" = "Field:";
+
+/* Class = "NSFormCell"; title = "Nom:"; ObjectID = "6501"; */
+"6501.title" = "Nom:";
+
+/* Class = "NSFormCell"; title = "Prénom:"; ObjectID = "6502"; */
+"6502.title" = "Prénom:";
+
+/* Class = "NSFormCell"; title = "Date de naissance:"; ObjectID = "6503"; */
+"6503.title" = "Date de naissance:";
+
+/* Class = "NSFormCell"; title = "Sexe:"; ObjectID = "6504"; */
+"6504.title" = "Sexe:";
+
+/* Class = "NSFormCell"; title = "Age:"; ObjectID = "6505"; */
+"6505.title" = "Age:";
+
+/* Class = "NSFormCell"; title = "Profession:"; ObjectID = "6506"; */
+"6506.title" = "Profession:";
+
+/* Class = "NSFormCell"; title = "Activités extra.:"; ObjectID = "6508"; */
+"6508.title" = "Activités extra.:";
+
+/* Class = "NSFormCell"; title = "Adresse:"; ObjectID = "6509"; */
+"6509.title" = "Adresse:";
+
+/* Class = "NSFormCell"; title = "Tel. 2:"; ObjectID = "6510"; */
+"6510.title" = "Tel. 2:";
+
+/* Class = "NSFormCell"; title = "Tel. 1:"; ObjectID = "6511"; */
+"6511.title" = "Tel. 1:";
+
+/* Class = "NSFormCell"; title = "Field:"; ObjectID = "6512"; */
+"6512.title" = "Field:";
+
+/* Class = "NSFormCell"; title = "Situation familiale:"; ObjectID = "6513"; */
+"6513.title" = "Situation familiale:";
+
+/* Class = "NSFormCell"; title = "Enfants:"; ObjectID = "6514"; */
+"6514.title" = "Enfants:";
+
+/* Class = "NSTextFieldCell"; title = "Commentaires"; ObjectID = "6516"; */
+"6516.title" = "Commentaires";
+
+/* Class = "NSFormCell"; title = "Field:"; ObjectID = "6577"; */
+"6577.title" = "Field:";
+
+/* Class = "NSFormCell"; title = "Suivi médical:"; ObjectID = "6578"; */
+"6578.title" = "Suivi médical:";
+
+/* Class = "NSFormCell"; title = "Facteurs de risques:"; ObjectID = "6579"; */
+"6579.title" = "Facteurs de risques:";
+
+/* Class = "NSFormCell"; title = "Latéralisation:"; ObjectID = "6582"; */
+"6582.title" = "Latéralisation:";
+
+/* Class = "NSFormCell"; title = "Age:"; ObjectID = "6583"; */
+"6583.title" = "Age:";
+
+/* Class = "NSFormCell"; title = "Field:"; ObjectID = "6584"; */
+"6584.title" = "Field:";
+
+/* Class = "NSTextFieldCell"; title = "Commentaires"; ObjectID = "6586"; */
+"6586.title" = "Commentaires";
+
+/* Class = "NSTextFieldCell"; title = "Antécédents"; ObjectID = "6587"; */
+"6587.title" = "Antécédents";
+
+/* Class = "NSTextFieldCell"; title = "Familiaux"; ObjectID = "6588"; */
+"6588.title" = "Familiaux";
+
+/* Class = "NSTextFieldCell"; title = "Médicaux"; ObjectID = "6598"; */
+"6598.title" = "Médicaux";
+
+/* Class = "NSTextFieldCell"; title = "Traumatiques"; ObjectID = "6602"; */
+"6602.title" = "Traumatiques";
+
+/* Class = "NSTextFieldCell"; title = "Chirurgicaux"; ObjectID = "6606"; */
+"6606.title" = "Chirurgicaux";
+
+/* Class = "NSTableColumn"; headerCell.title = "Motifs"; ObjectID = "6623"; */
+"6623.headerCell.title" = "Motifs";
+
+/* Class = "NSTableColumn"; headerCell.title = "Date"; ObjectID = "6624"; */
+"6624.headerCell.title" = "Date";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "6625"; */
+"6625.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "6626"; */
+"6626.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "Nouvelle consultation"; ObjectID = "6627"; */
+"6627.title" = "Nouvelle consultation";
+
+/* Class = "NSTextFieldCell"; title = "Historique"; ObjectID = "6628"; */
+"6628.title" = "Historique";
+
+/* Class = "NSButtonCell"; title = "Enregistrer les modifications"; ObjectID = "6629"; */
+"6629.title" = "Enregistrer les modifications";
+
+/* Class = "NSTabViewItem"; label = "Sphères"; ObjectID = "7008"; */
+"7008.label" = "Sphères";
+
+/* Class = "NSTextFieldCell"; title = "ORL/Ophtalmo"; ObjectID = "7181"; */
+"7181.title" = "ORL/Ophtalmo";
+
+/* Class = "NSTextFieldCell"; title = "Dentaire"; ObjectID = "7210"; */
+"7210.title" = "Dentaire";
+
+/* Class = "NSTextFieldCell"; title = "Digestif"; ObjectID = "7228"; */
+"7228.title" = "Digestif";
+
+/* Class = "NSTextFieldCell"; title = "Urinaire"; ObjectID = "7247"; */
+"7247.title" = "Urinaire";
+
+/* Class = "NSButtonCell"; title = "Enregistrer les modifications"; ObjectID = "7289"; */
+"7289.title" = "Enregistrer les modifications";
+
+/* Class = "NSTabViewItem"; label = "Sphères"; ObjectID = "7290"; */
+"7290.label" = "Sphères";
+
+/* Class = "NSTabViewItem"; label = "Général"; ObjectID = "7291"; */
+"7291.label" = "Général";
+
+/* Class = "NSTabViewItem"; label = "Antécédents"; ObjectID = "7292"; */
+"7292.label" = "Antécédents";
+
+/* Class = "NSTabViewItem"; label = "Consultations"; ObjectID = "7293"; */
+"7293.label" = "Consultations";
+
+/* Class = "NSTextFieldCell"; title = "Historique"; ObjectID = "7306"; */
+"7306.title" = "Historique";
+
+/* Class = "NSButtonCell"; title = "Nouvelle consultation"; ObjectID = "7307"; */
+"7307.title" = "Nouvelle consultation";
+
+/* Class = "NSTableColumn"; headerCell.title = "Date"; ObjectID = "7312"; */
+"7312.headerCell.title" = "Date";
+
+/* Class = "NSTableColumn"; headerCell.title = "Motifs"; ObjectID = "7313"; */
+"7313.headerCell.title" = "Motifs";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "7314"; */
+"7314.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "7315"; */
+"7315.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Chirurgicaux"; ObjectID = "7381"; */
+"7381.title" = "Chirurgicaux";
+
+/* Class = "NSTextFieldCell"; title = "Traumatiques"; ObjectID = "7382"; */
+"7382.title" = "Traumatiques";
+
+/* Class = "NSTextFieldCell"; title = "Médicaux"; ObjectID = "7386"; */
+"7386.title" = "Médicaux";
+
+/* Class = "NSTextFieldCell"; title = "Familiaux"; ObjectID = "7396"; */
+"7396.title" = "Familiaux";
+
+/* Class = "NSTextFieldCell"; title = "Antécédents"; ObjectID = "7397"; */
+"7397.title" = "Antécédents";
+
+/* Class = "NSTextFieldCell"; title = "Commentaires"; ObjectID = "7399"; */
+"7399.title" = "Commentaires";
+
+/* Class = "NSFormCell"; title = "Field:"; ObjectID = "7402"; */
+"7402.title" = "Field:";
+
+/* Class = "NSFormCell"; title = "Age:"; ObjectID = "7403"; */
+"7403.title" = "Age:";
+
+/* Class = "NSFormCell"; title = "Latéralisation:"; ObjectID = "7404"; */
+"7404.title" = "Latéralisation:";
+
+/* Class = "NSFormCell"; title = "Facteurs de risques:"; ObjectID = "7406"; */
+"7406.title" = "Facteurs de risques:";
+
+/* Class = "NSFormCell"; title = "Suivi médical:"; ObjectID = "7407"; */
+"7407.title" = "Suivi médical:";
+
+/* Class = "NSFormCell"; title = "Field:"; ObjectID = "7408"; */
+"7408.title" = "Field:";
+
+/* Class = "NSTextFieldCell"; title = "Gynécologiques"; ObjectID = "7415"; */
+"7415.title" = "Gynécologiques";
+
+/* Class = "NSTextFieldCell"; title = "Commentaires"; ObjectID = "7432"; */
+"7432.title" = "Commentaires";
+
+/* Class = "NSFormCell"; title = "Enfants:"; ObjectID = "7434"; */
+"7434.title" = "Enfants:";
+
+/* Class = "NSFormCell"; title = "Situation familiale:"; ObjectID = "7435"; */
+"7435.title" = "Situation familiale:";
+
+/* Class = "NSFormCell"; title = "Field:"; ObjectID = "7436"; */
+"7436.title" = "Field:";
+
+/* Class = "NSFormCell"; title = "Tel. 1:"; ObjectID = "7437"; */
+"7437.title" = "Tel. 1:";
+
+/* Class = "NSFormCell"; title = "Tel. 2:"; ObjectID = "7438"; */
+"7438.title" = "Tel. 2:";
+
+/* Class = "NSFormCell"; title = "Adresse:"; ObjectID = "7439"; */
+"7439.title" = "Adresse:";
+
+/* Class = "NSFormCell"; title = "Activités extra.:"; ObjectID = "7440"; */
+"7440.title" = "Activités extra.:";
+
+/* Class = "NSFormCell"; title = "Profession:"; ObjectID = "7442"; */
+"7442.title" = "Profession:";
+
+/* Class = "NSFormCell"; title = "Age:"; ObjectID = "7443"; */
+"7443.title" = "Age:";
+
+/* Class = "NSFormCell"; title = "Sexe:"; ObjectID = "7444"; */
+"7444.title" = "Sexe:";
+
+/* Class = "NSFormCell"; title = "Date de naissance:"; ObjectID = "7445"; */
+"7445.title" = "Date de naissance:";
+
+/* Class = "NSFormCell"; title = "Prénom:"; ObjectID = "7446"; */
+"7446.title" = "Prénom:";
+
+/* Class = "NSFormCell"; title = "Nom:"; ObjectID = "7447"; */
+"7447.title" = "Nom:";
+
+/* Class = "NSFormCell"; title = "Field:"; ObjectID = "7448"; */
+"7448.title" = "Field:";
+
+/* Class = "NSTextFieldCell"; title = "ORL/Ophtalmo"; ObjectID = "7495"; */
+"7495.title" = "ORL/Ophtalmo";
+
+/* Class = "NSTextFieldCell"; title = "Dentaire"; ObjectID = "7499"; */
+"7499.title" = "Dentaire";
+
+/* Class = "NSTextFieldCell"; title = "Digestif"; ObjectID = "7503"; */
+"7503.title" = "Digestif";
+
+/* Class = "NSTextFieldCell"; title = "Urinaire"; ObjectID = "7507"; */
+"7507.title" = "Urinaire";
+
+/* Class = "NSTextFieldCell"; title = "Gynécologique"; ObjectID = "7511"; */
+"7511.title" = "Gynécologique";
+
+/* Class = "NSButtonCell"; title = "Enregistrer les modifications"; ObjectID = "8012"; */
+"8012.title" = "Enregistrer les modifications";
+
+/* Class = "NSTabViewItem"; label = "Sphères"; ObjectID = "8013"; */
+"8013.label" = "Sphères";
+
+/* Class = "NSTabViewItem"; label = "Général"; ObjectID = "8014"; */
+"8014.label" = "Général";
+
+/* Class = "NSTabViewItem"; label = "Antécédents"; ObjectID = "8015"; */
+"8015.label" = "Antécédents";
+
+/* Class = "NSTabViewItem"; label = "Consultations"; ObjectID = "8016"; */
+"8016.label" = "Consultations";
+
+/* Class = "NSTextFieldCell"; title = "Historique"; ObjectID = "8029"; */
+"8029.title" = "Historique";
+
+/* Class = "NSButtonCell"; title = "Nouvelle consultation"; ObjectID = "8030"; */
+"8030.title" = "Nouvelle consultation";
+
+/* Class = "NSTableColumn"; headerCell.title = "Date"; ObjectID = "8035"; */
+"8035.headerCell.title" = "Date";
+
+/* Class = "NSTableColumn"; headerCell.title = "Motifs"; ObjectID = "8036"; */
+"8036.headerCell.title" = "Motifs";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "8037"; */
+"8037.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "8038"; */
+"8038.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Chirurgicaux"; ObjectID = "8095"; */
+"8095.title" = "Chirurgicaux";
+
+/* Class = "NSTextFieldCell"; title = "Traumatiques"; ObjectID = "8096"; */
+"8096.title" = "Traumatiques";
+
+/* Class = "NSTextFieldCell"; title = "Médicaux"; ObjectID = "8100"; */
+"8100.title" = "Médicaux";
+
+/* Class = "NSTextFieldCell"; title = "Familiaux"; ObjectID = "8110"; */
+"8110.title" = "Familiaux";
+
+/* Class = "NSTextFieldCell"; title = "Antécédents"; ObjectID = "8111"; */
+"8111.title" = "Antécédents";
+
+/* Class = "NSTextFieldCell"; title = "Commentaires"; ObjectID = "8113"; */
+"8113.title" = "Commentaires";
+
+/* Class = "NSFormCell"; title = "Field:"; ObjectID = "8116"; */
+"8116.title" = "Field:";
+
+/* Class = "NSFormCell"; title = "Age:"; ObjectID = "8117"; */
+"8117.title" = "Age:";
+
+/* Class = "NSFormCell"; title = "Latéralisation:"; ObjectID = "8118"; */
+"8118.title" = "Latéralisation:";
+
+/* Class = "NSFormCell"; title = "Facteurs de risques:"; ObjectID = "8120"; */
+"8120.title" = "Facteurs de risques:";
+
+/* Class = "NSFormCell"; title = "Suivi médical:"; ObjectID = "8121"; */
+"8121.title" = "Suivi médical:";
+
+/* Class = "NSFormCell"; title = "Field:"; ObjectID = "8122"; */
+"8122.title" = "Field:";
+
+/* Class = "NSTextFieldCell"; title = "Commentaires"; ObjectID = "8142"; */
+"8142.title" = "Commentaires";
+
+/* Class = "NSFormCell"; title = "Poids de naissance:"; ObjectID = "8144"; */
+"8144.title" = "Poids de naissance:";
+
+/* Class = "NSFormCell"; title = "Lieu de naissance:"; ObjectID = "8145"; */
+"8145.title" = "Lieu de naissance:";
+
+/* Class = "NSFormCell"; title = "Field:"; ObjectID = "8146"; */
+"8146.title" = "Field:";
+
+/* Class = "NSFormCell"; title = "Tel. 1:"; ObjectID = "8147"; */
+"8147.title" = "Tel. 1:";
+
+/* Class = "NSFormCell"; title = "Tel. 2:"; ObjectID = "8148"; */
+"8148.title" = "Tel. 2:";
+
+/* Class = "NSFormCell"; title = "Adresse:"; ObjectID = "8149"; */
+"8149.title" = "Adresse:";
+
+/* Class = "NSFormCell"; title = "Taille de naissance:"; ObjectID = "8150"; */
+"8150.title" = "Taille de naissance:";
+
+/* Class = "NSFormCell"; title = "Terme:"; ObjectID = "8152"; */
+"8152.title" = "Terme:";
+
+/* Class = "NSFormCell"; title = "Age corrigé"; ObjectID = "8153"; */
+"8153.title" = "Age corrigé";
+
+/* Class = "NSFormCell"; title = "Sexe:"; ObjectID = "8154"; */
+"8154.title" = "Sexe:";
+
+/* Class = "NSFormCell"; title = "Date de naissance:"; ObjectID = "8155"; */
+"8155.title" = "Date de naissance:";
+
+/* Class = "NSFormCell"; title = "Prénom:"; ObjectID = "8156"; */
+"8156.title" = "Prénom:";
+
+/* Class = "NSFormCell"; title = "Nom:"; ObjectID = "8157"; */
+"8157.title" = "Nom:";
+
+/* Class = "NSFormCell"; title = "Field:"; ObjectID = "8158"; */
+"8158.title" = "Field:";
+
+/* Class = "NSTextFieldCell"; title = "ORL/Ophtalmo"; ObjectID = "8197"; */
+"8197.title" = "ORL/Ophtalmo";
+
+/* Class = "NSTextFieldCell"; title = "Dentaire"; ObjectID = "8201"; */
+"8201.title" = "Dentaire";
+
+/* Class = "NSTextFieldCell"; title = "Digestif"; ObjectID = "8205"; */
+"8205.title" = "Digestif";
+
+/* Class = "NSTextFieldCell"; title = "Urinaire"; ObjectID = "8209"; */
+"8209.title" = "Urinaire";
+
+/* Class = "NSTabViewItem"; label = "Croissance"; ObjectID = "8231"; */
+"8231.label" = "Croissance";
+
+/* Class = "NSFormCell"; title = "PC de naissance:"; ObjectID = "8235"; */
+"8235.title" = "PC de naissance:";
+
+/* Class = "NSFormCell"; title = "Parité:"; ObjectID = "8240"; */
+"8240.title" = "Parité:";
+
+/* Class = "NSFormCell"; title = "Profession père:"; ObjectID = "8245"; */
+"8245.title" = "Profession père:";
+
+/* Class = "NSFormCell"; title = "Profession mère:"; ObjectID = "8248"; */
+"8248.title" = "Profession mère:";
+
+/* Class = "NSFormCell"; title = "Suivi médical:"; ObjectID = "8252"; */
+"8252.title" = "Suivi médical:";
+
+/* Class = "NSFormCell"; title = "Mode de garde:"; ObjectID = "8254"; */
+"8254.title" = "Mode de garde:";
+
+/* Class = "NSTextFieldCell"; title = "TODO : Stats"; ObjectID = "8298"; */
+"8298.title" = "TODO : Stats";
+
+/* Class = "IKScannerDeviceView"; documentName = "Document"; ObjectID = "8424"; */
+"8424.documentName" = "Document";
+
+/* Class = "IKScannerDeviceView"; overviewControlLabel = "Aperçu"; ObjectID = "8424"; */
+"8424.overviewControlLabel" = "Aperçu";
+
+/* Class = "IKScannerDeviceView"; scanControlLabel = "Scanner"; ObjectID = "8424"; */
+"8424.scanControlLabel" = "Scanner";
+
+/* Class = "NSTabViewItem"; label = "Documents"; ObjectID = "8443"; */
+"8443.label" = "Documents";
+
+/* Class = "NSTableColumn"; headerCell.title = "Titre"; ObjectID = "8474"; */
+"8474.headerCell.title" = "Titre";
+
+/* Class = "NSTableColumn"; headerCell.title = "Chemin"; ObjectID = "8475"; */
+"8475.headerCell.title" = "Chemin";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "8476"; */
+"8476.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "8477"; */
+"8477.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "Scanner"; ObjectID = "8496"; */
+"8496.title" = "Scanner";
+
+/* Class = "NSButtonCell"; title = "Importer"; ObjectID = "8500"; */
+"8500.title" = "Importer";

@@ -10,14 +10,19 @@
 
 @implementation OPScanningView
 
-@synthesize scannerSelectView, scannerView;
+@synthesize splitView, deviceView, scannerView;
 
--(void)reload{
-    
+-(void)resetView{
+    [splitView adjustSubviews];
 }
 
 -(void)deviceBrowserView:(IKDeviceBrowserView *)deviceBrowserView selectionDidChange:(ICDevice *)device{
     [scannerView setScannerDevice:(ICScannerDevice*)device];
+}
+
+-(void)deviceBrowserView:(IKDeviceBrowserView *)deviceBrowserView didEncounterError:(NSError *)error{
+    //TODO
+    NSLog(@"%@", error);
 }
 
 -(void)scannerDeviceView:(IKScannerDeviceView *)scannerDeviceView didScanToURL:(NSURL *)url fileData:(NSData *)data error:(NSError *)error{

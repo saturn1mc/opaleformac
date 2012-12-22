@@ -67,10 +67,6 @@
     [self saveAction];
 }
 
--(IBAction)scanDocument:(id)sender{
-    [parent showScanningView:self];
-}
-
 -(IBAction)createNewLetter:(id)sender{
     NSSavePanel* savePanel = [NSSavePanel savePanel];
     [savePanel setTitle:@"Enregistrer la lettre sous"];

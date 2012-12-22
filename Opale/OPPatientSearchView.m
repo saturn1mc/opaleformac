@@ -20,6 +20,7 @@
     [resultsTable setDoubleAction:@selector(selectPatient:)];
     
     searchResults = [[NSMutableArray alloc] init];
+    
     [colFirstName setIdentifier:@"firstName"];
     [colLastName setIdentifier:@"lastName"];
     [colTel1 setIdentifier:@"tel1"];
