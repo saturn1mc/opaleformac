@@ -2,7 +2,7 @@
 //  OPDocument.m
 //  Opale
 //
-//  Created by Camille on 02/12/12.
+//  Created by Camille on 26/12/12.
 //
 //
 
@@ -13,7 +13,6 @@
 @implementation OPDocument
 
 @dynamic filePath;
-@dynamic type;
 @dynamic patient;
 
 @end

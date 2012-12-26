@@ -2,7 +2,7 @@
 //  OPDocument.h
 //  Opale
 //
-//  Created by Camille on 02/12/12.
+//  Created by Camille on 26/12/12.
 //
 //
 
@@ -14,7 +14,6 @@
 @interface OPDocument : NSManagedObject
 
 @property (nonatomic, retain) NSString * filePath;
-@property (nonatomic, retain) NSString * type;
 @property (nonatomic, retain) OPPatient *patient;
 
 @end

@@ -7,33 +7,82 @@
 //
 
 #import "OPScanningView.h"
+#import "OPMainWindow.h"
+#import "OPPatient.h"
+#import "OPDocument.h"
 
 @implementation OPScanningView
 
-@synthesize splitView, deviceView, scannerView;
+@synthesize patient, splitView, deviceBrowser, scannerView;
 
--(void)resetView{
-    [splitView adjustSubviews];
+
+-(void)setPatient:(OPPatient*)nPatient{
+    patient = nPatient;
 }
 
+-(void)resetView{
+    [self setScanner:(ICScannerDevice*)[deviceBrowser selectedDevice]];
+}
+
+-(BOOL)quitView{
+    ICScannerDevice* scanner = scannerView.scannerDevice;
+    if(scanner){
+        [scanner requestCloseSession];
+    }
+    
+    return YES;
+}
+
+#pragma mark - Device browser delegate methods
 -(void)deviceBrowserView:(IKDeviceBrowserView *)deviceBrowserView selectionDidChange:(ICDevice *)device{
-    [scannerView setScannerDevice:(ICScannerDevice*)device];
+    if(device.type & ICDeviceTypeScanner){
+        [self setScanner:(ICScannerDevice*)device];
+    }
 }
 
 -(void)deviceBrowserView:(IKDeviceBrowserView *)deviceBrowserView didEncounterError:(NSError *)error{
-    //TODO
     NSLog(@"%@", error);
 }
+
+#pragma mark - Scanner device delegate methods
 
 -(void)scannerDeviceView:(IKScannerDeviceView *)scannerDeviceView didScanToURL:(NSURL *)url fileData:(NSData *)data error:(NSError *)error{
     
-    //TODO
-    NSLog(@"%@", error);
+    if(error){
+        NSLog(@"%@", error);
+    }
+    else{
+        
+        OPDocument* nDocument = [NSEntityDescription insertNewObjectForEntityForName:@"Document" inManagedObjectContext:[self managedObjectContext]];
+        
+        NSLog(@"%@", url.path);
+        
+        nDocument.filePath = url.path;
+        nDocument.patient = patient;
+        
+        [self saveAction];
+    }
 }
 
 -(void)scannerDeviceView:(IKScannerDeviceView *)scannerDeviceView didEncounterError:(NSError *)error{
-    //TODO
+    //TODO error management
     NSLog(@"%@", error);
+}
+
+-(void)setScanner:(ICScannerDevice*)scanner{
+    
+    ICScannerDevice* currentScanner = scannerView.scannerDevice;
+    if(currentScanner && currentScanner != scanner){
+        [currentScanner requestCloseSession];
+    }
+    
+    [scanner setDownloadsDirectory:[parent documentDirectoryFor:patient]];
+    [scanner setDocumentName:@"Document"];
+    
+    [scannerView setDownloadsDirectory:[parent documentDirectoryFor:patient]];
+    [scannerView setDocumentName:@"Document"];
+    
+    [scannerView setScannerDevice:scanner];
 }
 
 @end

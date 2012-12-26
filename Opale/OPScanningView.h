@@ -10,14 +10,22 @@
 
 #import "OPView.h"
 
-@interface OPScanningView : OPView<IKDeviceBrowserViewDelegate, IKScannerDeviceViewDelegate>{
+@class OPPatient;
+
+@interface OPScanningView : OPView< IKDeviceBrowserViewDelegate, IKScannerDeviceViewDelegate>{
+    OPPatient* patient;
+    
     IBOutlet NSSplitView* splitView;
-    IBOutlet IKDeviceBrowserView* deviceView;
+    IBOutlet IKDeviceBrowserView* deviceBrowser;
     IBOutlet IKScannerDeviceView* scannerView;
 }
 
+@property (nonatomic, retain) OPPatient* patient;
 @property (nonatomic, retain) IBOutlet NSSplitView* splitView;
-@property (nonatomic, retain) IBOutlet IKDeviceBrowserView* deviceView;
+@property (nonatomic, retain) IBOutlet IKDeviceBrowserView * deviceBrowser;
 @property (nonatomic, retain) IBOutlet IKScannerDeviceView* scannerView;
+
+-(void)setPatient:(OPPatient*)nPatient;
+-(void)setScanner:(ICScannerDevice*)scanner;
 
 @end

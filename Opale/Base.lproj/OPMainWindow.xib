@@ -1628,7 +1628,6 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{248, 144}, {150, 154}}</string>
 						<reference key="NSSuperview" ref="456405882"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="328204568"/>
 						<string key="NSReuseIdentifierKey">_NS:22</string>
 						<bool key="NSEnabled">YES</bool>
@@ -1658,7 +1657,6 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{479, 301}, {150, 154}}</string>
 						<reference key="NSSuperview" ref="456405882"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="766522516"/>
 						<string key="NSReuseIdentifierKey">_NS:22</string>
 						<bool key="NSEnabled">YES</bool>
@@ -1684,7 +1682,6 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{402, 144}, {150, 154}}</string>
 						<reference key="NSSuperview" ref="456405882"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:22</string>
 						<bool key="NSEnabled">YES</bool>
@@ -1710,7 +1707,6 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{325, 301}, {150, 154}}</string>
 						<reference key="NSSuperview" ref="456405882"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="167924992"/>
 						<string key="NSReuseIdentifierKey">_NS:22</string>
 						<bool key="NSEnabled">YES</bool>
@@ -1736,7 +1732,6 @@
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{171, 301}, {150, 154}}</string>
 						<reference key="NSSuperview" ref="456405882"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="855566213"/>
 						<string key="NSReuseIdentifierKey">_NS:22</string>
 						<bool key="NSEnabled">YES</bool>
@@ -1760,7 +1755,6 @@
 				</array>
 				<string key="NSFrameSize">{800, 600}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="597790156"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="NSClassName">OPView</string>
@@ -2629,15 +2623,16 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 				<string key="NSClassName">OPNewPatientView</string>
 			</object>
 			<object class="NSCustomView" id="478028341">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">268</int>
 				<array class="NSMutableArray" key="NSSubviews"/>
 				<string key="NSFrameSize">{800, 531}</string>
+				<reference key="NSSuperview"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="NSClassName">OPExistingPatientView</string>
 			</object>
 			<object class="NSCustomView" id="450473625">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">268</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="NSButton" id="502741480">
@@ -2669,6 +2664,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 						<int key="NSvFlags">12</int>
 						<string key="NSFrame">{{13, 10}, {774, 1613}}</string>
 						<reference key="NSSuperview" ref="450473625"/>
+						<reference key="NSNextKeyView" ref="855371102"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<array class="NSMutableArray" key="NSTabViewItems">
 							<object class="NSTabViewItem" id="498307625">
@@ -4801,7 +4797,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 															<int key="NSvFlags">256</int>
 															<string key="NSFrameSize">{718, 342}</string>
 															<reference key="NSSuperview" ref="517162365"/>
-															<reference key="NSNextKeyView" ref="40753484"/>
+															<reference key="NSNextKeyView" ref="133352531"/>
 															<string key="NSReuseIdentifierKey">_NS:13</string>
 															<bool key="NSEnabled">YES</bool>
 															<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -4921,6 +4917,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 													<int key="NSvFlags">-2147483392</int>
 													<string key="NSFrame">{{1, 119}, {223, 15}}</string>
 													<reference key="NSSuperview" ref="88478065"/>
+													<reference key="NSNextKeyView"/>
 													<string key="NSReuseIdentifierKey">_NS:60</string>
 													<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 													<int key="NSsFlags">1</int>
@@ -4945,7 +4942,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 											</array>
 											<string key="NSFrame">{{17, 1161}, {720, 360}}</string>
 											<reference key="NSSuperview" ref="855371102"/>
-											<reference key="NSNextKeyView" ref="517162365"/>
+											<reference key="NSNextKeyView" ref="40753484"/>
 											<string key="NSReuseIdentifierKey">_NS:9</string>
 											<int key="NSsFlags">133682</int>
 											<reference key="NSVScroller" ref="133352531"/>
@@ -5026,6 +5023,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 					</object>
 				</array>
 				<string key="NSFrameSize">{800, 1678}</string>
+				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="502741480"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="NSClassName">OPAdultMalePatientView</string>
@@ -9823,7 +9821,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 				<string key="NSClassName">OPView</string>
 			</object>
 			<object class="NSCustomView" id="595994875">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">268</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="NSButton" id="773791225">
@@ -10990,6 +10988,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 					</object>
 				</array>
 				<string key="NSFrameSize">{800, 600}</string>
+				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="483972204"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="NSClassName">OPAdultChildConsultationView</string>
@@ -11021,19 +11020,18 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="NSSplitView" id="30083172">
 						<reference key="NSNextResponder" ref="424621376"/>
-						<int key="NSvFlags">268</int>
+						<int key="NSvFlags">4364</int>
 						<array class="NSMutableArray" key="NSSubviews">
 							<object class="NSCustomView" id="103824818">
 								<reference key="NSNextResponder" ref="30083172"/>
 								<int key="NSvFlags">256</int>
 								<array class="NSMutableArray" key="NSSubviews">
-									<object class="IKDeviceBrowserView" id="1066297680">
+									<object class="IKDeviceBrowserView" id="905732726">
 										<reference key="NSNextResponder" ref="103824818"/>
 										<int key="NSvFlags">276</int>
 										<array class="NSMutableArray" key="NSSubviews"/>
-										<string key="NSFrameSize">{800, 127}</string>
+										<string key="NSFrameSize">{800, 66}</string>
 										<reference key="NSSuperview" ref="103824818"/>
-										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="482505441"/>
 										<string key="NSReuseIdentifierKey">deviceBrowserView</string>
 										<bool key="NSDoNotTranslateAutoresizingMask">YES</bool>
@@ -11044,58 +11042,58 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 										<int key="mode">0</int>
 									</object>
 								</array>
-								<string key="NSFrameSize">{800, 127}</string>
+								<string key="NSFrameSize">{800, 66}</string>
 								<reference key="NSSuperview" ref="30083172"/>
-								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="1066297680"/>
+								<reference key="NSNextKeyView" ref="905732726"/>
+								<bool key="NSViewIsLayerTreeHost">YES</bool>
 								<string key="NSReuseIdentifierKey">_NS:11</string>
 								<string key="NSClassName">NSView</string>
 							</object>
 							<object class="NSCustomView" id="482505441">
 								<reference key="NSNextResponder" ref="30083172"/>
-								<int key="NSvFlags">256</int>
+								<int key="NSvFlags">8448</int>
 								<array class="NSMutableArray" key="NSSubviews">
 									<object class="IKScannerDeviceView" id="687971238">
 										<reference key="NSNextResponder" ref="482505441"/>
 										<int key="NSvFlags">274</int>
 										<array class="NSMutableArray" key="NSSubviews"/>
-										<string key="NSFrameSize">{800, 463}</string>
+										<string key="NSFrameSize">{800, 524}</string>
 										<reference key="NSSuperview" ref="482505441"/>
-										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView"/>
+										<bool key="NSViewIsLayerTreeHost">YES</bool>
 										<string key="NSReuseIdentifierKey">_NS:24</string>
 										<bool key="NSDoNotTranslateAutoresizingMask">YES</bool>
-										<bool key="hasDisplayModeSimple">NO</bool>
+										<bool key="hasDisplayModeSimple">YES</bool>
 										<bool key="hasDisplayModeAdvanced">YES</bool>
 										<int key="mode">1</int>
 										<int key="transferMode">0</int>
-										<bool key="displaysDownloadsDirectoryControl">YES</bool>
-										<bool key="displaysPostProcessApplicationControl">YES</bool>
+										<bool key="displaysDownloadsDirectoryControl">NO</bool>
+										<bool key="displaysPostProcessApplicationControl">NO</bool>
 										<string key="scanControlLabel">Scanner</string>
 										<string key="overviewControlLabel">Aperçu</string>
 										<string key="documentName">Document</string>
 									</object>
 								</array>
-								<string key="NSFrame">{{0, 137}, {800, 463}}</string>
+								<string key="NSFrame">{{0, 76}, {800, 524}}</string>
 								<reference key="NSSuperview" ref="30083172"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="687971238"/>
+								<bool key="NSViewIsLayerTreeHost">YES</bool>
 								<string key="NSReuseIdentifierKey">_NS:13</string>
 								<string key="NSClassName">NSView</string>
 							</object>
 						</array>
 						<string key="NSFrameSize">{800, 600}</string>
 						<reference key="NSSuperview" ref="424621376"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="103824818"/>
+						<bool key="NSViewIsLayerTreeHost">YES</bool>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<int key="NSDividerStyle">3</int>
 					</object>
 				</array>
 				<string key="NSFrameSize">{800, 600}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="30083172"/>
+				<bool key="NSViewIsLayerTreeHost">YES</bool>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="NSClassName">OPScanningView</string>
 			</object>
@@ -12614,20 +12612,20 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 					<int key="connectionID">8488</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">scanDocument:</string>
-						<reference key="source" ref="450473625"/>
-						<reference key="destination" ref="71278309"/>
-					</object>
-					<int key="connectionID">8509</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">parent</string>
 						<reference key="source" ref="450473625"/>
 						<reference key="destination" ref="972006081"/>
 					</object>
 					<int key="connectionID">8511</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">scanDocument:</string>
+						<reference key="source" ref="450473625"/>
+						<reference key="destination" ref="71278309"/>
+					</object>
+					<int key="connectionID">9571</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -12977,17 +12975,17 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">dataSource</string>
 						<reference key="source" ref="303346641"/>
-						<reference key="destination" ref="478028341"/>
+						<reference key="destination" ref="450473625"/>
 					</object>
-					<int key="connectionID">8491</int>
+					<int key="connectionID">9574</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="303346641"/>
-						<reference key="destination" ref="478028341"/>
+						<reference key="destination" ref="450473625"/>
 					</object>
-					<int key="connectionID">8492</int>
+					<int key="connectionID">9575</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -12999,22 +12997,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">deviceView</string>
-						<reference key="source" ref="424621376"/>
-						<reference key="destination" ref="1066297680"/>
-					</object>
-					<int key="connectionID">9495</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">scannerView</string>
-						<reference key="source" ref="424621376"/>
-						<reference key="destination" ref="687971238"/>
-					</object>
-					<int key="connectionID">9496</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">parent</string>
 						<reference key="source" ref="424621376"/>
 						<reference key="destination" ref="972006081"/>
@@ -13023,11 +13005,19 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">delegate</string>
-						<reference key="source" ref="1066297680"/>
-						<reference key="destination" ref="424621376"/>
+						<string key="label">deviceBrowser</string>
+						<reference key="source" ref="424621376"/>
+						<reference key="destination" ref="905732726"/>
 					</object>
-					<int key="connectionID">9488</int>
+					<int key="connectionID">9570</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">scannerView</string>
+						<reference key="source" ref="424621376"/>
+						<reference key="destination" ref="687971238"/>
+					</object>
+					<int key="connectionID">9573</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -13035,7 +13025,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 						<reference key="source" ref="687971238"/>
 						<reference key="destination" ref="424621376"/>
 					</object>
-					<int key="connectionID">9489</int>
+					<int key="connectionID">9572</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="905732726"/>
+						<reference key="destination" ref="424621376"/>
+					</object>
+					<int key="connectionID">9568</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -26223,7 +26221,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 						<reference key="object" ref="103824818"/>
 						<array class="NSMutableArray" key="children">
 							<object class="IBNSLayoutConstraint" id="546326982">
-								<reference key="firstItem" ref="1066297680"/>
+								<reference key="firstItem" ref="905732726"/>
 								<int key="firstAttribute">6</int>
 								<int key="relation">0</int>
 								<reference key="secondItem" ref="103824818"/>
@@ -26239,7 +26237,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 								<int key="contentType">3</int>
 							</object>
 							<object class="IBNSLayoutConstraint" id="262139602">
-								<reference key="firstItem" ref="1066297680"/>
+								<reference key="firstItem" ref="905732726"/>
 								<int key="firstAttribute">4</int>
 								<int key="relation">0</int>
 								<reference key="secondItem" ref="103824818"/>
@@ -26255,7 +26253,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 								<int key="contentType">3</int>
 							</object>
 							<object class="IBNSLayoutConstraint" id="942036350">
-								<reference key="firstItem" ref="1066297680"/>
+								<reference key="firstItem" ref="905732726"/>
 								<int key="firstAttribute">5</int>
 								<int key="relation">0</int>
 								<reference key="secondItem" ref="103824818"/>
@@ -26271,7 +26269,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 								<int key="contentType">3</int>
 							</object>
 							<object class="IBNSLayoutConstraint" id="307440814">
-								<reference key="firstItem" ref="1066297680"/>
+								<reference key="firstItem" ref="905732726"/>
 								<int key="firstAttribute">3</int>
 								<int key="relation">0</int>
 								<reference key="secondItem" ref="103824818"/>
@@ -26286,7 +26284,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 								<float key="scoringTypeFloat">29</float>
 								<int key="contentType">3</int>
 							</object>
-							<reference ref="1066297680"/>
+							<reference ref="905732726"/>
 						</array>
 						<reference key="parent" ref="30083172"/>
 					</object>
@@ -26373,46 +26371,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 						<reference key="parent" ref="30083172"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">9411</int>
-						<reference key="object" ref="56925212"/>
-						<reference key="parent" ref="424621376"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">9426</int>
-						<reference key="object" ref="292601389"/>
-						<reference key="parent" ref="424621376"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">9455</int>
-						<reference key="object" ref="1066297680"/>
-						<array class="NSMutableArray" key="children"/>
-						<reference key="parent" ref="103824818"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">9460</int>
 						<reference key="object" ref="687971238"/>
 						<array class="NSMutableArray" key="children"/>
 						<reference key="parent" ref="482505441"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">9475</int>
-						<reference key="object" ref="307440814"/>
-						<reference key="parent" ref="103824818"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">9476</int>
-						<reference key="object" ref="942036350"/>
-						<reference key="parent" ref="103824818"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">9480</int>
-						<reference key="object" ref="262139602"/>
-						<reference key="parent" ref="103824818"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">9481</int>
-						<reference key="object" ref="546326982"/>
-						<reference key="parent" ref="103824818"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">9482</int>
@@ -26433,6 +26395,42 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 						<int key="objectID">9487</int>
 						<reference key="object" ref="1048732117"/>
 						<reference key="parent" ref="482505441"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">9540</int>
+						<reference key="object" ref="905732726"/>
+						<array class="NSMutableArray" key="children"/>
+						<reference key="parent" ref="103824818"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">9556</int>
+						<reference key="object" ref="307440814"/>
+						<reference key="parent" ref="103824818"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">9557</int>
+						<reference key="object" ref="942036350"/>
+						<reference key="parent" ref="103824818"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">9559</int>
+						<reference key="object" ref="262139602"/>
+						<reference key="parent" ref="103824818"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">9561</int>
+						<reference key="object" ref="546326982"/>
+						<reference key="parent" ref="103824818"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">9411</int>
+						<reference key="object" ref="56925212"/>
+						<reference key="parent" ref="424621376"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">9426</int>
+						<reference key="object" ref="292601389"/>
+						<reference key="parent" ref="424621376"/>
 					</object>
 				</array>
 			</object>
@@ -28198,18 +28196,18 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 				</array>
 				<boolean value="YES" key="945.IBNSViewMetadataLastInspectedTranslatesAutoresizingMaskIntoConstraints"/>
 				<string key="945.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="NO" key="9455.IBNSViewMetadataTranslatesAutoresizingMaskIntoConstraints"/>
-				<string key="9455.IBPluginDependency">com.apple.imagekit.ibplugin</string>
 				<boolean value="NO" key="9460.IBNSViewMetadataTranslatesAutoresizingMaskIntoConstraints"/>
 				<string key="9460.IBPluginDependency">com.apple.imagekit.ibplugin</string>
-				<string key="9475.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="9476.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="9480.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="9481.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="9482.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="9483.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="9485.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="9487.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<boolean value="NO" key="9540.IBNSViewMetadataTranslatesAutoresizingMaskIntoConstraints"/>
+				<string key="9540.IBPluginDependency">com.apple.imagekit.ibplugin</string>
+				<string key="9556.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="9557.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="9559.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="9561.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<array key="968.IBNSViewMetadataConstraints">
 					<reference ref="680530664"/>
 					<reference ref="363351772"/>
@@ -28238,716 +28236,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">9498</int>
+			<int key="maxID">9575</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">CPTGraphHostingView</string>
-					<string key="superclassName">NSView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/CPTGraphHostingView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">NSLayoutConstraint</string>
-					<string key="superclassName">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/NSLayoutConstraint.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">OPAdultChildConsultationView</string>
-					<string key="superclassName">OPView</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="createNewLetter:">id</string>
-						<string key="openLetter:">id</string>
-						<string key="saveConsultation:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="createNewLetter:">
-							<string key="name">createNewLetter:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="openLetter:">
-							<string key="name">openLetter:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="saveConsultation:">
-							<string key="name">saveConsultation:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="colLetterFilePath">NSTableColumn</string>
-						<string key="colLetterName">NSTableColumn</string>
-						<string key="colMotiveLabel">NSTableColumn</string>
-						<string key="consultationDate">NSDatePicker</string>
-						<string key="lettersTable">NSTableView</string>
-						<string key="motivesTable">NSTableView</string>
-						<string key="textAdvises">NSTextView</string>
-						<string key="textTests">NSTextView</string>
-						<string key="textTreatments">NSTextView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="colLetterFilePath">
-							<string key="name">colLetterFilePath</string>
-							<string key="candidateClassName">NSTableColumn</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="colLetterName">
-							<string key="name">colLetterName</string>
-							<string key="candidateClassName">NSTableColumn</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="colMotiveLabel">
-							<string key="name">colMotiveLabel</string>
-							<string key="candidateClassName">NSTableColumn</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="consultationDate">
-							<string key="name">consultationDate</string>
-							<string key="candidateClassName">NSDatePicker</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="lettersTable">
-							<string key="name">lettersTable</string>
-							<string key="candidateClassName">NSTableView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="motivesTable">
-							<string key="name">motivesTable</string>
-							<string key="candidateClassName">NSTableView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="textAdvises">
-							<string key="name">textAdvises</string>
-							<string key="candidateClassName">NSTextView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="textTests">
-							<string key="name">textTests</string>
-							<string key="candidateClassName">NSTextView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="textTreatments">
-							<string key="name">textTreatments</string>
-							<string key="candidateClassName">NSTextView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/OPAdultChildConsultationView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">OPAdultFemalePatientView</string>
-					<string key="superclassName">OPAdultMalePatientView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/OPAdultFemalePatientView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">OPAdultMalePatientView</string>
-					<string key="superclassName">OPExistingPatientView</string>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="cellAgeGeneral">NSFormCell</string>
-						<string key="cellAgeHealth">NSFormCell</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="cellAgeGeneral">
-							<string key="name">cellAgeGeneral</string>
-							<string key="candidateClassName">NSFormCell</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="cellAgeHealth">
-							<string key="name">cellAgeHealth</string>
-							<string key="candidateClassName">NSFormCell</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/OPAdultMalePatientView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">OPAppDelegate</string>
-					<string key="superclassName">NSObject</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">saveAction:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">saveAction:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">saveAction:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="managedObjectContext">NSManagedObjectContext</string>
-						<string key="window">NSWindow</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="managedObjectContext">
-							<string key="name">managedObjectContext</string>
-							<string key="candidateClassName">NSManagedObjectContext</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="window">
-							<string key="name">window</string>
-							<string key="candidateClassName">NSWindow</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/OPAppDelegate.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">OPBabyPatientView</string>
-					<string key="superclassName">OPExistingPatientView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/OPBabyPatientView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">OPCalendarView</string>
-					<string key="superclassName">OPView</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">webView</string>
-						<string key="NS.object.0">WebView</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">webView</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">webView</string>
-							<string key="candidateClassName">WebView</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/OPCalendarView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">OPConsultation</string>
-					<string key="superclassName">NSManagedObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/OPConsultation.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">OPExistingPatientView</string>
-					<string key="superclassName">OPView</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="newConsultation:">id</string>
-						<string key="savePatient:">id</string>
-						<string key="scanDocument:">id</string>
-						<string key="showConsultation:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="newConsultation:">
-							<string key="name">newConsultation:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="savePatient:">
-							<string key="name">savePatient:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="scanDocument:">
-							<string key="name">scanDocument:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showConsultation:">
-							<string key="name">showConsultation:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="cellAddress">NSFormCell</string>
-						<string key="cellBirthday">NSFormCell</string>
-						<string key="cellFirstName">NSFormCell</string>
-						<string key="cellLastName">NSFormCell</string>
-						<string key="cellSex">NSFormCell</string>
-						<string key="cellTel1">NSFormCell</string>
-						<string key="cellTel2">NSFormCell</string>
-						<string key="colDate">NSTableColumn</string>
-						<string key="colDocumentFilePath">NSTableColumn</string>
-						<string key="colDocumentTitle">NSTableColumn</string>
-						<string key="colMotives">NSTableColumn</string>
-						<string key="consultationHistoryTable">NSTableView</string>
-						<string key="documentsTable">NSTableView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="cellAddress">
-							<string key="name">cellAddress</string>
-							<string key="candidateClassName">NSFormCell</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="cellBirthday">
-							<string key="name">cellBirthday</string>
-							<string key="candidateClassName">NSFormCell</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="cellFirstName">
-							<string key="name">cellFirstName</string>
-							<string key="candidateClassName">NSFormCell</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="cellLastName">
-							<string key="name">cellLastName</string>
-							<string key="candidateClassName">NSFormCell</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="cellSex">
-							<string key="name">cellSex</string>
-							<string key="candidateClassName">NSFormCell</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="cellTel1">
-							<string key="name">cellTel1</string>
-							<string key="candidateClassName">NSFormCell</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="cellTel2">
-							<string key="name">cellTel2</string>
-							<string key="candidateClassName">NSFormCell</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="colDate">
-							<string key="name">colDate</string>
-							<string key="candidateClassName">NSTableColumn</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="colDocumentFilePath">
-							<string key="name">colDocumentFilePath</string>
-							<string key="candidateClassName">NSTableColumn</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="colDocumentTitle">
-							<string key="name">colDocumentTitle</string>
-							<string key="candidateClassName">NSTableColumn</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="colMotives">
-							<string key="name">colMotives</string>
-							<string key="candidateClassName">NSTableColumn</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="consultationHistoryTable">
-							<string key="name">consultationHistoryTable</string>
-							<string key="candidateClassName">NSTableView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="documentsTable">
-							<string key="name">documentsTable</string>
-							<string key="candidateClassName">NSTableView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/OPExistingPatientView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">OPHCGraphView</string>
-					<string key="superclassName">CPTGraphHostingView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/OPHCGraphView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">OPHeightGraphView</string>
-					<string key="superclassName">CPTGraphHostingView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/OPHeightGraphView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">OPMainWindow</string>
-					<string key="superclassName">NSWindow</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="nextView:">id</string>
-						<string key="previousView:">id</string>
-						<string key="showAccountingView:">id</string>
-						<string key="showCalendarView:">id</string>
-						<string key="showConsultationViewFor:">OPConsultation</string>
-						<string key="showHomeView:">id</string>
-						<string key="showPatientViewFor:">OPPatient</string>
-						<string key="showPatientsView:">id</string>
-						<string key="showProfessionalView:">id</string>
-						<string key="showScanningView:">id</string>
-						<string key="showStatsView:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="nextView:">
-							<string key="name">nextView:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="previousView:">
-							<string key="name">previousView:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showAccountingView:">
-							<string key="name">showAccountingView:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showCalendarView:">
-							<string key="name">showCalendarView:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showConsultationViewFor:">
-							<string key="name">showConsultationViewFor:</string>
-							<string key="candidateClassName">OPConsultation</string>
-						</object>
-						<object class="IBActionInfo" key="showHomeView:">
-							<string key="name">showHomeView:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showPatientViewFor:">
-							<string key="name">showPatientViewFor:</string>
-							<string key="candidateClassName">OPPatient</string>
-						</object>
-						<object class="IBActionInfo" key="showPatientsView:">
-							<string key="name">showPatientsView:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showProfessionalView:">
-							<string key="name">showProfessionalView:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showScanningView:">
-							<string key="name">showScanningView:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showStatsView:">
-							<string key="name">showStatsView:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="accountingView">OPView</string>
-						<string key="adultChildConsultationView">OPAdultChildConsultationView</string>
-						<string key="adultFemalePatientView">OPAdultFemalePatientView</string>
-						<string key="adultMalePatientView">OPAdultMalePatientView</string>
-						<string key="babyPatientView">OPBabyPatientView</string>
-						<string key="calendarView">OPCalendarView</string>
-						<string key="currentScrollView">NSScrollView</string>
-						<string key="currentView">OPView</string>
-						<string key="homeView">OPView</string>
-						<string key="nextButton">NSToolbarItem</string>
-						<string key="patientsView">OPPatientsView</string>
-						<string key="previousButton">NSToolbarItem</string>
-						<string key="professionalListView">OPProfessionalSearchView</string>
-						<string key="scanningView">OPScanningView</string>
-						<string key="statsView">OPView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="accountingView">
-							<string key="name">accountingView</string>
-							<string key="candidateClassName">OPView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="adultChildConsultationView">
-							<string key="name">adultChildConsultationView</string>
-							<string key="candidateClassName">OPAdultChildConsultationView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="adultFemalePatientView">
-							<string key="name">adultFemalePatientView</string>
-							<string key="candidateClassName">OPAdultFemalePatientView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="adultMalePatientView">
-							<string key="name">adultMalePatientView</string>
-							<string key="candidateClassName">OPAdultMalePatientView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="babyPatientView">
-							<string key="name">babyPatientView</string>
-							<string key="candidateClassName">OPBabyPatientView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="calendarView">
-							<string key="name">calendarView</string>
-							<string key="candidateClassName">OPCalendarView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="currentScrollView">
-							<string key="name">currentScrollView</string>
-							<string key="candidateClassName">NSScrollView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="currentView">
-							<string key="name">currentView</string>
-							<string key="candidateClassName">OPView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="homeView">
-							<string key="name">homeView</string>
-							<string key="candidateClassName">OPView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="nextButton">
-							<string key="name">nextButton</string>
-							<string key="candidateClassName">NSToolbarItem</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="patientsView">
-							<string key="name">patientsView</string>
-							<string key="candidateClassName">OPPatientsView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="previousButton">
-							<string key="name">previousButton</string>
-							<string key="candidateClassName">NSToolbarItem</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="professionalListView">
-							<string key="name">professionalListView</string>
-							<string key="candidateClassName">OPProfessionalSearchView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="scanningView">
-							<string key="name">scanningView</string>
-							<string key="candidateClassName">OPScanningView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="statsView">
-							<string key="name">statsView</string>
-							<string key="candidateClassName">OPView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/OPMainWindow.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">OPNewPatientView</string>
-					<string key="superclassName">OPView</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">validatePatient:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">validatePatient:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">validatePatient:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="birthdayPicker">NSDatePicker</string>
-						<string key="cellAddress">NSFormCell</string>
-						<string key="cellFirstName">NSFormCell</string>
-						<string key="cellLastName">NSFormCell</string>
-						<string key="cellTel1">NSFormCell</string>
-						<string key="cellTel2">NSFormCell</string>
-						<string key="matrixSex">NSMatrix</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="birthdayPicker">
-							<string key="name">birthdayPicker</string>
-							<string key="candidateClassName">NSDatePicker</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="cellAddress">
-							<string key="name">cellAddress</string>
-							<string key="candidateClassName">NSFormCell</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="cellFirstName">
-							<string key="name">cellFirstName</string>
-							<string key="candidateClassName">NSFormCell</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="cellLastName">
-							<string key="name">cellLastName</string>
-							<string key="candidateClassName">NSFormCell</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="cellTel1">
-							<string key="name">cellTel1</string>
-							<string key="candidateClassName">NSFormCell</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="cellTel2">
-							<string key="name">cellTel2</string>
-							<string key="candidateClassName">NSFormCell</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="matrixSex">
-							<string key="name">matrixSex</string>
-							<string key="candidateClassName">NSMatrix</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/OPNewPatientView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">OPPatient</string>
-					<string key="superclassName">NSManagedObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/OPPatient.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">OPPatientSearchView</string>
-					<string key="superclassName">OPView</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="searchPatients:">id</string>
-						<string key="selectPatient:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="searchPatients:">
-							<string key="name">searchPatients:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="selectPatient:">
-							<string key="name">selectPatient:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="cellAddress">NSFormCell</string>
-						<string key="cellFirstName">NSFormCell</string>
-						<string key="cellLastName">NSFormCell</string>
-						<string key="cellTel">NSFormCell</string>
-						<string key="colFirstName">NSTableColumn</string>
-						<string key="colLastName">NSTableColumn</string>
-						<string key="colLastVisit">NSTableColumn</string>
-						<string key="colTel1">NSTableColumn</string>
-						<string key="colTel2">NSTableColumn</string>
-						<string key="resultsTable">NSTableView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="cellAddress">
-							<string key="name">cellAddress</string>
-							<string key="candidateClassName">NSFormCell</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="cellFirstName">
-							<string key="name">cellFirstName</string>
-							<string key="candidateClassName">NSFormCell</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="cellLastName">
-							<string key="name">cellLastName</string>
-							<string key="candidateClassName">NSFormCell</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="cellTel">
-							<string key="name">cellTel</string>
-							<string key="candidateClassName">NSFormCell</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="colFirstName">
-							<string key="name">colFirstName</string>
-							<string key="candidateClassName">NSTableColumn</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="colLastName">
-							<string key="name">colLastName</string>
-							<string key="candidateClassName">NSTableColumn</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="colLastVisit">
-							<string key="name">colLastVisit</string>
-							<string key="candidateClassName">NSTableColumn</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="colTel1">
-							<string key="name">colTel1</string>
-							<string key="candidateClassName">NSTableColumn</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="colTel2">
-							<string key="name">colTel2</string>
-							<string key="candidateClassName">NSTableColumn</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="resultsTable">
-							<string key="name">resultsTable</string>
-							<string key="candidateClassName">NSTableView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/OPPatientSearchView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">OPPatientsView</string>
-					<string key="superclassName">OPView</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="openNewPatientForm:">id</string>
-						<string key="openSearchView:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="openNewPatientForm:">
-							<string key="name">openNewPatientForm:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="openSearchView:">
-							<string key="name">openSearchView:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="nPatientView">OPNewPatientView</string>
-						<string key="searchView">OPPatientSearchView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="nPatientView">
-							<string key="name">nPatientView</string>
-							<string key="candidateClassName">OPNewPatientView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="searchView">
-							<string key="name">searchView</string>
-							<string key="candidateClassName">OPPatientSearchView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/OPPatientsView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">OPProfessionalSearchView</string>
-					<string key="superclassName">OPView</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">pickerView</string>
-						<string key="NS.object.0">ABPeoplePickerView</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">pickerView</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">pickerView</string>
-							<string key="candidateClassName">ABPeoplePickerView</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/OPProfessionalSearchView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">OPScanningView</string>
-					<string key="superclassName">OPView</string>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="deviceView">IKDeviceBrowserView</string>
-						<string key="scannerView">IKScannerDeviceView</string>
-						<string key="splitView">NSSplitView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="deviceView">
-							<string key="name">deviceView</string>
-							<string key="candidateClassName">IKDeviceBrowserView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="scannerView">
-							<string key="name">scannerView</string>
-							<string key="candidateClassName">IKScannerDeviceView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="splitView">
-							<string key="name">splitView</string>
-							<string key="candidateClassName">NSSplitView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/OPScanningView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">OPView</string>
-					<string key="superclassName">NSView</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">parent</string>
-						<string key="NS.object.0">OPMainWindow</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">parent</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">parent</string>
-							<string key="candidateClassName">OPMainWindow</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/OPView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">OPWeightGraphView</string>
-					<string key="superclassName">CPTGraphHostingView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/OPWeightGraphView.h</string>
-					</object>
-				</object>
-			</array>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>

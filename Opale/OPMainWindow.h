@@ -58,6 +58,7 @@
 @property (nonatomic, retain) IBOutlet OPScanningView* scanningView;
 
 -(NSURL*)directoryFor:(OPPatient*)patient;
+-(NSURL*)documentDirectoryFor:(OPPatient*)patient;
 -(void)openLetter:(OPLetter*)letter;
 
 -(IBAction)showHomeView:(id)sender;

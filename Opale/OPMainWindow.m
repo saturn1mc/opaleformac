@@ -60,6 +60,22 @@ static const NSInteger childAgeLimit = 17;
     return patientDirectory;
 }
 
+-(NSURL*)documentDirectoryFor:(OPPatient*)patient{
+    NSURL* patientDirectory = [self directoryFor:patient];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    NSURL* documentDirectory = [patientDirectory URLByAppendingPathComponent:@"documents"];
+    
+    BOOL isDir = NO;
+    
+    if(!([fileManager fileExistsAtPath:[documentDirectory path] isDirectory:&isDir] && isDir)){
+        [fileManager createDirectoryAtURL:documentDirectory withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    
+    return documentDirectory;
+}
+
 -(void)openLetter:(OPLetter *)letter{
     [[NSWorkspace sharedWorkspace] openFile:[letter filePath] withApplication:@"Microsoft Word.app"];
 }
@@ -147,6 +163,7 @@ static const NSInteger childAgeLimit = 17;
 }
 
 -(IBAction)showScanningView:(id)sender{
+    [scanningView resetView];
     [self fadeSubview:scanningView];
 }
 
@@ -200,6 +217,8 @@ static const NSInteger childAgeLimit = 17;
 
 -(void)switchView:(OPView *)newView{
     if(currentView != newView){
+        [newView resetView];
+        
         NSView *mainView = [self contentView];
         
         NSScrollView* newScrollView = [[NSScrollView alloc] initWithFrame:mainView.frame];

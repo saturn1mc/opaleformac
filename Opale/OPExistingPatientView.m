@@ -8,6 +8,7 @@
 
 #import "OPExistingPatientView.h"
 #import "OPMainWindow.h"
+#import "OPScanningView.h"
 #import "OPPatient.h"
 #import "OPConsultation.h"
 #import "OPDocument.h"
@@ -61,6 +62,7 @@
 }
 
 -(IBAction)scanDocument:(id)sender{
+    [[parent scanningView] setPatient:patient];
     [parent showScanningView:self];
 }
 
