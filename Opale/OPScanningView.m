@@ -76,11 +76,9 @@
         [currentScanner requestCloseSession];
     }
     
-    [scanner setDownloadsDirectory:[parent documentDirectoryFor:patient]];
-    [scanner setDocumentName:@"Document"];
-    
-    [scannerView setDownloadsDirectory:[parent documentDirectoryFor:patient]];
-    [scannerView setDocumentName:@"Document"];
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setURL:[parent documentDirectoryFor:patient] forKey:@"IK-downloadURL"];
+    [defaults setValue:@"Document" forKey:@"IK-documentName"];
     
     [scannerView setScannerDevice:scanner];
 }

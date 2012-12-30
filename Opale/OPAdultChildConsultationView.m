@@ -7,6 +7,7 @@
 //
 
 #import "OPMainWindow.h"
+#import "OPBillingPanel.h"
 #import "OPAdultChildConsultationView.h"
 #import "OPPatient.h"
 #import "OPConsultation.h"
@@ -14,7 +15,7 @@
 
 @implementation OPAdultChildConsultationView
 
-@synthesize consultation, consultationDate, textTests, textTreatments, textAdvises, lettersTable, colLetterName, colLetterFilePath, motivesTable, colMotiveLabel;
+@synthesize billingPanel, consultation, consultationDate, textTests, textTreatments, textAdvises, lettersTable, colLetterName, colLetterFilePath, motivesTable, colMotiveLabel;
 
 - (void)awakeFromNib{
     [lettersTable setDoubleAction:@selector(openLetter:)];
@@ -73,7 +74,7 @@
     
     NSArray* allowedFileTypes = [[NSArray alloc] initWithObjects:@"docx", nil];
     [savePanel setAllowedFileTypes:allowedFileTypes];
-    [savePanel setDirectoryURL:[parent directoryFor:[consultation patient]]];
+    [savePanel setDirectoryURL:[parent letterDirectoryFor:[consultation patient]]];
     
     switch ([savePanel runModal]) {
         case NSFileHandlingPanelOKButton:
@@ -102,6 +103,15 @@
 -(IBAction)openLetter:(id)sender{
     OPLetter* letter = [[consultation.letters allObjects] objectAtIndex:lettersTable.clickedRow];
     [parent openLetter:letter];
+}
+
+-(IBAction)showBillingPanel:(id)sender{
+    [NSApp beginSheet:billingPanel modalForWindow:parent modalDelegate:self didEndSelector:nil contextInfo:nil];
+}
+
+-(IBAction)closeBillingPanel:(id)sender{
+    [NSApp endSheet:billingPanel];
+    [billingPanel orderOut:sender];
 }
 
 #pragma mark - Result table content management

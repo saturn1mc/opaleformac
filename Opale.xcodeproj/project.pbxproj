@@ -41,10 +41,11 @@
 		91773DBA163B0C66000F8673 /* OPHCGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91773DB9163B0C66000F8673 /* OPHCGraphView.m */; };
 		91773DBD163B11E2000F8673 /* OPBabyPatientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91773DBC163B11E2000F8673 /* OPBabyPatientView.m */; };
 		918380F71662911C008BA2D4 /* OPLetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 918380F61662911C008BA2D4 /* OPLetter.m */; };
+		91959F9016909BAA008EF47E /* OPBilling.m in Sources */ = {isa = PBXBuildFile; fileRef = 91959F8F16909BAA008EF47E /* OPBilling.m */; };
+		91959F951690A1B4008EF47E /* OPBillingPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 91959F941690A1B4008EF47E /* OPBillingPanel.m */; };
 		91A47B821644397700C17A67 /* OPConsultation.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A47B811644397700C17A67 /* OPConsultation.m */; };
 		91A47B8B164439AF00C17A67 /* OPObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A47B8A164439AE00C17A67 /* OPObject.m */; };
 		91A47B91164439EF00C17A67 /* OPMotive.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A47B90164439EF00C17A67 /* OPMotive.m */; };
-		91A47B9716443A1100C17A67 /* OPPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A47B9616443A1100C17A67 /* OPPayment.m */; };
 		91ACB7FD1508CEF200DB0393 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91ACB7FC1508CEF200DB0393 /* Quartz.framework */; };
 		91B128651598A4BB00AFC5B9 /* OPAdultMalePatientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B128641598A4BB00AFC5B9 /* OPAdultMalePatientView.m */; };
 		91B31AB4168B2DAA00416CF1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B31AB3168B2DAA00416CF1 /* QuartzCore.framework */; };
@@ -155,6 +156,10 @@
 		91773DBC163B11E2000F8673 /* OPBabyPatientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPBabyPatientView.m; sourceTree = "<group>"; };
 		918380F51662911C008BA2D4 /* OPLetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPLetter.h; sourceTree = "<group>"; };
 		918380F61662911C008BA2D4 /* OPLetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPLetter.m; sourceTree = "<group>"; };
+		91959F8E16909BAA008EF47E /* OPBilling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPBilling.h; sourceTree = "<group>"; };
+		91959F8F16909BAA008EF47E /* OPBilling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPBilling.m; sourceTree = "<group>"; };
+		91959F931690A1B4008EF47E /* OPBillingPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPBillingPanel.h; sourceTree = "<group>"; };
+		91959F941690A1B4008EF47E /* OPBillingPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPBillingPanel.m; sourceTree = "<group>"; };
 		91A47B7C1644352B00C17A67 /* fr */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		91A47B7D1644352B00C17A67 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = fr; path = fr.lproj/Credits.rtf; sourceTree = "<group>"; };
 		91A47B7E1644352B00C17A67 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -164,8 +169,6 @@
 		91A47B8A164439AE00C17A67 /* OPObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPObject.m; sourceTree = "<group>"; };
 		91A47B8F164439EF00C17A67 /* OPMotive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPMotive.h; sourceTree = "<group>"; };
 		91A47B90164439EF00C17A67 /* OPMotive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPMotive.m; sourceTree = "<group>"; };
-		91A47B9516443A1100C17A67 /* OPPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPPayment.h; sourceTree = "<group>"; };
-		91A47B9616443A1100C17A67 /* OPPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPPayment.m; sourceTree = "<group>"; };
 		91ACB7FC1508CEF200DB0393 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		91B128631598A4BB00AFC5B9 /* OPAdultMalePatientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPAdultMalePatientView.h; sourceTree = "<group>"; };
 		91B128641598A4BB00AFC5B9 /* OPAdultMalePatientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPAdultMalePatientView.m; sourceTree = "<group>"; };
@@ -337,6 +340,8 @@
 				9157712215067B73009E2B73 /* OPAppDelegate.m */,
 				9157714615068769009E2B73 /* OPMainWindow.h */,
 				9157714715068769009E2B73 /* OPMainWindow.m */,
+				91959F931690A1B4008EF47E /* OPBillingPanel.h */,
+				91959F941690A1B4008EF47E /* OPBillingPanel.m */,
 				911F923F1508A05C00FD3B34 /* OPView.h */,
 				911F92401508A05C00FD3B34 /* OPView.m */,
 				91E7320B150E2D0300F74EBB /* OPPatientsView.h */,
@@ -353,6 +358,8 @@
 				911E7F8315B4133000FC2A3F /* OPAdultFemalePatientView.m */,
 				91773DBB163B11E2000F8673 /* OPBabyPatientView.h */,
 				91773DBC163B11E2000F8673 /* OPBabyPatientView.m */,
+				91595523166A923E0084D837 /* OPScanningView.h */,
+				91595524166A923E0084D837 /* OPScanningView.m */,
 				915CEF80150E3FE6007E6E6D /* OPCalendarView.h */,
 				915CEF81150E3FE6007E6E6D /* OPCalendarView.m */,
 				91CEF6F0159C618A001D5265 /* OPAdultChildConsultationView.h */,
@@ -365,8 +372,6 @@
 				91773DB9163B0C66000F8673 /* OPHCGraphView.m */,
 				916244AB166A6FE30000D50A /* OPProfessionalSearchView.h */,
 				916244AC166A6FE30000D50A /* OPProfessionalSearchView.m */,
-				91595523166A923E0084D837 /* OPScanningView.h */,
-				91595524166A923E0084D837 /* OPScanningView.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -403,6 +408,8 @@
 			isa = PBXGroup;
 			children = (
 				9157712715067B74009E2B73 /* Opale.xcdatamodeld */,
+				91959F8E16909BAA008EF47E /* OPBilling.h */,
+				91959F8F16909BAA008EF47E /* OPBilling.m */,
 				91B31ABC168B6FD800416CF1 /* OPPatient.h */,
 				91B31ABD168B6FD800416CF1 /* OPPatient.m */,
 				91B31AB9168B6FC200416CF1 /* OPDocument.h */,
@@ -411,8 +418,6 @@
 				916244AF166A711E0000D50A /* OPProfessionnal.m */,
 				918380F51662911C008BA2D4 /* OPLetter.h */,
 				918380F61662911C008BA2D4 /* OPLetter.m */,
-				91A47B9516443A1100C17A67 /* OPPayment.h */,
-				91A47B9616443A1100C17A67 /* OPPayment.m */,
 				91A47B8F164439EF00C17A67 /* OPMotive.h */,
 				91A47B90164439EF00C17A67 /* OPMotive.m */,
 				91A47B89164439AE00C17A67 /* OPObject.h */,
@@ -599,13 +604,14 @@
 				91A47B821644397700C17A67 /* OPConsultation.m in Sources */,
 				91A47B8B164439AF00C17A67 /* OPObject.m in Sources */,
 				91A47B91164439EF00C17A67 /* OPMotive.m in Sources */,
-				91A47B9716443A1100C17A67 /* OPPayment.m in Sources */,
 				918380F71662911C008BA2D4 /* OPLetter.m in Sources */,
 				916244AD166A6FE30000D50A /* OPProfessionalSearchView.m in Sources */,
 				916244B0166A711E0000D50A /* OPProfessionnal.m in Sources */,
 				91595525166A923E0084D837 /* OPScanningView.m in Sources */,
 				91B31ABB168B6FC200416CF1 /* OPDocument.m in Sources */,
 				91B31ABE168B6FD800416CF1 /* OPPatient.m in Sources */,
+				91959F9016909BAA008EF47E /* OPBilling.m in Sources */,
+				91959F951690A1B4008EF47E /* OPBillingPanel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

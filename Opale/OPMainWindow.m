@@ -11,6 +11,7 @@
 #import "OPPatient.h"
 #import "OPConsultation.h"
 #import "OPLetter.h"
+#import "OPDocument.h"
 
 #import "OPMainWindow.h"
 #import "OPAppDelegate.h"
@@ -60,6 +61,22 @@ static const NSInteger childAgeLimit = 17;
     return patientDirectory;
 }
 
+-(NSURL*)letterDirectoryFor:(OPPatient*)patient{
+    NSURL* patientDirectory = [self directoryFor:patient];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    NSURL* documentDirectory = [patientDirectory URLByAppendingPathComponent:@"letters"];
+    
+    BOOL isDir = NO;
+    
+    if(!([fileManager fileExistsAtPath:[documentDirectory path] isDirectory:&isDir] && isDir)){
+        [fileManager createDirectoryAtURL:documentDirectory withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    
+    return documentDirectory;
+}
+
 -(NSURL*)documentDirectoryFor:(OPPatient*)patient{
     NSURL* patientDirectory = [self directoryFor:patient];
     
@@ -78,6 +95,10 @@ static const NSInteger childAgeLimit = 17;
 
 -(void)openLetter:(OPLetter *)letter{
     [[NSWorkspace sharedWorkspace] openFile:[letter filePath] withApplication:@"Microsoft Word.app"];
+}
+
+-(void)openDocument:(OPDocument *)document{
+    [[NSWorkspace sharedWorkspace] openFile:[document filePath]];
 }
 
 #pragma marks - Views

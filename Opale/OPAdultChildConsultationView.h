@@ -8,7 +8,7 @@
 
 #import "OPView.h"
 
-@class OPConsultation;
+@class OPBillingPanel, OPConsultation;
 
 @interface OPAdultChildConsultationView : OPView <NSTableViewDelegate, NSTableViewDataSource>{
     OPConsultation* consultation;
@@ -24,8 +24,11 @@
     
     IBOutlet NSTableView* motivesTable;
     IBOutlet NSTableColumn* colMotiveLabel;
+    
+    IBOutlet OPBillingPanel* billingPanel;
 }
 
+@property (nonatomic, retain) OPBillingPanel* billingPanel;
 @property (nonatomic, retain) OPConsultation* consultation;
 
 @property (nonatomic, retain) IBOutlet NSDatePicker*  consultationDate;
@@ -45,5 +48,8 @@
 
 -(IBAction)createNewLetter:(id)sender;
 -(IBAction)openLetter:(id)sender;
+
+-(IBAction)showBillingPanel:(id)sender;
+-(IBAction)closeBillingPanel:(id)sender;
 
 @end

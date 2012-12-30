@@ -55,6 +55,7 @@
 -(void)loadPatient:(OPPatient*)patientToLoad;
 -(IBAction)savePatient:(id)sender;
 -(IBAction)scanDocument:(id)sender;
+-(IBAction)openDocument:(id)sender;
 -(void)sortConsultations;
 -(IBAction)newConsultation:(id)sender;
 -(IBAction)showConsultation:(id)sender;

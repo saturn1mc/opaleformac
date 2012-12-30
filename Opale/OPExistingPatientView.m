@@ -24,7 +24,7 @@
     [colDate setIdentifier:@"date"];
     [colMotives setIdentifier:@"motives"];
     
-    //[documentsTable setDoubleAction:@selector(openDocument:)];
+    [documentsTable setDoubleAction:@selector(openDocument:)];
     [colDocumentTitle setIdentifier:@"title"];
     [colDocumentFilePath setIdentifier:@"docPath"];
 }
@@ -64,6 +64,11 @@
 -(IBAction)scanDocument:(id)sender{
     [[parent scanningView] setPatient:patient];
     [parent showScanningView:self];
+}
+
+-(IBAction)openDocument:(id)sender{
+    OPDocument* document = [[patient.documents allObjects] objectAtIndex:documentsTable.clickedRow];
+    [parent openDocument:document];
 }
 
 #pragma mark - Consultations management
