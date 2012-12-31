@@ -2,7 +2,7 @@
 //  OPBilling.m
 //  Opale
 //
-//  Created by Camille on 30/12/12.
+//  Created by Camille on 31/12/12.
 //
 //
 
@@ -12,10 +12,11 @@
 
 @implementation OPBilling
 
-@dynamic type;
-@dynamic price;
-@dynamic method;
 @dynamic comment;
+@dynamic method;
+@dynamic price;
+@dynamic type;
+@dynamic date;
 @dynamic consultation;
 
 @end

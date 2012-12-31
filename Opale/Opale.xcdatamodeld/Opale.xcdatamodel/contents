@@ -2,6 +2,7 @@
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="12C60" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Billing" representedClassName="OPBilling" syncable="YES">
         <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="method" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="type" attributeType="String" indexed="YES" syncable="YES"/>
@@ -51,13 +52,13 @@
         <relationship name="letters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Letter" inverseName="professionnal" inverseEntity="Letter" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Billing" positionX="243" positionY="324" width="128" height="135"/>
         <element name="Consultation" positionX="360" positionY="171" width="128" height="165"/>
         <element name="Document" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Letter" positionX="160" positionY="192" width="128" height="90"/>
         <element name="Motive" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Object" positionX="160" positionY="192" width="128" height="60"/>
         <element name="Patient" positionX="126" positionY="342" width="128" height="180"/>
-        <element name="Billing" positionX="243" positionY="324" width="128" height="120"/>
         <element name="Professionnal" positionX="160" positionY="192" width="128" height="105"/>
     </elements>
 </model>

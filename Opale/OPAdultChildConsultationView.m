@@ -54,6 +54,9 @@
     else{
         [textAdvises setString:@""];
     }
+    
+    [billingPanel setConsultation:consultation];
+    [[billingPanel payer] setStringValue:[NSString stringWithFormat:@"%@ %@", consultation.patient.firstName, consultation.patient.lastName]];
 }
 
 #pragma mark - Actions

@@ -36,12 +36,13 @@
 		916244AD166A6FE30000D50A /* OPProfessionalSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 916244AC166A6FE30000D50A /* OPProfessionalSearchView.m */; };
 		916244B0166A711E0000D50A /* OPProfessionnal.m in Sources */ = {isa = PBXBuildFile; fileRef = 916244AF166A711E0000D50A /* OPProfessionnal.m */; };
 		916244BE166A7C210000D50A /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 916244BD166A7C210000D50A /* AddressBook.framework */; };
+		91680CD71690F7FA00A3C67E /* OPBillView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91680CD61690F7FA00A3C67E /* OPBillView.m */; };
+		91680CDA169104F800A3C67E /* OPBilling.m in Sources */ = {isa = PBXBuildFile; fileRef = 91680CD9169104F700A3C67E /* OPBilling.m */; };
 		9171736E1535E2E100D1D702 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9171736D1535E2E100D1D702 /* libsqlite3.dylib */; };
 		91773DB7163B0C09000F8673 /* OPWeightGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91773DB6163B0C09000F8673 /* OPWeightGraphView.m */; };
 		91773DBA163B0C66000F8673 /* OPHCGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91773DB9163B0C66000F8673 /* OPHCGraphView.m */; };
 		91773DBD163B11E2000F8673 /* OPBabyPatientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91773DBC163B11E2000F8673 /* OPBabyPatientView.m */; };
 		918380F71662911C008BA2D4 /* OPLetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 918380F61662911C008BA2D4 /* OPLetter.m */; };
-		91959F9016909BAA008EF47E /* OPBilling.m in Sources */ = {isa = PBXBuildFile; fileRef = 91959F8F16909BAA008EF47E /* OPBilling.m */; };
 		91959F951690A1B4008EF47E /* OPBillingPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 91959F941690A1B4008EF47E /* OPBillingPanel.m */; };
 		91A47B821644397700C17A67 /* OPConsultation.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A47B811644397700C17A67 /* OPConsultation.m */; };
 		91A47B8B164439AF00C17A67 /* OPObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A47B8A164439AE00C17A67 /* OPObject.m */; };
@@ -146,6 +147,10 @@
 		916244AE166A711E0000D50A /* OPProfessionnal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPProfessionnal.h; sourceTree = "<group>"; };
 		916244AF166A711E0000D50A /* OPProfessionnal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPProfessionnal.m; sourceTree = "<group>"; };
 		916244BD166A7C210000D50A /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		91680CD51690F7FA00A3C67E /* OPBillView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPBillView.h; sourceTree = "<group>"; };
+		91680CD61690F7FA00A3C67E /* OPBillView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPBillView.m; sourceTree = "<group>"; };
+		91680CD8169104F700A3C67E /* OPBilling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPBilling.h; sourceTree = "<group>"; };
+		91680CD9169104F700A3C67E /* OPBilling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPBilling.m; sourceTree = "<group>"; };
 		9171736D1535E2E100D1D702 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		917173781535EB0600D1D702 /* Maquette.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Maquette.xlsx; sourceTree = "<group>"; };
 		91773DB5163B0C09000F8673 /* OPWeightGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPWeightGraphView.h; sourceTree = "<group>"; };
@@ -156,8 +161,6 @@
 		91773DBC163B11E2000F8673 /* OPBabyPatientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPBabyPatientView.m; sourceTree = "<group>"; };
 		918380F51662911C008BA2D4 /* OPLetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPLetter.h; sourceTree = "<group>"; };
 		918380F61662911C008BA2D4 /* OPLetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPLetter.m; sourceTree = "<group>"; };
-		91959F8E16909BAA008EF47E /* OPBilling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPBilling.h; sourceTree = "<group>"; };
-		91959F8F16909BAA008EF47E /* OPBilling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPBilling.m; sourceTree = "<group>"; };
 		91959F931690A1B4008EF47E /* OPBillingPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPBillingPanel.h; sourceTree = "<group>"; };
 		91959F941690A1B4008EF47E /* OPBillingPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPBillingPanel.m; sourceTree = "<group>"; };
 		91A47B7C1644352B00C17A67 /* fr */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -342,6 +345,8 @@
 				9157714715068769009E2B73 /* OPMainWindow.m */,
 				91959F931690A1B4008EF47E /* OPBillingPanel.h */,
 				91959F941690A1B4008EF47E /* OPBillingPanel.m */,
+				91680CD51690F7FA00A3C67E /* OPBillView.h */,
+				91680CD61690F7FA00A3C67E /* OPBillView.m */,
 				911F923F1508A05C00FD3B34 /* OPView.h */,
 				911F92401508A05C00FD3B34 /* OPView.m */,
 				91E7320B150E2D0300F74EBB /* OPPatientsView.h */,
@@ -408,8 +413,8 @@
 			isa = PBXGroup;
 			children = (
 				9157712715067B74009E2B73 /* Opale.xcdatamodeld */,
-				91959F8E16909BAA008EF47E /* OPBilling.h */,
-				91959F8F16909BAA008EF47E /* OPBilling.m */,
+				91680CD8169104F700A3C67E /* OPBilling.h */,
+				91680CD9169104F700A3C67E /* OPBilling.m */,
 				91B31ABC168B6FD800416CF1 /* OPPatient.h */,
 				91B31ABD168B6FD800416CF1 /* OPPatient.m */,
 				91B31AB9168B6FC200416CF1 /* OPDocument.h */,
@@ -610,8 +615,9 @@
 				91595525166A923E0084D837 /* OPScanningView.m in Sources */,
 				91B31ABB168B6FC200416CF1 /* OPDocument.m in Sources */,
 				91B31ABE168B6FD800416CF1 /* OPPatient.m in Sources */,
-				91959F9016909BAA008EF47E /* OPBilling.m in Sources */,
 				91959F951690A1B4008EF47E /* OPBillingPanel.m in Sources */,
+				91680CD71690F7FA00A3C67E /* OPBillView.m in Sources */,
+				91680CDA169104F800A3C67E /* OPBilling.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

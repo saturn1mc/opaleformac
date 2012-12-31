@@ -2,7 +2,7 @@
 //  OPBilling.h
 //  Opale
 //
-//  Created by Camille on 30/12/12.
+//  Created by Camille on 31/12/12.
 //
 //
 
@@ -13,10 +13,11 @@
 
 @interface OPBilling : NSManagedObject
 
-@property (nonatomic, retain) NSString * type;
-@property (nonatomic, retain) NSNumber * price;
-@property (nonatomic, retain) NSString * method;
 @property (nonatomic, retain) NSString * comment;
+@property (nonatomic, retain) NSString * method;
+@property (nonatomic, retain) NSNumber * price;
+@property (nonatomic, retain) NSString * type;
+@property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) OPConsultation *consultation;
 
 @end
