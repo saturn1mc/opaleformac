@@ -68,7 +68,16 @@
     [self orderOut:self];
     
     //Print operation
-    NSPrintOperation* printOp = [NSPrintOperation printOperationWithView:billView];
+    NSPrintInfo* printInfo = [NSPrintInfo sharedPrintInfo];
+    [printInfo setLeftMargin:0.0];
+    [printInfo setRightMargin:0.0];
+    [printInfo setBottomMargin:0.0];
+    [printInfo setTopMargin:0.0];
+    [printInfo setHorizontalPagination:NSFitPagination];
+    [printInfo setVerticalPagination:NSFitPagination];
+    
+    NSPrintOperation* printOp = [NSPrintOperation printOperationWithView:billView printInfo:printInfo];
+    [printOp setCanSpawnSeparateThread:YES];
     [printOp runOperationModalForWindow:parent delegate:self didRunSelector:@selector(printOperationDidRun: success: contextInfo:) contextInfo:nil];
 }
 

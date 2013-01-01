@@ -9,13 +9,17 @@
 #import "OPView.h"
 
 @interface OPBillView : OPView{
-    IBOutlet NSTextView* textView;
+    IBOutlet NSTextField* headerTextField;
+    IBOutlet NSTextField* bodyTextField;
     
-    NSString* initialString;
+    NSString* initialHeaderStr;
+    NSString* initialBodyStr;
 }
 
-@property (nonatomic, retain) IBOutlet NSTextView* textView;
-@property (nonatomic, retain) NSString* initialString;
+@property (nonatomic, retain) IBOutlet NSTextField* headerTextField;
+@property (nonatomic, retain) IBOutlet NSTextField* bodyTextField;
+@property (nonatomic, retain) NSString* initialHeaderStr;
+@property (nonatomic, retain) NSString* initialBodyStr;
 
 -(void)setPrice:(NSString*)price andPayer:(NSString*)payer andPatient:(NSString*)patient andDate:(NSString*)date;
 

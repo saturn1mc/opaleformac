@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import <Quartz/Quartz.h>
+#import <AppKit/AppKit.h>
 
 @class OPMainWindow, OPConsultation, OPBillView;
 
@@ -33,7 +34,7 @@
 @property (nonatomic, retain) IBOutlet NSTextField* payer;
 @property (nonatomic, retain) IBOutlet NSComboBox* paymentMethod;
 
-@property (nonatomic, retain) IBOutlet NSView* billView;
+@property (nonatomic, retain) IBOutlet OPBillView* billView;
 
 - (IBAction)printBill:(id)sender;
 - (void)printOperationDidRun:(NSPrintOperation *)printOperation success:(BOOL)success contextInfo:(void *)contextInfo;
