@@ -1,5 +1,5 @@
 //
-//  OPDocument.h
+//  OPMail.h
 //  Opale
 //
 //  Created by Camille on 03/01/13.
@@ -11,7 +11,7 @@
 
 @class OPPatient;
 
-@interface OPDocument : NSManagedObject
+@interface OPMail : NSManagedObject
 
 @property (nonatomic, retain) NSString * filePath;
 @property (nonatomic, retain) OPPatient *patient;

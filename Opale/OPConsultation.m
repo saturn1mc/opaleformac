@@ -2,13 +2,12 @@
 //  OPConsultation.m
 //  Opale
 //
-//  Created by Camille on 02/11/12.
+//  Created by Camille on 03/01/13.
 //
 //
 
 #import "OPConsultation.h"
-#import "OPLetter.h"
-#import "OPMotive.h"
+#import "OPInvoice.h"
 #import "OPPatient.h"
 
 
@@ -18,8 +17,8 @@
 @dynamic date;
 @dynamic tests;
 @dynamic treatments;
-@dynamic letters;
 @dynamic motives;
+@dynamic invoice;
 @dynamic patient;
 
 @end

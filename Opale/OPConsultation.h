@@ -2,14 +2,14 @@
 //  OPConsultation.h
 //  Opale
 //
-//  Created by Camille on 02/11/12.
+//  Created by Camille on 03/01/13.
 //
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class OPLetter, OPMotive, OPPatient;
+@class OPInvoice, OPPatient;
 
 @interface OPConsultation : NSManagedObject
 
@@ -17,19 +17,8 @@
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSString * tests;
 @property (nonatomic, retain) NSString * treatments;
-@property (nonatomic, retain) NSSet *letters;
-@property (nonatomic, retain) NSSet *motives;
+@property (nonatomic, retain) NSString * motives;
+@property (nonatomic, retain) OPInvoice *invoice;
 @property (nonatomic, retain) OPPatient *patient;
-@end
 
-@interface OPConsultation (CoreDataGeneratedAccessors)
-
-- (void)addLettersObject:(OPLetter *)value;
-- (void)removeLettersObject:(OPLetter *)value;
-- (void)addLetters:(NSSet *)values;
-- (void)removeLetters:(NSSet *)values;
-- (void)addMotivesObject:(OPMotive *)value;
-- (void)removeMotivesObject:(OPMotive *)value;
-- (void)addMotives:(NSSet *)values;
-- (void)removeMotives:(NSSet *)values;
 @end

@@ -494,9 +494,6 @@
 /* Class = "NSTextFieldCell"; title = "TODO : Accounting"; ObjectID = "1686"; */
 "1686.title" = "TODO : Accounting";
 
-/* Class = "NSTextFieldCell"; title = "TODO : Network"; ObjectID = "1695"; */
-"1695.title" = "TODO : Network";
-
 /* Class = "NSFormCell"; title = "Field:"; ObjectID = "1890"; */
 "1890.title" = "Field:";
 
@@ -668,8 +665,8 @@
 /* Class = "NSFormCell"; title = "Profession:"; ObjectID = "6506"; */
 "6506.title" = "Profession:";
 
-/* Class = "NSFormCell"; title = "Activités extra.:"; ObjectID = "6508"; */
-"6508.title" = "Activités extra.:";
+/* Class = "NSFormCell"; title = "Pays:"; ObjectID = "6508"; */
+"6508.title" = "Pays:";
 
 /* Class = "NSFormCell"; title = "Adresse:"; ObjectID = "6509"; */
 "6509.title" = "Adresse:";
@@ -683,11 +680,11 @@
 /* Class = "NSFormCell"; title = "Field:"; ObjectID = "6512"; */
 "6512.title" = "Field:";
 
-/* Class = "NSFormCell"; title = "Situation familiale:"; ObjectID = "6513"; */
-"6513.title" = "Situation familiale:";
+/* Class = "NSFormCell"; title = "Ville:"; ObjectID = "6513"; */
+"6513.title" = "Ville:";
 
-/* Class = "NSFormCell"; title = "Enfants:"; ObjectID = "6514"; */
-"6514.title" = "Enfants:";
+/* Class = "NSFormCell"; title = "Code Postal:"; ObjectID = "6514"; */
+"6514.title" = "Code Postal:";
 
 /* Class = "NSTextFieldCell"; title = "Commentaires"; ObjectID = "6516"; */
 "6516.title" = "Commentaires";
@@ -835,51 +832,6 @@
 
 /* Class = "NSTextFieldCell"; title = "Gynécologiques"; ObjectID = "7415"; */
 "7415.title" = "Gynécologiques";
-
-/* Class = "NSTextFieldCell"; title = "Commentaires"; ObjectID = "7432"; */
-"7432.title" = "Commentaires";
-
-/* Class = "NSFormCell"; title = "Enfants:"; ObjectID = "7434"; */
-"7434.title" = "Enfants:";
-
-/* Class = "NSFormCell"; title = "Situation familiale:"; ObjectID = "7435"; */
-"7435.title" = "Situation familiale:";
-
-/* Class = "NSFormCell"; title = "Field:"; ObjectID = "7436"; */
-"7436.title" = "Field:";
-
-/* Class = "NSFormCell"; title = "Tel. 1:"; ObjectID = "7437"; */
-"7437.title" = "Tel. 1:";
-
-/* Class = "NSFormCell"; title = "Tel. 2:"; ObjectID = "7438"; */
-"7438.title" = "Tel. 2:";
-
-/* Class = "NSFormCell"; title = "Adresse:"; ObjectID = "7439"; */
-"7439.title" = "Adresse:";
-
-/* Class = "NSFormCell"; title = "Activités extra.:"; ObjectID = "7440"; */
-"7440.title" = "Activités extra.:";
-
-/* Class = "NSFormCell"; title = "Profession:"; ObjectID = "7442"; */
-"7442.title" = "Profession:";
-
-/* Class = "NSFormCell"; title = "Age:"; ObjectID = "7443"; */
-"7443.title" = "Age:";
-
-/* Class = "NSFormCell"; title = "Sexe:"; ObjectID = "7444"; */
-"7444.title" = "Sexe:";
-
-/* Class = "NSFormCell"; title = "Date de naissance:"; ObjectID = "7445"; */
-"7445.title" = "Date de naissance:";
-
-/* Class = "NSFormCell"; title = "Prénom:"; ObjectID = "7446"; */
-"7446.title" = "Prénom:";
-
-/* Class = "NSFormCell"; title = "Nom:"; ObjectID = "7447"; */
-"7447.title" = "Nom:";
-
-/* Class = "NSFormCell"; title = "Field:"; ObjectID = "7448"; */
-"7448.title" = "Field:";
 
 /* Class = "NSTextFieldCell"; title = "ORL/Ophtalmo"; ObjectID = "7495"; */
 "7495.title" = "ORL/Ophtalmo";
@@ -1045,3 +997,177 @@
 
 /* Class = "NSTextFieldCell"; title = "TODO : Stats"; ObjectID = "8298"; */
 "8298.title" = "TODO : Stats";
+
+/* Class = "NSTabViewItem"; label = "Documents"; ObjectID = "8443"; */
+"8443.label" = "Documents";
+
+/* Class = "NSTableColumn"; headerCell.title = "Nom"; ObjectID = "8474"; */
+"8474.headerCell.title" = "Nom";
+
+/* Class = "NSTableColumn"; headerCell.title = "Chemin complet"; ObjectID = "8475"; */
+"8475.headerCell.title" = "Chemin complet";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "8476"; */
+"8476.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "8477"; */
+"8477.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "Scanner"; ObjectID = "8496"; */
+"8496.title" = "Scanner";
+
+/* Class = "NSButtonCell"; title = "Importer"; ObjectID = "8500"; */
+"8500.title" = "Importer";
+
+/* Class = "IKScannerDeviceView"; documentName = "Document"; ObjectID = "9460"; */
+"9460.documentName" = "Document";
+
+/* Class = "IKScannerDeviceView"; overviewControlLabel = "Aperçu"; ObjectID = "9460"; */
+"9460.overviewControlLabel" = "Aperçu";
+
+/* Class = "IKScannerDeviceView"; scanControlLabel = "Scanner"; ObjectID = "9460"; */
+"9460.scanControlLabel" = "Scanner";
+
+/* Class = "OPBillingPanel"; title = "Facturation"; ObjectID = "9725"; */
+"9725.title" = "Facturation";
+
+/* Class = "NSButtonCell"; title = "Annuler"; ObjectID = "9736"; */
+"9736.title" = "Annuler";
+
+/* Class = "NSButtonCell"; title = "Imprimer la facture"; ObjectID = "9737"; */
+"9737.title" = "Imprimer la facture";
+
+/* Class = "NSComboBoxCell"; placeholderString = "Moyen de paiement"; ObjectID = "9738"; */
+"9738.placeholderString" = "Moyen de paiement";
+
+/* Class = "NSComboBoxCell"; 9738.ibShadowedObjectValues[0] = "Chèque"; ObjectID = "9738"; */
+"9738.ibShadowedObjectValues[0]" = "Chèque";
+
+/* Class = "NSComboBoxCell"; 9738.ibShadowedObjectValues[1] = "Espèces"; ObjectID = "9738"; */
+"9738.ibShadowedObjectValues[1]" = "Espèces";
+
+/* Class = "NSButtonCell"; title = "Radio"; ObjectID = "9743"; */
+"9743.title" = "Radio";
+
+/* Class = "NSButtonCell"; title = "Adulte"; ObjectID = "9744"; */
+"9744.title" = "Adulte";
+
+/* Class = "NSButtonCell"; title = "Enfant / Bébé"; ObjectID = "9745"; */
+"9745.title" = "Enfant / Bébé";
+
+/* Class = "NSButtonCell"; title = "Handball"; ObjectID = "9746"; */
+"9746.title" = "Handball";
+
+/* Class = "NSButtonCell"; title = "Acte gratuit"; ObjectID = "9747"; */
+"9747.title" = "Acte gratuit";
+
+/* Class = "NSButtonCell"; title = "Autre"; ObjectID = "9748"; */
+"9748.title" = "Autre";
+
+/* Class = "NSTextFieldCell"; title = "Payeur"; ObjectID = "9844"; */
+"9844.title" = "Payeur";
+
+/* Class = "NSTextFieldCell"; title = "Aurélie ROGER\t\t\t\t\t\t\nOstéopathe D.O.\r42 rue du Gal Leclerc\r94440 Villecresnes\rTel : 06 31 56 71 58\rN ADELI : 940001035\r"; ObjectID = "10250"; */
+"10250.title" = "Aurélie ROGER\t\t\t\t\t\t\nOstéopathe D.O.\r42 rue du Gal Leclerc\r94440 Villecresnes\rTel : 06 31 56 71 58\rN ADELI : 940001035\r";
+
+/* Class = "NSTextFieldCell"; title = "Villecresnes, le %DATE%"; ObjectID = "10262"; */
+"10262.title" = "Villecresnes, le %DATE%";
+
+/* Class = "NSTextFieldCell"; title = "Justificatif de paiement"; ObjectID = "10270"; */
+"10270.title" = "Justificatif de paiement";
+
+/* Class = "NSTextFieldCell"; title = "Je soussignée, Aurélie ROGER Ostéopathe D.O., certifie avoir reçu la somme de 45 € TTC de la part de %PAYER% en règlement de la consultation ostéopathique de %PATIENT%.\rA la date du %DATE%"; ObjectID = "10275"; */
+"10275.title" = "Je soussignée, Aurélie ROGER Ostéopathe D.O., certifie avoir reçu la somme de 45 € TTC de la part de %PAYER% en règlement de la consultation ostéopathique de %PATIENT%.\rA la date du %DATE%";
+
+/* Class = "NSTextFieldCell"; title = "Fait pour valoir à qui de droit,\t\t\t\t\t\t\nA la demande de l’intéressé(e)\r"; ObjectID = "10290"; */
+"10290.title" = "Fait pour valoir à qui de droit,\t\t\t\t\t\t\nA la demande de l’intéressé(e)\r";
+
+/* Class = "NSTextFieldCell"; title = "Aurélie ROGER"; ObjectID = "10299"; */
+"10299.title" = "Aurélie ROGER";
+
+/* Class = "NSTextFieldCell"; title = "Ostéopathe D.O.F. membre du Syndicat Français des Ostéopathes et de l’Association de Gestion Agréée ANGAIF, \nacceptant les règlements par chèque.\n\n42 rue du Gal Leclerc 94440 Villecresnes Tel 06 31 56 71 58 \rSIRET : 51353511200017- Code APE : 8690 F"; ObjectID = "10303"; */
+"10303.title" = "Ostéopathe D.O.F. membre du Syndicat Français des Ostéopathes et de l’Association de Gestion Agréée ANGAIF, \nacceptant les règlements par chèque.\n\n42 rue du Gal Leclerc 94440 Villecresnes Tel 06 31 56 71 58 \rSIRET : 51353511200017- Code APE : 8690 F";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "10338"; */
+"10338.title" = "Box";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "10343"; */
+"10343.title" = "Box";
+
+/* Class = "NSTextFieldCell"; title = "€"; ObjectID = "13906"; */
+"13906.title" = "€";
+
+/* Class = "NSFormCell"; title = "Ville:"; ObjectID = "13942"; */
+"13942.title" = "Ville:";
+
+/* Class = "NSFormCell"; title = "Code Postal:"; ObjectID = "13946"; */
+"13946.title" = "Code Postal:";
+
+/* Class = "NSFormCell"; stringValue = "France"; ObjectID = "13948"; */
+"13948.stringValue" = "France";
+
+/* Class = "NSFormCell"; title = "Pays:"; ObjectID = "13948"; */
+"13948.title" = "Pays:";
+
+/* Class = "NSFormCell"; title = "Situation familiale:"; ObjectID = "13972"; */
+"13972.title" = "Situation familiale:";
+
+/* Class = "NSFormCell"; title = "Enfants:"; ObjectID = "13975"; */
+"13975.title" = "Enfants:";
+
+/* Class = "NSFormCell"; title = "Activités extra.:"; ObjectID = "13977"; */
+"13977.title" = "Activités extra.:";
+
+/* Class = "NSFormCell"; title = "Activités extra.:"; ObjectID = "13988"; */
+"13988.title" = "Activités extra.:";
+
+/* Class = "NSFormCell"; title = "Enfants:"; ObjectID = "13989"; */
+"13989.title" = "Enfants:";
+
+/* Class = "NSFormCell"; title = "Situation familiale:"; ObjectID = "13990"; */
+"13990.title" = "Situation familiale:";
+
+/* Class = "NSFormCell"; title = "Code Postal:"; ObjectID = "13991"; */
+"13991.title" = "Code Postal:";
+
+/* Class = "NSFormCell"; title = "Ville:"; ObjectID = "13992"; */
+"13992.title" = "Ville:";
+
+/* Class = "NSFormCell"; title = "Field:"; ObjectID = "13993"; */
+"13993.title" = "Field:";
+
+/* Class = "NSFormCell"; title = "Tel. 1:"; ObjectID = "13994"; */
+"13994.title" = "Tel. 1:";
+
+/* Class = "NSFormCell"; title = "Tel. 2:"; ObjectID = "13995"; */
+"13995.title" = "Tel. 2:";
+
+/* Class = "NSFormCell"; title = "Adresse:"; ObjectID = "13996"; */
+"13996.title" = "Adresse:";
+
+/* Class = "NSFormCell"; title = "Pays:"; ObjectID = "13997"; */
+"13997.title" = "Pays:";
+
+/* Class = "NSTextFieldCell"; title = "Commentaires"; ObjectID = "13999"; */
+"13999.title" = "Commentaires";
+
+/* Class = "NSFormCell"; title = "Profession:"; ObjectID = "14003"; */
+"14003.title" = "Profession:";
+
+/* Class = "NSFormCell"; title = "Age:"; ObjectID = "14004"; */
+"14004.title" = "Age:";
+
+/* Class = "NSFormCell"; title = "Sexe:"; ObjectID = "14005"; */
+"14005.title" = "Sexe:";
+
+/* Class = "NSFormCell"; title = "Date de naissance:"; ObjectID = "14006"; */
+"14006.title" = "Date de naissance:";
+
+/* Class = "NSFormCell"; title = "Prénom:"; ObjectID = "14007"; */
+"14007.title" = "Prénom:";
+
+/* Class = "NSFormCell"; title = "Nom:"; ObjectID = "14008"; */
+"14008.title" = "Nom:";
+
+/* Class = "NSFormCell"; title = "Field:"; ObjectID = "14009"; */
+"14009.title" = "Field:";

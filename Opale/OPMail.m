@@ -1,16 +1,16 @@
 //
-//  OPDocument.m
+//  OPMail.m
 //  Opale
 //
 //  Created by Camille on 03/01/13.
 //
 //
 
-#import "OPDocument.h"
+#import "OPMail.h"
 #import "OPPatient.h"
 
 
-@implementation OPDocument
+@implementation OPMail
 
 @dynamic filePath;
 @dynamic patient;
