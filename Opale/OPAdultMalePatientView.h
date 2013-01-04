@@ -12,7 +12,6 @@
 @class OPPatient;
 
 @interface OPAdultMalePatientView : OPExistingPatientView{
-    //TODO : additionnal fields ?
     IBOutlet NSFormCell* cellAgeGeneral;
     IBOutlet NSFormCell* cellAgeHealth;
 }

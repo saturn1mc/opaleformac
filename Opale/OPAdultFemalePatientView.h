@@ -8,6 +8,12 @@
 
 #import "OPAdultMalePatientView.h"
 
-@interface OPAdultFemalePatientView : OPAdultMalePatientView
+@interface OPAdultFemalePatientView : OPAdultMalePatientView{
+    IBOutlet NSTextView* gynecologicalHistory;
+    IBOutlet NSTextView* gynecologicalSphere;
+}
+
+@property (nonatomic, retain) IBOutlet NSTextView* gynecologicalHistory;
+@property (nonatomic, retain) IBOutlet NSTextView* gynecologicalSphere;
 
 @end

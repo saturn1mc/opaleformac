@@ -72,6 +72,7 @@
 -(IBAction)showProfessionalView:(id)sender;
 
 -(IBAction)showPatientViewFor:(OPPatient*)patient;
+-(IBAction)showPatientViewFor:(OPPatient*)patient withLockState:(BOOL)locked;
 -(IBAction)showConsultationViewFor:(OPConsultation*)consultation;
 
 -(IBAction)showScanningView:(id)sender;

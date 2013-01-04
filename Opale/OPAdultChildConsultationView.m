@@ -23,6 +23,13 @@
     
     [consultationDate setDateValue:consultation.date];
     
+    if(consultation.motives){
+        [textMotives setString:[[NSString alloc] initWithString:consultation.motives]];
+    }
+    else{
+        [textMotives setString:@""];
+    }
+    
     if(consultation.tests){
         [textTests setString:[[NSString alloc] initWithString:consultation.tests]];
     }
@@ -53,6 +60,7 @@
 -(IBAction)saveConsultation:(id)sender{
     
     consultation.date = [consultationDate dateValue];
+    consultation.motives = [[NSString alloc] initWithString:[textMotives string]];
     consultation.tests = [[NSString alloc] initWithString:[textTests string]];
     consultation.treatments = [[NSString alloc] initWithString:[textTreatments string]];
     consultation.advises = [[NSString alloc] initWithString:[textAdvises string]];

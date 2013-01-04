@@ -10,4 +10,6 @@
 
 @implementation OPBabyPatientView
 
+@synthesize pregnancyAndBirthSphere, feedingAndStoolSphere, sleepSphere, otherSphere, heightGraphView, weightGraphView, hcGraphView;
+
 @end

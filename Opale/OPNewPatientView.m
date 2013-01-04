@@ -22,10 +22,10 @@
     NSString* sex = [[NSString alloc] init];
     
     if([matrixSex selectedRow] == 0){
-        sex = @"Homme";
+        sex = @"Masculin";
     }
     else{
-        sex = @"Femme";
+        sex = @"Feminin";
     }
     
     OPPatient* nPatient = [NSEntityDescription insertNewObjectForEntityForName:@"Patient" inManagedObjectContext:[self managedObjectContext]];
@@ -43,7 +43,7 @@
     
     [self saveAction];
     
-    [parent showPatientViewFor:nPatient];
+    [parent showPatientViewFor:nPatient withLockState:NO];
 }
 
 @end

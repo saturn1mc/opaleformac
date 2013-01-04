@@ -17,12 +17,12 @@
 -(BOOL)getObjectValue:(out __autoreleasing id *)obj forString:(NSString *)string errorDescription:(out NSString *__autoreleasing *)error{
     
     if(string && [string length] > 0){
-        if([[string uppercaseString] isEqualToString:@"H"] || [[string uppercaseString] isEqualToString:@"HOMME"]){
-            *obj = [[NSString alloc] initWithFormat:@"Homme"];
+        if([[string uppercaseString] isEqualToString:@"M"] || [[string uppercaseString] isEqualToString:@"MASCULIN"]){
+            *obj = [[NSString alloc] initWithFormat:@"Masculin"];
             return YES;
         }
-        else if([[string uppercaseString] isEqualToString:@"F"] || [[string uppercaseString] isEqualToString:@"FEMME"]){
-            *obj = [[NSString alloc] initWithFormat:@"Femme"];
+        else if([[string uppercaseString] isEqualToString:@"F"] || [[string uppercaseString] isEqualToString:@"FEMININ"]){
+            *obj = [[NSString alloc] initWithFormat:@"Féminin"];
             return YES;
         }
     }

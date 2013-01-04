@@ -16,9 +16,14 @@
 
 @implementation OPExistingPatientView
 
-@synthesize patient, sortedConsultations, cellFirstName, cellLastName, cellBirthday, cellSex, cellTel1, cellTel2, cellAddress, cellTown, cellPostalCode, cellCountry, consultationHistoryTable, colDate, colMotives, documentsTable, colDocumentTitle, colDocumentFilePath, mailsTable, colMailName, colMailFilePath;
+@dynamic locked;
+
+@synthesize patient, sortedConsultations, editableObjects, switchLockButton, addressedByBox, cellFirstName, cellLastName, cellBirthday, cellSex, cellTel1, cellTel2, cellAddress, cellTown, cellPostalCode, cellCountry, generalComments, previousHistoryComments, familyHistory, medicalHistory,traumaticHistory, surgicalHistory, entAndOphtalmologicSphere, dentalSphere, digestiveSphere,urinarySphere, consultationHistoryTable, colDate, colMotives, documentsTable, colDocumentTitle, colDocumentFilePath, mailsTable, colMailName, colMailFilePath;
 
 - (void)awakeFromNib{
+    editableObjects = [[NSMutableArray alloc] init];
+    
+    //TODO add editable/lockable objects to list
     
     [consultationHistoryTable setDoubleAction:@selector(showConsultation:)];
     sortedConsultations = [[NSMutableArray alloc] init];
@@ -29,9 +34,53 @@
     [colDocumentTitle setIdentifier:@"title"];
     [colDocumentFilePath setIdentifier:@"docPath"];
     
-    [mailsTable setDoubleAction:@selector(openLetter:)];
+    [mailsTable setDoubleAction:@selector(openMail:)];
     [colMailName setIdentifier:@"name"];
     [colMailFilePath setIdentifier:@"path"];
+}
+
+-(BOOL)locked{
+    return locked;
+}
+
+-(void)setLocked:(BOOL)lock{
+    [self setEditableObjectsState:lock];
+
+    if(lock){
+        [switchLockButton setImage:[NSImage imageNamed:@"NSLockLockedTemplate"]];
+        [switchLockButton setTitle:@"Modifier la fiche"];
+        [self savePatient:self];
+    }
+    else{
+        [switchLockButton setImage:[NSImage imageNamed:@"NSLockUnlockedTemplate"]];
+        [switchLockButton setTitle:@"Sauver la fiche"];
+    }
+    
+    locked = lock;
+}
+
+-(void)setEditableObjectsState:(BOOL)lock{
+    for(id obj in editableObjects){
+        if([obj isKindOfClass:[NSFormCell class]]){
+            //TODO
+        }
+        else if([obj isKindOfClass:[NSTextView class]]){
+            //TODO
+        }
+        else if([obj isKindOfClass:[NSComboBox class]]){
+            //TODO
+        }
+    }
+}
+
+-(IBAction)switchLock:(id)sender{
+    if(locked){
+        [self setLocked:NO];
+    }
+    else{
+        [self setLocked:YES];
+        [self savePatient:self];
+    }
 }
 
 -(void)loadPatient:(OPPatient*)patientToLoad{
@@ -65,7 +114,8 @@
 #pragma mark - Actions
 
 -(IBAction)savePatient:(id)sender{
-    //TODO save modifications
+
+    //TODO apply modifications
     [self saveAction];
 }
 
@@ -170,7 +220,7 @@
         count = [[patient.documents allObjects] count];
     }
     else if(tableView == mailsTable){
-        count = [patient.mails count];
+        count = [[patient.mails allObjects] count];
     }
     
     return count;
@@ -190,7 +240,12 @@
             value = [dateFormatter stringFromDate:consultation.date];
         }
         else if([[tableColumn identifier] isEqualToString:colMotives.identifier]){
-            value = [[NSString alloc] initWithString:consultation.motives];
+            if(consultation.motives){
+                value = [[NSString alloc] initWithString:consultation.motives];
+            }
+            else{
+                value = @"";
+            }
         }
     }
     else if(tableView == documentsTable){
@@ -208,8 +263,6 @@
     else if(tableView == mailsTable){
         OPMail* mail = (OPMail*)[[patient.mails allObjects]objectAtIndex:row];
         NSURL* mailURL = [NSURL fileURLWithPath:mail.filePath];
-        
-        NSString* value = nil;
         
         if([tableColumn.identifier isEqualToString:colMailName.identifier]){
             value = [[mailURL lastPathComponent] stringByDeletingPathExtension];

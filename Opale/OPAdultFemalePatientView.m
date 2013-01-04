@@ -10,4 +10,6 @@
 
 @implementation OPAdultFemalePatientView
 
+@synthesize gynecologicalHistory;
+
 @end

@@ -142,7 +142,10 @@ static const NSInteger childAgeLimit = 17;
 }
 
 -(IBAction)showPatientViewFor:(OPPatient*)patient{
-    //TODO take age into account
+    [self showPatientViewFor:patient withLockState:YES];
+}
+
+-(IBAction)showPatientViewFor:(OPPatient*)patient withLockState:(BOOL)locked{
     NSDate* today = [NSDate date];
     
     NSCalendar *sysCalendar = [NSCalendar currentCalendar];
@@ -154,24 +157,29 @@ static const NSInteger childAgeLimit = 17;
     
     if(ageInYears < babyAgeLimit){ //Baby
         [babyPatientView loadPatient:patient];
+        [babyPatientView setLocked:locked];
         [self fadeSubview:babyPatientView];
     }else if (ageInYears < childAgeLimit){ //Child
         //TODO child views
-        if([patient.sex isEqualToString:@"Homme"]){
+        if([patient.sex isEqualToString:@"Masculin"]){
             [adultMalePatientView loadPatient:patient];
+            [adultMalePatientView setLocked:locked];
             [self fadeSubview:adultMalePatientView];
         }
         else{
             [adultFemalePatientView loadPatient:patient];
+            [adultFemalePatientView setLocked:locked];
             [self fadeSubview:adultFemalePatientView];
         }
     }else{ //Adult
-        if([patient.sex isEqualToString:@"Homme"]){
+        if([patient.sex isEqualToString:@"Masculin"]){
             [adultMalePatientView loadPatient:patient];
+            [adultMalePatientView setLocked:locked];
             [self fadeSubview:adultMalePatientView];
         }
         else{
             [adultFemalePatientView loadPatient:patient];
+            [adultFemalePatientView setLocked:locked];
             [self fadeSubview:adultFemalePatientView];
         }
     }
