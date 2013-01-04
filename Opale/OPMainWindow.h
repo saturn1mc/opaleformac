@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import <Quartz/Quartz.h>
 
-@class OPView, OPPatient, OPConsultation, OPLetter, OPDocument, OPPatientsView, OPCalendarView, OPAdultMalePatientView, OPAdultFemalePatientView, OPBabyPatientView, OPAdultChildConsultationView, OPProfessionalSearchView, OPScanningView;
+@class OPView, OPPatient, OPConsultation, OPMail, OPDocument, OPPatientsView, OPCalendarView, OPAdultMalePatientView, OPAdultFemalePatientView, OPBabyPatientView, OPAdultChildConsultationView, OPProfessionalSearchView, OPScanningView;
 
 @interface OPMainWindow : NSWindow {
     
@@ -58,10 +58,10 @@
 @property (nonatomic, retain) IBOutlet OPScanningView* scanningView;
 
 -(NSURL*)directoryFor:(OPPatient*)patient;
--(NSURL*)letterDirectoryFor:(OPPatient*)patient;
+-(NSURL*)mailDirectoryFor:(OPPatient*)patient;
 -(NSURL*)documentDirectoryFor:(OPPatient*)patient;
 
--(void)openLetter:(OPLetter*)letter;
+-(void)openMail:(OPMail*)mail;
 -(void)openDocument:(OPDocument*)document;
 
 -(IBAction)showHomeView:(id)sender;

@@ -20,7 +20,10 @@
     IBOutlet NSTableColumn* colLastName;
     IBOutlet NSTableColumn* colTel1;
     IBOutlet NSTableColumn* colTel2;
-    IBOutlet NSTableColumn* colLastVisit;
+    IBOutlet NSTableColumn* colAddress;
+    IBOutlet NSTableColumn* colTown;
+    IBOutlet NSTableColumn* colPostalCode;
+    IBOutlet NSTableColumn* colCountry;
     
     IBOutlet NSTableView* resultsTable;
 }
@@ -31,12 +34,18 @@
 @property (nonatomic, retain) IBOutlet NSFormCell* cellLastName;
 @property (nonatomic, retain) IBOutlet NSFormCell* cellTel;
 @property (nonatomic, retain) IBOutlet NSFormCell* cellAddress;
+@property (nonatomic, retain) IBOutlet NSFormCell* cellTown;
+@property (nonatomic, retain) IBOutlet NSFormCell* cellPostalCode;
+@property (nonatomic, retain) IBOutlet NSFormCell* cellCountry;
 
 @property (nonatomic, retain) IBOutlet NSTableColumn* colFirstName;
 @property (nonatomic, retain) IBOutlet NSTableColumn* colLastName;
 @property (nonatomic, retain) IBOutlet NSTableColumn* colTel1;
 @property (nonatomic, retain) IBOutlet NSTableColumn* colTel2;
-@property (nonatomic, retain) IBOutlet NSTableColumn* colLastVisit;
+@property (nonatomic, retain) IBOutlet NSTableColumn* colAddress;
+@property (nonatomic, retain) IBOutlet NSTableColumn* colTown;
+@property (nonatomic, retain) IBOutlet NSTableColumn* colPostalCode;
+@property (nonatomic, retain) IBOutlet NSTableColumn* colCountry;
 
 @property (nonatomic, retain) IBOutlet NSTableView* resultsTable;
 

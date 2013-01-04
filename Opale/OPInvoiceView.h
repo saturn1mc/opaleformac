@@ -1,5 +1,5 @@
 //
-//  OPBillView.h
+//  OPInvoiceView.h
 //  Opale
 //
 //  Created by Camille on 30/12/12.
@@ -8,7 +8,7 @@
 
 #import "OPView.h"
 
-@interface OPBillView : OPView{
+@interface OPInvoiceView : OPView{
     IBOutlet NSTextField* headerTextField;
     IBOutlet NSTextField* bodyTextField;
     

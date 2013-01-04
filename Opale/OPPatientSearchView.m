@@ -13,19 +13,12 @@
 
 @implementation OPPatientSearchView
 
-@synthesize searchResults, cellFirstName, cellLastName, cellTel, cellAddress, colFirstName, colLastName, colTel1, colTel2, colLastVisit, resultsTable;
+@synthesize searchResults, cellFirstName, cellLastName, cellTel, cellAddress, cellTown, cellPostalCode, cellCountry, colFirstName, colLastName, colTel1, colTel2,  colAddress, colTown, colPostalCode, colCountry, resultsTable;
 
 - (void)awakeFromNib{
     
     [resultsTable setDoubleAction:@selector(selectPatient:)];
-    
     searchResults = [[NSMutableArray alloc] init];
-    
-    [colFirstName setIdentifier:@"firstName"];
-    [colLastName setIdentifier:@"lastName"];
-    [colTel1 setIdentifier:@"tel1"];
-    [colTel2 setIdentifier:@"tel2"];
-    [colLastVisit setIdentifier:@"lastVisit"];
 }
 
 -(IBAction)searchPatients:(id)sender{
@@ -71,6 +64,33 @@
         predicateFormat = [predicateFormat stringByAppendingFormat:@"(address LIKE[c] '%@')", cellAddress.stringValue];
     }
     
+    if([[cellTown stringValue] length] > 0){
+        
+        if([predicateFormat length] > 0){
+            predicateFormat = [predicateFormat stringByAppendingString:@" AND "];
+        }
+        
+        predicateFormat = [predicateFormat stringByAppendingFormat:@"(town LIKE[c] '%@')", cellTown.stringValue];
+    }
+    
+    if([[cellPostalCode stringValue] length] > 0){
+        
+        if([predicateFormat length] > 0){
+            predicateFormat = [predicateFormat stringByAppendingString:@" AND "];
+        }
+        
+        predicateFormat = [predicateFormat stringByAppendingFormat:@"(postalCode LIKE[c] '%@')", cellPostalCode.stringValue];
+    }
+    
+    if([[cellCountry stringValue] length] > 0){
+        
+        if([predicateFormat length] > 0){
+            predicateFormat = [predicateFormat stringByAppendingString:@" AND "];
+        }
+        
+        predicateFormat = [predicateFormat stringByAppendingFormat:@"(country LIKE[c] '%@')", cellCountry.stringValue];
+    }
+    
     if([predicateFormat length] > 0){
         NSPredicate *predicate = [NSPredicate predicateWithFormat:predicateFormat];
         [request setPredicate:predicate];
@@ -84,7 +104,7 @@
     
     if (array == nil)
     {
-        // TODO deal with error...
+        // TODO deal with error
     }
     else{
         [searchResults addObjectsFromArray:array];
@@ -118,11 +138,29 @@
     
     NSString* value = nil;
     
-    if(![tableColumn.identifier isEqualToString:@"lastVisit"]){
-        value = [patient valueForKey:tableColumn.identifier];
+    if(tableColumn == colFirstName){
+        return value = [[NSString alloc] initWithString:patient.firstName];
     }
-    else{
-        value = @"TODO"; //TODO
+    else if(tableColumn == colLastName){
+        return value = [[NSString alloc] initWithString:patient.lastName];
+    }
+    else if(tableColumn == colTel1){
+        return value = [[NSString alloc] initWithString:patient.tel1];
+    }
+    else if(tableColumn == colTel2){
+        return value = [[NSString alloc] initWithString:patient.tel2];
+    }
+    else if(tableColumn == colAddress){
+        return value = [[NSString alloc] initWithString:patient.address];
+    }
+    else if(tableColumn == colTown){
+        return value = [[NSString alloc] initWithString:patient.town];
+    }
+    else if(tableColumn == colPostalCode){
+        return value = [[NSString alloc] initWithString:patient.postalCode];
+    }
+    else if(tableColumn == colCountry){
+        return value = [[NSString alloc] initWithString:patient.country];
     }
     
     return value;

@@ -7,26 +7,15 @@
 //
 
 #import "OPMainWindow.h"
-#import "OPBillingPanel.h"
+#import "OPInvoicePanel.h"
 #import "OPAdultChildConsultationView.h"
 #import "OPPatient.h"
 #import "OPConsultation.h"
-#import "OPLetter.h"
+#import "OPInvoice.h"
 
 @implementation OPAdultChildConsultationView
 
-@synthesize billingPanel, consultation, consultationDate, textTests, textTreatments, textAdvises, lettersTable, colLetterName, colLetterFilePath, motivesTable, colMotiveLabel;
-
-- (void)awakeFromNib{
-    [lettersTable setDoubleAction:@selector(openLetter:)];
-    
-    [lettersTable setIdentifier:@"letters"];
-    [colLetterName setIdentifier:@"name"];
-    [colLetterFilePath setIdentifier:@"path"];
-    
-    [motivesTable setIdentifier:@"motives"];
-    [colMotiveLabel setIdentifier:@"label"];
-}
+@synthesize invoicePanel, consultation, consultationDate, textTests, textTreatments, textAdvises, textMotives;
 
 -(void)loadConsultation:(OPConsultation *)nConsultation{
     
@@ -55,8 +44,8 @@
         [textAdvises setString:@""];
     }
     
-    [billingPanel setConsultation:consultation];
-    [[billingPanel payer] setStringValue:[NSString stringWithFormat:@"%@ %@", consultation.patient.firstName, consultation.patient.lastName]];
+    [invoicePanel setConsultation:consultation];
+    [[invoicePanel payer] setStringValue:[NSString stringWithFormat:@"%@ %@", consultation.patient.firstName, consultation.patient.lastName]];
 }
 
 #pragma mark - Actions
@@ -71,80 +60,13 @@
     [self saveAction];
 }
 
--(IBAction)createNewLetter:(id)sender{
-    NSSavePanel* savePanel = [NSSavePanel savePanel];
-    [savePanel setTitle:@"Enregistrer la lettre sous"];
-    
-    NSArray* allowedFileTypes = [[NSArray alloc] initWithObjects:@"docx", nil];
-    [savePanel setAllowedFileTypes:allowedFileTypes];
-    [savePanel setDirectoryURL:[parent letterDirectoryFor:[consultation patient]]];
-    
-    switch ([savePanel runModal]) {
-        case NSFileHandlingPanelOKButton:
-        {
-            NSString* targetPath = [[savePanel URL] path];
-            NSString* templatePath = [[NSBundle mainBundle] pathForResource:@"Letter_Template" ofType:@"docx"];
-            [[NSFileManager defaultManager] copyItemAtPath:templatePath toPath:targetPath error:nil];
-            
-            OPLetter* nLetter = [NSEntityDescription insertNewObjectForEntityForName:@"Letter" inManagedObjectContext:[self managedObjectContext]];
-            nLetter.consultation = consultation;
-            nLetter.filePath = [[NSString alloc] initWithString:targetPath];
-            
-            [self saveAction];
-            
-            [lettersTable reloadData];
-            [parent openLetter:nLetter];
-            
-            break;
-        }
-            
-        default:
-            break;
-    }
+-(IBAction)showInvoicePanel:(id)sender{
+    [NSApp beginSheet:invoicePanel modalForWindow:parent modalDelegate:self didEndSelector:nil contextInfo:nil];
 }
 
--(IBAction)openLetter:(id)sender{
-    OPLetter* letter = [[consultation.letters allObjects] objectAtIndex:lettersTable.clickedRow];
-    [parent openLetter:letter];
-}
-
--(IBAction)showBillingPanel:(id)sender{
-    [NSApp beginSheet:billingPanel modalForWindow:parent modalDelegate:self didEndSelector:nil contextInfo:nil];
-}
-
--(IBAction)closeBillingPanel:(id)sender{
-    [NSApp endSheet:billingPanel];
-    [billingPanel orderOut:sender];
-}
-
-#pragma mark - Result table content management
-
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
-{
-    NSInteger count=0;
-    
-    if (consultation.letters){
-        count = [consultation.letters count];
-    }
-    
-    return count;
-}
-
--(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
-    
-    OPLetter* letter = (OPLetter*)[[consultation.letters allObjects]objectAtIndex:row];
-    NSURL* letterURL = [NSURL fileURLWithPath:letter.filePath];
-    
-    NSString* value = nil;
-    
-    if([tableColumn.identifier isEqualToString:colLetterName.identifier]){
-        value = [[letterURL lastPathComponent] stringByDeletingPathExtension];
-    }
-    else if([tableColumn.identifier isEqualToString:colLetterFilePath.identifier]){
-        value = [letterURL path];
-    }
-    
-    return value;
+-(IBAction)closeInvoicePanel:(id)sender{
+    [NSApp endSheet:invoicePanel];
+    [invoicePanel orderOut:sender];
 }
 
 @end

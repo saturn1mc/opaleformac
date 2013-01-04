@@ -21,6 +21,9 @@
     IBOutlet NSFormCell* cellTel1;
     IBOutlet NSFormCell* cellTel2;
     IBOutlet NSFormCell* cellAddress;
+    IBOutlet NSFormCell* cellTown;
+    IBOutlet NSFormCell* cellPostalCode;
+    IBOutlet NSFormCell* cellCountry;
     
     IBOutlet NSTableView* consultationHistoryTable;
     
@@ -30,6 +33,10 @@
     IBOutlet NSTableView* documentsTable;
     IBOutlet NSTableColumn* colDocumentTitle;
     IBOutlet NSTableColumn* colDocumentFilePath;
+    
+    IBOutlet NSTableView* mailsTable;
+    IBOutlet NSTableColumn* colMailName;
+    IBOutlet NSTableColumn* colMailFilePath;
 }
 
 @property (nonatomic, retain) OPPatient* patient;
@@ -42,6 +49,9 @@
 @property (nonatomic, retain) IBOutlet NSFormCell*  cellTel1;
 @property (nonatomic, retain) IBOutlet NSFormCell*  cellTel2;
 @property (nonatomic, retain) IBOutlet NSFormCell*  cellAddress;
+@property (nonatomic, retain) IBOutlet NSFormCell*  cellTown;
+@property (nonatomic, retain) IBOutlet NSFormCell*  cellPostalCode;
+@property (nonatomic, retain) IBOutlet NSFormCell*  cellCountry;
 
 @property (nonatomic, retain) IBOutlet NSTableView* consultationHistoryTable;
 @property (nonatomic, retain) IBOutlet NSTableColumn* colDate;
@@ -51,6 +61,10 @@
 @property (nonatomic, retain) IBOutlet NSTableColumn* colDocumentTitle;
 @property (nonatomic, retain) IBOutlet NSTableColumn* colDocumentFilePath;
 
+@property (nonatomic, retain) IBOutlet NSTableView* mailsTable;
+@property (nonatomic, retain) IBOutlet NSTableColumn* colMailName;
+@property (nonatomic, retain) IBOutlet NSTableColumn* colMailFilePath;
+
 
 -(void)loadPatient:(OPPatient*)patientToLoad;
 -(IBAction)savePatient:(id)sender;
@@ -59,5 +73,7 @@
 -(void)sortConsultations;
 -(IBAction)newConsultation:(id)sender;
 -(IBAction)showConsultation:(id)sender;
+-(IBAction)createNewMail:(id)sender;
+-(IBAction)openMail:(id)sender;
 
 @end

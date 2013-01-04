@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import <AddressBook/AddressBook.h>
+
 #import "OPView.h"
 
 @class OPAdultMalePatientView;
@@ -18,6 +20,9 @@
     IBOutlet NSFormCell*    cellTel1;
     IBOutlet NSFormCell*    cellTel2;
     IBOutlet NSFormCell*    cellAddress;
+    IBOutlet NSFormCell*    cellTown;
+    IBOutlet NSFormCell*    cellPostalCode;
+    IBOutlet NSFormCell*    cellCountry;
 }
 
 @property (nonatomic, retain) IBOutlet NSFormCell*      cellFirstName;
@@ -27,6 +32,9 @@
 @property (nonatomic, retain) IBOutlet NSFormCell*      cellTel1;
 @property (nonatomic, retain) IBOutlet NSFormCell*      cellTel2;
 @property (nonatomic, retain) IBOutlet NSFormCell*      cellAddress;
+@property (nonatomic, retain) IBOutlet NSFormCell*      cellTown;
+@property (nonatomic, retain) IBOutlet NSFormCell*      cellPostalCode;
+@property (nonatomic, retain) IBOutlet NSFormCell*      cellCountry;
 
 -(IBAction)validatePatient:(id)sender;
 

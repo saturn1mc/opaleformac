@@ -13,7 +13,7 @@
 
 @implementation OPNewPatientView
 
-@synthesize cellFirstName, cellLastName, birthdayPicker, matrixSex, cellTel1, cellTel2, cellAddress;
+@synthesize cellFirstName, cellLastName, birthdayPicker, matrixSex, cellTel1, cellTel2, cellAddress, cellTown, cellPostalCode, cellCountry;
 
 -(IBAction)validatePatient:(id)sender{
 
@@ -35,6 +35,9 @@
     nPatient.birthday = [birthdayPicker dateValue];
     nPatient.sex = sex; 
     nPatient.address = [cellAddress stringValue];
+    nPatient.town = [cellTown stringValue];
+    nPatient.postalCode = [cellPostalCode stringValue];
+    nPatient.country = [cellCountry stringValue];
     nPatient.tel1 = [cellTel1 stringValue];
     nPatient.tel2 = [cellTel2 stringValue];
     

@@ -12,10 +12,11 @@
 #import "OPPatient.h"
 #import "OPConsultation.h"
 #import "OPDocument.h"
+#import "OPMail.h"
 
 @implementation OPExistingPatientView
 
-@synthesize patient, sortedConsultations, cellFirstName, cellLastName, cellBirthday, cellSex, cellTel1, cellTel2, cellAddress, consultationHistoryTable, colDate, colMotives, documentsTable, colDocumentTitle, colDocumentFilePath;
+@synthesize patient, sortedConsultations, cellFirstName, cellLastName, cellBirthday, cellSex, cellTel1, cellTel2, cellAddress, cellTown, cellPostalCode, cellCountry, consultationHistoryTable, colDate, colMotives, documentsTable, colDocumentTitle, colDocumentFilePath, mailsTable, colMailName, colMailFilePath;
 
 - (void)awakeFromNib{
     
@@ -27,6 +28,10 @@
     [documentsTable setDoubleAction:@selector(openDocument:)];
     [colDocumentTitle setIdentifier:@"title"];
     [colDocumentFilePath setIdentifier:@"docPath"];
+    
+    [mailsTable setDoubleAction:@selector(openLetter:)];
+    [colMailName setIdentifier:@"name"];
+    [colMailFilePath setIdentifier:@"path"];
 }
 
 -(void)loadPatient:(OPPatient*)patientToLoad{
@@ -50,6 +55,9 @@
     [cellTel1 setStringValue:[[NSString alloc] initWithString:patient.tel1]];
     [cellTel2 setStringValue:[[NSString alloc] initWithString:patient.tel2]];
     [cellAddress setStringValue:[[NSString alloc] initWithString:patient.address]];
+    [cellTown setStringValue:[[NSString alloc] initWithString:patient.town]];
+    [cellPostalCode setStringValue:[[NSString alloc] initWithString:patient.postalCode]];
+    [cellCountry setStringValue:[[NSString alloc] initWithString:patient.country]];
     
     [self sortConsultations];
 }
@@ -108,6 +116,45 @@
     [parent showConsultationViewFor:consultation];
 }
 
+#pragma mark - Mails
+
+-(IBAction)createNewMail:(id)sender{
+    NSSavePanel* savePanel = [NSSavePanel savePanel];
+    [savePanel setTitle:@"Enregistrer la lettre sous"];
+    
+    NSArray* allowedFileTypes = [[NSArray alloc] initWithObjects:@"docx", nil];
+    [savePanel setAllowedFileTypes:allowedFileTypes];
+    [savePanel setDirectoryURL:[parent mailDirectoryFor:patient]];
+    
+    switch ([savePanel runModal]) {
+        case NSFileHandlingPanelOKButton:
+        {
+            NSString* targetPath = [[savePanel URL] path];
+            NSString* templatePath = [[NSBundle mainBundle] pathForResource:@"Mail_Template" ofType:@"docx"];
+            [[NSFileManager defaultManager] copyItemAtPath:templatePath toPath:targetPath error:nil];
+            
+            OPMail* nMail = [NSEntityDescription insertNewObjectForEntityForName:@"Mail" inManagedObjectContext:[self managedObjectContext]];
+            nMail.patient = patient;
+            nMail.filePath = [[NSString alloc] initWithString:targetPath];
+            
+            [self saveAction];
+            
+            [mailsTable reloadData];
+            [parent openMail:nMail];
+            
+            break;
+        }
+            
+        default:
+            break;
+    }
+}
+
+-(IBAction)openMail:(id)sender{
+    OPMail* mail = [[patient.mails allObjects] objectAtIndex:mailsTable.clickedRow];
+    [parent openMail:mail];
+}
+
 #pragma mark - Result table content management
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
@@ -120,9 +167,10 @@
         }
     }
     else if(tableView == documentsTable){
-        if(documentsTable){
-            count = [[patient.documents allObjects] count];
-        }
+        count = [[patient.documents allObjects] count];
+    }
+    else if(tableView == mailsTable){
+        count = [patient.mails count];
     }
     
     return count;
@@ -131,8 +179,6 @@
 -(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
     
     NSString* value = [[NSString alloc] init];
-    
-    //TODO load motives summary
     
     if(tableView == consultationHistoryTable){
         
@@ -144,14 +190,7 @@
             value = [dateFormatter stringFromDate:consultation.date];
         }
         else if([[tableColumn identifier] isEqualToString:colMotives.identifier]){
-            NSString* testValue = consultation.tests;
-            
-            if(testValue){
-                value = consultation.tests;
-            }
-            else{
-                value = @"TODO";
-            }
+            value = [[NSString alloc] initWithString:consultation.motives];
         }
     }
     else if(tableView == documentsTable){
@@ -164,6 +203,19 @@
         }
         else if ([[tableColumn identifier] isEqualToString:colDocumentFilePath.identifier]){
             value = document.filePath;
+        }
+    }
+    else if(tableView == mailsTable){
+        OPMail* mail = (OPMail*)[[patient.mails allObjects]objectAtIndex:row];
+        NSURL* mailURL = [NSURL fileURLWithPath:mail.filePath];
+        
+        NSString* value = nil;
+        
+        if([tableColumn.identifier isEqualToString:colMailName.identifier]){
+            value = [[mailURL lastPathComponent] stringByDeletingPathExtension];
+        }
+        else if([tableColumn.identifier isEqualToString:colMailFilePath.identifier]){
+            value = [mailURL path];
         }
     }
     

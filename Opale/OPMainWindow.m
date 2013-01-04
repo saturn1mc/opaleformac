@@ -10,7 +10,7 @@
 
 #import "OPPatient.h"
 #import "OPConsultation.h"
-#import "OPLetter.h"
+#import "OPMail.h"
 #import "OPDocument.h"
 
 #import "OPMainWindow.h"
@@ -61,12 +61,12 @@ static const NSInteger childAgeLimit = 17;
     return patientDirectory;
 }
 
--(NSURL*)letterDirectoryFor:(OPPatient*)patient{
+-(NSURL*)mailDirectoryFor:(OPPatient*)patient{
     NSURL* patientDirectory = [self directoryFor:patient];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
-    NSURL* documentDirectory = [patientDirectory URLByAppendingPathComponent:@"letters"];
+    NSURL* documentDirectory = [patientDirectory URLByAppendingPathComponent:@"mails"];
     
     BOOL isDir = NO;
     
@@ -93,8 +93,8 @@ static const NSInteger childAgeLimit = 17;
     return documentDirectory;
 }
 
--(void)openLetter:(OPLetter *)letter{
-    [[NSWorkspace sharedWorkspace] openFile:[letter filePath] withApplication:@"Microsoft Word.app"];
+-(void)openMail:(OPMail *)mail{
+    [[NSWorkspace sharedWorkspace] openFile:[mail filePath] withApplication:@"Microsoft Word.app"];
 }
 
 -(void)openDocument:(OPDocument *)document{

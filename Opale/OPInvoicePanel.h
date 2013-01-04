@@ -1,5 +1,5 @@
 //
-//  OPBillingPanel.h
+//  OPInvoicePanel.h
 //  Opale
 //
 //  Created by Camille on 30/12/12.
@@ -10,9 +10,9 @@
 #import <Quartz/Quartz.h>
 #import <AppKit/AppKit.h>
 
-@class OPMainWindow, OPConsultation, OPBillView;
+@class OPMainWindow, OPConsultation, OPInvoiceView;
 
-@interface OPBillingPanel : NSPanel{
+@interface OPInvoicePanel : NSPanel{
     IBOutlet OPMainWindow* parent;
     OPConsultation* consultation;
     
@@ -22,7 +22,7 @@
     IBOutlet NSTextField* payer;
     IBOutlet NSComboBox* paymentMethod;
     
-    IBOutlet OPBillView* billView;
+    IBOutlet OPInvoiceView* invoiceView;
 }
 
 @property (nonatomic, retain) IBOutlet OPMainWindow* parent;
@@ -34,9 +34,9 @@
 @property (nonatomic, retain) IBOutlet NSTextField* payer;
 @property (nonatomic, retain) IBOutlet NSComboBox* paymentMethod;
 
-@property (nonatomic, retain) IBOutlet OPBillView* billView;
+@property (nonatomic, retain) IBOutlet OPInvoiceView* invoiceView;
 
-- (IBAction)printBill:(id)sender;
+- (IBAction)printInvoice:(id)sender;
 - (void)printOperationDidRun:(NSPrintOperation *)printOperation success:(BOOL)success contextInfo:(void *)contextInfo;
 
 @end

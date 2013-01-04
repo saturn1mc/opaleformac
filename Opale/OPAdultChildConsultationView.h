@@ -8,48 +8,34 @@
 
 #import "OPView.h"
 
-@class OPBillingPanel, OPConsultation;
+@class OPInvoicePanel, OPConsultation;
 
-@interface OPAdultChildConsultationView : OPView <NSTableViewDelegate, NSTableViewDataSource>{
+@interface OPAdultChildConsultationView : OPView{
     OPConsultation* consultation;
     
     IBOutlet NSDatePicker* consultationDate;
+    IBOutlet NSTextView* textMotives;
     IBOutlet NSTextView* textTests;
     IBOutlet NSTextView* textTreatments;
     IBOutlet NSTextView* textAdvises;
     
-    IBOutlet NSTableView* lettersTable;
-    IBOutlet NSTableColumn* colLetterName;
-    IBOutlet NSTableColumn* colLetterFilePath;
-    
-    IBOutlet NSTableView* motivesTable;
-    IBOutlet NSTableColumn* colMotiveLabel;
-    
-    IBOutlet OPBillingPanel* billingPanel;
+    IBOutlet OPInvoicePanel* invoicePanel;
 }
 
-@property (nonatomic, retain) OPBillingPanel* billingPanel;
+@property (nonatomic, retain) OPInvoicePanel* invoicePanel;
 @property (nonatomic, retain) OPConsultation* consultation;
 
 @property (nonatomic, retain) IBOutlet NSDatePicker*  consultationDate;
+@property (nonatomic, retain) IBOutlet NSTextView*    textMotives;
 @property (nonatomic, retain) IBOutlet NSTextView*    textTests;
 @property (nonatomic, retain) IBOutlet NSTextView*    textTreatments;
 @property (nonatomic, retain) IBOutlet NSTextView*    textAdvises;
 
-@property (nonatomic, retain) IBOutlet NSTableView* lettersTable;
-@property (nonatomic, retain) IBOutlet NSTableColumn* colLetterName;
-@property (nonatomic, retain) IBOutlet NSTableColumn* colLetterFilePath;
-
-@property (nonatomic, retain) IBOutlet NSTableView* motivesTable;
-@property (nonatomic, retain) IBOutlet NSTableColumn* colMotiveLabel;
 
 -(void)loadConsultation:(OPConsultation *)nConsultation;
 -(IBAction)saveConsultation:(id)sender;
 
--(IBAction)createNewLetter:(id)sender;
--(IBAction)openLetter:(id)sender;
-
--(IBAction)showBillingPanel:(id)sender;
--(IBAction)closeBillingPanel:(id)sender;
+-(IBAction)showInvoicePanel:(id)sender;
+-(IBAction)closeInvoicePanel:(id)sender;
 
 @end

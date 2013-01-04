@@ -1,14 +1,14 @@
 //
-//  OPBillView.m
+//  OPInvoiceView.m
 //  Opale
 //
 //  Created by Camille on 30/12/12.
 //
 //
 
-#import "OPBillView.h"
+#import "OPInvoiceView.h"
 
-@implementation OPBillView
+@implementation OPInvoiceView
 
 @synthesize headerTextField, bodyTextField, initialHeaderStr, initialBodyStr;
 
