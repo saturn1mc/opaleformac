@@ -115,7 +115,6 @@
 
 -(IBAction)switchLock:(id)sender;
 -(void)loadPatient:(OPPatient*)patientToLoad;
--(IBAction)savePatient:(id)sender;
 -(IBAction)scanDocument:(id)sender;
 -(IBAction)openDocument:(id)sender;
 -(void)sortConsultations;
@@ -123,5 +122,8 @@
 -(IBAction)showConsultation:(id)sender;
 -(IBAction)createNewMail:(id)sender;
 -(IBAction)openMail:(id)sender;
+
+-(void)applyModifications;
+-(IBAction)savePatient:(id)sender;
 
 @end

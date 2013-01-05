@@ -2,7 +2,7 @@
 //  OPPatient.m
 //  Opale
 //
-//  Created by Camille on 03/01/13.
+//  Created by Camille on 05/01/13.
 //
 //
 
@@ -24,6 +24,38 @@
 @dynamic tel1;
 @dynamic tel2;
 @dynamic town;
+@dynamic generalComments;
+@dynamic previousHistoryComments;
+@dynamic familyHistory;
+@dynamic medicalHistory;
+@dynamic surgicalHistory;
+@dynamic entAndOphtalmologicSphere;
+@dynamic dentalSphere;
+@dynamic digestiveSphere;
+@dynamic urinarySphere;
+@dynamic traumaticHistory;
+@dynamic gynecologicalHistory;
+@dynamic gynecologicalSphere;
+@dynamic termWeeks;
+@dynamic termDays;
+@dynamic birthPlace;
+@dynamic birthWeight;
+@dynamic birthHeight;
+@dynamic birthHC;
+@dynamic parity;
+@dynamic fatherJob;
+@dynamic motherJob;
+@dynamic careMode;
+@dynamic afterCare;
+@dynamic pregnancyAndBirthSphere;
+@dynamic feedingAndStoolSphere;
+@dynamic sleepSphere;
+@dynamic otherSphere;
+@dynamic job;
+@dynamic familyStatus;
+@dynamic extraActivity;
+@dynamic children;
+@dynamic addressedBy;
 @dynamic consultations;
 @dynamic documents;
 @dynamic mails;

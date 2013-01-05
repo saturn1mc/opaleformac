@@ -16,6 +16,7 @@
 @synthesize searchResults, cellFirstName, cellLastName, cellTel, cellAddress, cellTown, cellPostalCode, cellCountry, colFirstName, colLastName, colTel1, colTel2,  colAddress, colTown, colPostalCode, colCountry, resultsTable;
 
 - (void)awakeFromNib{
+    [super awakeFromNib];
     
     [resultsTable setDoubleAction:@selector(selectPatient:)];
     searchResults = [[NSMutableArray alloc] init];

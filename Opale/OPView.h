@@ -21,7 +21,6 @@
 @property (nonatomic, retain) OPView* nextView;
 @property (nonatomic, retain) OPView* previousView;
 
-
 -(NSManagedObjectContext *)managedObjectContext;
 
 -(void)saveAction;
@@ -29,5 +28,12 @@
 -(BOOL)quitView;
 -(BOOL)canGoToPreviousView;
 -(BOOL)canGoToNextView;
+
++(void)initFormCell:(NSFormCell*)formCell withString:(NSString*)value;
++(void)initTextField:(NSTextField*)textField withString:(NSString*)value;
++(void)initTextView:(NSTextView*)textView withString:(NSString*)value;
++(void)initFormCell:(NSFormCell*)formCell withDate:(NSDate*)date;
++(void)initTextField:(NSTextField*)textField withDate:(NSDate*)date;
++(void)initTextView:(NSTextView*)textView withDate:(NSDate*)date;
 
 @end

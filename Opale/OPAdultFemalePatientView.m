@@ -7,9 +7,24 @@
 //
 
 #import "OPAdultFemalePatientView.h"
+#import "OPPatient.h"
 
 @implementation OPAdultFemalePatientView
 
-@synthesize gynecologicalHistory;
+@synthesize gynecologicalHistory, gynecologicalSphere;
+
+-(void)loadPatient:(OPPatient *)patientToLoad{
+    [super loadPatient:patientToLoad];
+    
+    [OPView initTextView:gynecologicalHistory withString:patient.gynecologicalHistory];
+    [OPView initTextView:gynecologicalSphere withString:patient.gynecologicalSphere];
+}
+
+-(void)applyModifications{
+    [super applyModifications];
+    
+    patient.gynecologicalHistory = [[NSString alloc] initWithString:[gynecologicalHistory string]];
+    patient.gynecologicalSphere = [[NSString alloc] initWithString:[gynecologicalSphere string]];
+}
 
 @end

@@ -44,4 +44,83 @@
     return ([self quitView] && nextView != nil);
 }
 
++(void)initFormCell:(NSFormCell*)formCell withString:(NSString*)value{
+    if(value){
+        [formCell setStringValue:[NSString stringWithString:value]];
+    }
+    else{
+        [formCell setStringValue:@""];
+    }
+}
+
++(void)initTextField:(NSTextField*)textField withString:(NSString*)value{
+    if(value){
+        [textField setStringValue:[NSString stringWithString:value]];
+    }
+    else{
+        [textField setStringValue:@""];
+    }
+}
+
++(void)initTextView:(NSTextView*)textView withString:(NSString*)value{
+    if(value){
+        [textView setString:[NSString stringWithString:value]];
+    }
+    else{
+        [textView setString:@""];
+    }
+}
+
++(void)initFormCell:(NSFormCell*)formCell withDate:(NSDate*)date{
+    if(date){
+        NSLocale* frLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"fr_FR"];
+        
+        NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+        [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+        [dateFormatter setDateFormat:@"dd/MM/yyyy"];
+        [dateFormatter setLocale:frLocale];
+        [formCell setStringValue: [dateFormatter stringFromDate:date]];
+    }
+    else{
+        [formCell setStringValue:@""];
+    }
+}
+
++(void)initTextField:(NSTextField*)textField withDate:(NSDate*)date{
+    if(date){
+        NSLocale* frLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"fr_FR"];
+        
+        NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+        [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+        [dateFormatter setDateFormat:@"dd/MM/yyyy"];
+        [dateFormatter setLocale:frLocale];
+        
+        [textField setStringValue: [dateFormatter stringFromDate:date]];
+    }
+    else{
+        [textField setStringValue:@""];
+    }
+
+}
+
++(void)initTextView:(NSTextView*)textView withDate:(NSDate*)date{
+    if(date){
+        NSLocale* frLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"fr_FR"];
+        
+        NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+        [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+        [dateFormatter setDateFormat:@"dd/MM/yyyy"];
+        [dateFormatter setLocale:frLocale];
+        
+        [textView setString: [dateFormatter stringFromDate:date]];
+    }
+    else{
+        [textView setString:@""];
+    }
+
+}
+
 @end

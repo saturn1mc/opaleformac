@@ -23,8 +23,6 @@
 - (void)awakeFromNib{
     editableObjects = [[NSMutableArray alloc] init];
     
-    //TODO add editable/lockable objects to list
-    
     [consultationHistoryTable setDoubleAction:@selector(showConsultation:)];
     sortedConsultations = [[NSMutableArray alloc] init];
     [colDate setIdentifier:@"date"];
@@ -86,39 +84,39 @@
 -(void)loadPatient:(OPPatient*)patientToLoad{
     
     patient = patientToLoad;
+    [OPView initTextField:addressedByBox withString:patient.addressedBy];
     
-    [cellFirstName setStringValue:[[NSString alloc] initWithString:patient.firstName]];
-    [cellLastName setStringValue:[[NSString alloc] initWithString:patient.lastName]];
+    //General tab
+    [OPView initFormCell:cellFirstName withString:patient.firstName];
+    [OPView initFormCell:cellLastName withString:patient.lastName];
+    [OPView initFormCell:cellBirthday withDate:patient.birthday];
+    [OPView initFormCell:cellSex withString:patient.sex];
+    [OPView initFormCell:cellTel1 withString:patient.tel1];
+    [OPView initFormCell:cellTel2 withString:patient.tel2];
+    [OPView initFormCell:cellAddress withString:patient.address];
+    [OPView initFormCell:cellTown withString:patient.town];
+    [OPView initFormCell:cellPostalCode withString:patient.postalCode];
+    [OPView initFormCell:cellCountry withString:patient.country];
     
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    [OPView initTextView:generalComments withString:patient.generalComments];
     
-    NSLocale *frLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"fr_FR"];
-    [dateFormatter setDateFormat:@"dd/MM/yyyy"];
-    [dateFormatter setLocale:frLocale];
+    //History tab
+    [OPView initTextView:previousHistoryComments withString:patient.generalComments];
+    [OPView initTextView:familyHistory withString:patient.familyHistory];
+    [OPView initTextView:medicalHistory withString:patient.medicalHistory];
+    [OPView initTextView:traumaticHistory withString:patient.traumaticHistory];
+    [OPView initTextView:surgicalHistory withString:patient.surgicalHistory];
     
-    [cellBirthday setStringValue: [dateFormatter stringFromDate:patient.birthday]];
-    
-    [cellSex setStringValue:[[NSString alloc] initWithString:patient.sex]];
-    [cellTel1 setStringValue:[[NSString alloc] initWithString:patient.tel1]];
-    [cellTel2 setStringValue:[[NSString alloc] initWithString:patient.tel2]];
-    [cellAddress setStringValue:[[NSString alloc] initWithString:patient.address]];
-    [cellTown setStringValue:[[NSString alloc] initWithString:patient.town]];
-    [cellPostalCode setStringValue:[[NSString alloc] initWithString:patient.postalCode]];
-    [cellCountry setStringValue:[[NSString alloc] initWithString:patient.country]];
+    //Sphere tab
+    [OPView initTextView:entAndOphtalmologicSphere withString:patient.entAndOphtalmologicSphere];
+    [OPView initTextView:dentalSphere withString:patient.dentalSphere];
+    [OPView initTextView:digestiveSphere withString:patient.digestiveSphere];
+    [OPView initTextView:urinarySphere withString:patient.urinarySphere];
     
     [self sortConsultations];
 }
 
 #pragma mark - Actions
-
--(IBAction)savePatient:(id)sender{
-
-    //TODO apply modifications
-    [self saveAction];
-}
-
 -(IBAction)scanDocument:(id)sender{
     [[parent scanningView] setPatient:patient];
     [parent showScanningView:self];
@@ -127,6 +125,38 @@
 -(IBAction)openDocument:(id)sender{
     OPDocument* document = [[patient.documents allObjects] objectAtIndex:documentsTable.clickedRow];
     [parent openDocument:document];
+}
+
+-(void)applyModifications{
+    patient.addressedBy = [[NSString alloc] initWithString:[addressedByBox stringValue]];
+    patient.firstName = [[NSString alloc] initWithString:[cellFirstName stringValue]];
+    patient.lastName = [[NSString alloc] initWithString:[cellLastName stringValue]];
+    
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    patient.birthday = [dateFormatter dateFromString:[cellBirthday stringValue]];
+    
+    patient.sex = [[NSString alloc] initWithString:[cellSex stringValue]];
+    patient.tel1 = [[NSString alloc] initWithString:[cellTel1 stringValue]];
+    patient.tel2 = [[NSString alloc] initWithString:[cellTel2 stringValue]];
+    patient.address = [[NSString alloc] initWithString:[cellAddress stringValue]];
+    patient.town = [[NSString alloc] initWithString:[cellTown stringValue]];
+    patient.postalCode = [[NSString alloc] initWithString:[cellPostalCode stringValue]];
+    patient.country = [[NSString alloc] initWithString:[cellCountry stringValue]];
+    patient.generalComments = [[NSString alloc] initWithString:[generalComments string]];
+    patient.previousHistoryComments = [[NSString alloc] initWithString:[previousHistoryComments string]];
+    patient.familyHistory = [[NSString alloc] initWithString:[familyHistory string]];
+    patient.medicalHistory = [[NSString alloc] initWithString:[medicalHistory string]];
+    patient.traumaticHistory = [[NSString alloc] initWithString:[traumaticHistory string]];
+    patient.surgicalHistory = [[NSString alloc] initWithString:[surgicalHistory string]];
+    patient.entAndOphtalmologicSphere = [[NSString alloc] initWithString:[entAndOphtalmologicSphere string]];
+    patient.dentalSphere = [[NSString alloc] initWithString:[dentalSphere string]];
+    patient.digestiveSphere = [[NSString alloc] initWithString:[digestiveSphere string]];
+    patient.urinarySphere = [[NSString alloc] initWithString:[urinarySphere string]];
+}
+
+-(IBAction)savePatient:(id)sender{
+    [self applyModifications];
+    [self saveAction];
 }
 
 #pragma mark - Consultations management
