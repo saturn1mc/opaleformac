@@ -33,6 +33,7 @@
 
 
 -(void)loadConsultation:(OPConsultation *)nConsultation;
+-(void)applyModifications;
 -(IBAction)saveConsultation:(id)sender;
 
 -(IBAction)showInvoicePanel:(id)sender;

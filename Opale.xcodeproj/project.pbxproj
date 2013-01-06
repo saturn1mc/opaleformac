@@ -38,13 +38,14 @@
 		916244BE166A7C210000D50A /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 916244BD166A7C210000D50A /* AddressBook.framework */; };
 		9166DDD316988E0D00583379 /* OPPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9166DDD216988E0D00583379 /* OPPatient.m */; };
 		9166DDD61698A3E500583379 /* OPGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9166DDD51698A3E400583379 /* OPGraphView.m */; };
+		9166DDD91698FF4800583379 /* OPBabyConsultationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9166DDD81698FF4700583379 /* OPBabyConsultationView.m */; };
+		9166DDDC1698FFCE00583379 /* OPConsultation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9166DDDB1698FFCE00583379 /* OPConsultation.m */; };
 		91680CD71690F7FA00A3C67E /* OPInvoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91680CD61690F7FA00A3C67E /* OPInvoiceView.m */; };
 		9171736E1535E2E100D1D702 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9171736D1535E2E100D1D702 /* libsqlite3.dylib */; };
 		9174A6901695F91E00575B69 /* OPDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 9174A68F1695F91E00575B69 /* OPDocument.m */; };
 		9174A6931695F91E00575B69 /* OPMail.m in Sources */ = {isa = PBXBuildFile; fileRef = 9174A6921695F91E00575B69 /* OPMail.m */; };
 		9174A6961695F91E00575B69 /* OPInvoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9174A6951695F91E00575B69 /* OPInvoice.m */; };
 		9174A69C1695F91E00575B69 /* OPProfessionnal.m in Sources */ = {isa = PBXBuildFile; fileRef = 9174A69B1695F91E00575B69 /* OPProfessionnal.m */; };
-		9174A6A21695FD4300575B69 /* OPConsultation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9174A6A11695FD4300575B69 /* OPConsultation.m */; };
 		9174A6A616960C8B00575B69 /* OPSexFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9174A6A516960C8B00575B69 /* OPSexFormatter.m */; };
 		91773DB7163B0C09000F8673 /* OPWeightGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91773DB6163B0C09000F8673 /* OPWeightGraphView.m */; };
 		91773DBA163B0C66000F8673 /* OPHCGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91773DB9163B0C66000F8673 /* OPHCGraphView.m */; };
@@ -152,6 +153,10 @@
 		9166DDD216988E0D00583379 /* OPPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPPatient.m; sourceTree = "<group>"; };
 		9166DDD41698A3E300583379 /* OPGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPGraphView.h; sourceTree = "<group>"; };
 		9166DDD51698A3E400583379 /* OPGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPGraphView.m; sourceTree = "<group>"; };
+		9166DDD71698FF4500583379 /* OPBabyConsultationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPBabyConsultationView.h; sourceTree = "<group>"; };
+		9166DDD81698FF4700583379 /* OPBabyConsultationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPBabyConsultationView.m; sourceTree = "<group>"; };
+		9166DDDA1698FFCE00583379 /* OPConsultation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPConsultation.h; sourceTree = "<group>"; };
+		9166DDDB1698FFCE00583379 /* OPConsultation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPConsultation.m; sourceTree = "<group>"; };
 		91680CD51690F7FA00A3C67E /* OPInvoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPInvoiceView.h; sourceTree = "<group>"; };
 		91680CD61690F7FA00A3C67E /* OPInvoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPInvoiceView.m; sourceTree = "<group>"; };
 		9171736D1535E2E100D1D702 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -164,8 +169,6 @@
 		9174A6951695F91E00575B69 /* OPInvoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPInvoice.m; sourceTree = "<group>"; };
 		9174A69A1695F91E00575B69 /* OPProfessionnal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPProfessionnal.h; sourceTree = "<group>"; };
 		9174A69B1695F91E00575B69 /* OPProfessionnal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPProfessionnal.m; sourceTree = "<group>"; };
-		9174A6A01695FD4300575B69 /* OPConsultation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPConsultation.h; sourceTree = "<group>"; };
-		9174A6A11695FD4300575B69 /* OPConsultation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPConsultation.m; sourceTree = "<group>"; };
 		9174A6A416960C8B00575B69 /* OPSexFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPSexFormatter.h; sourceTree = "<group>"; };
 		9174A6A516960C8B00575B69 /* OPSexFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPSexFormatter.m; sourceTree = "<group>"; };
 		91773DB5163B0C09000F8673 /* OPWeightGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPWeightGraphView.h; sourceTree = "<group>"; };
@@ -361,10 +364,6 @@
 				9157712215067B73009E2B73 /* OPAppDelegate.m */,
 				9157714615068769009E2B73 /* OPMainWindow.h */,
 				9157714715068769009E2B73 /* OPMainWindow.m */,
-				91959F931690A1B4008EF47E /* OPInvoicePanel.h */,
-				91959F941690A1B4008EF47E /* OPInvoicePanel.m */,
-				91680CD51690F7FA00A3C67E /* OPInvoiceView.h */,
-				91680CD61690F7FA00A3C67E /* OPInvoiceView.m */,
 				911F923F1508A05C00FD3B34 /* OPView.h */,
 				911F92401508A05C00FD3B34 /* OPView.m */,
 				91E7320B150E2D0300F74EBB /* OPPatientsView.h */,
@@ -379,14 +378,12 @@
 				91B128641598A4BB00AFC5B9 /* OPAdultMalePatientView.m */,
 				911E7F8215B4133000FC2A3F /* OPAdultFemalePatientView.h */,
 				911E7F8315B4133000FC2A3F /* OPAdultFemalePatientView.m */,
-				91773DBB163B11E2000F8673 /* OPBabyPatientView.h */,
-				91773DBC163B11E2000F8673 /* OPBabyPatientView.m */,
-				91595523166A923E0084D837 /* OPScanningView.h */,
-				91595524166A923E0084D837 /* OPScanningView.m */,
-				915CEF80150E3FE6007E6E6D /* OPCalendarView.h */,
-				915CEF81150E3FE6007E6E6D /* OPCalendarView.m */,
 				91CEF6F0159C618A001D5265 /* OPAdultChildConsultationView.h */,
 				91CEF6F1159C618A001D5265 /* OPAdultChildConsultationView.m */,
+				91773DBB163B11E2000F8673 /* OPBabyPatientView.h */,
+				91773DBC163B11E2000F8673 /* OPBabyPatientView.m */,
+				9166DDD71698FF4500583379 /* OPBabyConsultationView.h */,
+				9166DDD81698FF4700583379 /* OPBabyConsultationView.m */,
 				9166DDD41698A3E300583379 /* OPGraphView.h */,
 				9166DDD51698A3E400583379 /* OPGraphView.m */,
 				912C0ED516208D7D009A5090 /* OPHeightGraphView.h */,
@@ -395,6 +392,14 @@
 				91773DB6163B0C09000F8673 /* OPWeightGraphView.m */,
 				91773DB8163B0C66000F8673 /* OPHCGraphView.h */,
 				91773DB9163B0C66000F8673 /* OPHCGraphView.m */,
+				91959F931690A1B4008EF47E /* OPInvoicePanel.h */,
+				91959F941690A1B4008EF47E /* OPInvoicePanel.m */,
+				91680CD51690F7FA00A3C67E /* OPInvoiceView.h */,
+				91680CD61690F7FA00A3C67E /* OPInvoiceView.m */,
+				91595523166A923E0084D837 /* OPScanningView.h */,
+				91595524166A923E0084D837 /* OPScanningView.m */,
+				915CEF80150E3FE6007E6E6D /* OPCalendarView.h */,
+				915CEF81150E3FE6007E6E6D /* OPCalendarView.m */,
 				916244AB166A6FE30000D50A /* OPProfessionalSearchView.h */,
 				916244AC166A6FE30000D50A /* OPProfessionalSearchView.m */,
 			);
@@ -435,16 +440,16 @@
 				9157712715067B74009E2B73 /* Opale.xcdatamodeld */,
 				9166DDD116988E0D00583379 /* OPPatient.h */,
 				9166DDD216988E0D00583379 /* OPPatient.m */,
-				9174A6A01695FD4300575B69 /* OPConsultation.h */,
-				9174A6A11695FD4300575B69 /* OPConsultation.m */,
-				9174A69A1695F91E00575B69 /* OPProfessionnal.h */,
-				9174A69B1695F91E00575B69 /* OPProfessionnal.m */,
+				9166DDDA1698FFCE00583379 /* OPConsultation.h */,
+				9166DDDB1698FFCE00583379 /* OPConsultation.m */,
 				9174A6941695F91E00575B69 /* OPInvoice.h */,
 				9174A6951695F91E00575B69 /* OPInvoice.m */,
 				9174A6911695F91E00575B69 /* OPMail.h */,
 				9174A6921695F91E00575B69 /* OPMail.m */,
 				9174A68E1695F91E00575B69 /* OPDocument.h */,
 				9174A68F1695F91E00575B69 /* OPDocument.m */,
+				9174A69A1695F91E00575B69 /* OPProfessionnal.h */,
+				9174A69B1695F91E00575B69 /* OPProfessionnal.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -631,11 +636,12 @@
 				9174A6931695F91E00575B69 /* OPMail.m in Sources */,
 				9174A6961695F91E00575B69 /* OPInvoice.m in Sources */,
 				9174A69C1695F91E00575B69 /* OPProfessionnal.m in Sources */,
-				9174A6A21695FD4300575B69 /* OPConsultation.m in Sources */,
 				9174A6A616960C8B00575B69 /* OPSexFormatter.m in Sources */,
 				914594B816962C9E003016FF /* OPPhoneNumberFormatter.m in Sources */,
 				9166DDD316988E0D00583379 /* OPPatient.m in Sources */,
 				9166DDD61698A3E500583379 /* OPGraphView.m in Sources */,
+				9166DDD91698FF4800583379 /* OPBabyConsultationView.m in Sources */,
+				9166DDDC1698FFCE00583379 /* OPConsultation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

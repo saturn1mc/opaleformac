@@ -12,6 +12,7 @@
 
 @interface OPGraphView : CPTGraphHostingView <CPTPlotSpaceDelegate, CPTPlotDataSource>{
     OPPatient* patient;
+    NSArray* sortedConsultations;
     CPTScatterPlot* patientPlot;
     
     NSString* title;
@@ -36,6 +37,7 @@
 }
 
 @property (nonatomic, retain) OPPatient* patient;
+@property (nonatomic, retain) NSArray* sortedConsultations;
 @property (nonatomic, retain) CPTScatterPlot* patientPlot;
 @property (nonatomic, retain) NSString* title;
 @property (nonatomic, retain) NSMutableArray* plotNames;
@@ -53,6 +55,8 @@
 @property (nonatomic) NSInteger majorIncrement;
 @property (nonatomic) NSInteger minorIncrement;
 
+-(void)loadPatient:(OPPatient*)patientToLoad;
+-(void)sortConsultations;
 -(void)loadReferenceData:(NSString*)sourceFile;
 -(void)initIncrements;
 -(void)initReferencePlots;
@@ -61,6 +65,7 @@
 -(void)initAxis;
 -(void)initLegend;
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot;
+-(NSNumber*)birthNumberForPlot:(CPTPlot*)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index;
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index;
 -(NSNumber*)patientNumberForPlot:(CPTPlot*)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index;
 -(NSNumber*)referenceNumberForPlot:(CPTPlot*)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index;

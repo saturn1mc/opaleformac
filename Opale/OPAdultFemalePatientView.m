@@ -13,6 +13,13 @@
 
 @synthesize gynecologicalHistory, gynecologicalSphere;
 
+-(void)awakeFromNib{
+    [super awakeFromNib];
+    
+    [self addEditableObject:gynecologicalHistory];
+    [self addEditableObject:gynecologicalSphere];
+}
+
 -(void)loadPatient:(OPPatient *)patientToLoad{
     [super loadPatient:patientToLoad];
     

@@ -7,6 +7,8 @@
 //
 
 #import "OPHCGraphView.h"
+#import "OPPatient.h"
+#import "OPConsultation.h"
 
 @implementation OPHCGraphView
 
@@ -16,50 +18,55 @@
     [self loadReferenceData:@"avg_hc"];
 }
 
--(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index{
-    
-    if([plot.identifier isEqual:patientPlotId]){
-        if(fieldEnum == CPTScatterPlotFieldX){
-            return [NSDecimalNumber numberWithFloat:0];
+-(NSNumber*)birthNumberForPlot:(CPTPlot*)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index{
+    switch(fieldEnum){
+        case CPTScatterPlotFieldX:
+        {
+            return [NSDecimalNumber zero];
         }
-        else{
-            return [NSDecimalNumber numberWithFloat:0];
-        }
-        
-    }
-    else{ //Reference plots
-        switch(fieldEnum){
-            case CPTScatterPlotFieldX:
-            {
-                NSMutableDictionary* data = [plotData objectAtIndex:index];
-                NSString* strValue = [data objectForKey:[plotNames objectAtIndex:0]];
-                
-                if(strValue){
-                    return [NSDecimalNumber numberWithFloat:[strValue floatValue]];
-                }
-                
-                break;
+        case CPTScatterPlotFieldY:
+        {
+            if(patient.birthHC){
+                return [NSDecimalNumber numberWithInteger:[patient.birthHC integerValue]];
             }
-                
-            case CPTScatterPlotFieldY:
-            {
-                NSMutableDictionary* data = [plotData objectAtIndex:index];
-                NSString* strValue = [data objectForKey:plot.identifier];
-                
-                if(strValue){
-                    return [NSDecimalNumber numberWithFloat:[strValue floatValue]];
-                }
-                
-                break;
-            }
-                
-            default:
+            else{
                 return [NSDecimalNumber zero];
-                break;
+            }
         }
+            
+        default:
+            return [NSDecimalNumber zero];
+    }
+}
+
+-(NSNumber*)patientNumberForPlot:(CPTPlot*)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index{
+    
+    OPConsultation* consultation = (OPConsultation*)[sortedConsultations objectAtIndex:index - 1];
+    
+    switch(fieldEnum){
+        case CPTScatterPlotFieldX:
+        {
+            NSCalendar *sysCalendar = [NSCalendar currentCalendar];
+            unsigned int unitFlags = NSDayCalendarUnit;
+            
+            NSDateComponents *breakdownInfo = [sysCalendar components:unitFlags fromDate:patient.birthday  toDate:consultation.date options:0];
+            
+            return [NSDecimalNumber numberWithDouble:((double)breakdownInfo.day / 30.0)];
+        }
+        case CPTScatterPlotFieldY:
+        {
+            if(consultation.headCircumference){
+                return [NSDecimalNumber numberWithInteger:[consultation.headCircumference integerValue]];
+            }
+            else{
+                return [NSDecimalNumber zero];
+            }
+        }
+            
+        default:
+            return [NSDecimalNumber zero];
     }
     
-    return [NSDecimalNumber zero];
 }
 
 @end

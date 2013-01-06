@@ -17,6 +17,15 @@
 
 @synthesize cellAgeGeneral, cellAgeHealth, cellJob, cellFamilyStatus, cellExtraActivity, cellChildren;
 
+-(void)awakeFromNib{
+    [super awakeFromNib];
+    
+    [self addEditableObject:cellJob];
+    [self addEditableObject:cellFamilyStatus];
+    [self addEditableObject:cellExtraActivity];
+    [self addEditableObject:cellChildren];
+}
+
 -(void)loadPatient:(OPPatient*)patientToLoad{
     [super loadPatient:patientToLoad];
     

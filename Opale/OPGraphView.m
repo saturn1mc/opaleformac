@@ -8,12 +8,16 @@
 
 #import "OPGraphView.h"
 #import "OPPatient.h"
+#import "OPConsultation.h"
 
 @implementation OPGraphView
 
-@synthesize patient, patientPlot, title, plotNames, plotData, plotColors, plotLineStyles, graph, xMin, yMin, xMax, yMax, patientPlotId, defaultFont, titleFont, majorIncrement, minorIncrement;
+@synthesize patient, sortedConsultations, patientPlot, title, plotNames, plotData, plotColors, plotLineStyles, graph, xMin, yMin, xMax, yMax, patientPlotId, defaultFont, titleFont, majorIncrement, minorIncrement;
 
-- (void)awakeFromNib{  
+- (void)awakeFromNib{
+    
+    sortedConsultations = [[NSArray alloc] init];
+    
     plotColors = [NSMutableArray arrayWithObjects:[CPTColor purpleColor], [CPTColor blueColor], [CPTColor blueColor], [CPTColor purpleColor], nil];
     
     
@@ -32,6 +36,22 @@
     defaultFont = @"Helvetica";
     titleFont = @"Helvetica-Bold";
     title = @"Default title";
+}
+
+-(void)loadPatient:(OPPatient*)patientToLoad{
+    patient = patientToLoad;
+    [self sortConsultations];
+}
+
+-(void)sortConsultations{
+    NSArray* consultations = [patient.consultations allObjects];
+    
+    sortedConsultations = [consultations sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        OPConsultation* consultation1 = (OPConsultation*) obj1;
+        OPConsultation* consultation2 = (OPConsultation*) obj2;
+        
+        return [consultation1.date compare:consultation2.date];
+    }];
 }
 
 -(void)loadReferenceData:(NSString*)sourceFile{
@@ -310,6 +330,7 @@
 }
 
 #pragma mark - Delegate methods
+
 -(CPTLayer *)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)index {
     static CPTMutableTextStyle* labelTextStyle = nil;
     
@@ -335,20 +356,24 @@
 
 #pragma mark - Data source methods
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot{
+    
+    NSInteger count=0;
+    
     if([plot.identifier isEqual:patientPlotId]){
-        return [[patient.consultations allObjects] count] + 1;
+        count = [sortedConsultations count] + 1;
     }
     else{
-        return plotData.count;
+        count = plotData.count;
     }
+    
+    return count;
 }
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index{
     
     if([plot.identifier isEqual:patientPlotId]){
         if(index == 0){ //Birth point
-            //TODO load inputs
-            return [NSDecimalNumber zero];
+            return [self birthNumberForPlot:plot field:fieldEnum recordIndex:index];
         }
         else{ //Consultations
             return [self patientNumberForPlot:plot field:fieldEnum recordIndex:index];
@@ -359,6 +384,11 @@
         return [self referenceNumberForPlot:plot field:fieldEnum recordIndex:index];
     }
 }
+
+-(NSNumber*)birthNumberForPlot:(CPTPlot*)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index{
+    return [NSDecimalNumber zero];
+}
+
 
 -(NSNumber*)patientNumberForPlot:(CPTPlot*)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index{
     
@@ -379,8 +409,6 @@
             else{
                 return [NSDecimalNumber zero];
             }
-            
-            break;
         }
             
         case CPTScatterPlotFieldY:
@@ -394,13 +422,10 @@
             else{
                 return [NSDecimalNumber zero];
             }
-            
-            break;
         }
             
         default:
             return [NSDecimalNumber zero];
-            break;
     }
 }
 

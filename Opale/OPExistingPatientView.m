@@ -21,17 +21,43 @@
 @synthesize patient, sortedConsultations, editableObjects, switchLockButton, addressedByBox, cellFirstName, cellLastName, cellBirthday, cellSex, cellTel1, cellTel2, cellAddress, cellTown, cellPostalCode, cellCountry, generalComments, previousHistoryComments, familyHistory, medicalHistory,traumaticHistory, surgicalHistory, entAndOphtalmologicSphere, dentalSphere, digestiveSphere,urinarySphere, consultationHistoryTable, colDate, colMotives, documentsTable, colDocumentTitle, colDocumentFilePath, mailsTable, colMailName, colMailFilePath;
 
 - (void)awakeFromNib{
+    //Editable objects
     editableObjects = [[NSMutableArray alloc] init];
     
+    [self addEditableObject:addressedByBox];
+    [self addEditableObject:cellFirstName];
+    [self addEditableObject:cellLastName];
+    [self addEditableObject:cellBirthday];
+    [self addEditableObject:cellSex];
+    [self addEditableObject:cellTel1];
+    [self addEditableObject:cellTel2];
+    [self addEditableObject:cellAddress];
+    [self addEditableObject:cellTown];
+    [self addEditableObject:cellPostalCode];
+    [self addEditableObject:cellCountry];
+    [self addEditableObject:generalComments];
+    [self addEditableObject:previousHistoryComments];
+    [self addEditableObject:familyHistory];
+    [self addEditableObject:medicalHistory];
+    [self addEditableObject:traumaticHistory];
+    [self addEditableObject:surgicalHistory];
+    [self addEditableObject:entAndOphtalmologicSphere];
+    [self addEditableObject:dentalSphere];
+    [self addEditableObject:digestiveSphere];
+    [self addEditableObject:urinarySphere];
+    
+    //Consultation tab
     [consultationHistoryTable setDoubleAction:@selector(showConsultation:)];
     sortedConsultations = [[NSMutableArray alloc] init];
     [colDate setIdentifier:@"date"];
     [colMotives setIdentifier:@"motives"];
     
+    //Documents tab
     [documentsTable setDoubleAction:@selector(openDocument:)];
     [colDocumentTitle setIdentifier:@"title"];
     [colDocumentFilePath setIdentifier:@"docPath"];
     
+    //Mails tab
     [mailsTable setDoubleAction:@selector(openMail:)];
     [colMailName setIdentifier:@"name"];
     [colMailFilePath setIdentifier:@"path"];
@@ -47,7 +73,6 @@
     if(lock){
         [switchLockButton setImage:[NSImage imageNamed:@"NSLockLockedTemplate"]];
         [switchLockButton setTitle:@"Modifier la fiche"];
-        [self savePatient:self];
     }
     else{
         [switchLockButton setImage:[NSImage imageNamed:@"NSLockUnlockedTemplate"]];
@@ -57,16 +82,35 @@
     locked = lock;
 }
 
+-(void)addEditableObject:(id)object{
+    if(object){
+        [editableObjects addObject:object];
+    }
+}
+
 -(void)setEditableObjectsState:(BOOL)lock{
     for(id obj in editableObjects){
         if([obj isKindOfClass:[NSFormCell class]]){
-            //TODO
+            [(NSFormCell*)obj setEditable:!lock];
+            [(NSFormCell*)obj setSelectable:!lock];
+            [(NSFormCell*)obj setBezeled:!lock];
         }
-        else if([obj isKindOfClass:[NSTextView class]]){
-            //TODO
-        }
+        
         else if([obj isKindOfClass:[NSComboBox class]]){
-            //TODO
+            [(NSComboBox*)obj setEditable:!lock];
+            [(NSComboBox*)obj setSelectable:!lock];
+            [(NSComboBox*)obj setEnabled:!lock];
+        }
+        
+        else if([obj isKindOfClass:[NSTextField class]]){
+            [(NSTextField*)obj setEditable:!lock];
+            [(NSTextField*)obj setSelectable:!lock];
+            [(NSTextField*)obj setBezeled:!lock];
+        }
+        
+        else if([obj isKindOfClass:[NSTextView class]]){
+            [(NSTextView*)obj setEditable:!lock];
+            [(NSTextView*)obj setSelectable:!lock];
         }
     }
 }
@@ -84,6 +128,7 @@
 -(void)loadPatient:(OPPatient*)patientToLoad{
     
     patient = patientToLoad;
+    
     [OPView initTextField:addressedByBox withString:patient.addressedBy];
     
     //General tab
@@ -132,7 +177,12 @@
     patient.firstName = [[NSString alloc] initWithString:[cellFirstName stringValue]];
     patient.lastName = [[NSString alloc] initWithString:[cellLastName stringValue]];
     
+    NSLocale* frLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"fr_FR"];
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    [dateFormatter setDateFormat:@"dd/MM/yyyy"];
+    [dateFormatter setLocale:frLocale];
     patient.birthday = [dateFormatter dateFromString:[cellBirthday stringValue]];
     
     patient.sex = [[NSString alloc] initWithString:[cellSex stringValue]];
@@ -162,7 +212,6 @@
 #pragma mark - Consultations management
 
 -(void)sortConsultations{
-    //[sortedConsultations addObjectsFromArray:[patient.consultations allObjects]];
     NSArray* consultations = [patient.consultations allObjects];
     
     sortedConsultations = [consultations sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {

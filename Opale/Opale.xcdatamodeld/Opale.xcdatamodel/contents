@@ -3,9 +3,12 @@
     <entity name="Consultation" representedClassName="OPConsultation" syncable="YES">
         <attribute name="advises" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="headCircumference" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="height" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="motives" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tests" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="treatments" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="invoice" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Invoice" inverseName="consultation" inverseEntity="Invoice" syncable="YES"/>
         <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="consultations" inverseEntity="Patient" syncable="YES"/>
     </entity>
@@ -80,7 +83,7 @@
         <attribute name="tel" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Consultation" positionX="0" positionY="0" width="128" height="150"/>
+        <element name="Consultation" positionX="0" positionY="0" width="128" height="195"/>
         <element name="Document" positionX="0" positionY="0" width="128" height="75"/>
         <element name="Invoice" positionX="0" positionY="0" width="128" height="135"/>
         <element name="Mail" positionX="0" positionY="0" width="128" height="75"/>

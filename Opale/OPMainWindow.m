@@ -21,6 +21,7 @@
 #import "OPAdultFemalePatientView.h"
 #import "OPBabyPatientView.h"
 #import "OPAdultChildConsultationView.h"
+#import "OPBabyConsultationView.h"
 #import "OPCalendarView.h"
 #import "OPProfessionalSearchView.h"
 #import "OPScanningView.h"
@@ -30,7 +31,7 @@ static const NSInteger childAgeLimit = 17;
 
 @implementation OPMainWindow
 
-@synthesize nextButton, previousButton, currentScrollView, currentView, homeView, patientsView, calendarView, accountingView, statsView, adultMalePatientView, adultFemalePatientView, babyPatientView, adultChildConsultationView, professionalListView, scanningView;
+@synthesize nextButton, previousButton, currentScrollView, currentView, homeView, patientsView, calendarView, accountingView, statsView, adultMalePatientView, adultFemalePatientView, babyPatientView, adultChildConsultationView, babyConsultationView, professionalListView, scanningView;
 
 - (void)awakeFromNib{
     
@@ -186,9 +187,23 @@ static const NSInteger childAgeLimit = 17;
 }
 
 -(IBAction)showConsultationViewFor:(OPConsultation*)consultation{
-    //TODO switch view given patient age and/or sex
-    [adultChildConsultationView loadConsultation:consultation];
-    [self pushSubview:adultChildConsultationView];
+    NSDate* today = [NSDate date];
+    
+    NSCalendar *sysCalendar = [NSCalendar currentCalendar];
+    unsigned int unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit;
+    
+    NSDateComponents *breakdownInfo = [sysCalendar components:unitFlags fromDate:consultation.patient.birthday  toDate:today  options:0];
+    
+    NSInteger ageInYears = breakdownInfo.year;
+    
+    if(ageInYears < babyAgeLimit){ //Baby
+        [babyConsultationView loadConsultation:consultation];
+        [self pushSubview:babyConsultationView];
+    }
+    else{
+        [adultChildConsultationView loadConsultation:consultation];
+        [self pushSubview:adultChildConsultationView];
+    }
 }
 
 -(IBAction)showScanningView:(id)sender{

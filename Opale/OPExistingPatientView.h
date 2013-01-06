@@ -111,6 +111,7 @@
 
 -(BOOL)locked;
 -(void)setLocked:(BOOL)lock;
+-(void)addEditableObject:(id)object;
 -(void)setEditableObjectsState:(BOOL)lock;
 
 -(IBAction)switchLock:(id)sender;

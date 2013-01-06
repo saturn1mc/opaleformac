@@ -16,6 +16,23 @@
 
 @synthesize cellCorrectedAge, termWeeks, termDays, cellBirthPlace, cellBirthWeight, cellBirtHeight, cellBirtHeadCircumference, cellParity, cellFatherJob, cellMotherJob, cellCareMode, cellAfterCare,pregnancyAndBirthSphere, feedingAndStoolSphere, sleepSphere, otherSphere, heightGraphView, weightGraphView, hcGraphView;
 
+-(void)awakeFromNib{
+    [super awakeFromNib];
+    
+    [self addEditableObject:termWeeks];
+    [self addEditableObject:termDays];
+    [self addEditableObject:cellBirthPlace];
+    [self addEditableObject:urinarySphere];
+    [self addEditableObject:cellBirthWeight];
+    [self addEditableObject:cellBirtHeight];
+    [self addEditableObject:cellBirtHeadCircumference];
+    [self addEditableObject:cellParity];
+    [self addEditableObject:cellFatherJob];
+    [self addEditableObject:cellMotherJob];
+    [self addEditableObject:cellCareMode];
+    [self addEditableObject:cellAfterCare];
+}
+
 -(void)loadPatient:(OPPatient *)patientToLoad{
     [super loadPatient:patientToLoad];
     
@@ -40,9 +57,9 @@
     
     [self updateCorrectedAge:self];
     
-    weightGraphView.patient = patient;
-    heightGraphView.patient = patient;
-    hcGraphView.patient = patient;
+    [heightGraphView loadPatient:patient];
+    [weightGraphView loadPatient:patient];
+    [hcGraphView loadPatient:patient];
     
     [self updateGraphs:self];
 }

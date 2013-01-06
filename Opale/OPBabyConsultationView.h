@@ -8,6 +8,14 @@
 
 #import "OPAdultChildConsultationView.h"
 
-@interface OPBabyConsultationView : OPAdultChildConsultationView
+@interface OPBabyConsultationView : OPAdultChildConsultationView{    
+    IBOutlet NSFormCell* cellHeight;
+    IBOutlet NSFormCell* cellWeight;
+    IBOutlet NSFormCell* cellHC;
+}
+
+@property (nonatomic, retain) IBOutlet NSFormCell* cellHeight;
+@property (nonatomic, retain) IBOutlet NSFormCell* cellWeight;
+@property (nonatomic, retain) IBOutlet NSFormCell* cellHC;
 
 @end

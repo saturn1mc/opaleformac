@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import <Quartz/Quartz.h>
 
-@class OPView, OPPatient, OPConsultation, OPMail, OPDocument, OPPatientsView, OPCalendarView, OPAdultMalePatientView, OPAdultFemalePatientView, OPBabyPatientView, OPAdultChildConsultationView, OPProfessionalSearchView, OPScanningView;
+@class OPView, OPPatient, OPConsultation, OPMail, OPDocument, OPPatientsView, OPCalendarView, OPAdultMalePatientView, OPAdultFemalePatientView, OPBabyPatientView, OPAdultChildConsultationView, OPBabyConsultationView, OPProfessionalSearchView, OPScanningView;
 
 @interface OPMainWindow : NSWindow {
     
@@ -30,6 +30,7 @@
     IBOutlet OPAdultFemalePatientView* adultFemalePatientView;
     IBOutlet OPBabyPatientView* babyPatientView;
     IBOutlet OPAdultChildConsultationView* adultChildConsultationView;
+    IBOutlet OPBabyConsultationView* babyConsultationView;
     
     IBOutlet OPScanningView* scanningView;
     
@@ -53,7 +54,9 @@
 @property (nonatomic, retain) IBOutlet OPAdultMalePatientView* adultMalePatientView;
 @property (nonatomic, retain) IBOutlet OPAdultFemalePatientView* adultFemalePatientView;
 @property (nonatomic, retain) IBOutlet OPBabyPatientView* babyPatientView;
+
 @property (nonatomic, retain) IBOutlet OPAdultChildConsultationView* adultChildConsultationView;
+@property (nonatomic, retain) IBOutlet OPAdultChildConsultationView* babyConsultationView;
 
 @property (nonatomic, retain) IBOutlet OPScanningView* scanningView;
 

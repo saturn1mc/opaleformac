@@ -7,22 +7,30 @@
 //
 
 #import "OPBabyConsultationView.h"
+#import "OPConsultation.h"
 
 @implementation OPBabyConsultationView
 
-- (id)initWithFrame:(NSRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
+@synthesize cellHeight, cellWeight, cellHC;
+
+-(void)awakeFromNib{
+    [super awakeFromNib];
 }
 
-- (void)drawRect:(NSRect)dirtyRect
-{
-    // Drawing code here.
+-(void)loadConsultation:(OPConsultation *)nConsultation{
+    [super loadConsultation:nConsultation];
+    
+    [OPView initFormCell:cellHeight withString:[consultation.height stringValue]];
+    [OPView initFormCell:cellWeight withString:[consultation.weight stringValue]];
+    [OPView initFormCell:cellHC withString:[consultation.headCircumference stringValue]];
+}
+
+-(void)applyModifications{
+    [super applyModifications];
+    
+    consultation.height = [[NSNumber alloc] initWithInt:[[cellHeight stringValue] integerValue]];
+    consultation.weight = [[NSNumber alloc] initWithInt:[[cellWeight stringValue] integerValue]];
+    consultation.headCircumference = [[NSNumber alloc] initWithInt:[[cellHC stringValue] integerValue]];
 }
 
 @end
