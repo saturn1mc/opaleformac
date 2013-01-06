@@ -11,6 +11,7 @@
 		911E7F8415B4133000FC2A3F /* OPAdultFemalePatientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 911E7F8315B4133000FC2A3F /* OPAdultFemalePatientView.m */; };
 		911F92411508A05C00FD3B34 /* OPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 911F92401508A05C00FD3B34 /* OPView.m */; };
 		91218D39166BFD9F00F11E00 /* OPMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9157712415067B74009E2B73 /* OPMainWindow.xib */; };
+		912C0503169A17F80071A742 /* OPPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = 912C0502169A17F80071A742 /* OPPatient.m */; };
 		912C0EC1162087BC009A5090 /* avg_hc.csv in Resources */ = {isa = PBXBuildFile; fileRef = 912C0EBE162087BC009A5090 /* avg_hc.csv */; };
 		912C0EC2162087BC009A5090 /* avg_height.csv in Resources */ = {isa = PBXBuildFile; fileRef = 912C0EBF162087BC009A5090 /* avg_height.csv */; };
 		912C0EC3162087BC009A5090 /* avg_weight.csv in Resources */ = {isa = PBXBuildFile; fileRef = 912C0EC0162087BC009A5090 /* avg_weight.csv */; };
@@ -36,7 +37,6 @@
 		915CEF89150E499E007E6E6D /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 915CEF87150E499E007E6E6D /* search.png */; };
 		916244AD166A6FE30000D50A /* OPProfessionalSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 916244AC166A6FE30000D50A /* OPProfessionalSearchView.m */; };
 		916244BE166A7C210000D50A /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 916244BD166A7C210000D50A /* AddressBook.framework */; };
-		9166DDD316988E0D00583379 /* OPPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9166DDD216988E0D00583379 /* OPPatient.m */; };
 		9166DDD61698A3E500583379 /* OPGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9166DDD51698A3E400583379 /* OPGraphView.m */; };
 		9166DDD91698FF4800583379 /* OPBabyConsultationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9166DDD81698FF4700583379 /* OPBabyConsultationView.m */; };
 		9166DDDC1698FFCE00583379 /* OPConsultation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9166DDDB1698FFCE00583379 /* OPConsultation.m */; };
@@ -107,6 +107,8 @@
 		911E7F8315B4133000FC2A3F /* OPAdultFemalePatientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPAdultFemalePatientView.m; sourceTree = "<group>"; };
 		911F923F1508A05C00FD3B34 /* OPView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPView.h; sourceTree = "<group>"; };
 		911F92401508A05C00FD3B34 /* OPView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPView.m; sourceTree = "<group>"; };
+		912C0501169A17F80071A742 /* OPPatient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPPatient.h; sourceTree = "<group>"; };
+		912C0502169A17F80071A742 /* OPPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPPatient.m; sourceTree = "<group>"; };
 		912C0EBE162087BC009A5090 /* avg_hc.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = avg_hc.csv; sourceTree = "<group>"; };
 		912C0EBF162087BC009A5090 /* avg_height.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = avg_height.csv; sourceTree = "<group>"; };
 		912C0EC0162087BC009A5090 /* avg_weight.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = avg_weight.csv; sourceTree = "<group>"; };
@@ -149,8 +151,6 @@
 		916244AB166A6FE30000D50A /* OPProfessionalSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPProfessionalSearchView.h; sourceTree = "<group>"; };
 		916244AC166A6FE30000D50A /* OPProfessionalSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPProfessionalSearchView.m; sourceTree = "<group>"; };
 		916244BD166A7C210000D50A /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
-		9166DDD116988E0D00583379 /* OPPatient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPPatient.h; sourceTree = "<group>"; };
-		9166DDD216988E0D00583379 /* OPPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPPatient.m; sourceTree = "<group>"; };
 		9166DDD41698A3E300583379 /* OPGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPGraphView.h; sourceTree = "<group>"; };
 		9166DDD51698A3E400583379 /* OPGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPGraphView.m; sourceTree = "<group>"; };
 		9166DDD71698FF4500583379 /* OPBabyConsultationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPBabyConsultationView.h; sourceTree = "<group>"; };
@@ -438,8 +438,8 @@
 			isa = PBXGroup;
 			children = (
 				9157712715067B74009E2B73 /* Opale.xcdatamodeld */,
-				9166DDD116988E0D00583379 /* OPPatient.h */,
-				9166DDD216988E0D00583379 /* OPPatient.m */,
+				912C0501169A17F80071A742 /* OPPatient.h */,
+				912C0502169A17F80071A742 /* OPPatient.m */,
 				9166DDDA1698FFCE00583379 /* OPConsultation.h */,
 				9166DDDB1698FFCE00583379 /* OPConsultation.m */,
 				9174A6941695F91E00575B69 /* OPInvoice.h */,
@@ -638,10 +638,10 @@
 				9174A69C1695F91E00575B69 /* OPProfessionnal.m in Sources */,
 				9174A6A616960C8B00575B69 /* OPSexFormatter.m in Sources */,
 				914594B816962C9E003016FF /* OPPhoneNumberFormatter.m in Sources */,
-				9166DDD316988E0D00583379 /* OPPatient.m in Sources */,
 				9166DDD61698A3E500583379 /* OPGraphView.m in Sources */,
 				9166DDD91698FF4800583379 /* OPBabyConsultationView.m in Sources */,
 				9166DDDC1698FFCE00583379 /* OPConsultation.m in Sources */,
+				912C0503169A17F80071A742 /* OPPatient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

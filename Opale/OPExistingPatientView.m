@@ -106,6 +106,13 @@
             [(NSTextField*)obj setEditable:!lock];
             [(NSTextField*)obj setSelectable:!lock];
             [(NSTextField*)obj setBezeled:!lock];
+            
+            if(lock){
+                [(NSTextField*)obj setBackgroundColor:[NSColor controlBackgroundColor]];
+            }
+            else{
+                [(NSTextField*)obj setBackgroundColor:[NSColor textBackgroundColor]];
+            }
         }
         
         else if([obj isKindOfClass:[NSTextView class]]){

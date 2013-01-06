@@ -2,7 +2,7 @@
 //  OPPatient.m
 //  Opale
 //
-//  Created by Camille on 05/01/13.
+//  Created by Camille on 06/01/13.
 //
 //
 
@@ -15,47 +15,49 @@
 @implementation OPPatient
 
 @dynamic address;
+@dynamic addressedBy;
+@dynamic afterCare;
 @dynamic birthday;
-@dynamic country;
-@dynamic firstName;
-@dynamic lastName;
-@dynamic postalCode;
-@dynamic sex;
-@dynamic tel1;
-@dynamic tel2;
-@dynamic town;
-@dynamic generalComments;
-@dynamic previousHistoryComments;
-@dynamic familyHistory;
-@dynamic medicalHistory;
-@dynamic surgicalHistory;
-@dynamic entAndOphtalmologicSphere;
-@dynamic dentalSphere;
-@dynamic digestiveSphere;
-@dynamic urinarySphere;
-@dynamic traumaticHistory;
-@dynamic gynecologicalHistory;
-@dynamic gynecologicalSphere;
-@dynamic termWeeks;
-@dynamic termDays;
+@dynamic birthHC;
+@dynamic birthHeight;
 @dynamic birthPlace;
 @dynamic birthWeight;
-@dynamic birthHeight;
-@dynamic birthHC;
-@dynamic parity;
-@dynamic fatherJob;
-@dynamic motherJob;
 @dynamic careMode;
-@dynamic afterCare;
-@dynamic pregnancyAndBirthSphere;
-@dynamic feedingAndStoolSphere;
-@dynamic sleepSphere;
-@dynamic otherSphere;
-@dynamic job;
-@dynamic familyStatus;
-@dynamic extraActivity;
 @dynamic children;
-@dynamic addressedBy;
+@dynamic country;
+@dynamic dentalSphere;
+@dynamic digestiveSphere;
+@dynamic entAndOphtalmologicSphere;
+@dynamic extraActivity;
+@dynamic familyHistory;
+@dynamic familyStatus;
+@dynamic fatherJob;
+@dynamic feedingAndStoolSphere;
+@dynamic firstName;
+@dynamic generalComments;
+@dynamic gynecologicalHistory;
+@dynamic gynecologicalSphere;
+@dynamic job;
+@dynamic lastName;
+@dynamic medicalHistory;
+@dynamic motherJob;
+@dynamic otherSphere;
+@dynamic parity;
+@dynamic postalCode;
+@dynamic pregnancyAndBirthSphere;
+@dynamic previousHistoryComments;
+@dynamic sex;
+@dynamic sleepSphere;
+@dynamic surgicalHistory;
+@dynamic tel1;
+@dynamic tel2;
+@dynamic termDays;
+@dynamic termWeeks;
+@dynamic town;
+@dynamic traumaticHistory;
+@dynamic urinarySphere;
+@dynamic riskFactor;
+@dynamic laterality;
 @dynamic consultations;
 @dynamic documents;
 @dynamic mails;

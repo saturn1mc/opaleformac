@@ -15,7 +15,7 @@
 
 @implementation OPAdultMalePatientView
 
-@synthesize cellAgeGeneral, cellAgeHealth, cellJob, cellFamilyStatus, cellExtraActivity, cellChildren;
+@synthesize cellAge, cellJob, cellFamilyStatus, cellExtraActivity, cellChildren, cellLaterality, cellAftercare, cellRiskFactor;
 
 -(void)awakeFromNib{
     [super awakeFromNib];
@@ -24,6 +24,9 @@
     [self addEditableObject:cellFamilyStatus];
     [self addEditableObject:cellExtraActivity];
     [self addEditableObject:cellChildren];
+    [self addEditableObject:cellLaterality];
+    [self addEditableObject:cellAftercare];
+    [self addEditableObject:cellRiskFactor];
 }
 
 -(void)loadPatient:(OPPatient*)patientToLoad{
@@ -34,11 +37,14 @@
     [OPView initFormCell:cellFamilyStatus withString:patient.familyStatus];
     [OPView initFormCell:cellExtraActivity withString:patient.extraActivity];
     [OPView initFormCell:cellChildren withString:patient.children];
+    [OPView initFormCell:cellAftercare withString:patient.afterCare];
+    [OPView initFormCell:cellLaterality withString:patient.laterality];
+    [OPView initFormCell:cellRiskFactor withString:patient.riskFactor];
     
-    [self updateAgeFields];
+    [self updateAge:self];
 }
 
--(void)updateAgeFields{
+-(IBAction)updateAge:(id)sender{
     NSDate* today = [NSDate date];
     
     NSCalendar *sysCalendar = [NSCalendar currentCalendar];
@@ -49,8 +55,7 @@
     
     NSString* ageString = [[NSString alloc] initWithFormat:@"%li ans, %li mois", breakdownInfo.year, breakdownInfo.month];
     
-    [cellAgeGeneral setStringValue:ageString];
-    [cellAgeHealth setStringValue:ageString];
+    [cellAge setStringValue:ageString];
 }
 
 -(void)applyModifications{
@@ -60,6 +65,9 @@
     patient.familyStatus = [[NSString alloc] initWithString:[cellFamilyStatus stringValue]];
     patient.extraActivity = [[NSString alloc] initWithString:[cellExtraActivity stringValue]];
     patient.children = [[NSString alloc] initWithString:[cellChildren stringValue]];
+    patient.afterCare = [[NSString alloc] initWithString:[cellAftercare stringValue]];
+    patient.laterality = [[NSString alloc] initWithString:[cellLaterality stringValue]];
+    patient.riskFactor = [[NSString alloc] initWithString:[cellRiskFactor stringValue]];
 }
 
 @end

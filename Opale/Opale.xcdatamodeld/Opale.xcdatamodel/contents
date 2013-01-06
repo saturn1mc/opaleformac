@@ -54,6 +54,7 @@
         <attribute name="gynecologicalSphere" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="job" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="laterality" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="medicalHistory" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="motherJob" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="otherSphere" optional="YES" attributeType="String" syncable="YES"/>
@@ -61,6 +62,7 @@
         <attribute name="postalCode" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="pregnancyAndBirthSphere" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="previousHistoryComments" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="riskFactor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sex" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="sleepSphere" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="surgicalHistory" optional="YES" attributeType="String" syncable="YES"/>
@@ -87,7 +89,7 @@
         <element name="Document" positionX="0" positionY="0" width="128" height="75"/>
         <element name="Invoice" positionX="0" positionY="0" width="128" height="135"/>
         <element name="Mail" positionX="0" positionY="0" width="128" height="75"/>
-        <element name="Patient" positionX="0" positionY="0" width="128" height="720"/>
+        <element name="Patient" positionX="0" positionY="0" width="128" height="750"/>
         <element name="Professionnal" positionX="0" positionY="0" width="128" height="120"/>
     </elements>
 </model>

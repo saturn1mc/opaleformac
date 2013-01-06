@@ -7,11 +7,12 @@
 //
 
 #import "OPBabyConsultationView.h"
+#import "OPBabyPatientView.h"
 #import "OPConsultation.h"
 
 @implementation OPBabyConsultationView
 
-@synthesize cellHeight, cellWeight, cellHC;
+@synthesize babyPatientView, cellHeight, cellWeight, cellHC;
 
 -(void)awakeFromNib{
     [super awakeFromNib];
@@ -31,6 +32,11 @@
     consultation.height = [[NSNumber alloc] initWithInt:[[cellHeight stringValue] integerValue]];
     consultation.weight = [[NSNumber alloc] initWithInt:[[cellWeight stringValue] integerValue]];
     consultation.headCircumference = [[NSNumber alloc] initWithInt:[[cellHC stringValue] integerValue]];
+}
+
+-(void)saveConsultation:(id)sender{
+    [super saveConsultation:self];
+    [babyPatientView updateGraphs:self];
 }
 
 @end
