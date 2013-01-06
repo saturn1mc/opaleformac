@@ -2,7 +2,7 @@
 //  OPConsultation.h
 //  Opale
 //
-//  Created by Camille on 03/01/13.
+//  Created by Camille on 06/01/13.
 //
 //
 
@@ -15,9 +15,12 @@
 
 @property (nonatomic, retain) NSString * advises;
 @property (nonatomic, retain) NSDate * date;
+@property (nonatomic, retain) NSString * motives;
 @property (nonatomic, retain) NSString * tests;
 @property (nonatomic, retain) NSString * treatments;
-@property (nonatomic, retain) NSString * motives;
+@property (nonatomic, retain) NSNumber * height;
+@property (nonatomic, retain) NSNumber * weight;
+@property (nonatomic, retain) NSNumber * headCircumference;
 @property (nonatomic, retain) OPInvoice *invoice;
 @property (nonatomic, retain) OPPatient *patient;
 

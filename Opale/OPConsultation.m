@@ -2,7 +2,7 @@
 //  OPConsultation.m
 //  Opale
 //
-//  Created by Camille on 03/01/13.
+//  Created by Camille on 06/01/13.
 //
 //
 
@@ -15,9 +15,12 @@
 
 @dynamic advises;
 @dynamic date;
+@dynamic motives;
 @dynamic tests;
 @dynamic treatments;
-@dynamic motives;
+@dynamic height;
+@dynamic weight;
+@dynamic headCircumference;
 @dynamic invoice;
 @dynamic patient;
 
