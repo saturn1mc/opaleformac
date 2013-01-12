@@ -18,7 +18,7 @@
 
 @dynamic locked;
 
-@synthesize patient, sortedConsultations, editableObjects, switchLockButton, addressedByBox, cellFirstName, cellLastName, cellBirthday, cellSex, cellTel1, cellTel2, cellAddress, cellTown, cellPostalCode, cellCountry, generalComments, previousHistoryComments, familyHistory, medicalHistory,traumaticHistory, surgicalHistory, entAndOphtalmologicSphere, dentalSphere, digestiveSphere,urinarySphere, consultationHistoryTable, colDate, colMotives, documentsTable, colDocumentTitle, colDocumentFilePath, mailsTable, colMailName, colMailFilePath;
+@synthesize patient, sortedConsultations, editableObjects, switchLockButton, addressedByBox, cellFirstName, cellLastName, cellBirthday, cellSex, cellTel1, cellTel2, cellAddress, cellTown, cellPostalCode, cellCountry, generalComments, previousHistoryComments, familyHistory, medicalHistory,traumaticHistory, surgicalHistory, entAndOphtalmologicSphere, dentalSphere, digestiveSphere,urinarySphere, deleteConsultationButton, consultationsTable, colDate, colMotives, deleteDocumentButton, documentsTable, colDocumentTitle, colDocumentFilePath, deleteMailButton, mailsTable, colMailName, colMailFilePath;
 
 - (void)awakeFromNib{
     //Editable objects
@@ -47,17 +47,20 @@
     [self addEditableObject:urinarySphere];
     
     //Consultation tab
-    [consultationHistoryTable setDoubleAction:@selector(showConsultation:)];
+    [self addEditableObject:deleteConsultationButton];
+    [consultationsTable setDoubleAction:@selector(showConsultation:)];
     sortedConsultations = [[NSMutableArray alloc] init];
     [colDate setIdentifier:@"date"];
     [colMotives setIdentifier:@"motives"];
     
     //Documents tab
+    [self addEditableObject:deleteDocumentButton];
     [documentsTable setDoubleAction:@selector(openDocument:)];
     [colDocumentTitle setIdentifier:@"title"];
     [colDocumentFilePath setIdentifier:@"docPath"];
     
     //Mails tab
+    [self addEditableObject:deleteMailButton];
     [mailsTable setDoubleAction:@selector(openMail:)];
     [colMailName setIdentifier:@"name"];
     [colMailFilePath setIdentifier:@"path"];
@@ -119,6 +122,10 @@
             [(NSTextView*)obj setEditable:!lock];
             [(NSTextView*)obj setSelectable:!lock];
         }
+        
+        else if([obj isKindOfClass:[NSButton class]]){
+            [(NSButton*)obj setEnabled:!lock];
+        }
     }
 }
 
@@ -174,9 +181,65 @@
     [parent showScanningView:self];
 }
 
+-(IBAction)importDocument:(id)sender{
+    NSOpenPanel* openPanel = [NSOpenPanel openPanel];
+    [openPanel setCanChooseDirectories:NO];
+    [openPanel setCanChooseFiles:YES];
+    [openPanel setAllowsMultipleSelection:NO];
+    
+    [openPanel beginSheetModalForWindow:parent completionHandler:^(NSInteger result) {
+        if (result == NSFileHandlingPanelOKButton)
+        {
+            NSURL* openURL = [[openPanel URLs] objectAtIndex:0];
+            NSURL* targetURL = [parent documentDirectoryFor:patient];
+            NSString* targetStr = [[NSString alloc] initWithFormat:@"%@/%@", [targetURL path], [openURL lastPathComponent]];
+            
+            [[NSFileManager defaultManager] copyItemAtPath:[openURL path] toPath:targetStr error:nil];
+            
+            OPDocument* nDocument = [NSEntityDescription insertNewObjectForEntityForName:@"Document" inManagedObjectContext:[self managedObjectContext]];
+            nDocument.patient = patient;
+            nDocument.filePath = [[NSString alloc] initWithString:targetStr];
+            
+            [self saveAction];
+            
+            [documentsTable reloadData];
+
+        }
+    }];
+}
+
 -(IBAction)openDocument:(id)sender{
     OPDocument* document = [[patient.documents allObjects] objectAtIndex:documentsTable.clickedRow];
     [parent openDocument:document];
+}
+
+-(IBAction)deleteDocument:(id)sender{
+    if(documentsTable.numberOfSelectedRows > 0){
+        OPDocument* document = [[patient.documents allObjects] objectAtIndex:documentsTable.selectedRow];
+        
+        NSAlert *alert = [NSAlert alertWithMessageText:@"Supprimer le document ?" defaultButton:@"Annuler" alternateButton:@"Oui" otherButton:nil informativeTextWithFormat:@"Le document '%@' sera définitivement supprimé de la base", [[NSURL fileURLWithPath:document.filePath] lastPathComponent] ];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        
+        [alert beginSheetModalForWindow:parent modalDelegate:self didEndSelector:@selector(docAlertDidEnd:returnCode:contextInfo:) contextInfo:(void*)document];
+    }
+    else{
+        NSAlert *alert = [NSAlert alertWithMessageText:@"Action impossible" defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@"Aucun document n'est sélectionné"];
+        [alert beginSheetModalForWindow:parent modalDelegate:self didEndSelector:nil contextInfo:nil];
+    }
+}
+
+-(void)docAlertDidEnd:(NSAlert*)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo{
+    if(returnCode == NSAlertAlternateReturn){
+        OPDocument* document = (__bridge OPDocument *)(contextInfo);
+        [patient removeDocumentsObject:document];
+        
+        [[NSFileManager defaultManager] removeItemAtPath:document.filePath error:nil];
+        
+        [[self managedObjectContext] deleteObject:document];
+        [self saveAction];
+        
+        [documentsTable reloadData];
+    }
 }
 
 -(void)applyModifications{
@@ -228,7 +291,7 @@
         return [consultation1.date compare:consultation2.date];
     }];
     
-    [consultationHistoryTable reloadData];
+    [consultationsTable reloadData];
 }
 
 
@@ -244,12 +307,39 @@
     
     [self sortConsultations];
     
-    [consultationHistoryTable reloadData];
+    [consultationsTable reloadData];
 }
 
 -(IBAction)showConsultation:(id)sender{
-    OPConsultation* consultation = (OPConsultation*)[sortedConsultations objectAtIndex:consultationHistoryTable.selectedRow];
+    OPConsultation* consultation = (OPConsultation*)[sortedConsultations objectAtIndex:consultationsTable.selectedRow];
     [parent showConsultationViewFor:consultation];
+}
+
+-(IBAction)deleteConsultation:(id)sender{
+    if(consultationsTable.numberOfSelectedRows > 0){
+        OPConsultation* consultation = (OPConsultation*)[sortedConsultations objectAtIndex:consultationsTable.selectedRow];
+        
+        NSAlert *alert = [NSAlert alertWithMessageText:@"Supprimer la consultation ?" defaultButton:@"Annuler" alternateButton:@"Oui" otherButton:nil informativeTextWithFormat:@"La consultation sélectionnée sera définitivement supprimée de la base"];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        
+        [alert beginSheetModalForWindow:parent modalDelegate:self didEndSelector:@selector(docAlertDidEnd:returnCode:contextInfo:) contextInfo:(void*)consultation];
+    }
+    else{
+        NSAlert *alert = [NSAlert alertWithMessageText:@"Action impossible" defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@"Aucune consultation n'est sélectionnée"];
+        [alert beginSheetModalForWindow:parent modalDelegate:self didEndSelector:nil contextInfo:nil];
+    }
+}
+
+-(void)consultAlertDidEnd:(NSAlert*)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo{
+    if(returnCode == NSAlertAlternateReturn){
+        OPConsultation* consultation = (__bridge OPConsultation *)(contextInfo);
+        [patient removeConsultationsObject:consultation];
+        
+        [[self managedObjectContext] deleteObject:consultation];
+        [self saveAction];
+        
+        [consultationsTable reloadData];
+    }
 }
 
 #pragma mark - Mails
@@ -262,8 +352,8 @@
     [savePanel setAllowedFileTypes:allowedFileTypes];
     [savePanel setDirectoryURL:[parent mailDirectoryFor:patient]];
     
-    switch ([savePanel runModal]) {
-        case NSFileHandlingPanelOKButton:
+    [savePanel beginSheetModalForWindow:parent completionHandler:^(NSInteger result) {
+        if (result == NSFileHandlingPanelOKButton)
         {
             NSString* targetPath = [[savePanel URL] path];
             NSString* templatePath = [[NSBundle mainBundle] pathForResource:@"Mail_Template" ofType:@"docx"];
@@ -277,13 +367,36 @@
             
             [mailsTable reloadData];
             [parent openMail:nMail];
-            
-            break;
         }
+    }];
+}
+
+-(IBAction)importMail:(id)sender{
+    NSOpenPanel* openPanel = [NSOpenPanel openPanel];
+    [openPanel setCanChooseDirectories:NO];
+    [openPanel setAllowedFileTypes:[NSArray arrayWithObjects:@"docx", @"doc", nil]];
+    [openPanel setCanChooseFiles:YES];
+    [openPanel setAllowsMultipleSelection:NO];
+    
+    [openPanel beginSheetModalForWindow:parent completionHandler:^(NSInteger result) {
+        if (result == NSFileHandlingPanelOKButton)
+        {
+            NSURL* openURL = [[openPanel URLs] objectAtIndex:0];
+            NSURL* targetURL = [parent mailDirectoryFor:patient];
+            NSString* targetStr = [[NSString alloc] initWithFormat:@"%@/%@", [targetURL path], [openURL lastPathComponent]];
             
-        default:
-            break;
-    }
+            [[NSFileManager defaultManager] copyItemAtPath:[openURL path] toPath:targetStr error:nil];
+            
+            OPDocument* nMail = [NSEntityDescription insertNewObjectForEntityForName:@"Mail" inManagedObjectContext:[self managedObjectContext]];
+            nMail.patient = patient;
+            nMail.filePath = [[NSString alloc] initWithString:targetStr];
+            
+            [self saveAction];
+            
+            [mailsTable reloadData];
+        }
+    }];
+
 }
 
 -(IBAction)openMail:(id)sender{
@@ -291,13 +404,41 @@
     [parent openMail:mail];
 }
 
+-(IBAction)deleteMail:(id)sender{
+    if(consultationsTable.numberOfSelectedRows > 0){
+        OPMail* mail = (OPMail*)[[patient.mails allObjects] objectAtIndex:mailsTable.selectedRow];
+        
+        NSAlert *alert = [NSAlert alertWithMessageText:@"Supprimer le courrier ?" defaultButton:@"Annuler" alternateButton:@"Oui" otherButton:nil informativeTextWithFormat:@"Le courrier '%@' sera définitivement supprimé de la base", [[NSURL fileURLWithPath:mail.filePath] lastPathComponent] ];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        
+        [alert beginSheetModalForWindow:parent modalDelegate:self didEndSelector:@selector(mailAlertDidEnd:returnCode:contextInfo:) contextInfo:(void*)mail];
+    }
+    else{
+        NSAlert *alert = [NSAlert alertWithMessageText:@"Action impossible" defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@"Aucun courrier n'est sélectionné"];
+        [alert beginSheetModalForWindow:parent modalDelegate:self didEndSelector:nil contextInfo:nil];
+    }
+}
+
+-(void)mailAlertDidEnd:(NSAlert*)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo{
+    if(returnCode == NSAlertAlternateReturn){
+        OPMail* mail = (__bridge OPMail *)(contextInfo);
+        [patient removeMailsObject:mail];
+        
+        [[NSFileManager defaultManager] removeItemAtPath:mail.filePath error:nil];
+        
+        [[self managedObjectContext] deleteObject:mail];
+        [self saveAction];
+        
+        [mailsTable reloadData];
+    }
+}
 #pragma mark - Result table content management
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
 {
     NSInteger count=0;
     
-    if(tableView == consultationHistoryTable){
+    if(tableView == consultationsTable){
         if (sortedConsultations){
             count = [sortedConsultations count];
         }
@@ -316,7 +457,7 @@
     
     NSString* value = [[NSString alloc] init];
     
-    if(tableView == consultationHistoryTable){
+    if(tableView == consultationsTable){
         
         OPConsultation* consultation = (OPConsultation*)[sortedConsultations objectAtIndex:row];
         

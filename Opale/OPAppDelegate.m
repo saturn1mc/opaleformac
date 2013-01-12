@@ -113,7 +113,7 @@
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         [dict setValue:@"Failed to initialize the store" forKey:NSLocalizedDescriptionKey];
         [dict setValue:@"There was an error building up the data file." forKey:NSLocalizedFailureReasonErrorKey];
-        NSError *error = [NSError errorWithDomain:@"YOUR_ERROR_DOMAIN" code:9999 userInfo:dict];
+        NSError *error = [NSError errorWithDomain:@"OPALE_ERROR_DOMAIN" code:9999 userInfo:dict];
         [[NSApplication sharedApplication] presentError:error];
         return nil;
     }

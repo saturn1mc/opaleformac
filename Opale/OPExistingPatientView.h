@@ -48,17 +48,19 @@
     IBOutlet NSTextView* urinarySphere;
     
     //Consultations tab
-    IBOutlet NSTableView* consultationHistoryTable;
-    
+    IBOutlet NSButton* deleteConsultationButton;
+    IBOutlet NSTableView* consultationsTable;
     IBOutlet NSTableColumn* colDate;
     IBOutlet NSTableColumn* colMotives;
     
     //Documents tab
+    IBOutlet NSButton* deleteDocumentButton;
     IBOutlet NSTableView* documentsTable;
     IBOutlet NSTableColumn* colDocumentTitle;
     IBOutlet NSTableColumn* colDocumentFilePath;
     
     //Mails tab
+    IBOutlet NSButton* deleteMailButton;
     IBOutlet NSTableView* mailsTable;
     IBOutlet NSTableColumn* colMailName;
     IBOutlet NSTableColumn* colMailFilePath;
@@ -97,14 +99,17 @@
 @property (nonatomic, retain) IBOutlet NSTextView* digestiveSphere;
 @property (nonatomic, retain) IBOutlet NSTextView* urinarySphere;
 
-@property (nonatomic, retain) IBOutlet NSTableView*   consultationHistoryTable;
+@property (nonatomic, retain) IBOutlet NSButton* deleteConsultationButton;
+@property (nonatomic, retain) IBOutlet NSTableView*   consultationsTable;
 @property (nonatomic, retain) IBOutlet NSTableColumn* colDate;
 @property (nonatomic, retain) IBOutlet NSTableColumn* colMotives;
 
+@property (nonatomic, retain) IBOutlet NSButton* deleteDocumentButton;
 @property (nonatomic, retain) IBOutlet NSTableView* documentsTable;
 @property (nonatomic, retain) IBOutlet NSTableColumn* colDocumentTitle;
 @property (nonatomic, retain) IBOutlet NSTableColumn* colDocumentFilePath;
 
+@property (nonatomic, retain) IBOutlet NSButton* deleteMailButton;
 @property (nonatomic, retain) IBOutlet NSTableView* mailsTable;
 @property (nonatomic, retain) IBOutlet NSTableColumn* colMailName;
 @property (nonatomic, retain) IBOutlet NSTableColumn* colMailFilePath;
@@ -113,16 +118,25 @@
 -(void)setLocked:(BOOL)lock;
 -(void)addEditableObject:(id)object;
 -(void)setEditableObjectsState:(BOOL)lock;
-
 -(IBAction)switchLock:(id)sender;
+
+
 -(void)loadPatient:(OPPatient*)patientToLoad;
 -(IBAction)scanDocument:(id)sender;
+-(IBAction)importDocument:(id)sender;
 -(IBAction)openDocument:(id)sender;
+-(IBAction)deleteDocument:(id)sender;
+-(void)docAlertDidEnd:(NSAlert*)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 -(void)sortConsultations;
 -(IBAction)newConsultation:(id)sender;
 -(IBAction)showConsultation:(id)sender;
+-(IBAction)deleteConsultation:(id)sender;
+-(void)consultAlertDidEnd:(NSAlert*)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 -(IBAction)createNewMail:(id)sender;
+-(IBAction)importMail:(id)sender;
 -(IBAction)openMail:(id)sender;
+-(IBAction)deleteMail:(id)sender;
+-(void)mailAlertDidEnd:(NSAlert*)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 
 -(void)applyModifications;
 -(IBAction)savePatient:(id)sender;

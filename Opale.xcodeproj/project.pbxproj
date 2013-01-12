@@ -31,6 +31,7 @@
 		9157713D15067B74009E2B73 /* OpaleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9157713C15067B74009E2B73 /* OpaleTests.m */; };
 		9157714815068769009E2B73 /* OPMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9157714715068769009E2B73 /* OPMainWindow.m */; };
 		91595525166A923E0084D837 /* OPScanningView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91595524166A923E0084D837 /* OPScanningView.m */; };
+		915BE2FA16A19108009196E5 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 915BE2F916A19108009196E5 /* trash.png */; };
 		915CEF82150E3FE6007E6E6D /* OPCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CEF81150E3FE6007E6E6D /* OPCalendarView.m */; };
 		915CEF85150E4442007E6E6D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 915CEF84150E4442007E6E6D /* WebKit.framework */; };
 		915CEF88150E499E007E6E6D /* new_user.png in Resources */ = {isa = PBXBuildFile; fileRef = 915CEF86150E499E007E6E6D /* new_user.png */; };
@@ -143,6 +144,7 @@
 		91595522166A836E0084D837 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OPMainWindow.xib; sourceTree = "<group>"; };
 		91595523166A923E0084D837 /* OPScanningView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPScanningView.h; sourceTree = "<group>"; };
 		91595524166A923E0084D837 /* OPScanningView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPScanningView.m; sourceTree = "<group>"; };
+		915BE2F916A19108009196E5 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
 		915CEF80150E3FE6007E6E6D /* OPCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPCalendarView.h; sourceTree = "<group>"; };
 		915CEF81150E3FE6007E6E6D /* OPCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPCalendarView.m; sourceTree = "<group>"; };
 		915CEF84150E4442007E6E6D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -341,6 +343,7 @@
 				91EF2C28150BBAAC008D7F3A /* network.png */,
 				91EF2C2A150BBAAC008D7F3A /* patients.png */,
 				91EF2C2B150BBAAC008D7F3A /* statistics.png */,
+				915BE2F916A19108009196E5 /* trash.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 				910CB9E616433B960065834D /* Mail_Template.docx in Resources */,
 				914594BA169651E7003016FF /* fr_postal_codes.csv in Resources */,
 				919C7C5E169664F4006AC028 /* opale.icns in Resources */,
+				915BE2FA16A19108009196E5 /* trash.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
