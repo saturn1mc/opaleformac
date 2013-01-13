@@ -106,16 +106,9 @@
         }
         
         else if([obj isKindOfClass:[NSTextField class]]){
+            [(NSTextField*)obj setBezeled:!lock];
             [(NSTextField*)obj setEditable:!lock];
             [(NSTextField*)obj setSelectable:!lock];
-            [(NSTextField*)obj setBezeled:!lock];
-            
-            if(lock){
-                [(NSTextField*)obj setBackgroundColor:[NSColor controlBackgroundColor]];
-            }
-            else{
-                [(NSTextField*)obj setBackgroundColor:[NSColor textBackgroundColor]];
-            }
         }
         
         else if([obj isKindOfClass:[NSTextView class]]){
@@ -218,7 +211,7 @@
         OPDocument* document = [[patient.documents allObjects] objectAtIndex:documentsTable.selectedRow];
         
         NSAlert *alert = [NSAlert alertWithMessageText:@"Supprimer le document ?" defaultButton:@"Annuler" alternateButton:@"Oui" otherButton:nil informativeTextWithFormat:@"Le document '%@' sera définitivement supprimé de la base", [[NSURL fileURLWithPath:document.filePath] lastPathComponent] ];
-        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert setAlertStyle:NSCriticalAlertStyle];
         
         [alert beginSheetModalForWindow:parent modalDelegate:self didEndSelector:@selector(docAlertDidEnd:returnCode:contextInfo:) contextInfo:(void*)document];
     }
@@ -320,7 +313,7 @@
         OPConsultation* consultation = (OPConsultation*)[sortedConsultations objectAtIndex:consultationsTable.selectedRow];
         
         NSAlert *alert = [NSAlert alertWithMessageText:@"Supprimer la consultation ?" defaultButton:@"Annuler" alternateButton:@"Oui" otherButton:nil informativeTextWithFormat:@"La consultation sélectionnée sera définitivement supprimée de la base"];
-        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert setAlertStyle:NSCriticalAlertStyle];
         
         [alert beginSheetModalForWindow:parent modalDelegate:self didEndSelector:@selector(docAlertDidEnd:returnCode:contextInfo:) contextInfo:(void*)consultation];
     }
@@ -409,7 +402,7 @@
         OPMail* mail = (OPMail*)[[patient.mails allObjects] objectAtIndex:mailsTable.selectedRow];
         
         NSAlert *alert = [NSAlert alertWithMessageText:@"Supprimer le courrier ?" defaultButton:@"Annuler" alternateButton:@"Oui" otherButton:nil informativeTextWithFormat:@"Le courrier '%@' sera définitivement supprimé de la base", [[NSURL fileURLWithPath:mail.filePath] lastPathComponent] ];
-        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert setAlertStyle:NSCriticalAlertStyle];
         
         [alert beginSheetModalForWindow:parent modalDelegate:self didEndSelector:@selector(mailAlertDidEnd:returnCode:contextInfo:) contextInfo:(void*)mail];
     }

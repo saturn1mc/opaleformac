@@ -2,7 +2,7 @@
 //  OPPatient.m
 //  Opale
 //
-//  Created by Camille on 06/01/13.
+//  Created by Camille on 13/01/13.
 //
 //
 
@@ -39,6 +39,7 @@
 @dynamic gynecologicalSphere;
 @dynamic job;
 @dynamic lastName;
+@dynamic laterality;
 @dynamic medicalHistory;
 @dynamic motherJob;
 @dynamic otherSphere;
@@ -46,6 +47,7 @@
 @dynamic postalCode;
 @dynamic pregnancyAndBirthSphere;
 @dynamic previousHistoryComments;
+@dynamic riskFactor;
 @dynamic sex;
 @dynamic sleepSphere;
 @dynamic surgicalHistory;
@@ -56,8 +58,6 @@
 @dynamic town;
 @dynamic traumaticHistory;
 @dynamic urinarySphere;
-@dynamic riskFactor;
-@dynamic laterality;
 @dynamic consultations;
 @dynamic documents;
 @dynamic mails;

@@ -32,7 +32,7 @@
         <attribute name="address" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="addressedBy" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="afterCare" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="birthday" optional="YES" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="birthday" attributeType="Date" indexed="YES" syncable="YES"/>
         <attribute name="birthHC" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="birthHeight" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="birthPlace" optional="YES" attributeType="String" syncable="YES"/>

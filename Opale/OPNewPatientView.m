@@ -13,37 +13,61 @@
 
 @implementation OPNewPatientView
 
-@synthesize cellFirstName, cellLastName, birthdayPicker, matrixSex, cellTel1, cellTel2, cellAddress, cellTown, cellPostalCode, cellCountry;
+@synthesize cellFirstName, errorImageFirstName, cellLastName, errorImageLastName, birthdayPicker, matrixSex, cellTel1, cellTel2, cellAddress, cellTown, cellPostalCode, cellCountry;
 
 -(IBAction)validatePatient:(id)sender{
-
-    //TODO verify inputs
     
-    NSString* sex = [[NSString alloc] init];
+    BOOL error = NO;
     
-    if([matrixSex selectedRow] == 0){
-        sex = @"Masculin";
+    if([[cellLastName stringValue] length] > 0){
+        [errorImageLastName setHidden:YES];
     }
     else{
-        sex = @"Feminin";
+        [errorImageLastName setHidden:NO];
+        error = YES;
     }
     
-    OPPatient* nPatient = [NSEntityDescription insertNewObjectForEntityForName:@"Patient" inManagedObjectContext:[self managedObjectContext]];
+    if([[cellFirstName stringValue] length] > 0){
+        [errorImageFirstName setHidden:YES];
+    }
+    else{
+        [errorImageFirstName setHidden:NO];
+        error = YES;
+    }
     
-    nPatient.firstName = [cellFirstName stringValue];
-    nPatient.lastName = [cellLastName stringValue];
-    nPatient.birthday = [birthdayPicker dateValue];
-    nPatient.sex = sex; 
-    nPatient.address = [cellAddress stringValue];
-    nPatient.town = [cellTown stringValue];
-    nPatient.postalCode = [cellPostalCode stringValue];
-    nPatient.country = [cellCountry stringValue];
-    nPatient.tel1 = [cellTel1 stringValue];
-    nPatient.tel2 = [cellTel2 stringValue];
     
-    [self saveAction];
-    
-    [parent showPatientViewFor:nPatient withLockState:NO];
+    if(error){
+        NSAlert *alert = [NSAlert alertWithMessageText:@"Création impossible" defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@"Veuillez renseigner toutes les données obligatoire"];
+        [alert beginSheetModalForWindow:parent modalDelegate:self didEndSelector:nil contextInfo:nil];
+    }
+    else{
+        NSString* sex;
+        
+        if([matrixSex selectedRow] == 0){
+            sex = @"Masculin";
+        }
+        else{
+            sex = @"Feminin";
+        }
+        
+        
+        OPPatient* nPatient = [NSEntityDescription insertNewObjectForEntityForName:@"Patient" inManagedObjectContext:[self managedObjectContext]];
+        
+        nPatient.firstName = [cellFirstName stringValue];
+        nPatient.lastName = [cellLastName stringValue];
+        nPatient.birthday = [birthdayPicker dateValue];
+        nPatient.sex = sex;
+        nPatient.address = [cellAddress stringValue];
+        nPatient.town = [cellTown stringValue];
+        nPatient.postalCode = [cellPostalCode stringValue];
+        nPatient.country = [cellCountry stringValue];
+        nPatient.tel1 = [cellTel1 stringValue];
+        nPatient.tel2 = [cellTel2 stringValue];
+        
+        [self saveAction];
+        
+        [parent showPatientViewFor:nPatient withLockState:NO];
+    }
 }
 
 @end

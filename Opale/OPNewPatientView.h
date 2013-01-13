@@ -14,7 +14,9 @@
 
 @interface OPNewPatientView : OPView{
     IBOutlet NSFormCell*    cellFirstName;
+    IBOutlet NSImageView*   errorImageFirstName;
     IBOutlet NSFormCell*    cellLastName;
+    IBOutlet NSImageView*   errorImageLastName;
     IBOutlet NSDatePicker*  birthdayPicker;
     IBOutlet NSMatrix*      matrixSex;
     IBOutlet NSFormCell*    cellTel1;
@@ -26,7 +28,9 @@
 }
 
 @property (nonatomic, retain) IBOutlet NSFormCell*      cellFirstName;
+@property (nonatomic, retain) IBOutlet NSImageView*     errorImageFirstName;
 @property (nonatomic, retain) IBOutlet NSFormCell*      cellLastName;
+@property (nonatomic, retain) IBOutlet NSImageView*     errorImageLastName;
 @property (nonatomic, retain) IBOutlet NSDatePicker*    birthdayPicker;
 @property (nonatomic, retain) IBOutlet NSMatrix*        matrixSex;
 @property (nonatomic, retain) IBOutlet NSFormCell*      cellTel1;

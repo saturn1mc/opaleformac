@@ -2,7 +2,7 @@
 //  OPPatient.h
 //  Opale
 //
-//  Created by Camille on 06/01/13.
+//  Created by Camille on 13/01/13.
 //
 //
 
@@ -38,6 +38,7 @@
 @property (nonatomic, retain) NSString * gynecologicalSphere;
 @property (nonatomic, retain) NSString * job;
 @property (nonatomic, retain) NSString * lastName;
+@property (nonatomic, retain) NSString * laterality;
 @property (nonatomic, retain) NSString * medicalHistory;
 @property (nonatomic, retain) NSString * motherJob;
 @property (nonatomic, retain) NSString * otherSphere;
@@ -45,6 +46,7 @@
 @property (nonatomic, retain) NSString * postalCode;
 @property (nonatomic, retain) NSString * pregnancyAndBirthSphere;
 @property (nonatomic, retain) NSString * previousHistoryComments;
+@property (nonatomic, retain) NSString * riskFactor;
 @property (nonatomic, retain) NSString * sex;
 @property (nonatomic, retain) NSString * sleepSphere;
 @property (nonatomic, retain) NSString * surgicalHistory;
@@ -55,8 +57,6 @@
 @property (nonatomic, retain) NSString * town;
 @property (nonatomic, retain) NSString * traumaticHistory;
 @property (nonatomic, retain) NSString * urinarySphere;
-@property (nonatomic, retain) NSString * riskFactor;
-@property (nonatomic, retain) NSString * laterality;
 @property (nonatomic, retain) NSSet *consultations;
 @property (nonatomic, retain) NSSet *documents;
 @property (nonatomic, retain) NSSet *mails;
