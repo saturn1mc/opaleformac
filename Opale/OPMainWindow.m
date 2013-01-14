@@ -120,8 +120,6 @@ static const NSInteger childAgeLimit = 17;
     [statsView setAutoresizingMask:NSViewHeightSizable|NSViewWidthSizable];
     [transition setType:kCATransitionFade];
     [self openNewView:calendarView];
-    
-    [[[calendarView webView] mainFrame] loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.google.com/calendar"]]];
 }
 
 -(IBAction)showAccountingView:(id)sender{

@@ -6,13 +6,14 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import <WebKit/WebKit.h>
 #import "OPView.h"
 
+@class OACalendarView;
+
 @interface OPCalendarView : OPView{
-    IBOutlet WebView* webView;
+    IBOutlet OACalendarView* calendarView;
 }
 
-@property (nonatomic, retain) IBOutlet WebView* webView;
+@property (nonatomic, retain) IBOutlet OACalendarView* calendarView;
 
 @end
