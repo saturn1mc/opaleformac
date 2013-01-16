@@ -7,29 +7,81 @@
 //
 
 #import "OPCalendarView.h"
-
-#import <OmniAppKit/OACalendarView.h>
+#import "OPWeekView.h"
+#import "OPDayView.h"
 
 @implementation OPCalendarView
 
-@synthesize calendarView;
+@synthesize datePicker, calendarView, currentView, currentWeek, weekView, currentDay, dayView;
 
 -(void)awakeFromNib{
-    [calendarView setCalendar:[NSCalendar currentCalendar]];
-    [calendarView setShowsDaysForOtherMonths:YES];
-    [calendarView setVisibleMonth:[NSDate date]];
-    [calendarView setSelectionType:OACalendarViewSelectByDay];
-    [calendarView updateHighlightMask];
-    [calendarView setFirstDayOfWeek:1];
+    currentDay = 0;
+    currentWeek = [[NSMutableArray alloc] init];
+    transition = [CATransition animation];
+    [datePicker setDateValue:[NSDate date]];
+    [self changeSelection:self];
+    [calendarView setAnimations:[NSDictionary dictionaryWithObject:transition forKey:@"subviews"]];
+    [calendarView setWantsLayer:YES];
 }
 
--(void)viewWillDraw{
-    NSCalendar* calendar = [NSCalendar currentCalendar];
-    NSDate *today = [NSDate date];
-    NSDateComponents *dateComponents =  [calendar components:NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:today];
-    today = [calendar dateFromComponents:dateComponents];
+-(void)resetView{
+    [datePicker setDateValue:[NSDate date]];
+    [self changeView:weekView];
+}
 
-    [calendarView setSelectedDay:today];
+-(IBAction)changeSelection:(id)sender{
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    
+    NSDateComponents* oldComponents = [calendar components: NSWeekdayCalendarUnit | NSWeekOfYearCalendarUnit | NSYearCalendarUnit fromDate:currentDay];
+    
+    NSDateComponents* newComponents = [calendar components: NSWeekdayCalendarUnit | NSWeekOfYearCalendarUnit | NSYearCalendarUnit fromDate:[datePicker dateValue]];
+    
+    if((newComponents.year != oldComponents.year) || (newComponents.weekOfYear != oldComponents.weekOfYear)){
+        
+        [currentWeek removeAllObjects];
+        
+        for(int i = 0; i < 6; i++){
+            NSDateComponents* components = [[NSDateComponents alloc] init];
+            [components setWeekday:(i+2)];
+            [components setWeekOfYear:[newComponents weekOfYear]];
+            [components setYear:[newComponents year]];
+            
+            [currentWeek addObject:[calendar dateFromComponents:components]];
+        }
+        
+        [weekView setCurrentWeek:currentWeek];
+    }
+    
+    currentDay = [calendar dateFromComponents:newComponents];
+}
+
+-(IBAction)showDayView:(id)sender{
+    [transition setType:kCATransitionPush];
+    [transition setSubtype:kCATransitionFromRight];
+    [dayView setCurrentDay:currentDay];
+    [self changeView:dayView];
+}
+
+-(IBAction)showWeekView:(id)sender{
+    [transition setType:kCATransitionPush];
+    [transition setSubtype:kCATransitionFromLeft];
+    [weekView setCurrentWeek:currentWeek];
+    [self changeView:weekView];
+}
+
+-(void)changeView:(OPView *)newView{
+    if(currentView != newView){
+        [newView resetView];
+        
+        if(!currentView){
+            [calendarView.animator addSubview:newView];
+        }
+        else{
+            [calendarView.animator replaceSubview:currentView with:newView];
+        }
+        
+        currentView = newView;
+    }
 }
 
 @end

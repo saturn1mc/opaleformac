@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="12C60" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Appointment" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="patient" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="appointments" inverseEntity="Patient" syncable="YES"/>
+    </entity>
     <entity name="Consultation" representedClassName="OPConsultation" syncable="YES">
         <attribute name="advises" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" attributeType="Date" indexed="YES" syncable="YES"/>
@@ -73,6 +78,7 @@
         <attribute name="town" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="traumaticHistory" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="urinarySphere" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="appointments" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Appointment" inverseName="patient" inverseEntity="Appointment" syncable="YES"/>
         <relationship name="consultations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Consultation" inverseName="patient" inverseEntity="Consultation" syncable="YES"/>
         <relationship name="documents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Document" inverseName="patient" inverseEntity="Document" syncable="YES"/>
         <relationship name="mails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Mail" inverseName="patient" inverseEntity="Mail" syncable="YES"/>
@@ -89,7 +95,8 @@
         <element name="Document" positionX="0" positionY="0" width="128" height="75"/>
         <element name="Invoice" positionX="0" positionY="0" width="128" height="135"/>
         <element name="Mail" positionX="0" positionY="0" width="128" height="75"/>
-        <element name="Patient" positionX="0" positionY="0" width="128" height="750"/>
+        <element name="Patient" positionX="0" positionY="0" width="128" height="765"/>
         <element name="Professionnal" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="Appointment" positionX="160" positionY="192" width="128" height="90"/>
     </elements>
 </model>

@@ -31,7 +31,7 @@ static const NSInteger childAgeLimit = 17;
 
 @implementation OPMainWindow
 
-@synthesize nextButton, previousButton, currentScrollView, currentView, homeView, patientsView, calendarView, accountingView, statsView, adultMalePatientView, adultFemalePatientView, babyPatientView, adultChildConsultationView, babyConsultationView, professionalListView, scanningView;
+@synthesize nextButton, previousButton, currentScrollView, currentView, homeView, patientsView, calendarView, accountingView, statsView, adultMalePatientView, adultFemalePatientView, babyPatientView, adultChildConsultationView, babyConsultationView, professionalListView, scanningView, transition;
 
 - (void)awakeFromNib{
     

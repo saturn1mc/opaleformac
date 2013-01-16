@@ -12,7 +12,7 @@
 
 @implementation OPView
 
-@synthesize parent, nextView, previousView;
+@synthesize parent, nextView, previousView, transition;
 
 -(NSManagedObjectContext *)managedObjectContext{
     OPAppDelegate* appDelegate = (OPAppDelegate*)parent.delegate;

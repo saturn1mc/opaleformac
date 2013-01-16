@@ -16,8 +16,8 @@
     IBOutlet NSToolbarItem* nextButton;
     IBOutlet NSToolbarItem* previousButton;
     
-    IBOutlet NSScrollView* currentScrollView;
-    IBOutlet OPView* currentView;
+    NSScrollView* currentScrollView;
+    OPView* currentView;
     
     IBOutlet OPView* homeView;
     IBOutlet OPPatientsView* patientsView;
@@ -34,15 +34,15 @@
     
     IBOutlet OPScanningView* scanningView;
     
-    CATransition *transition;
+    CATransition* transition;
 }
 
 @property (nonatomic, retain) IBOutlet NSToolbarItem* nextButton;
 @property (nonatomic, retain) IBOutlet NSToolbarItem* previousButton;
 
 
-@property (nonatomic, retain) IBOutlet NSScrollView* currentScrollView;
-@property (nonatomic, retain) IBOutlet OPView* currentView;
+@property (nonatomic, retain) NSScrollView* currentScrollView;
+@property (nonatomic, retain) OPView* currentView;
 
 @property (nonatomic, retain) IBOutlet OPView* homeView;
 @property (nonatomic, retain) IBOutlet OPPatientsView* patientsView;
@@ -59,6 +59,8 @@
 @property (nonatomic, retain) IBOutlet OPAdultChildConsultationView* babyConsultationView;
 
 @property (nonatomic, retain) IBOutlet OPScanningView* scanningView;
+
+@property (nonatomic, retain) CATransition* transition;
 
 -(NSURL*)directoryFor:(OPPatient*)patient;
 -(NSURL*)mailDirectoryFor:(OPPatient*)patient;

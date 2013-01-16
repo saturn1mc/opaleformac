@@ -7,6 +7,7 @@
 //
 
 #import <CoreData/CoreData.h>
+#import <Quartz/Quartz.h>
 
 @class OPMainWindow;
 
@@ -15,11 +16,14 @@
     
     OPView* nextView;
     OPView* previousView;
+    
+    CATransition* transition;
 }
 
 @property (nonatomic, retain) IBOutlet OPMainWindow* parent;
 @property (nonatomic, retain) OPView* nextView;
 @property (nonatomic, retain) OPView* previousView;
+@property (nonatomic, retain) CATransition* transition;
 
 -(NSManagedObjectContext *)managedObjectContext;
 

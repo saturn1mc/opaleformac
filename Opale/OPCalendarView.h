@@ -8,12 +8,30 @@
 
 #import "OPView.h"
 
-@class OACalendarView;
+@class OPWeekView, OPDayView;
 
 @interface OPCalendarView : OPView{
-    IBOutlet OACalendarView* calendarView;
+    
+    IBOutlet NSDatePicker* datePicker;
+    IBOutlet NSView* calendarView;
+    OPView* currentView;
+    NSMutableArray* currentWeek;
+    IBOutlet OPWeekView* weekView;
+    NSDate* currentDay;
+    IBOutlet OPDayView* dayView;
 }
 
-@property (nonatomic, retain) IBOutlet OACalendarView* calendarView;
+@property (nonatomic, retain) IBOutlet NSDatePicker* datePicker;
+@property (nonatomic, retain) IBOutlet NSView* calendarView;
+@property (nonatomic, retain) OPView* currentView;
+@property (nonatomic, retain) NSMutableArray* currentWeek;
+@property (nonatomic, retain) IBOutlet OPWeekView* weekView;
+@property (nonatomic, retain) NSDate* currentDay;
+@property (nonatomic, retain) IBOutlet OPDayView* dayView;
+
+-(IBAction)changeSelection:(id)sender;
+-(IBAction)showDayView:(id)sender;
+-(IBAction)showWeekView:(id)sender;
+-(void)changeView:(OPView*)newView;
 
 @end
