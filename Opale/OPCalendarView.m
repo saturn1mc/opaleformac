@@ -7,12 +7,12 @@
 //
 
 #import "OPCalendarView.h"
-#import "OPWeekView.h"
-#import "OPDayView.h"
+#import "OPWeekAppointmentsView.h"
+#import "OPDayAppointmentsView.h"
 
 @implementation OPCalendarView
 
-@synthesize datePicker, calendarView, currentView, currentWeek, weekView, currentDay, dayView;
+@synthesize datePicker, todayButton, viewSwitcher, calendarView, currentView, currentWeek, weekView, currentDay, dayView;
 
 -(void)awakeFromNib{
     currentDay = 0;

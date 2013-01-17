@@ -1,17 +1,17 @@
 //
-//  OPDayView.m
+//  OPDayAppointmentsView.m
 //  Opale
 //
 //  Created by Camille on 15/01/13.
 //
 //
 
-#import "OPDayView.h"
+#import "OPDayAppointmentsView.h"
 
-@implementation OPDayView
+@implementation OPDayAppointmentsView
 
 @dynamic currentDay;
-@synthesize colHour, colDay;
+@synthesize contentView;
 
 -(void)setCurrentDay:(NSDate *)nDay{
     currentDay = nDay;
@@ -24,7 +24,7 @@
     [dateFormatter setDateFormat:@"dddd dd MM"];
     [dateFormatter setLocale:frLocale];
     
-    [[colDay headerCell] setTitle:[dateFormatter stringFromDate:currentDay]];
+    //[[colDay headerCell] setTitle:[dateFormatter stringFromDate:currentDay]];
 }
 
 -(NSDate*)getCurrentDay{

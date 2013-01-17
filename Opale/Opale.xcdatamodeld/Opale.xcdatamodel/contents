@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="12C60" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Appointment" syncable="YES">
-        <attribute name="date" optional="YES" attributeType="Date" indexed="YES" syncable="YES"/>
+    <entity name="Appointment" representedClassName="OPAppointment" syncable="YES">
         <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="end" optional="YES" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="start" optional="YES" attributeType="Date" indexed="YES" syncable="YES"/>
         <relationship name="patient" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="appointments" inverseEntity="Patient" syncable="YES"/>
     </entity>
     <entity name="Consultation" representedClassName="OPConsultation" syncable="YES">
@@ -91,12 +92,12 @@
         <attribute name="tel" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Appointment" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Consultation" positionX="0" positionY="0" width="128" height="195"/>
         <element name="Document" positionX="0" positionY="0" width="128" height="75"/>
         <element name="Invoice" positionX="0" positionY="0" width="128" height="135"/>
         <element name="Mail" positionX="0" positionY="0" width="128" height="75"/>
         <element name="Patient" positionX="0" positionY="0" width="128" height="765"/>
         <element name="Professionnal" positionX="0" positionY="0" width="128" height="120"/>
-        <element name="Appointment" positionX="160" positionY="192" width="128" height="90"/>
     </elements>
 </model>
