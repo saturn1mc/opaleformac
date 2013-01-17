@@ -8,27 +8,38 @@
 //
 
 #import "OPWeekAppointmentsView.h"
+#import "OPDayView.h"
 #import "OPAppointmentView.h"
 
 @implementation OPWeekAppointmentsView
 
+static CGFloat daysAppearing    = 6;
+static CGFloat dayColumnWidth   = 102;
+
 @dynamic currentWeek;
-@synthesize scrollView, contentView;
+@synthesize displayedDays, scrollView, contentView;
 
 -(void)awakeFromNib{
-    NSTextField* test = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 1400, 100, 100)];
-    [test setStringValue:@"TEST"];
-    [contentView addSubview:test];
+    displayedDays = [[NSMutableArray alloc] init];
+    [self prepareView];
+}
+
+-(void)prepareView{
+    CGFloat top = contentView.frame.size.height;
+    CGFloat y = 0;
+    CGFloat x = 0;
     
-    NSTextField* test2 = [[NSTextField alloc] initWithFrame:NSMakeRect(200, 1400, 100, 100)];
-    [test2 setStringValue:@"TEST2"];
-    [contentView addSubview:test2];
+    for(int i = 0; i < daysAppearing; i++){
+        
+        OPDayView* day = [[OPDayView alloc] initWithFrame:NSMakeRect(x, y, dayColumnWidth, contentView.frame.size.height)];
+        
+        [contentView addSubview:day];
+        [displayedDays addObject:day];
+        
+        x += dayColumnWidth;
+    }
     
-    NSTextField* test3 = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 100, 100)];
-    [test3 setStringValue:@"TEST3"];
-    [contentView addSubview:test3];
-    
-    [[scrollView documentView] scrollPoint:NSMakePoint(0, 1500)];
+    [[scrollView documentView] scrollPoint:NSMakePoint(0, top)];
 }
 
 -(void)setCurrentWeek:(NSMutableArray *)nWeek{
@@ -42,13 +53,12 @@
     [dateFormatter setDateStyle:NSDateFormatterFullStyle];
     [dateFormatter setDateFormat:@"EEEE dd"];
     
-//    [[colMonday headerCell] setTitle:[dateFormatter stringFromDate:[currentWeek objectAtIndex:0]]];
-//    [[colTuesday headerCell] setTitle:[dateFormatter stringFromDate:[currentWeek objectAtIndex:1]]];
-//    [[colWednesday headerCell] setTitle:[dateFormatter stringFromDate:[currentWeek objectAtIndex:2]]];
-//    [[colThursday headerCell] setTitle:[dateFormatter stringFromDate:[currentWeek objectAtIndex:3]]];
-//    [[colFriday headerCell] setTitle:[dateFormatter stringFromDate:[currentWeek objectAtIndex:4]]];
-//    [[colSaturday headerCell] setTitle:[dateFormatter stringFromDate:[currentWeek objectAtIndex:5]]];
-    
+    for(int i = 0; i < daysAppearing; i++){
+        OPDayView* dayView = (OPDayView*)[displayedDays objectAtIndex:i];
+        
+        NSString* dateStr = [dateFormatter stringFromDate:[currentWeek objectAtIndex:i]];
+        [[dayView header] setStringValue:[[[dateStr substringToIndex:1] uppercaseString] stringByAppendingString:[dateStr substringFromIndex:1]]];
+    }
 }
 
 -(NSMutableArray*)getCurrentWeek{

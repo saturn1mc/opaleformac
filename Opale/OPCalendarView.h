@@ -13,6 +13,7 @@
 @interface OPCalendarView : OPView{
     IBOutlet NSDatePicker* datePicker;
     IBOutlet NSButton* todayButton;
+    IBOutlet NSTextField* monthYearLabel;
     IBOutlet NSSegmentedControl* viewSwitcher;
     
     IBOutlet NSView* calendarView;
@@ -25,6 +26,7 @@
 
 @property (nonatomic, retain) IBOutlet NSDatePicker* datePicker;
 @property (nonatomic, retain) IBOutlet NSButton* todayButton;
+@property (nonatomic, retain) IBOutlet NSTextField* monthYearLabel;
 @property (nonatomic, retain) IBOutlet NSSegmentedControl* viewSwitcher;
 @property (nonatomic, retain) IBOutlet NSView* calendarView;
 @property (nonatomic, retain) OPView* currentView;
@@ -33,6 +35,9 @@
 @property (nonatomic, retain) NSDate* currentDay;
 @property (nonatomic, retain) IBOutlet OPDayAppointmentsView* dayView;
 
+-(IBAction)returnToday:(id)sender;
+-(void)reloadCurrentDayWith:(NSDateComponents*) newComponents;
+-(void)reloadCurrentWeekWith:(NSDateComponents*) newComponents;
 -(IBAction)changeSelection:(id)sender;
 -(IBAction)showDayView:(id)sender;
 -(IBAction)showWeekView:(id)sender;

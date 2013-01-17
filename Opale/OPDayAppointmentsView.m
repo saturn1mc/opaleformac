@@ -7,11 +7,17 @@
 //
 
 #import "OPDayAppointmentsView.h"
+#import "OPDayView.h"
 
 @implementation OPDayAppointmentsView
 
 @dynamic currentDay;
-@synthesize contentView;
+@synthesize dayView, contentView;
+
+-(void)awakeFromNib{
+    dayView = [[OPDayView alloc] initWithFrame:contentView.frame];
+    [contentView addSubview:dayView];
+}
 
 -(void)setCurrentDay:(NSDate *)nDay{
     currentDay = nDay;
@@ -21,10 +27,11 @@
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
     [dateFormatter setDateStyle:NSDateFormatterShortStyle];
-    [dateFormatter setDateFormat:@"dddd dd MM"];
+    [dateFormatter setDateFormat:@"EEEE dd"];
     [dateFormatter setLocale:frLocale];
     
-    //[[colDay headerCell] setTitle:[dateFormatter stringFromDate:currentDay]];
+    NSString* dateStr = [dateFormatter stringFromDate:currentDay];
+    [[dayView header] setStringValue:[[[dateStr substringToIndex:1] uppercaseString] stringByAppendingString:[dateStr substringFromIndex:1]]];
 }
 
 -(NSDate*)getCurrentDay{

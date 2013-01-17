@@ -12,15 +12,20 @@
 
 @interface OPWeekAppointmentsView : OPView{
     NSMutableArray* currentWeek;
+    NSMutableArray* displayedDays;
+    
     IBOutlet NSScrollView* scrollView;
     IBOutlet NSView* contentView;
 }
 
 @property (nonatomic, retain) NSMutableArray* currentWeek;
+@property (nonatomic, retain) NSMutableArray* displayedDays;
+
 @property (nonatomic, retain) IBOutlet NSScrollView* scrollView;
 @property (nonatomic, retain) IBOutlet NSView* contentView;
 
 -(void)setCurrentWeek:(NSMutableArray *)nWeek;
 -(NSMutableArray*)getCurrentWeek;
+-(void)prepareView;
 
 @end
