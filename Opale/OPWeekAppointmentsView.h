@@ -24,8 +24,10 @@
 @property (nonatomic, retain) IBOutlet NSScrollView* scrollView;
 @property (nonatomic, retain) IBOutlet NSView* contentView;
 
+-(void)prepareView;
 -(void)setCurrentWeek:(NSMutableArray *)nWeek;
 -(NSMutableArray*)getCurrentWeek;
--(void)prepareView;
+
+-(void)loadAppointments:(NSMutableArray*)dayAppointments forDay:(int)day;
 
 @end

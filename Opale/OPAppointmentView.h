@@ -13,16 +13,16 @@
 @interface OPAppointmentView : OPView{
     OPAppointment* appointment;
     
-    IBOutlet NSButton* button;
-    IBOutlet NSTextField* patientField;
-    IBOutlet NSTextField* hoursField;
+    NSTextField* patientField;
+    NSTextField* hoursField;
+    NSDateFormatter* dateFormatter;
 }
 
 @property (nonatomic, retain) OPAppointment* appointment;
 
-@property (nonatomic, retain) IBOutlet NSButton* button;
-@property (nonatomic, retain) IBOutlet NSTextField* patientField;
-@property (nonatomic, retain) IBOutlet NSTextField* hoursField;
+@property (nonatomic, retain) NSTextField* patientField;
+@property (nonatomic, retain) NSTextField* hoursField;
+@property (nonatomic, retain) NSDateFormatter* dateFormatter;
 
 -(void)setAppointment:(OPAppointment *)nAppointment;
 -(OPAppointment*)getAppointment;

@@ -2,7 +2,7 @@
 //  OPAppointment.m
 //  Opale
 //
-//  Created by Camille on 16/01/13.
+//  Created by Camille on 18/01/13.
 //
 //
 
@@ -12,8 +12,9 @@
 
 @implementation OPAppointment
 
-@dynamic date;
 @dynamic details;
+@dynamic end;
+@dynamic start;
 @dynamic patient;
 
 @end

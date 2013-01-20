@@ -45,24 +45,17 @@ static CGFloat dayColumnWidth   = 102;
 -(void)setCurrentWeek:(NSMutableArray *)nWeek{
     currentWeek = nWeek;
     
-    NSLocale* frLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"fr_FR"];
-    
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setLocale:frLocale];
-    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-    [dateFormatter setDateStyle:NSDateFormatterFullStyle];
-    [dateFormatter setDateFormat:@"EEEE dd"];
-    
     for(int i = 0; i < daysAppearing; i++){
-        OPDayView* dayView = (OPDayView*)[displayedDays objectAtIndex:i];
-        
-        NSString* dateStr = [dateFormatter stringFromDate:[currentWeek objectAtIndex:i]];
-        [[dayView header] setStringValue:[[[dateStr substringToIndex:1] uppercaseString] stringByAppendingString:[dateStr substringFromIndex:1]]];
+        [(OPDayView*)[displayedDays objectAtIndex:i] setCurrentDay:[currentWeek objectAtIndex:i]];
     }
 }
 
 -(NSMutableArray*)getCurrentWeek{
     return currentWeek;
+}
+
+-(void)loadAppointments:(NSMutableArray*)dayAppointments forDay:(int)day{
+    [(OPDayView*)[displayedDays objectAtIndex:day] setAppointmentViews:dayAppointments];
 }
 
 @end

@@ -12,30 +12,35 @@
 @implementation OPDayAppointmentsView
 
 @dynamic currentDay;
-@synthesize dayView, contentView;
+@synthesize dayView, contentView, scrollView;
 
 -(void)awakeFromNib{
-    dayView = [[OPDayView alloc] initWithFrame:contentView.frame];
+    [self prepareView];
+}
+
+-(void)prepareView{
+    CGFloat top = contentView.frame.size.height;
+    CGFloat y = 0;
+    CGFloat x = 0;
+    
+    dayView = [[OPDayView alloc] initWithFrame:NSMakeRect(x, y, contentView.frame.size.width, contentView.frame.size.height)];
+    
     [contentView addSubview:dayView];
+    
+    [[scrollView documentView] scrollPoint:NSMakePoint(0, top)];
 }
 
 -(void)setCurrentDay:(NSDate *)nDay{
     currentDay = nDay;
-    
-    NSLocale* frLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"fr_FR"];
-    
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
-    [dateFormatter setDateFormat:@"EEEE dd"];
-    [dateFormatter setLocale:frLocale];
-    
-    NSString* dateStr = [dateFormatter stringFromDate:currentDay];
-    [[dayView header] setStringValue:[[[dateStr substringToIndex:1] uppercaseString] stringByAppendingString:[dateStr substringFromIndex:1]]];
+    [dayView setCurrentDay:nDay];
 }
 
 -(NSDate*)getCurrentDay{
     return currentDay;
+}
+
+-(void)loadAppointments:(NSMutableArray*)dayAppointments{
+    [dayView setAppointmentViews:dayAppointments];
 }
 
 @end

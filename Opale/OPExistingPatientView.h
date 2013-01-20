@@ -8,7 +8,7 @@
 
 #import "OPView.h"
 
-@class OPPatient;
+@class OPPatient, OPAppointmentPanel;
 
 @interface OPExistingPatientView : OPView <NSTableViewDelegate, NSTableViewDataSource>{
     OPPatient* patient;
@@ -64,6 +64,13 @@
     IBOutlet NSTableView* mailsTable;
     IBOutlet NSTableColumn* colMailName;
     IBOutlet NSTableColumn* colMailFilePath;
+    
+    //Appointments tab
+    IBOutlet OPAppointmentPanel* appointmentPanel;
+    IBOutlet NSButton* deleteAppointmentButton;
+    IBOutlet NSTableView* appointmentsTable;
+    IBOutlet NSTableColumn* colAppointmentDate;
+    IBOutlet NSTableColumn* colAppointmentDetails;
 }
 
 @property (nonatomic, retain) OPPatient* patient;
@@ -114,6 +121,12 @@
 @property (nonatomic, retain) IBOutlet NSTableColumn* colMailName;
 @property (nonatomic, retain) IBOutlet NSTableColumn* colMailFilePath;
 
+@property (nonatomic, retain) IBOutlet OPAppointmentPanel* appointmentPanel;
+@property (nonatomic, retain) IBOutlet NSButton* deleteAppointmentButton;
+@property (nonatomic, retain) IBOutlet NSTableView* appointmentsTable;
+@property (nonatomic, retain) IBOutlet NSTableColumn* colAppointmentDate;
+@property (nonatomic, retain) IBOutlet NSTableColumn* colAppointmentDetails;
+
 -(BOOL)locked;
 -(void)setLocked:(BOOL)lock;
 -(void)addEditableObject:(id)object;
@@ -122,21 +135,28 @@
 
 
 -(void)loadPatient:(OPPatient*)patientToLoad;
+
 -(IBAction)scanDocument:(id)sender;
 -(IBAction)importDocument:(id)sender;
 -(IBAction)openDocument:(id)sender;
 -(IBAction)deleteDocument:(id)sender;
 -(void)docAlertDidEnd:(NSAlert*)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 -(void)sortConsultations;
+
 -(IBAction)newConsultation:(id)sender;
 -(IBAction)showConsultation:(id)sender;
 -(IBAction)deleteConsultation:(id)sender;
 -(void)consultAlertDidEnd:(NSAlert*)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
+
 -(IBAction)createNewMail:(id)sender;
 -(IBAction)importMail:(id)sender;
 -(IBAction)openMail:(id)sender;
 -(IBAction)deleteMail:(id)sender;
 -(void)mailAlertDidEnd:(NSAlert*)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
+
+-(IBAction)newAppointment:(id)sender;
+-(IBAction)deleteAppointment:(id)sender;
+-(void)appointmentAlertDidEnd:(NSAlert*)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 
 -(void)applyModifications;
 -(IBAction)savePatient:(id)sender;

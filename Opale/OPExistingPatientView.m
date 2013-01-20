@@ -13,12 +13,14 @@
 #import "OPConsultation.h"
 #import "OPDocument.h"
 #import "OPMail.h"
+#import "OPAppointment.h"
+#import "OPAppointmentPanel.h"
 
 @implementation OPExistingPatientView
 
 @dynamic locked;
 
-@synthesize patient, sortedConsultations, editableObjects, switchLockButton, addressedByBox, cellFirstName, cellLastName, cellBirthday, cellSex, cellTel1, cellTel2, cellAddress, cellTown, cellPostalCode, cellCountry, generalComments, previousHistoryComments, familyHistory, medicalHistory,traumaticHistory, surgicalHistory, entAndOphtalmologicSphere, dentalSphere, digestiveSphere,urinarySphere, deleteConsultationButton, consultationsTable, colDate, colMotives, deleteDocumentButton, documentsTable, colDocumentTitle, colDocumentFilePath, deleteMailButton, mailsTable, colMailName, colMailFilePath;
+@synthesize patient, sortedConsultations, editableObjects, switchLockButton, addressedByBox, cellFirstName, cellLastName, cellBirthday, cellSex, cellTel1, cellTel2, cellAddress, cellTown, cellPostalCode, cellCountry, generalComments, previousHistoryComments, familyHistory, medicalHistory,traumaticHistory, surgicalHistory, entAndOphtalmologicSphere, dentalSphere, digestiveSphere,urinarySphere, deleteConsultationButton, consultationsTable, colDate, colMotives, deleteDocumentButton, documentsTable, colDocumentTitle, colDocumentFilePath, deleteMailButton, mailsTable, colMailName, colMailFilePath, appointmentPanel, appointmentsTable, colAppointmentDate, colAppointmentDetails, deleteAppointmentButton;
 
 - (void)awakeFromNib{
     //Editable objects
@@ -50,7 +52,7 @@
     [self addEditableObject:deleteConsultationButton];
     [consultationsTable setDoubleAction:@selector(showConsultation:)];
     sortedConsultations = [[NSMutableArray alloc] init];
-    [colDate setIdentifier:@"date"];
+    [colDate setIdentifier:@"consDate"];
     [colMotives setIdentifier:@"motives"];
     
     //Documents tab
@@ -64,6 +66,11 @@
     [mailsTable setDoubleAction:@selector(openMail:)];
     [colMailName setIdentifier:@"name"];
     [colMailFilePath setIdentifier:@"path"];
+    
+    //Appointments tab
+    [self addEditableObject:deleteAppointmentButton];
+    [colAppointmentDate setIdentifier:@"name"];
+    [colAppointmentDetails setIdentifier:@"details"];
 }
 
 -(BOOL)locked{
@@ -92,6 +99,11 @@
 }
 
 -(void)setEditableObjectsState:(BOOL)lock{
+    
+    if(lock){
+        [parent makeFirstResponder:nil];
+    }
+    
     for(id obj in editableObjects){
         if([obj isKindOfClass:[NSFormCell class]]){
             [(NSFormCell*)obj setEditable:!lock];
@@ -425,6 +437,43 @@
         [mailsTable reloadData];
     }
 }
+
+#pragma mark - Appointments
+
+-(IBAction)newAppointment:(id)sender{
+    [appointmentPanel setPatient:patient];
+    [appointmentPanel setLocked:NO];
+    [NSApp beginSheet:appointmentPanel modalForWindow:parent modalDelegate:self didEndSelector:nil contextInfo:nil];
+}
+
+-(IBAction)deleteAppointment:(id)sender{
+    if(appointmentsTable.numberOfSelectedRows > 0){
+        OPAppointment* appointment = (OPAppointment*)[[patient.appointments allObjects] objectAtIndex:appointmentsTable.selectedRow];
+        
+        NSAlert *alert = [NSAlert alertWithMessageText:@"Supprimer le rendez-vous sélectionné ?" defaultButton:@"Annuler" alternateButton:@"Oui" otherButton:nil informativeTextWithFormat:@"Le rendez-vous sélectionné sera définitivement supprimé de la base"];
+        [alert setAlertStyle:NSCriticalAlertStyle];
+        
+        [alert beginSheetModalForWindow:parent modalDelegate:self didEndSelector:@selector(appointmentAlertDidEnd:returnCode:contextInfo:) contextInfo:(void*)appointment];
+    }
+    else{
+        NSAlert *alert = [NSAlert alertWithMessageText:@"Action impossible" defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@"Aucun rendez-vous n'est sélectionné"];
+        [alert beginSheetModalForWindow:parent modalDelegate:self didEndSelector:nil contextInfo:nil];
+    }
+}
+
+-(void)appointmentAlertDidEnd:(NSAlert*)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo{
+    if(returnCode == NSAlertAlternateReturn){
+        OPAppointment* appointment = (__bridge OPAppointment *)(contextInfo);
+        [patient removeAppointmentsObject:appointment];
+        
+        [[self managedObjectContext] deleteObject:appointment];
+        [self saveAction];
+        
+        [appointmentsTable reloadData];
+    }
+}
+
+
 #pragma mark - Result table content management
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
@@ -441,6 +490,9 @@
     }
     else if(tableView == mailsTable){
         count = [[patient.mails allObjects] count];
+    }
+    else if(tableView == appointmentsTable){
+        count = [[patient.appointments allObjects] count];
     }
     
     return count;

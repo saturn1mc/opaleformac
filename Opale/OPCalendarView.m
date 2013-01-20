@@ -7,12 +7,16 @@
 //
 
 #import "OPCalendarView.h"
+#import "OPMainWindow.h"
+#import "OPAppDelegate.h"
 #import "OPWeekAppointmentsView.h"
 #import "OPDayAppointmentsView.h"
 
 @implementation OPCalendarView
 
 @synthesize datePicker, todayButton, monthYearLabel, viewSwitcher, calendarView, currentView, currentWeek, weekView, currentDay, dayView;
+
+static int displayedDays = 6;
 
 -(void)awakeFromNib{
     currentDay = 0;
@@ -41,26 +45,69 @@
     [self changeSelection:self];
 }
 
+-(NSMutableArray*)getAppointmentsFor:(NSDate*)day{
+    
+    //Preparing request
+    NSMutableArray* foundAppointments = [[NSMutableArray alloc] init];
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    
+    NSDateComponents* dayStartComponents = [calendar components: NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:day];
+    [dayStartComponents setHour:0];
+    [dayStartComponents setMinute:0];
+    
+    NSDateComponents* dayEndComponents = [calendar components: NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:day];
+    [dayEndComponents setHour:23];
+    [dayEndComponents setMinute:59];
+    
+    //Execute request
+    OPAppDelegate* appDelegate = (OPAppDelegate*)parent.delegate;
+    NSManagedObjectContext *moc = [appDelegate managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:@"Appointment" inManagedObjectContext:moc];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"(start >= %@) AND (start <= %@)", [calendar dateFromComponents:dayStartComponents], [calendar dateFromComponents:dayEndComponents]]];
+    
+    NSError *error = nil;
+    NSArray* results = [moc executeFetchRequest:request error:&error];
+    if(results){
+        [foundAppointments addObjectsFromArray:results];
+    }
+    
+    return foundAppointments;
+}
+
 -(void)reloadCurrentDayWith:(NSDateComponents*) newComponents{
     NSCalendar* calendar = [NSCalendar currentCalendar];
     currentDay = [calendar dateFromComponents:newComponents];
     [dayView setCurrentDay:currentDay];
+    [dayView loadAppointments:[self getAppointmentsFor:currentDay]];
 }
 
 -(void)reloadCurrentWeekWith:(NSDateComponents*) newComponents{
     NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSMutableArray* appListArray = [[NSMutableArray alloc] init];
     [currentWeek removeAllObjects];
     
-    for(int i = 0; i < 6; i++){
+    //Loading days in week and appointments
+    for(int i = 0; i < displayedDays; i++){
         NSDateComponents* components = [[NSDateComponents alloc] init];
         [components setWeekday:(i+2)];
         [components setWeekOfYear:[newComponents weekOfYear]];
         [components setYear:[newComponents year]];
         
-        [currentWeek addObject:[calendar dateFromComponents:components]];
+        NSDate* dayDate = [calendar dateFromComponents:components];
+        [appListArray addObject:[self getAppointmentsFor:dayDate]];
+        
+        [currentWeek addObject:dayDate];
     }
     
+    //Setting week and appointments to view
     [weekView setCurrentWeek:currentWeek];
+    
+    for(int i = 0; i < displayedDays; i++){
+        [weekView loadAppointments:[appListArray objectAtIndex:i] forDay:i];
+    }
 }
 
 -(IBAction)changeSelection:(id)sender{
@@ -87,7 +134,6 @@
         if((newComponents.year != oldComponents.year) || (newComponents.weekOfYear != oldComponents.weekOfYear)){
             
             [self reloadCurrentWeekWith:newComponents];
-            [weekView setCurrentWeek:currentWeek];
         }
         
         [self reloadCurrentDayWith:newComponents];
