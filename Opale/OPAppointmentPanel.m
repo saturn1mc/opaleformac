@@ -20,6 +20,7 @@
 -(void)awakeFromNib{
     [dayPicker setDateValue:[NSDate date]];
     patients = [[NSMutableArray alloc] init];
+    [self reloadPatients];
 }
 
 
@@ -61,6 +62,7 @@
 
 -(void)setPatient:(OPPatient *)nPatient{
     patient = nPatient;
+    [patientComboBox setStringValue:[NSString stringWithFormat:@"%@ %@", nPatient.lastName, nPatient.firstName]];
 }
 
 -(IBAction)switchLock:(id)sender{
@@ -71,14 +73,6 @@
     
     if(sender == validateButton) {
         if(patient){
-            OPAppDelegate* appDelegate = (OPAppDelegate*)parent.delegate;
-            NSManagedObjectContext* managedObjectContext = [appDelegate managedObjectContext];
-            
-            OPAppointment* nAppointment = [NSEntityDescription insertNewObjectForEntityForName:@"Appointment" inManagedObjectContext:managedObjectContext];
-            
-            nAppointment.patient = patient;
-            nAppointment.details = [[NSString alloc] initWithString:[detailsText string]];
-            
             NSCalendar* calendar = [NSCalendar currentCalendar];
             
             NSDateComponents* dayComponents = [calendar components: NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:[dayPicker dateValue]];
@@ -93,14 +87,35 @@
             [endComponents setMonth:[dayComponents month]];
             [endComponents setYear:[dayComponents year]];
             
-            nAppointment.start = [calendar dateFromComponents:startComponents];
-            nAppointment.end = [calendar dateFromComponents:endComponents];
-            
-            [appDelegate saveAction:self];
+            if([[calendar dateFromComponents:startComponents] compare:[NSDate date]] == NSOrderedDescending){
+                
+                if([[calendar dateFromComponents:startComponents] compare:[calendar dateFromComponents:endComponents]] == NSOrderedAscending){
+                    
+                    OPAppDelegate* appDelegate = (OPAppDelegate*)parent.delegate;
+                    NSManagedObjectContext* managedObjectContext = [appDelegate managedObjectContext];
+                    
+                    OPAppointment* nAppointment = [NSEntityDescription insertNewObjectForEntityForName:@"Appointment" inManagedObjectContext:managedObjectContext];
+                    
+                    nAppointment.patient = patient;
+                    nAppointment.details = [[NSString alloc] initWithString:[detailsText string]];
+                    nAppointment.start = [calendar dateFromComponents:startComponents];
+                    nAppointment.end = [calendar dateFromComponents:endComponents];
+                    
+                    [appDelegate saveAction:self];
+                }
+                else{
+                    NSAlert *alert = [NSAlert alertWithMessageText:@"Action impossible" defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@"Les heures de début et de fin sont incohérentes"];
+                    [alert beginSheetModalForWindow:self modalDelegate:self didEndSelector:nil contextInfo:nil];
+                }
+            }
+            else{
+                NSAlert *alert = [NSAlert alertWithMessageText:@"Action impossible" defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@"La date de début sélectionnée est dépassée"];
+                [alert beginSheetModalForWindow:self modalDelegate:self didEndSelector:nil contextInfo:nil];
+            }
         }
         else{
             NSAlert *alert = [NSAlert alertWithMessageText:@"Action impossible" defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@"Aucun patient n'est sélectionné"];
-            [alert beginSheetModalForWindow:parent modalDelegate:self didEndSelector:nil contextInfo:nil];
+            [alert beginSheetModalForWindow:self modalDelegate:self didEndSelector:nil contextInfo:nil];
         }
     }
     else{
@@ -110,8 +125,7 @@
 }
 
 #pragma mark - Combobox datasource and delegate methods
-
-- (NSInteger)numberOfItemsInComboBox:(NSComboBox *)aComboBox{
+-(void)reloadPatients{
     OPAppDelegate* appDelegate = (OPAppDelegate*)parent.delegate;
     NSManagedObjectContext* managedObjectContext = [appDelegate managedObjectContext];
     
@@ -119,21 +133,30 @@
     [request setEntity:[NSEntityDescription entityForName:@"Patient" inManagedObjectContext:managedObjectContext]];
     [request setIncludesSubentities:NO];
     
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:YES selector:@selector(caseInsensitiveCompare:)];
     [request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
     
     NSError *error = nil;
     NSArray* results = [managedObjectContext executeFetchRequest:request error:&error];
-
+    
     if(results != nil) {
         [patients removeAllObjects];
         [patients addObjectsFromArray:results];
-        
+    }
+}
+
+- (NSInteger)numberOfItemsInComboBox:(NSComboBox *)aComboBox{
+    
+    [self reloadPatients];
+    
+    if(patients){
         return [patients count];
     }
     else{
         return 0;
     }
+    
+    
 }
 
 - (id)comboBox:(NSComboBox *)aComboBox objectValueForItemAtIndex:(NSInteger)index{
@@ -144,10 +167,12 @@
 - (NSString *)comboBox:(NSComboBox *)aComboBox completedString:(NSString *)string{
     for(OPPatient* testedPatient in patients){
         if([[testedPatient.lastName uppercaseString] hasPrefix:[string uppercaseString]]){
+            patient = testedPatient;
             return [NSString stringWithFormat:@"%@ %@", testedPatient.lastName, testedPatient.firstName];
         }
         
-        if([testedPatient.lastName compare:string] != NSOrderedAscending){
+        if([[testedPatient.lastName uppercaseString] compare:[string uppercaseString]] != NSOrderedAscending){
+            patient = nil;
             break;
         }
     }
@@ -156,7 +181,8 @@
 }
 
 - (void)comboBoxSelectionDidChange:(NSNotification *)notification{
-    //TODO
+    patient = [patients objectAtIndex:[patientComboBox indexOfSelectedItem]];
 }
+
 
 @end

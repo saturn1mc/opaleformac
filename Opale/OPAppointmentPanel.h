@@ -46,5 +46,6 @@
 -(void)setPatient:(OPPatient *)nPatient;
 -(IBAction)switchLock:(id)sender;
 -(IBAction)exitPanel:(id)sender;
+-(void)reloadPatients;
 
 @end
