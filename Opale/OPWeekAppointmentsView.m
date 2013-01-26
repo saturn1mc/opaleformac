@@ -8,6 +8,7 @@
 //
 
 #import "OPWeekAppointmentsView.h"
+#import "OPCalendarView.h"
 #import "OPDayView.h"
 #import "OPAppointmentView.h"
 
@@ -17,7 +18,7 @@ static CGFloat daysAppearing    = 6;
 static CGFloat dayColumnWidth   = 102;
 
 @dynamic currentWeek;
-@synthesize displayedDays, scrollView, contentView;
+@synthesize calendarView, displayedDays, scrollView, contentView;
 
 -(void)awakeFromNib{
     displayedDays = [[NSMutableArray alloc] init];
@@ -31,10 +32,12 @@ static CGFloat dayColumnWidth   = 102;
     
     for(int i = 0; i < daysAppearing; i++){
         
-        OPDayView* day = [[OPDayView alloc] initWithFrame:NSMakeRect(x, y, dayColumnWidth, contentView.frame.size.height)];
+        OPDayView* dayView = [[OPDayView alloc] initWithFrame:NSMakeRect(x, y, dayColumnWidth, contentView.frame.size.height)];
         
-        [contentView addSubview:day];
-        [displayedDays addObject:day];
+        [dayView setParent:[self parent]];
+        [dayView setCalendarView:calendarView];
+        [contentView addSubview:dayView];
+        [displayedDays addObject:dayView];
         
         x += dayColumnWidth;
     }

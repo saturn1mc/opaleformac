@@ -7,8 +7,10 @@
 //
 
 #import "OPDayView.h"
+#import "OPCalendarView.h"
 #import "OPAppointment.h"
 #import "OPAppointmentView.h"
+#import "OPEditAppointmentView.h"
 
 @implementation OPDayView
 
@@ -18,7 +20,7 @@ static CGFloat headerHeight = 25;
 static int availableSlots = 52;
 
 @dynamic currentDay, appointmentViews;
-@synthesize dateFormatter, header;
+@synthesize calendarView, dateFormatter, header;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -26,7 +28,7 @@ static int availableSlots = 52;
     
     if (self) {
         //Header initialization
-        header = [[NSTextField alloc] initWithFrame:NSMakeRect(0, frame.size.height - headerHeight, frame.size.width, headerHeight)];
+        header = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, frame.size.width, headerHeight)];
         
         [header setEditable:NO];
         [header setAlignment:NSCenterTextAlignment];
@@ -46,7 +48,7 @@ static int availableSlots = 52;
         
         //Hour labels initialization
         CGFloat slotsHeight = (frame.size.height - headerHeight) / (CGFloat)availableSlots;
-        CGFloat y = frame.size.height - headerHeight - slotsHeight;
+        CGFloat y = headerHeight;
         int hourFieldsCount = availableSlots / 4;
         
         for(int i = 0; i < hourFieldsCount; i++){
@@ -62,7 +64,7 @@ static int availableSlots = 52;
             
             [self addSubview:hourField];
             
-            y-= (slotsHeight * 4);
+            y+= (slotsHeight * 4);
         }
         
         appointmentViews = [[NSMutableArray alloc] init];
@@ -74,7 +76,7 @@ static int availableSlots = 52;
 - (void)drawRect:(NSRect)dirtyRect
 {
     CGFloat slotsHeight = (dirtyRect.size.height - headerHeight) / (CGFloat)availableSlots;
-    CGFloat y = dirtyRect.size.height - headerHeight - slotsHeight;
+    CGFloat y = headerHeight;
     
     for(int i = 0; i < availableSlots; i++){
         NSRect slot = NSMakeRect(0, y, dirtyRect.size.width, slotsHeight);
@@ -88,10 +90,10 @@ static int availableSlots = 52;
         
         NSRectFill(slot);
         
-        y-= slotsHeight;
+        y+= slotsHeight;
     }
     
-    y = dirtyRect.size.height - headerHeight;
+    y = headerHeight;
     
     
     for(int i = 0; i < availableSlots; i++){
@@ -112,7 +114,7 @@ static int availableSlots = 52;
         [line moveToPoint:NSMakePoint(0, y)];
         [line lineToPoint:NSMakePoint(dirtyRect.size.width, y)];
         [line stroke];
-        y-= slotsHeight;
+        y+= slotsHeight;
     }
     
     [[NSColor whiteColor] set];
@@ -152,13 +154,14 @@ static int availableSlots = 52;
         NSInteger startHourInMinutes = ((startComponents.hour - startHour) * 60) + startComponents.minute;
         NSInteger endHourInMinutes = ((endComponents.hour - startHour) * 60) + endComponents.minute;
         
-        NSInteger startSlotIndex = (startHourInMinutes - (startHour * 60)) / slotsDurationInMinutes;
-        NSInteger durationSlots = endHourInMinutes - startHourInMinutes;
+        NSInteger startSlotIndex = (startHourInMinutes / slotsDurationInMinutes);
+        NSInteger durationSlots = (endHourInMinutes - startHourInMinutes) / slotsDurationInMinutes;
         
-        CGFloat y = (self.frame.size.height - headerHeight) - (startSlotIndex * slotsHeight);
+        CGFloat y = headerHeight + (startSlotIndex * slotsHeight);
         CGFloat h = durationSlots * slotsHeight;
         
         OPAppointmentView* nAppView = [[OPAppointmentView alloc] initWithFrame:NSMakeRect(0, y, self.frame.size.width, h)];
+        [nAppView setDayView:self];
         [nAppView setAppointment:appointment];
         
         [self addSubview:nAppView];
@@ -169,5 +172,14 @@ static int availableSlots = 52;
 -(NSMutableArray*)getAppointmentViews{
     return appointmentViews;
 }
+
+-(void)editAppointment:(OPAppointmentView*)appView{
+    OPEditAppointmentView* editAppointmentView = [calendarView editAppointmentView];
+    [editAppointmentView setAppointment:[appView getAppointment]];
+    [editAppointmentView setLocked:YES];
+    
+    [[editAppointmentView appointmentPopOver] showRelativeToRect:[appView bounds] ofView:appView preferredEdge:NSMinXEdge];
+}
+
 
 @end

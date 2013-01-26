@@ -6,15 +6,21 @@
 //
 //
 
-#import <Cocoa/Cocoa.h>
+#import "OPView.h"
 
-@interface OPDayView : NSView{
+@class OPCalendarView, OPAppointmentView;
+
+@interface OPDayView : OPView{
+    OPCalendarView* calendarView;
+    
     NSDate* currentDay;
     NSDateFormatter* dateFormatter;
     NSTextField* header;
     
     NSMutableArray* appointmentViews;
 }
+
+@property (nonatomic, retain) OPCalendarView* calendarView;
 
 @property (nonatomic, retain) NSDate* currentDay;
 @property (nonatomic, retain) NSDateFormatter* dateFormatter;
@@ -26,5 +32,7 @@
 
 -(void)setAppointmentViews:(NSMutableArray *)nAppointments;
 -(NSMutableArray*)getAppointmentViews;
+
+-(void)editAppointment:(OPAppointmentView*)appView;
 
 @end

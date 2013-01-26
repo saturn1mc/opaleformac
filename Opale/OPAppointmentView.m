@@ -7,29 +7,35 @@
 //
 
 #import "OPAppointmentView.h"
-#import "OPAppointment.h"
+#import "OPCalendarView.h"
 #import "OPPatient.h"
+#import "OPDayView.h"
+#import "OPAppointment.h"
 
 @implementation OPAppointmentView
 
+static const int textHeight = 15;
+
 @dynamic appointment;
-@synthesize patientField, hoursField, dateFormatter;
+@synthesize dayView, patientField, hoursField, dateFormatter;
 
 -(id)initWithFrame:(NSRect)frameRect{
     self = [super initWithFrame:frameRect];
     
     if(self){
-        patientField = [[NSTextField alloc] init];
+        patientField = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0,frameRect.size.width, textHeight)];
         [patientField setEditable:NO];
         [patientField setBordered:NO];
         [patientField setDrawsBackground:NO];
         [patientField setFont:[NSFont fontWithName:@"Helvetica-Bold" size:10.0]];
+        [patientField setTextColor:[NSColor whiteColor]];
         
-        hoursField = [[NSTextField alloc] init];
+        hoursField = [[NSTextField alloc] initWithFrame:NSMakeRect(0, textHeight,frameRect.size.width, textHeight)];
         [hoursField setEditable:NO];
         [hoursField setBordered:NO];
         [hoursField setDrawsBackground:NO];
         [hoursField setFont:[NSFont fontWithName:@"Helvetica" size:8.0]];
+        [hoursField setTextColor:[NSColor whiteColor]];
         
         [self addSubview:patientField];
         [self addSubview:hoursField];
@@ -39,15 +45,17 @@
         dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
         [dateFormatter setDateStyle:NSDateFormatterShortStyle];
-        [dateFormatter setDateFormat:@"hh:mm"];
+        [dateFormatter setDateFormat:@"HH:mm"];
         [dateFormatter setLocale:frLocale];
+        
+        [self setButtonType:NSMomentaryPushInButton];
     }
     
     return self;
 }
 
 -(void)drawRect:(NSRect)dirtyRect{
-    [[NSColor blueColor] set];
+    [[NSColor colorWithSRGBRed:0 green:0 blue:1.0 alpha:0.8] set];
     NSRectFill(dirtyRect);
 }
 
@@ -66,5 +74,10 @@
 -(OPAppointment*)getAppointment{
     return appointment;
 }
+
+-(void)mouseDown:(NSEvent *)theEvent{
+    [dayView editAppointment:self];
+}
+
 
 @end

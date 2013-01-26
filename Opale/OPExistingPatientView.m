@@ -15,6 +15,7 @@
 #import "OPMail.h"
 #import "OPAppointment.h"
 #import "OPAppointmentPanel.h"
+#import "OPEditAppointmentView.h"
 
 @implementation OPExistingPatientView
 
@@ -69,6 +70,7 @@
     
     //Appointments tab
     [self addEditableObject:deleteAppointmentButton];
+    [appointmentsTable setDoubleAction:@selector(openCalendar:)];
     [colAppointmentDate setIdentifier:@"name"];
     [colAppointmentDetails setIdentifier:@"details"];
 }
@@ -441,9 +443,19 @@
 #pragma mark - Appointments
 
 -(IBAction)newAppointment:(id)sender{
-    [appointmentPanel setPatient:patient];
-    [appointmentPanel setLocked:NO];
-    [NSApp beginSheet:appointmentPanel modalForWindow:parent modalDelegate:self didEndSelector:nil contextInfo:nil];
+    [[appointmentPanel editAppointmentView] setPatient:patient];
+    [[appointmentPanel editAppointmentView] setLocked:NO];
+    [[appointmentPanel editAppointmentView] setAppointment:nil];
+    
+    NSDate *tomorrow = [NSDate dateWithTimeInterval:(24*60*60) sinceDate:[NSDate date]];
+    [[[appointmentPanel editAppointmentView] dayPicker] setDateValue:tomorrow];
+    
+    [NSApp beginSheet:appointmentPanel modalForWindow:parent modalDelegate:self didEndSelector:@selector(reloadAppointmentsTable) contextInfo:nil];
+}
+
+-(IBAction)openCalendar:(id)sender{
+    OPAppointment* appointment = [[patient.appointments allObjects] objectAtIndex:appointmentsTable.clickedRow];
+    [parent openCalendarAtDate:appointment.start];
 }
 
 -(IBAction)deleteAppointment:(id)sender{
@@ -469,8 +481,12 @@
         [[self managedObjectContext] deleteObject:appointment];
         [self saveAction];
         
-        [appointmentsTable reloadData];
+        [self reloadAppointmentsTable];
     }
+}
+
+-(void)reloadAppointmentsTable{
+    [appointmentsTable reloadData];
 }
 
 
@@ -541,6 +557,27 @@
         }
         else if([tableColumn.identifier isEqualToString:colMailFilePath.identifier]){
             value = [mailURL path];
+        }
+    }
+    else if(tableView == appointmentsTable){
+        OPAppointment* appointment = (OPAppointment*)[[patient.appointments allObjects]objectAtIndex:row];
+        
+        if([tableColumn.identifier isEqualToString:colAppointmentDate.identifier]){
+            NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"dd/MM/yyyy"];
+            value = [dateFormatter stringFromDate:appointment.start];
+        }
+        else if([tableColumn.identifier isEqualToString:colAppointmentDetails.identifier]){
+            NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"HH:mm"];
+            
+            NSString* appointmentDetails = [[NSString alloc] initWithFormat:@"%@-%@", [dateFormatter stringFromDate:appointment.start], [dateFormatter stringFromDate:appointment.end]];
+            
+            if(appointment.details && [appointment.details length] > 0){
+                appointmentDetails = [appointmentDetails stringByAppendingFormat:@" : %@", appointment.details];
+            }
+            
+            value = appointmentDetails;
         }
     }
     

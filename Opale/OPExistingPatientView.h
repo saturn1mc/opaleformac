@@ -155,8 +155,10 @@
 -(void)mailAlertDidEnd:(NSAlert*)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 
 -(IBAction)newAppointment:(id)sender;
+-(IBAction)openCalendar:(id)sender;
 -(IBAction)deleteAppointment:(id)sender;
 -(void)appointmentAlertDidEnd:(NSAlert*)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
+-(void)reloadAppointmentsTable;
 
 -(void)applyModifications;
 -(IBAction)savePatient:(id)sender;

@@ -11,12 +11,13 @@
 #import "OPAppDelegate.h"
 #import "OPWeekAppointmentsView.h"
 #import "OPDayAppointmentsView.h"
+#import "OPEditAppointmentView.h"
 
 @implementation OPCalendarView
 
-@synthesize datePicker, todayButton, monthYearLabel, viewSwitcher, calendarView, currentView, currentWeek, weekView, currentDay, dayView;
-
 static int displayedDays = 6;
+
+@synthesize datePicker, todayButton, monthYearLabel, viewSwitcher, calendarView, currentView, currentWeek, weekView, currentDay, dayView, editAppointmentView;
 
 -(void)awakeFromNib{
     currentDay = 0;
@@ -30,13 +31,16 @@ static int displayedDays = 6;
 
 -(void)resetView{
     [datePicker setDateValue:[NSDate date]];
-    
+    [self refreshView];
+}
+
+-(void)refreshView{
     NSCalendar* calendar = [NSCalendar currentCalendar];
     NSDateComponents* newComponents = [calendar components: NSWeekdayCalendarUnit | NSWeekOfYearCalendarUnit | NSYearCalendarUnit fromDate:[datePicker dateValue]];
     
     [self reloadCurrentWeekWith:newComponents];
     [self reloadCurrentDayWith:newComponents];
-
+    
     [self changeView:weekView];
 }
 
@@ -80,8 +84,8 @@ static int displayedDays = 6;
 -(void)reloadCurrentDayWith:(NSDateComponents*) newComponents{
     NSCalendar* calendar = [NSCalendar currentCalendar];
     currentDay = [calendar dateFromComponents:newComponents];
-    [dayView setCurrentDay:currentDay];
     [dayView loadAppointments:[self getAppointmentsFor:currentDay]];
+    [dayView setCurrentDay:currentDay];
 }
 
 -(void)reloadCurrentWeekWith:(NSDateComponents*) newComponents{
@@ -102,12 +106,11 @@ static int displayedDays = 6;
         [currentWeek addObject:dayDate];
     }
     
-    //Setting week and appointments to view
-    [weekView setCurrentWeek:currentWeek];
-    
     for(int i = 0; i < displayedDays; i++){
         [weekView loadAppointments:[appListArray objectAtIndex:i] forDay:i];
     }
+    
+    [weekView setCurrentWeek:currentWeek];
 }
 
 -(IBAction)changeSelection:(id)sender{
@@ -124,7 +127,7 @@ static int displayedDays = 6;
             }
         }
     }
-    else if(sender == datePicker || sender == self){
+    else{
         NSCalendar* calendar = [NSCalendar currentCalendar];
         
         NSDateComponents* oldComponents = [calendar components: NSWeekdayCalendarUnit | NSWeekOfYearCalendarUnit | NSYearCalendarUnit fromDate:currentDay];

@@ -6,11 +6,12 @@
 //
 //
 
-#import "OPView.h"
+#import <Cocoa/Cocoa.h>
 
-@class OPAppointment;
+@class OPAppointment, OPDayView;
 
-@interface OPAppointmentView : OPView{
+@interface OPAppointmentView : NSButton{
+    OPDayView* dayView;
     OPAppointment* appointment;
     
     NSTextField* patientField;
@@ -18,6 +19,7 @@
     NSDateFormatter* dateFormatter;
 }
 
+@property (nonatomic, retain) OPDayView* dayView;
 @property (nonatomic, retain) OPAppointment* appointment;
 
 @property (nonatomic, retain) NSTextField* patientField;

@@ -102,6 +102,16 @@ static const NSInteger childAgeLimit = 17;
     [[NSWorkspace sharedWorkspace] openFile:[document filePath]];
 }
 
+-(void)openCalendarAtDate:(NSDate *)date{
+    [[calendarView datePicker] setDateValue:date];
+    [calendarView refreshView];
+    [calendarView changeSelection:self];
+    
+    [calendarView setAutoresizingMask:NSViewHeightSizable|NSViewWidthSizable];
+    [transition setType:kCATransitionFade];
+    [self openNewView:calendarView withReset:NO];
+}
+
 #pragma marks - Views
 
 -(IBAction)showHomeView:(id)sender{
@@ -117,13 +127,13 @@ static const NSInteger childAgeLimit = 17;
 }
 
 -(IBAction)showCalendarView:(id)sender{
-    [statsView setAutoresizingMask:NSViewHeightSizable|NSViewWidthSizable];
+    [calendarView setAutoresizingMask:NSViewHeightSizable|NSViewWidthSizable];
     [transition setType:kCATransitionFade];
     [self openNewView:calendarView];
 }
 
 -(IBAction)showAccountingView:(id)sender{
-    [statsView setAutoresizingMask:NSViewHeightSizable|NSViewWidthSizable];
+    [accountingView setAutoresizingMask:NSViewHeightSizable|NSViewWidthSizable];
     [transition setType:kCATransitionFade];
     [self openNewView:accountingView];
 }
@@ -135,7 +145,7 @@ static const NSInteger childAgeLimit = 17;
 }
 
 -(IBAction)showProfessionalView:(id)sender{
-    [statsView setAutoresizingMask:NSViewHeightSizable|NSViewWidthSizable];
+    [professionalListView setAutoresizingMask:NSViewHeightSizable|NSViewWidthSizable];
     [transition setType:kCATransitionFade];
     [self openNewView:professionalListView];
 }
@@ -245,21 +255,31 @@ static const NSInteger childAgeLimit = 17;
 }
 
 -(void)openNewView:(OPView *)newView{
+    [self openNewView:newView withReset:YES];
+}
+
+-(void)openNewView:(OPView *)newView withReset:(BOOL)reset{
     if(currentView != nil){
         if([currentView quitView]){
             [newView setPreviousView:currentView];
             [currentView setNextView:newView];
-            [self switchView:newView];
+            [self switchView:newView withReset:reset];
         }
     }
     else{
-        [self switchView:newView];   
+        [self switchView:newView withReset:reset];
     }
 }
 
 -(void)switchView:(OPView *)newView{
+    [self switchView:newView withReset:YES];
+}
+
+-(void)switchView:(OPView *)newView withReset:(BOOL)reset{
     if(currentView != newView){
-        [newView resetView];
+        if(reset){
+            [newView resetView];
+        }
         
         NSView *mainView = [self contentView];
         

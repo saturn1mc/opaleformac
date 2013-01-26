@@ -8,15 +8,19 @@
 
 #import "OPView.h"
 
-@class OPDayView;
+@class OPCalendarView, OPDayView;
 
 @interface OPDayAppointmentsView : OPView{
+    IBOutlet OPCalendarView* calendarView;
+    
     NSDate* currentDay;
     OPDayView* dayView;
     
     IBOutlet NSView* contentView;
     IBOutlet NSScrollView* scrollView;
 }
+
+@property (nonatomic, retain) IBOutlet OPCalendarView* calendarView;
 
 @property (nonatomic, retain) NSDate* currentDay;
 @property (nonatomic, retain) OPDayView* dayView;

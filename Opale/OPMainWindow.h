@@ -68,6 +68,7 @@
 
 -(void)openMail:(OPMail*)mail;
 -(void)openDocument:(OPDocument*)document;
+-(void)openCalendarAtDate:(NSDate *)date;
 
 -(IBAction)showHomeView:(id)sender;
 -(IBAction)showPatientsView:(id)sender;
@@ -89,6 +90,8 @@
 -(IBAction)nextView:(id)sender;
 
 -(void)openNewView:(OPView*)newView;
+-(void)openNewView:(OPView *)newView withReset:(BOOL)reset;
 -(void)switchView:(OPView*)newView;
+-(void)switchView:(OPView *)newView withReset:(BOOL)reset;
 
 @end

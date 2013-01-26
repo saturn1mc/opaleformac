@@ -7,12 +7,13 @@
 //
 
 #import "OPDayAppointmentsView.h"
+#import "OPCalendarView.h"
 #import "OPDayView.h"
 
 @implementation OPDayAppointmentsView
 
 @dynamic currentDay;
-@synthesize dayView, contentView, scrollView;
+@synthesize calendarView, dayView, contentView, scrollView;
 
 -(void)awakeFromNib{
     [self prepareView];
@@ -24,6 +25,8 @@
     CGFloat x = 0;
     
     dayView = [[OPDayView alloc] initWithFrame:NSMakeRect(x, y, contentView.frame.size.width, contentView.frame.size.height)];
+    [dayView setParent:[self parent]];
+    [dayView setCalendarView:calendarView];
     
     [contentView addSubview:dayView];
     

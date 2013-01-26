@@ -8,15 +8,19 @@
 
 #import "OPView.h"
 
-@class OPAppointmentView;
+@class OPCalendarView, OPAppointmentView;
 
 @interface OPWeekAppointmentsView : OPView{
+    IBOutlet OPCalendarView* calendarView;
+    
     NSMutableArray* currentWeek;
     NSMutableArray* displayedDays;
     
     IBOutlet NSScrollView* scrollView;
     IBOutlet NSView* contentView;
 }
+
+@property (nonatomic, retain) IBOutlet OPCalendarView* calendarView;
 
 @property (nonatomic, retain) NSMutableArray* currentWeek;
 @property (nonatomic, retain) NSMutableArray* displayedDays;
