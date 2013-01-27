@@ -11,6 +11,7 @@
 #import "OPAppointment.h"
 #import "OPAppointmentView.h"
 #import "OPEditAppointmentView.h"
+#import "OPTrackingArea.h"
 
 @implementation OPDayView
 
@@ -20,7 +21,7 @@ static CGFloat headerHeight = 25;
 static int availableSlots = 52;
 
 @dynamic currentDay, appointmentViews;
-@synthesize calendarView, dateFormatter, header;
+@synthesize calendarView, dateFormatter, header, createAppointmentButton, activeTracker, enteredTrackers;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -46,28 +47,49 @@ static int availableSlots = 52;
         [dateFormatter setDateFormat:@"EEEE dd"];
         [dateFormatter setLocale:frLocale];
         
-        //Hour labels initialization
+        //Tracking areas and Hour labels initialization
         CGFloat slotsHeight = (frame.size.height - headerHeight) / (CGFloat)availableSlots;
         CGFloat y = headerHeight;
-        int hourFieldsCount = availableSlots / 4;
         
-        for(int i = 0; i < hourFieldsCount; i++){
+        for(int i = 0; i < availableSlots; i++){
             NSRect slot = NSMakeRect(0, y, frame.size.width, slotsHeight);
             
-            NSTextField* hourField = [[NSTextField alloc] initWithFrame:slot];
-            [hourField setStringValue:[NSString stringWithFormat:@"%i:00", startHour + i]];
-            [hourField setFont:[NSFont fontWithName:@"Helvetica" size:7.0]];
-            [hourField setTextColor:[NSColor colorWithSRGBRed:0.3 green:0.6 blue:1.0 alpha:1.0]];
-            [hourField setEditable:NO];
-            [hourField setDrawsBackground:NO];
-            [hourField setBordered:NO];
+            OPTrackingArea* trackingArea = [[OPTrackingArea alloc] initWithRect:slot
+                                                                        options:(NSTrackingMouseEnteredAndExited | NSTrackingActiveInKeyWindow)
+                                                                          owner:self userInfo:nil];
             
-            [self addSubview:hourField];
+            [trackingArea setHour:(startHour + (i/4)) andMinutes:((i%4)*slotsDurationInMinutes)];
+            [self addTrackingArea:trackingArea];
             
-            y+= (slotsHeight * 4);
+            if((i%4) == 0){
+                NSTextField* hourField = [[NSTextField alloc] initWithFrame:slot];
+                [hourField setStringValue:[NSString stringWithFormat:@"%i:00", startHour + (i/4)]];
+                [hourField setFont:[NSFont fontWithName:@"Helvetica" size:7.0]];
+                [hourField setTextColor:[NSColor colorWithSRGBRed:0.3 green:0.6 blue:1.0 alpha:1.0]];
+                [hourField setEditable:NO];
+                [hourField setDrawsBackground:NO];
+                [hourField setBordered:NO];
+                
+                [self addSubview:hourField];
+            }
+            
+            y+= slotsHeight;
         }
         
+        //Appointments handlers
+        //Existing appointments
         appointmentViews = [[NSMutableArray alloc] init];
+        
+        //New appointments
+        enteredTrackers = [[NSMutableArray alloc] init];
+        createAppointmentButton = [[NSButton alloc] init];
+        [self addSubview:createAppointmentButton positioned:NSWindowBelow relativeTo:nil];
+        [createAppointmentButton setButtonType:NSMomentaryLightButton];
+        [createAppointmentButton setBezelStyle:NSRecessedBezelStyle];
+        [createAppointmentButton setImagePosition:NSImageOnly];
+        [createAppointmentButton setTarget:self];
+        [createAppointmentButton setAction:@selector(createAppointment:)];
+        [createAppointmentButton setHidden:YES];
     }
     
     return self;
@@ -164,13 +186,35 @@ static int availableSlots = 52;
         [nAppView setDayView:self];
         [nAppView setAppointment:appointment];
         
-        [self addSubview:nAppView];
+        [self addSubview:nAppView positioned:NSWindowAbove relativeTo:nil];
         [appointmentViews addObject:nAppView];
     }
 }
 
 -(NSMutableArray*)getAppointmentViews{
     return appointmentViews;
+}
+
+-(void)mouseEntered:(NSEvent *)theEvent{
+    @synchronized(self){
+        activeTracker = (OPTrackingArea*) theEvent.trackingArea;
+        
+        [enteredTrackers addObject:theEvent.trackingArea];
+        NSRect trackingRect = theEvent.trackingArea.rect;
+        
+        [createAppointmentButton setFrame:NSMakeRect(trackingRect.origin.x, trackingRect.origin.y, trackingRect.size.width, trackingRect.size.height)];
+        [createAppointmentButton setHidden:NO];
+    }
+}
+
+-(void)mouseExited:(NSEvent *)theEvent{
+    @synchronized(self){
+        [enteredTrackers removeObject:theEvent.trackingArea];
+        
+        if(enteredTrackers.count == 0){
+            [createAppointmentButton setHidden:YES];
+        }
+    }
 }
 
 -(void)editAppointment:(OPAppointmentView*)appView{
@@ -181,5 +225,21 @@ static int availableSlots = 52;
     [[editAppointmentView appointmentPopOver] showRelativeToRect:[appView bounds] ofView:appView preferredEdge:NSMinXEdge];
 }
 
+-(IBAction)createAppointment:(id)sender{
+    OPEditAppointmentView* editAppointmentView = [calendarView editAppointmentView];
+    [editAppointmentView setAppointment:nil];
+    [editAppointmentView setPatient:nil];
+    [[editAppointmentView dayPicker] setDateValue:currentDay];
+    
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* components = [[activeTracker correspondingSlot] copy];
+    [[editAppointmentView startPicker] setDateValue:[calendar dateFromComponents:components]];
+    [components setHour:(components.hour + 1)];
+    [[editAppointmentView endPicker] setDateValue:[calendar dateFromComponents:components]];
+    [editAppointmentView setLocked:NO];
+    [[editAppointmentView detailsText] setString:@""];
+    
+    [[editAppointmentView appointmentPopOver] showRelativeToRect:[createAppointmentButton bounds] ofView:createAppointmentButton preferredEdge:NSMinXEdge];
+}
 
 @end

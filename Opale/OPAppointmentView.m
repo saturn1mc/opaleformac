@@ -17,12 +17,16 @@
 static const int textHeight = 15;
 
 @dynamic appointment;
-@synthesize dayView, patientField, hoursField, dateFormatter;
+@synthesize hovered, dayView, patientField, hoursField, dateFormatter;
 
 -(id)initWithFrame:(NSRect)frameRect{
     self = [super initWithFrame:frameRect];
     
     if(self){
+        [self addTrackingArea:[[NSTrackingArea alloc] initWithRect:frameRect
+                                                           options:(NSTrackingMouseEnteredAndExited | NSTrackingActiveInKeyWindow)
+                                                             owner:self userInfo:nil]];
+        
         patientField = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0,frameRect.size.width, textHeight)];
         [patientField setEditable:NO];
         [patientField setBordered:NO];
@@ -47,8 +51,6 @@ static const int textHeight = 15;
         [dateFormatter setDateStyle:NSDateFormatterShortStyle];
         [dateFormatter setDateFormat:@"HH:mm"];
         [dateFormatter setLocale:frLocale];
-        
-        [self setButtonType:NSMomentaryPushInButton];
     }
     
     return self;
@@ -57,6 +59,14 @@ static const int textHeight = 15;
 -(void)drawRect:(NSRect)dirtyRect{
     [[NSColor colorWithSRGBRed:0 green:0 blue:1.0 alpha:0.8] set];
     NSRectFill(dirtyRect);
+}
+
+-(BOOL)acceptsFirstResponder {
+    return YES;
+}
+
+-(BOOL)acceptsFirstMouse:(NSEvent *)theEvent{
+    return YES;
 }
 
 -(void)setAppointment:(OPAppointment *)nAppointment{
@@ -76,8 +86,29 @@ static const int textHeight = 15;
 }
 
 -(void)mouseDown:(NSEvent *)theEvent{
-    [dayView editAppointment:self];
+    if(hovered){
+        [dayView editAppointment:self];
+    }
+    else{
+        [super mouseDown:theEvent];
+    }
 }
 
+-(void)mouseEntered:(NSEvent *)theEvent{
+    hovered = YES;
+    
+    CALayer* highlightLayer = [CALayer layer];
+    [highlightLayer setBackgroundColor:CGColorCreateGenericRGB(1.0, 0.0, 0.0, 0.8)];
+    [self setWantsLayer:YES];
+    [[self animator] setLayer:highlightLayer];
+}
+
+-(void)mouseExited:(NSEvent *)theEvent{
+    hovered = NO;
+    CALayer* highlightLayer = [CALayer layer];
+    [highlightLayer setBackgroundColor:CGColorCreateGenericRGB(0.0, 0.0, 1.0, 0.8)];
+    [self setWantsLayer:YES];
+    [[self animator] setLayer:highlightLayer];
+}
 
 @end

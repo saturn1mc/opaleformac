@@ -6,11 +6,13 @@
 //
 //
 
-#import <Cocoa/Cocoa.h>
+#import "OPView.h"
 
 @class OPAppointment, OPDayView;
 
-@interface OPAppointmentView : NSButton{
+@interface OPAppointmentView : OPView{
+    BOOL hovered;
+    
     OPDayView* dayView;
     OPAppointment* appointment;
     
@@ -18,6 +20,8 @@
     NSTextField* hoursField;
     NSDateFormatter* dateFormatter;
 }
+
+@property (atomic) BOOL hovered;
 
 @property (nonatomic, retain) OPDayView* dayView;
 @property (nonatomic, retain) OPAppointment* appointment;

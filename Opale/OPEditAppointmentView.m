@@ -68,6 +68,9 @@
     if(nPatient){
         [patientComboBox setStringValue:[NSString stringWithFormat:@"%@ %@", nPatient.lastName, nPatient.firstName]];
     }
+    else{
+        [patientComboBox deselectItemAtIndex:[patientComboBox indexOfSelectedItem]];
+    }
 }
 
 -(OPAppointment*)getAppointment{
@@ -154,7 +157,7 @@
 
 -(IBAction)closePanel:(id)sender{
     if([appointmentPopOver isShown]){
-        [appointmentPopOver close];
+        [appointmentPopOver performClose:self];
     }
     
     if(appointmentPanel){
