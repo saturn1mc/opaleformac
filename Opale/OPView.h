@@ -21,6 +21,7 @@
 }
 
 @property (nonatomic, retain) IBOutlet OPMainWindow* parent;
+
 @property (nonatomic, retain) OPView* nextView;
 @property (nonatomic, retain) OPView* previousView;
 @property (nonatomic, retain) CATransition* transition;

@@ -21,9 +21,12 @@
 
 @dynamic locked;
 
-@synthesize patient, sortedConsultations, editableObjects, switchLockButton, addressedByBox, cellFirstName, cellLastName, cellBirthday, cellSex, cellTel1, cellTel2, cellAddress, cellTown, cellPostalCode, cellCountry, generalComments, previousHistoryComments, familyHistory, medicalHistory,traumaticHistory, surgicalHistory, entAndOphtalmologicSphere, dentalSphere, digestiveSphere,urinarySphere, deleteConsultationButton, consultationsTable, colDate, colMotives, deleteDocumentButton, documentsTable, colDocumentTitle, colDocumentFilePath, deleteMailButton, mailsTable, colMailName, colMailFilePath, appointmentPanel, appointmentsTable, colAppointmentDate, colAppointmentDetails, deleteAppointmentButton;
+@synthesize modified, patient, sortedConsultations, editableObjects, switchLockButton, addressedByBox, cellFirstName, cellLastName, cellBirthday, cellSex, cellTel1, cellTel2, cellAddress, cellTown, cellPostalCode, cellCountry, generalComments, previousHistoryComments, familyHistory, medicalHistory,traumaticHistory, surgicalHistory, entAndOphtalmologicSphere, dentalSphere, digestiveSphere,urinarySphere, deleteConsultationButton, consultationsTable, colDate, colMotives, deleteDocumentButton, documentsTable, colDocumentTitle, colDocumentFilePath, deleteMailButton, mailsTable, colMailName, colMailFilePath, appointmentPanel, appointmentsTable, colAppointmentDate, colAppointmentDetails, deleteAppointmentButton;
 
 - (void)awakeFromNib{
+    
+    modified = NO;
+    
     //Editable objects
     editableObjects = [[NSMutableArray alloc] init];
     
@@ -75,6 +78,16 @@
     [colAppointmentDetails setIdentifier:@"details"];
 }
 
+-(IBAction)switchLock:(id)sender{
+    if(locked){
+        [self setLocked:NO];
+    }
+    else{
+        [self setLocked:YES];
+        [self savePatient:self];
+    }
+}
+
 -(BOOL)locked{
     return locked;
 }
@@ -97,6 +110,10 @@
 -(void)addEditableObject:(id)object{
     if(object){
         [editableObjects addObject:object];
+        
+        if([object isKindOfClass:[NSTextField class]] || [object isKindOfClass:[NSTextView class]]){
+            [object setDelegate:self];
+        }
     }
 }
 
@@ -136,19 +153,19 @@
     }
 }
 
--(IBAction)switchLock:(id)sender{
-    if(locked){
-        [self setLocked:NO];
-    }
-    else{
-        [self setLocked:YES];
-        [self savePatient:self];
-    }
+-(void)controlTextDidChange:(NSNotification *)obj{
+    modified = YES;
+}
+
+-(void)textDidChange:(NSNotification *)notification{
+    modified = YES;
 }
 
 -(void)loadPatient:(OPPatient*)patientToLoad{
     
     patient = patientToLoad;
+    
+    modified = NO;
     
     [OPView initTextField:addressedByBox withString:patient.addressedBy];
     
@@ -167,7 +184,7 @@
     [OPView initTextView:generalComments withString:patient.generalComments];
     
     //History tab
-    [OPView initTextView:previousHistoryComments withString:patient.generalComments];
+    [OPView initTextView:previousHistoryComments withString:patient.previousHistoryComments];
     [OPView initTextView:familyHistory withString:patient.familyHistory];
     [OPView initTextView:medicalHistory withString:patient.medicalHistory];
     [OPView initTextView:traumaticHistory withString:patient.traumaticHistory];
@@ -249,42 +266,6 @@
     }
 }
 
--(void)applyModifications{
-    patient.addressedBy = [[NSString alloc] initWithString:[addressedByBox stringValue]];
-    patient.firstName = [[NSString alloc] initWithString:[cellFirstName stringValue]];
-    patient.lastName = [[NSString alloc] initWithString:[cellLastName stringValue]];
-    
-    NSLocale* frLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"fr_FR"];
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
-    [dateFormatter setDateFormat:@"dd/MM/yyyy"];
-    [dateFormatter setLocale:frLocale];
-    patient.birthday = [dateFormatter dateFromString:[cellBirthday stringValue]];
-    
-    patient.sex = [[NSString alloc] initWithString:[cellSex stringValue]];
-    patient.tel1 = [[NSString alloc] initWithString:[cellTel1 stringValue]];
-    patient.tel2 = [[NSString alloc] initWithString:[cellTel2 stringValue]];
-    patient.address = [[NSString alloc] initWithString:[cellAddress stringValue]];
-    patient.town = [[NSString alloc] initWithString:[cellTown stringValue]];
-    patient.postalCode = [[NSString alloc] initWithString:[cellPostalCode stringValue]];
-    patient.country = [[NSString alloc] initWithString:[cellCountry stringValue]];
-    patient.generalComments = [[NSString alloc] initWithString:[generalComments string]];
-    patient.previousHistoryComments = [[NSString alloc] initWithString:[previousHistoryComments string]];
-    patient.familyHistory = [[NSString alloc] initWithString:[familyHistory string]];
-    patient.medicalHistory = [[NSString alloc] initWithString:[medicalHistory string]];
-    patient.traumaticHistory = [[NSString alloc] initWithString:[traumaticHistory string]];
-    patient.surgicalHistory = [[NSString alloc] initWithString:[surgicalHistory string]];
-    patient.entAndOphtalmologicSphere = [[NSString alloc] initWithString:[entAndOphtalmologicSphere string]];
-    patient.dentalSphere = [[NSString alloc] initWithString:[dentalSphere string]];
-    patient.digestiveSphere = [[NSString alloc] initWithString:[digestiveSphere string]];
-    patient.urinarySphere = [[NSString alloc] initWithString:[urinarySphere string]];
-}
-
--(IBAction)savePatient:(id)sender{
-    [self applyModifications];
-    [self saveAction];
-}
 
 #pragma mark - Consultations management
 
@@ -582,6 +563,61 @@
     }
     
     return value;
+}
+
+#pragma mark - Saving modifications
+
+-(void)applyModifications{
+    patient.addressedBy = [[NSString alloc] initWithString:[addressedByBox stringValue]];
+    patient.firstName = [[NSString alloc] initWithString:[cellFirstName stringValue]];
+    patient.lastName = [[NSString alloc] initWithString:[cellLastName stringValue]];
+    
+    NSLocale* frLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"fr_FR"];
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    [dateFormatter setDateFormat:@"dd/MM/yyyy"];
+    [dateFormatter setLocale:frLocale];
+    patient.birthday = [dateFormatter dateFromString:[cellBirthday stringValue]];
+    
+    patient.sex = [[NSString alloc] initWithString:[cellSex stringValue]];
+    patient.tel1 = [[NSString alloc] initWithString:[cellTel1 stringValue]];
+    patient.tel2 = [[NSString alloc] initWithString:[cellTel2 stringValue]];
+    patient.address = [[NSString alloc] initWithString:[cellAddress stringValue]];
+    patient.town = [[NSString alloc] initWithString:[cellTown stringValue]];
+    patient.postalCode = [[NSString alloc] initWithString:[cellPostalCode stringValue]];
+    patient.country = [[NSString alloc] initWithString:[cellCountry stringValue]];
+    patient.generalComments = [[NSString alloc] initWithString:[generalComments string]];
+    
+    patient.previousHistoryComments = [[NSString alloc] initWithString:[previousHistoryComments string]];
+    patient.familyHistory = [[NSString alloc] initWithString:[familyHistory string]];
+    patient.medicalHistory = [[NSString alloc] initWithString:[medicalHistory string]];
+    patient.traumaticHistory = [[NSString alloc] initWithString:[traumaticHistory string]];
+    patient.surgicalHistory = [[NSString alloc] initWithString:[surgicalHistory string]];
+    
+    patient.entAndOphtalmologicSphere = [[NSString alloc] initWithString:[entAndOphtalmologicSphere string]];
+    patient.dentalSphere = [[NSString alloc] initWithString:[dentalSphere string]];
+    patient.digestiveSphere = [[NSString alloc] initWithString:[digestiveSphere string]];
+    patient.urinarySphere = [[NSString alloc] initWithString:[urinarySphere string]];
+}
+
+-(IBAction)savePatient:(id)sender{
+    modified = NO;
+    [self applyModifications];
+    [self saveAction];
+}
+
+-(BOOL)quitView{
+    if(modified){
+        NSAlert *alert = [NSAlert alertWithMessageText:@"Sauvegarder ?" defaultButton:@"Oui" alternateButton:@"Non" otherButton:nil informativeTextWithFormat:@"La fiche patient a été modifiée. Sauvegarder ?"];
+        [alert setAlertStyle:NSCriticalAlertStyle];
+        
+        if([alert runModal] == NSAlertDefaultReturn){
+            [self savePatient:self];
+        }
+    }
+    
+    return YES;
 }
 
 @end

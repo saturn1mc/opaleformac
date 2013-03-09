@@ -11,13 +11,15 @@
 #import "OPAppDelegate.h"
 #import "OPWeekAppointmentsView.h"
 #import "OPDayAppointmentsView.h"
+#import "OPAppointmentView.h"
 #import "OPEditAppointmentView.h"
+#import "OPTrackingArea.h"
 
 @implementation OPCalendarView
 
 static int displayedDays = 6;
 
-@synthesize datePicker, todayButton, monthYearLabel, viewSwitcher, calendarView, currentView, currentWeek, weekView, currentDay, dayView, editAppointmentView;
+@synthesize datePicker, todayButton, monthYearLabel, viewSwitcher, calendarView, currentView, currentWeek, weekView, currentDay, dayView, activeTracker, createAppointmentButton, editAppointmentView;
 
 -(void)awakeFromNib{
     currentDay = 0;
@@ -27,10 +29,20 @@ static int displayedDays = 6;
     [self changeSelection:self];
     [calendarView setAnimations:[NSDictionary dictionaryWithObject:transition forKey:@"subviews"]];
     [calendarView setWantsLayer:YES];
+    
+    createAppointmentButton = [[NSButton alloc] init];
+    [self addSubview:createAppointmentButton];
+    [createAppointmentButton setButtonType:NSMomentaryLightButton];
+    [createAppointmentButton setBezelStyle:NSRecessedBezelStyle];
+    [createAppointmentButton setImagePosition:NSImageOnly];
+    [createAppointmentButton setTarget:self];
+    [createAppointmentButton setAction:@selector(createAppointment:)];
+    [createAppointmentButton setHidden:YES];
 }
 
 -(void)resetView{
     [datePicker setDateValue:[NSDate date]];
+    [createAppointmentButton setHidden:YES];
     [self refreshView];
 }
 
@@ -181,6 +193,33 @@ static int displayedDays = 6;
         
         currentView = newView;
     }
+}
+
+-(void)updateEditAppointmentView{
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSDateComponents* components = [[activeTracker correspondingSlot] copy];
+    [[editAppointmentView startPicker] setDateValue:[calendar dateFromComponents:components]];
+    [components setHour:(components.hour + 1)];
+    [[editAppointmentView endPicker] setDateValue:[calendar dateFromComponents:components]];
+    [editAppointmentView setLocked:NO];
+    [[editAppointmentView detailsText] setString:@""];
+}
+
+-(IBAction)createAppointment:(id)sender{
+    [editAppointmentView setAppointment:nil];
+    [editAppointmentView setPatient:nil];
+    [[editAppointmentView dayPicker] setDateValue:currentDay];
+    
+    [self updateEditAppointmentView];
+    
+    [[editAppointmentView appointmentPopOver] showRelativeToRect:[createAppointmentButton bounds] ofView:createAppointmentButton preferredEdge:NSMinXEdge];
+}
+
+-(void)editAppointment:(OPAppointmentView*)appView{
+    [editAppointmentView setAppointment:[appView getAppointment]];
+    [editAppointmentView setLocked:YES];
+    
+    [[editAppointmentView appointmentPopOver] showRelativeToRect:[appView bounds] ofView:appView preferredEdge:NSMinXEdge];
 }
 
 @end

@@ -10,11 +10,12 @@
 
 @class OPPatient, OPAppointmentPanel;
 
-@interface OPExistingPatientView : OPView <NSTableViewDelegate, NSTableViewDataSource>{
+@interface OPExistingPatientView : OPView <NSTableViewDelegate, NSTableViewDataSource, NSTextFieldDelegate, NSTextViewDelegate, NSControlTextEditingDelegate>{
     OPPatient* patient;
     NSArray* sortedConsultations;
     
     BOOL locked;
+    BOOL modified;
     NSMutableArray* editableObjects;
     
     IBOutlet NSButton* switchLockButton;
@@ -77,6 +78,7 @@
 @property (nonatomic, retain) NSArray* sortedConsultations;
 
 @property (nonatomic) BOOL locked;
+@property (nonatomic) BOOL modified;
 @property (nonatomic, retain) NSMutableArray* editableObjects;
 
 @property (nonatomic, retain) IBOutlet NSButton* switchLockButton;
@@ -127,12 +129,11 @@
 @property (nonatomic, retain) IBOutlet NSTableColumn* colAppointmentDate;
 @property (nonatomic, retain) IBOutlet NSTableColumn* colAppointmentDetails;
 
+-(IBAction)switchLock:(id)sender;
 -(BOOL)locked;
 -(void)setLocked:(BOOL)lock;
 -(void)addEditableObject:(id)object;
 -(void)setEditableObjectsState:(BOOL)lock;
--(IBAction)switchLock:(id)sender;
-
 
 -(void)loadPatient:(OPPatient*)patientToLoad;
 

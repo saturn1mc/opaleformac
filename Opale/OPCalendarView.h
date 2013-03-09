@@ -8,7 +8,7 @@
 
 #import "OPView.h"
 
-@class OPWeekAppointmentsView, OPDayAppointmentsView, OPEditAppointmentView;
+@class OPWeekAppointmentsView, OPDayAppointmentsView, OPTrackingArea, OPAppointmentView, OPEditAppointmentView;
 
 @interface OPCalendarView : OPView{
     IBOutlet NSDatePicker* datePicker;
@@ -22,7 +22,9 @@
     IBOutlet OPWeekAppointmentsView* weekView;
     NSDate* currentDay;
     IBOutlet OPDayAppointmentsView* dayView;
-    
+
+    OPTrackingArea* activeTracker;
+    NSButton* createAppointmentButton;
     IBOutlet OPEditAppointmentView* editAppointmentView;
 }
 
@@ -36,6 +38,8 @@
 @property (nonatomic, retain) IBOutlet OPWeekAppointmentsView* weekView;
 @property (nonatomic, retain) NSDate* currentDay;
 @property (nonatomic, retain) IBOutlet OPDayAppointmentsView* dayView;
+@property (nonatomic, retain) OPTrackingArea* activeTracker;
+@property (nonatomic, retain) NSButton* createAppointmentButton;
 @property (nonatomic, retain) IBOutlet OPEditAppointmentView* editAppointmentView;
 
 -(void)refreshView;
@@ -46,5 +50,8 @@
 -(IBAction)showDayView:(id)sender;
 -(IBAction)showWeekView:(id)sender;
 -(void)changeView:(OPView*)newView;
+-(void)updateEditAppointmentView;
+-(IBAction)createAppointment:(id)sender;
+-(void)editAppointment:(OPAppointmentView*)appView;
 
 @end

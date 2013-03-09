@@ -101,58 +101,72 @@
         if(patient){
             NSCalendar* calendar = [NSCalendar currentCalendar];
             
-            NSDateComponents* dayComponents = [calendar components: NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:[dayPicker dateValue]];
+            NSDateComponents* dayComponents = [calendar components: NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSWeekdayCalendarUnit fromDate:[dayPicker dateValue]];
             
-            NSDateComponents* startComponents = [calendar components: NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:[startPicker dateValue]];
-            [startComponents setDay:[dayComponents day]];
-            [startComponents setMonth:[dayComponents month]];
-            [startComponents setYear:[dayComponents year]];
-            
-            NSDateComponents* endComponents = [calendar components: NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:[endPicker dateValue]];
-            [endComponents setDay:[dayComponents day]];
-            [endComponents setMonth:[dayComponents month]];
-            [endComponents setYear:[dayComponents year]];
-            
-            if([[calendar dateFromComponents:startComponents] compare:[NSDate date]] == NSOrderedDescending){
+            if([dayComponents weekday] != 1){ //TODO : enhance test with working day preferences
                 
-                if([[calendar dateFromComponents:startComponents] compare:[calendar dateFromComponents:endComponents]] == NSOrderedAscending){
+                NSDateComponents* startComponents = [calendar components: NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:[startPicker dateValue]];
+                [startComponents setDay:[dayComponents day]];
+                [startComponents setMonth:[dayComponents month]];
+                [startComponents setYear:[dayComponents year]];
+                
+                NSDateComponents* endComponents = [calendar components: NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:[endPicker dateValue]];
+                [endComponents setDay:[dayComponents day]];
+                [endComponents setMonth:[dayComponents month]];
+                [endComponents setYear:[dayComponents year]];
+                
+                if([[calendar dateFromComponents:startComponents] compare:[NSDate date]] == NSOrderedDescending){
                     
-                    OPAppDelegate* appDelegate = (OPAppDelegate*)parent.delegate;
-                    NSManagedObjectContext* managedObjectContext = [appDelegate managedObjectContext];
-                    
-                    if(appointment == nil){ //New appointment
-                        OPAppointment* nAppointment = [NSEntityDescription insertNewObjectForEntityForName:@"Appointment" inManagedObjectContext:managedObjectContext];
+                    if([[calendar dateFromComponents:startComponents] compare:[calendar dateFromComponents:endComponents]] == NSOrderedAscending){
                         
-                        appointment = nAppointment;
+                        [self createAppointmentStarting:startComponents andEnding:endComponents];
+                        
                     }
-                    
-                    appointment.patient = patient;
-                    appointment.details = [[NSString alloc] initWithString:[detailsText string]];
-                    appointment.start = [calendar dateFromComponents:startComponents];
-                    appointment.end = [calendar dateFromComponents:endComponents];
-                    
-                    [appDelegate saveAction:self];
-                    
-                    [self closePanel:self];
+                    else{
+                        NSAlert *alert = [NSAlert alertWithMessageText:@"Action impossible" defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@"Les heures de début et de fin sont incohérentes"];
+                        [alert runModal];
+                    }
                 }
                 else{
-                    NSAlert *alert = [NSAlert alertWithMessageText:@"Action impossible" defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@"Les heures de début et de fin sont incohérentes"];
-                    [alert beginSheetModalForWindow:parent modalDelegate:self didEndSelector:nil contextInfo:nil];
+                    NSAlert *alert = [NSAlert alertWithMessageText:@"Action impossible" defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@"La date de début sélectionnée est dépassée"];
+                    [alert runModal];
                 }
             }
             else{
-                NSAlert *alert = [NSAlert alertWithMessageText:@"Action impossible" defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@"La date de début sélectionnée est dépassée"];
-                [alert beginSheetModalForWindow:parent modalDelegate:self didEndSelector:nil contextInfo:nil];
+                NSAlert *alert = [NSAlert alertWithMessageText:@"Action impossible" defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@"La date choisie tombe un dimanche"];
+                [alert runModal];
             }
         }
         else{
             NSAlert *alert = [NSAlert alertWithMessageText:@"Action impossible" defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@"Aucun patient n'est sélectionné"];
-            [alert beginSheetModalForWindow:parent modalDelegate:self didEndSelector:nil contextInfo:nil];
+            [alert runModal];
         }
     }
     else{
         [self closePanel:self];
     }
+}
+
+-(void)createAppointmentStarting:(NSDateComponents*)startComponents andEnding:(NSDateComponents*)endComponents{
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    
+    OPAppDelegate* appDelegate = (OPAppDelegate*)parent.delegate;
+    NSManagedObjectContext* managedObjectContext = [appDelegate managedObjectContext];
+    
+    if(appointment == nil){ //New appointment
+        OPAppointment* nAppointment = [NSEntityDescription insertNewObjectForEntityForName:@"Appointment" inManagedObjectContext:managedObjectContext];
+        
+        appointment = nAppointment;
+    }
+    
+    appointment.patient = patient;
+    appointment.details = [[NSString alloc] initWithString:[detailsText string]];
+    appointment.start = [calendar dateFromComponents:startComponents];
+    appointment.end = [calendar dateFromComponents:endComponents];
+    
+    [appDelegate saveAction:self];
+    
+    [self closePanel:self];
 }
 
 -(IBAction)closePanel:(id)sender{

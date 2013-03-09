@@ -54,6 +54,7 @@
 -(void)setAppointment:(OPAppointment *)nAppointment;
 -(IBAction)switchLock:(id)sender;
 -(IBAction)checkInputs:(id)sender;
+-(void)createAppointmentStarting:(NSDateComponents*)startComponents andEnding:(NSDateComponents*)endComponents;
 -(IBAction)closePanel:(id)sender;
 -(void)reloadPatients;
 

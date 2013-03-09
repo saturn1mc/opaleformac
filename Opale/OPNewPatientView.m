@@ -10,10 +10,24 @@
 #import "OPMainWindow.h"
 #import "OPAdultMalePatientView.h"
 #import "OPPatient.h"
+#import "OPTownsDataSource.h"
 
 @implementation OPNewPatientView
 
-@synthesize cellFirstName, errorImageFirstName, cellLastName, errorImageLastName, birthdayPicker, matrixSex, cellTel1, cellTel2, cellAddress, cellTown, cellPostalCode, cellCountry;
+@synthesize cellFirstName, errorImageFirstName, cellLastName, errorImageLastName, birthdayPicker, matrixSex, cellTel1, cellTel2, cellAddress, cellTown, postalCodeComboBox, cellCountry;
+
+-(void)awakeFromNib{
+    [super awakeFromNib];
+    
+    [postalCodeComboBox setDataSource:[OPTownsDataSource getInstance]];
+}
+
+-(void)controlTextDidChange:(NSNotification *)obj{
+    NSString* town = [[OPTownsDataSource getInstance] getTownForPostalCode:[postalCodeComboBox stringValue]];
+    if(town){
+        [cellTown setStringValue:town];
+    }
+}
 
 -(IBAction)validatePatient:(id)sender{
     
@@ -59,7 +73,7 @@
         nPatient.sex = sex;
         nPatient.address = [cellAddress stringValue];
         nPatient.town = [cellTown stringValue];
-        nPatient.postalCode = [cellPostalCode stringValue];
+        nPatient.postalCode = [postalCodeComboBox stringValue];
         nPatient.country = [cellCountry stringValue];
         nPatient.tel1 = [cellTel1 stringValue];
         nPatient.tel2 = [cellTel2 stringValue];

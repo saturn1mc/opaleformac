@@ -48,6 +48,9 @@
 		9174A6961695F91E00575B69 /* OPInvoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9174A6951695F91E00575B69 /* OPInvoice.m */; };
 		9174A69C1695F91E00575B69 /* OPProfessionnal.m in Sources */ = {isa = PBXBuildFile; fileRef = 9174A69B1695F91E00575B69 /* OPProfessionnal.m */; };
 		9174A6A616960C8B00575B69 /* OPSexFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9174A6A516960C8B00575B69 /* OPSexFormatter.m */; };
+		9176B2C116EB599D00F51FD3 /* OPTownsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9176B2C016EB599D00F51FD3 /* OPTownsDataSource.m */; };
+		9176B2C716EBA22C00F51FD3 /* valid.png in Resources */ = {isa = PBXBuildFile; fileRef = 9176B2C516EBA22C00F51FD3 /* valid.png */; };
+		9176B2C816EBA22C00F51FD3 /* warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 9176B2C616EBA22C00F51FD3 /* warning.png */; };
 		91773DB7163B0C09000F8673 /* OPWeightGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91773DB6163B0C09000F8673 /* OPWeightGraphView.m */; };
 		91773DBA163B0C66000F8673 /* OPHCGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91773DB9163B0C66000F8673 /* OPHCGraphView.m */; };
 		91773DBD163B11E2000F8673 /* OPBabyPatientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91773DBC163B11E2000F8673 /* OPBabyPatientView.m */; };
@@ -193,6 +196,10 @@
 		9174A69B1695F91E00575B69 /* OPProfessionnal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPProfessionnal.m; sourceTree = "<group>"; };
 		9174A6A416960C8B00575B69 /* OPSexFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPSexFormatter.h; sourceTree = "<group>"; };
 		9174A6A516960C8B00575B69 /* OPSexFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPSexFormatter.m; sourceTree = "<group>"; };
+		9176B2BF16EB599D00F51FD3 /* OPTownsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPTownsDataSource.h; sourceTree = "<group>"; };
+		9176B2C016EB599D00F51FD3 /* OPTownsDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPTownsDataSource.m; sourceTree = "<group>"; };
+		9176B2C516EBA22C00F51FD3 /* valid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = valid.png; sourceTree = "<group>"; };
+		9176B2C616EBA22C00F51FD3 /* warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warning.png; sourceTree = "<group>"; };
 		91773DB5163B0C09000F8673 /* OPWeightGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPWeightGraphView.h; sourceTree = "<group>"; };
 		91773DB6163B0C09000F8673 /* OPWeightGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPWeightGraphView.m; sourceTree = "<group>"; };
 		91773DB8163B0C66000F8673 /* OPHCGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPHCGraphView.h; sourceTree = "<group>"; };
@@ -389,9 +396,20 @@
 			name = Formatters;
 			sourceTree = "<group>";
 		};
+		9176B2C416EB5A7500F51FD3 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				9176B2BF16EB599D00F51FD3 /* OPTownsDataSource.h */,
+				9176B2C016EB599D00F51FD3 /* OPTownsDataSource.m */,
+			);
+			name = DataSources;
+			sourceTree = "<group>";
+		};
 		91AB003416A311470093F903 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				9176B2C516EBA22C00F51FD3 /* valid.png */,
+				9176B2C616EBA22C00F51FD3 /* warning.png */,
 				917C607A16AB1DD700A5EAC0 /* new_appointment.png */,
 				91AB003616A3128F0093F903 /* mail.png */,
 				91AB002A16A30F060093F903 /* cash.png */,
@@ -431,6 +449,7 @@
 		91C5A3E0150882F60070BB12 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				9176B2C416EB5A7500F51FD3 /* DataSources */,
 				9174A6A316960AB300575B69 /* Formatters */,
 				9157712115067B73009E2B73 /* OPAppDelegate.h */,
 				9157712215067B73009E2B73 /* OPAppDelegate.m */,
@@ -599,7 +618,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = OP;
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0460;
 			};
 			buildConfigurationList = 9157710515067B73009E2B73 /* Build configuration list for PBXProject "Opale" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -680,6 +699,8 @@
 				91AB003316A311380093F903 /* scanner.png in Resources */,
 				91AB003716A3128F0093F903 /* mail.png in Resources */,
 				917C607B16AB1DD700A5EAC0 /* new_appointment.png in Resources */,
+				9176B2C716EBA22C00F51FD3 /* valid.png in Resources */,
+				9176B2C816EBA22C00F51FD3 /* warning.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,6 +775,7 @@
 				917C608F16AB5E8500A5EAC0 /* OPTown.m in Sources */,
 				91BD268916B40C7F0010E102 /* OPAppointmentPanel.m in Sources */,
 				919F2A7116B5B66E00D1A72E /* OPTrackingArea.m in Sources */,
+				9176B2C116EB599D00F51FD3 /* OPTownsDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -825,6 +847,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.framework *.gch *.xcode* (*) .DS_Store CVS .svn .git .hg *.xib";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -853,6 +879,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.framework *.gch *.xcode* (*) .DS_Store CVS .svn .git .hg *.xib";

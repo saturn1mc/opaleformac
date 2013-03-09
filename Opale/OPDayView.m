@@ -21,7 +21,7 @@ static CGFloat headerHeight = 25;
 static int availableSlots = 52;
 
 @dynamic currentDay, appointmentViews;
-@synthesize calendarView, dateFormatter, header, createAppointmentButton, activeTracker, enteredTrackers;
+@synthesize calendarView, dateFormatter, header, inhibited;
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -70,26 +70,17 @@ static int availableSlots = 52;
                 [hourField setDrawsBackground:NO];
                 [hourField setBordered:NO];
                 
-                [self addSubview:hourField];
+                [self addSubview:hourField positioned:NSWindowBelow relativeTo:nil];
             }
             
             y+= slotsHeight;
         }
         
-        //Appointments handlers
-        //Existing appointments
+        //Appointments
         appointmentViews = [[NSMutableArray alloc] init];
         
-        //New appointments
-        enteredTrackers = [[NSMutableArray alloc] init];
-        createAppointmentButton = [[NSButton alloc] init];
-        [self addSubview:createAppointmentButton positioned:NSWindowBelow relativeTo:nil];
-        [createAppointmentButton setButtonType:NSMomentaryLightButton];
-        [createAppointmentButton setBezelStyle:NSRecessedBezelStyle];
-        [createAppointmentButton setImagePosition:NSImageOnly];
-        [createAppointmentButton setTarget:self];
-        [createAppointmentButton setAction:@selector(createAppointment:)];
-        [createAppointmentButton setHidden:YES];
+        //Inhibition
+        inhibited = NO;
     }
     
     return self;
@@ -186,7 +177,7 @@ static int availableSlots = 52;
         [nAppView setDayView:self];
         [nAppView setAppointment:appointment];
         
-        [self addSubview:nAppView positioned:NSWindowAbove relativeTo:nil];
+        [self addSubview:nAppView];
         [appointmentViews addObject:nAppView];
     }
 }
@@ -197,49 +188,29 @@ static int availableSlots = 52;
 
 -(void)mouseEntered:(NSEvent *)theEvent{
     @synchronized(self){
-        activeTracker = (OPTrackingArea*) theEvent.trackingArea;
-        
-        [enteredTrackers addObject:theEvent.trackingArea];
-        NSRect trackingRect = theEvent.trackingArea.rect;
-        
-        [createAppointmentButton setFrame:NSMakeRect(trackingRect.origin.x, trackingRect.origin.y, trackingRect.size.width, trackingRect.size.height)];
-        [createAppointmentButton setHidden:NO];
-    }
-}
-
--(void)mouseExited:(NSEvent *)theEvent{
-    @synchronized(self){
-        [enteredTrackers removeObject:theEvent.trackingArea];
-        
-        if(enteredTrackers.count == 0){
-            [createAppointmentButton setHidden:YES];
+        if(!inhibited){
+            NSRect trackingRect = [self convertRect:theEvent.trackingArea.rect toView:calendarView];
+            
+            [calendarView setActiveTracker:(OPTrackingArea*)theEvent.trackingArea];
+            [calendarView updateEditAppointmentView];
+            
+            [NSAnimationContext beginGrouping];
+            [[NSAnimationContext currentContext] setDuration:0.1f];
+            
+            if([[calendarView createAppointmentButton] isHidden]){
+                [[calendarView createAppointmentButton] setFrame:NSMakeRect(trackingRect.origin.x, trackingRect.origin.y, trackingRect.size.width, trackingRect.size.height)];
+                [[[calendarView createAppointmentButton] animator] setHidden:NO];
+                
+            }
+            else{
+                [[[calendarView createAppointmentButton] animator] setFrame:NSMakeRect(trackingRect.origin.x, trackingRect.origin.y, trackingRect.size.width, trackingRect.size.height)];
+            }
+            
+            [NSAnimationContext endGrouping];
+            
+            
         }
     }
-}
-
--(void)editAppointment:(OPAppointmentView*)appView{
-    OPEditAppointmentView* editAppointmentView = [calendarView editAppointmentView];
-    [editAppointmentView setAppointment:[appView getAppointment]];
-    [editAppointmentView setLocked:YES];
-    
-    [[editAppointmentView appointmentPopOver] showRelativeToRect:[appView bounds] ofView:appView preferredEdge:NSMinXEdge];
-}
-
--(IBAction)createAppointment:(id)sender{
-    OPEditAppointmentView* editAppointmentView = [calendarView editAppointmentView];
-    [editAppointmentView setAppointment:nil];
-    [editAppointmentView setPatient:nil];
-    [[editAppointmentView dayPicker] setDateValue:currentDay];
-    
-    NSCalendar* calendar = [NSCalendar currentCalendar];
-    NSDateComponents* components = [[activeTracker correspondingSlot] copy];
-    [[editAppointmentView startPicker] setDateValue:[calendar dateFromComponents:components]];
-    [components setHour:(components.hour + 1)];
-    [[editAppointmentView endPicker] setDateValue:[calendar dateFromComponents:components]];
-    [editAppointmentView setLocked:NO];
-    [[editAppointmentView detailsText] setString:@""];
-    
-    [[editAppointmentView appointmentPopOver] showRelativeToRect:[createAppointmentButton bounds] ofView:createAppointmentButton preferredEdge:NSMinXEdge];
 }
 
 @end

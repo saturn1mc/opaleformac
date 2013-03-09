@@ -23,7 +23,7 @@ static const int textHeight = 15;
     self = [super initWithFrame:frameRect];
     
     if(self){
-        [self addTrackingArea:[[NSTrackingArea alloc] initWithRect:frameRect
+        [self addTrackingArea:[[NSTrackingArea alloc] initWithRect:[self bounds]
                                                            options:(NSTrackingMouseEnteredAndExited | NSTrackingActiveInKeyWindow)
                                                              owner:self userInfo:nil]];
         
@@ -87,7 +87,7 @@ static const int textHeight = 15;
 
 -(void)mouseDown:(NSEvent *)theEvent{
     if(hovered){
-        [dayView editAppointment:self];
+        [[dayView calendarView] editAppointment:self];
     }
     else{
         [super mouseDown:theEvent];
@@ -97,6 +97,9 @@ static const int textHeight = 15;
 -(void)mouseEntered:(NSEvent *)theEvent{
     hovered = YES;
     
+    [[[dayView calendarView] createAppointmentButton] setHidden:YES];
+    [dayView setInhibited:YES];
+    
     CALayer* highlightLayer = [CALayer layer];
     [highlightLayer setBackgroundColor:CGColorCreateGenericRGB(1.0, 0.0, 0.0, 0.8)];
     [self setWantsLayer:YES];
@@ -105,6 +108,9 @@ static const int textHeight = 15;
 
 -(void)mouseExited:(NSEvent *)theEvent{
     hovered = NO;
+    
+    [dayView setInhibited:NO];
+    
     CALayer* highlightLayer = [CALayer layer];
     [highlightLayer setBackgroundColor:CGColorCreateGenericRGB(0.0, 0.0, 1.0, 0.8)];
     [self setWantsLayer:YES];

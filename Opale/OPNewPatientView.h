@@ -12,7 +12,7 @@
 
 @class OPAdultMalePatientView;
 
-@interface OPNewPatientView : OPView{
+@interface OPNewPatientView : OPView<NSComboBoxDelegate>{
     IBOutlet NSFormCell*    cellFirstName;
     IBOutlet NSImageView*   errorImageFirstName;
     IBOutlet NSFormCell*    cellLastName;
@@ -23,7 +23,7 @@
     IBOutlet NSFormCell*    cellTel2;
     IBOutlet NSFormCell*    cellAddress;
     IBOutlet NSFormCell*    cellTown;
-    IBOutlet NSFormCell*    cellPostalCode;
+    IBOutlet NSComboBox*    postalCodeComboBox;
     IBOutlet NSFormCell*    cellCountry;
 }
 
@@ -37,7 +37,7 @@
 @property (nonatomic, retain) IBOutlet NSFormCell*      cellTel2;
 @property (nonatomic, retain) IBOutlet NSFormCell*      cellAddress;
 @property (nonatomic, retain) IBOutlet NSFormCell*      cellTown;
-@property (nonatomic, retain) IBOutlet NSFormCell*      cellPostalCode;
+@property (nonatomic, retain) IBOutlet NSComboBox*      postalCodeComboBox;
 @property (nonatomic, retain) IBOutlet NSFormCell*      cellCountry;
 
 -(IBAction)validatePatient:(id)sender;
