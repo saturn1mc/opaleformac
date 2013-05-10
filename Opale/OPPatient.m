@@ -2,7 +2,7 @@
 //  OPPatient.m
 //  Opale
 //
-//  Created by Camille on 19/01/13.
+//  Created by Camille on 23/03/13.
 //
 //
 
@@ -59,6 +59,8 @@
 @dynamic town;
 @dynamic traumaticHistory;
 @dynamic urinarySphere;
+@dynamic height;
+@dynamic weight;
 @dynamic appointments;
 @dynamic consultations;
 @dynamic documents;

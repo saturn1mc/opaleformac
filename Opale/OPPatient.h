@@ -2,7 +2,7 @@
 //  OPPatient.h
 //  Opale
 //
-//  Created by Camille on 19/01/13.
+//  Created by Camille on 23/03/13.
 //
 //
 
@@ -47,7 +47,7 @@
 @property (nonatomic, retain) NSString * pregnancyAndBirthSphere;
 @property (nonatomic, retain) NSString * previousHistoryComments;
 @property (nonatomic, retain) NSString * riskFactor;
-@property (nonatomic, retain) NSString * sex;
+@property (nonatomic, retain) NSNumber * sex;
 @property (nonatomic, retain) NSString * sleepSphere;
 @property (nonatomic, retain) NSString * surgicalHistory;
 @property (nonatomic, retain) NSString * tel1;
@@ -57,6 +57,8 @@
 @property (nonatomic, retain) NSString * town;
 @property (nonatomic, retain) NSString * traumaticHistory;
 @property (nonatomic, retain) NSString * urinarySphere;
+@property (nonatomic, retain) NSNumber * height;
+@property (nonatomic, retain) NSNumber * weight;
 @property (nonatomic, retain) NSSet *appointments;
 @property (nonatomic, retain) NSSet *consultations;
 @property (nonatomic, retain) NSSet *documents;
