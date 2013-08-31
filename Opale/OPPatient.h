@@ -2,14 +2,14 @@
 //  OPPatient.h
 //  Opale
 //
-//  Created by Camille on 23/03/13.
+//  Created by Camille on 31/08/13.
 //
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class OPAppointment, OPConsultation, OPDocument, OPMail;
+@class OPAppointment, OPConsultation, OPDocument, OPMail, OPMeasure;
 
 @interface OPPatient : NSManagedObject
 
@@ -36,6 +36,7 @@
 @property (nonatomic, retain) NSString * generalComments;
 @property (nonatomic, retain) NSString * gynecologicalHistory;
 @property (nonatomic, retain) NSString * gynecologicalSphere;
+@property (nonatomic, retain) NSNumber * height;
 @property (nonatomic, retain) NSString * job;
 @property (nonatomic, retain) NSString * lastName;
 @property (nonatomic, retain) NSString * laterality;
@@ -57,12 +58,12 @@
 @property (nonatomic, retain) NSString * town;
 @property (nonatomic, retain) NSString * traumaticHistory;
 @property (nonatomic, retain) NSString * urinarySphere;
-@property (nonatomic, retain) NSNumber * height;
 @property (nonatomic, retain) NSNumber * weight;
 @property (nonatomic, retain) NSSet *appointments;
 @property (nonatomic, retain) NSSet *consultations;
 @property (nonatomic, retain) NSSet *documents;
 @property (nonatomic, retain) NSSet *mails;
+@property (nonatomic, retain) NSSet *measures;
 @end
 
 @interface OPPatient (CoreDataGeneratedAccessors)
@@ -86,5 +87,10 @@
 - (void)removeMailsObject:(OPMail *)value;
 - (void)addMails:(NSSet *)values;
 - (void)removeMails:(NSSet *)values;
+
+- (void)addMeasuresObject:(OPMeasure *)value;
+- (void)removeMeasuresObject:(OPMeasure *)value;
+- (void)addMeasures:(NSSet *)values;
+- (void)removeMeasures:(NSSet *)values;
 
 @end

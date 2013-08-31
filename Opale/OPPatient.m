@@ -2,7 +2,7 @@
 //  OPPatient.m
 //  Opale
 //
-//  Created by Camille on 23/03/13.
+//  Created by Camille on 31/08/13.
 //
 //
 
@@ -11,6 +11,7 @@
 #import "OPConsultation.h"
 #import "OPDocument.h"
 #import "OPMail.h"
+#import "OPMeasure.h"
 
 
 @implementation OPPatient
@@ -38,6 +39,7 @@
 @dynamic generalComments;
 @dynamic gynecologicalHistory;
 @dynamic gynecologicalSphere;
+@dynamic height;
 @dynamic job;
 @dynamic lastName;
 @dynamic laterality;
@@ -59,11 +61,11 @@
 @dynamic town;
 @dynamic traumaticHistory;
 @dynamic urinarySphere;
-@dynamic height;
 @dynamic weight;
 @dynamic appointments;
 @dynamic consultations;
 @dynamic documents;
 @dynamic mails;
+@dynamic measures;
 
 @end

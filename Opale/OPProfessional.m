@@ -2,7 +2,7 @@
 //  OPProfessional.m
 //  Opale
 //
-//  Created by Camille on 29/06/13.
+//  Created by Camille on 31/08/13.
 //
 //
 
@@ -12,12 +12,12 @@
 @implementation OPProfessional
 
 @dynamic address;
+@dynamic country;
 @dynamic firstName;
 @dynamic lastName;
+@dynamic postalCode;
 @dynamic speciality;
 @dynamic tel;
-@dynamic postalCode;
-@dynamic country;
 @dynamic town;
 
 @end
