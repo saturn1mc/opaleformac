@@ -12,7 +12,7 @@
 
 @interface OPGraphView : CPTGraphHostingView <CPTPlotSpaceDelegate, CPTPlotDataSource>{
     OPPatient* patient;
-    NSArray* sortedConsultations;
+    NSArray* sortedMeasures;
     CPTScatterPlot* patientPlot;
     
     NSString* title;
@@ -37,7 +37,7 @@
 }
 
 @property (nonatomic, retain) OPPatient* patient;
-@property (nonatomic, retain) NSArray* sortedConsultations;
+@property (nonatomic, retain) NSArray* sortedMeasures;
 @property (nonatomic, retain) CPTScatterPlot* patientPlot;
 @property (nonatomic, retain) NSString* title;
 @property (nonatomic, retain) NSMutableArray* plotNames;
@@ -56,7 +56,8 @@
 @property (nonatomic) NSInteger minorIncrement;
 
 -(void)loadPatient:(OPPatient*)patientToLoad;
--(void)sortConsultations;
+-(void)update;
+-(void)sortMeasures;
 -(void)loadReferenceData:(NSString*)sourceFile;
 -(void)initIncrements;
 -(void)initReferencePlots;

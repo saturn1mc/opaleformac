@@ -10,7 +10,7 @@
 
 @class OPInvoicePanel, OPConsultation;
 
-@interface OPAdultChildConsultationView : OPView<NSTextViewDelegate>{
+@interface OPConsultationView : OPView<NSTextViewDelegate>{
     OPConsultation* consultation;
     IBOutlet OPInvoicePanel* invoicePanel;
     
@@ -42,10 +42,13 @@
 
 -(void)loadConsultation:(OPConsultation *)nConsultation;
 -(void)applyModifications;
+
 -(IBAction)saveConsultation:(id)sender;
 
 -(IBAction)showInvoicePanel:(id)sender;
 -(IBAction)closeInvoicePanel:(id)sender;
+
+-(IBAction)returnToPatient:(id)sender;
 
 -(void)refreshInvoiceFlag;
 

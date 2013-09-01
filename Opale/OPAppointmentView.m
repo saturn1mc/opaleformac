@@ -17,7 +17,7 @@
 static const int textHeight = 15;
 
 @dynamic appointment;
-@synthesize hovered, dayView, patientField, hoursField, dateFormatter;
+@synthesize hovered, dayView, patientField, hoursField, dateFormatter, correspondingArea;
 
 -(id)initWithFrame:(NSRect)frameRect{
     self = [super initWithFrame:frameRect];
@@ -102,7 +102,7 @@ static const int textHeight = 15;
     
     CALayer* highlightLayer = [CALayer layer];
     [highlightLayer setBackgroundColor:CGColorCreateGenericRGB(1.0, 0.0, 0.0, 0.8)];
-    [self setWantsLayer:YES];
+    //[self setWantsLayer:YES];
     [[self animator] setLayer:highlightLayer];
 }
 
@@ -113,7 +113,7 @@ static const int textHeight = 15;
     
     CALayer* highlightLayer = [CALayer layer];
     [highlightLayer setBackgroundColor:CGColorCreateGenericRGB(0.0, 0.0, 1.0, 0.8)];
-    [self setWantsLayer:YES];
+    //[self setWantsLayer:YES];
     [[self animator] setLayer:highlightLayer];
 }
 

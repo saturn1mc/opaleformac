@@ -195,7 +195,7 @@ static int availableSlots = 52;
             [calendarView updateEditAppointmentView];
             
             [NSAnimationContext beginGrouping];
-            [[NSAnimationContext currentContext] setDuration:0.1f];
+            [[NSAnimationContext currentContext] setDuration:0.05f];
             
             if([[calendarView createAppointmentButton] isHidden]){
                 [[calendarView createAppointmentButton] setFrame:NSMakeRect(trackingRect.origin.x, trackingRect.origin.y, trackingRect.size.width, trackingRect.size.height)];

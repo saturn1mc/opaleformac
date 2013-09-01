@@ -20,10 +20,10 @@
 #import "OPAdultMalePatientView.h"
 #import "OPAdultFemalePatientView.h"
 #import "OPBabyPatientView.h"
-#import "OPAdultChildConsultationView.h"
-#import "OPBabyConsultationView.h"
+#import "OPConsultationView.h"
 #import "OPCalendarView.h"
-#import "OPProfessionalSearchView.h"
+#import "OPProfessionalView.h"
+#import "OPProfessionalsView.h"
 #import "OPScanningView.h"
 
 static const NSInteger babyAgeLimit  = 4;
@@ -31,7 +31,7 @@ static const NSInteger childAgeLimit = 17;
 
 @implementation OPMainWindow
 
-@synthesize nextButton, previousButton, currentScrollView, currentView, homeView, patientsView, calendarView, accountingView, statsView, adultMalePatientView, adultFemalePatientView, babyPatientView, adultChildConsultationView, babyConsultationView, professionalListView, scanningView, transition;
+@synthesize nextButton, previousButton, currentScrollView, currentView, homeView, patientsView, calendarView, accountingView, statsView, adultMalePatientView, adultFemalePatientView, babyPatientView, consultationView, professionalsView, professionalView, scanningView, transition;
 
 - (void)awakeFromNib{
     
@@ -48,7 +48,7 @@ static const NSInteger childAgeLimit = 17;
 
 -(NSURL*)directoryFor:(OPPatient*)patient{
     NSFileManager *fileManager = [NSFileManager defaultManager];
-   
+    
     OPAppDelegate* appDelegate = (OPAppDelegate*) self.delegate;
     
     NSURL* patientDirectory = [[appDelegate applicationFilesDirectory] URLByAppendingPathComponent:[[[patient objectID] URIRepresentation] path]];
@@ -144,10 +144,19 @@ static const NSInteger childAgeLimit = 17;
     [self openNewView:statsView];
 }
 
--(IBAction)showProfessionalView:(id)sender{
-    [professionalListView setAutoresizingMask:NSViewHeightSizable|NSViewWidthSizable];
+-(IBAction)showProfessionalsView:(id)sender{
+    [professionalsView setAutoresizingMask:NSViewHeightSizable|NSViewWidthSizable];
     [transition setType:kCATransitionFade];
-    [self openNewView:professionalListView];
+    [self openNewView:professionalsView];
+}
+
+-(IBAction)showProfessionalViewFor:(OPProfessional*)professional{
+    [self showProfessionalViewFor:professional withLockState:YES];
+}
+
+-(IBAction)showProfessionalViewFor:(OPProfessional*)professional withLockState:(BOOL)locked{
+    [professionalView loadProfessional:professional];
+    [self fadeSubview:professionalView];
 }
 
 -(IBAction)showPatientViewFor:(OPPatient*)patient{
@@ -169,24 +178,29 @@ static const NSInteger childAgeLimit = 17;
         [babyPatientView setLocked:locked];
         [self fadeSubview:babyPatientView];
     }else if (ageInYears < childAgeLimit){ //Child
-        //TODO child views
-        if([patient.sex isEqualToString:@"Masculin"]){
+        
+        //!!!!!!!!!!!!!!!!!!!!!!!!
+        //TODO Child patient view
+        //!!!!!!!!!!!!!!!!!!!!!!!!
+        
+        if([patient.sex integerValue] == 0){ //Male
             [adultMalePatientView loadPatient:patient];
             [adultMalePatientView setLocked:locked];
             [self fadeSubview:adultMalePatientView];
         }
-        else{
+        else{ //Female
             [adultFemalePatientView loadPatient:patient];
             [adultFemalePatientView setLocked:locked];
             [self fadeSubview:adultFemalePatientView];
         }
     }else{ //Adult
-        if([patient.sex isEqualToString:@"Masculin"]){
+        
+        if([patient.sex integerValue] == 0){ //Male
             [adultMalePatientView loadPatient:patient];
             [adultMalePatientView setLocked:locked];
             [self fadeSubview:adultMalePatientView];
         }
-        else{
+        else{ //Female
             [adultFemalePatientView loadPatient:patient];
             [adultFemalePatientView setLocked:locked];
             [self fadeSubview:adultFemalePatientView];
@@ -195,23 +209,8 @@ static const NSInteger childAgeLimit = 17;
 }
 
 -(IBAction)showConsultationViewFor:(OPConsultation*)consultation{
-    NSDate* today = [NSDate date];
-    
-    NSCalendar *sysCalendar = [NSCalendar currentCalendar];
-    unsigned int unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit;
-    
-    NSDateComponents *breakdownInfo = [sysCalendar components:unitFlags fromDate:consultation.patient.birthday  toDate:today  options:0];
-    
-    NSInteger ageInYears = breakdownInfo.year;
-    
-    if(ageInYears < babyAgeLimit){ //Baby
-        [babyConsultationView loadConsultation:consultation];
-        [self pushSubview:babyConsultationView];
-    }
-    else{
-        [adultChildConsultationView loadConsultation:consultation];
-        [self pushSubview:adultChildConsultationView];
-    }
+    [consultationView loadConsultation:consultation];
+    [self pushSubview:consultationView];
 }
 
 -(IBAction)showScanningView:(id)sender{
@@ -296,7 +295,7 @@ static const NSInteger childAgeLimit = 17;
             [mainView.animator replaceSubview:currentScrollView with:newScrollView];
         }
         
-        currentScrollView = newScrollView;	
+        currentScrollView = newScrollView;
         currentView = newView;
     }
 }

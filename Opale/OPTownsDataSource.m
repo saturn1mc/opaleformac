@@ -77,7 +77,12 @@ static NSString* sourceFile = @"fr_postal_codes";
 }
 
 -(NSString*)getTownForPostalCode:(NSString*)postalCode{
-    return [postalCodeTownDict valueForKey:postalCode];
+    if(postalCode && [postalCode length] > 0){
+        return [postalCodeTownDict valueForKey:postalCode];
+    }
+    else{
+        return  0;
+    }
 }
 
 @end

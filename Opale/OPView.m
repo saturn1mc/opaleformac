@@ -53,6 +53,25 @@
     }
 }
 
++(void)initDatePicker:(NSDatePicker*)datePicker withDate:(NSDate*)date{
+    if(date){
+        [datePicker setDateValue:date];
+    }
+}
+
++(void)initMatrix:(NSMatrix*)matrix selectingRow:(NSInteger)row andColumn:(NSInteger)column{
+    [matrix selectCellAtRow:row column:column];
+}
+
++(void)initComboBox:(NSComboBox*)comboBox withString:(NSString*)value{
+    if(value){
+        [comboBox setStringValue:[NSString stringWithString:value]];
+    }
+    else{
+        [comboBox setStringValue:@""];
+    }
+}
+
 +(void)initTextField:(NSTextField*)textField withString:(NSString*)value{
     if(value){
         [textField setStringValue:[NSString stringWithString:value]];

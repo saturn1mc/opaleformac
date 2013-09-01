@@ -8,7 +8,6 @@
 
 #import "OPNewPatientView.h"
 #import "OPMainWindow.h"
-#import "OPAdultMalePatientView.h"
 #import "OPPatient.h"
 #import "OPTownsDataSource.h"
 
@@ -22,10 +21,26 @@
     [postalCodeComboBox setDataSource:[OPTownsDataSource getInstance]];
 }
 
+-(void)resetView{
+    [cellFirstName setStringValue:@""];
+    [errorImageFirstName setHidden:YES];
+    [cellLastName setStringValue:@""];
+    [errorImageLastName setHidden:YES];
+    [cellTel1 setStringValue:@""];
+    [cellTel2 setStringValue:@""];
+    [cellAddress setStringValue:@""];
+    [cellTown setStringValue:@""];
+    [cellCountry setStringValue:@""];
+}
+
 -(void)controlTextDidChange:(NSNotification *)obj{
     NSString* town = [[OPTownsDataSource getInstance] getTownForPostalCode:[postalCodeComboBox stringValue]];
+    
     if(town){
         [cellTown setStringValue:town];
+    }
+    else{
+        [cellTown setStringValue:@""];
     }
 }
 
@@ -55,22 +70,12 @@
         [alert beginSheetModalForWindow:parent modalDelegate:self didEndSelector:nil contextInfo:nil];
     }
     else{
-        NSString* sex;
-        
-        if([matrixSex selectedRow] == 0){
-            sex = @"Masculin";
-        }
-        else{
-            sex = @"Feminin";
-        }
-        
-        
         OPPatient* nPatient = [NSEntityDescription insertNewObjectForEntityForName:@"Patient" inManagedObjectContext:[self managedObjectContext]];
         
         nPatient.firstName = [cellFirstName stringValue];
         nPatient.lastName = [cellLastName stringValue];
         nPatient.birthday = [birthdayPicker dateValue];
-        nPatient.sex = sex;
+        nPatient.sex = [[NSNumber alloc] initWithInteger:[matrixSex selectedRow]];
         nPatient.address = [cellAddress stringValue];
         nPatient.town = [cellTown stringValue];
         nPatient.postalCode = [postalCodeComboBox stringValue];

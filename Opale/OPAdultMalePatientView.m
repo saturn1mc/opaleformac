@@ -15,18 +15,20 @@
 
 @implementation OPAdultMalePatientView
 
-@synthesize cellAge, cellJob, cellFamilyStatus, cellExtraActivity, cellChildren, cellLaterality, cellAftercare, cellRiskFactor;
+@synthesize cellAge, cellJob, familyStatusComboBox, cellExtraActivity, cellChildren, cellLaterality, cellAftercare, cellRiskFactor, cellHeight, cellWeight;
 
 -(void)awakeFromNib{
     [super awakeFromNib];
     
     [self addEditableObject:cellJob];
-    [self addEditableObject:cellFamilyStatus];
+    [self addEditableObject:familyStatusComboBox];
     [self addEditableObject:cellExtraActivity];
     [self addEditableObject:cellChildren];
     [self addEditableObject:cellLaterality];
     [self addEditableObject:cellAftercare];
     [self addEditableObject:cellRiskFactor];
+    [self addEditableObject:cellHeight];
+    [self addEditableObject:cellWeight];
 }
 
 -(void)loadPatient:(OPPatient*)patientToLoad{
@@ -34,12 +36,14 @@
     
     //General tab : additionals
     [OPView initFormCell:cellJob withString:patient.job];
-    [OPView initFormCell:cellFamilyStatus withString:patient.familyStatus];
+    [OPView initComboBox:familyStatusComboBox withString:patient.familyStatus];
     [OPView initFormCell:cellExtraActivity withString:patient.extraActivity];
     [OPView initFormCell:cellChildren withString:patient.children];
     [OPView initFormCell:cellAftercare withString:patient.afterCare];
     [OPView initFormCell:cellLaterality withString:patient.laterality];
     [OPView initFormCell:cellRiskFactor withString:patient.riskFactor];
+    [OPView initFormCell:cellHeight withString:[patient.height stringValue]];
+    [OPView initFormCell:cellWeight withString:[patient.weight stringValue]];
     
     [self updateAge:self];
 }
@@ -62,12 +66,14 @@
     [super applyModifications];
     
     patient.job = [[NSString alloc] initWithString:[cellJob stringValue]];
-    patient.familyStatus = [[NSString alloc] initWithString:[cellFamilyStatus stringValue]];
+    patient.familyStatus = [[NSString alloc] initWithString:[familyStatusComboBox stringValue]];
     patient.extraActivity = [[NSString alloc] initWithString:[cellExtraActivity stringValue]];
     patient.children = [[NSString alloc] initWithString:[cellChildren stringValue]];
     patient.afterCare = [[NSString alloc] initWithString:[cellAftercare stringValue]];
     patient.laterality = [[NSString alloc] initWithString:[cellLaterality stringValue]];
     patient.riskFactor = [[NSString alloc] initWithString:[cellRiskFactor stringValue]];
+    patient.height = [NSNumber numberWithInteger:[cellHeight integerValue]];
+    patient.weight = [NSNumber numberWithInteger:[cellWeight integerValue]];
 }
 
 @end

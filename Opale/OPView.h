@@ -35,6 +35,9 @@
 -(BOOL)canGoToNextView;
 
 +(void)initFormCell:(NSFormCell*)formCell withString:(NSString*)value;
++(void)initDatePicker:(NSDatePicker*)datePicker withDate:(NSDate*)date;
++(void)initMatrix:(NSMatrix*)matrix selectingRow:(NSInteger)row andColumn:(NSInteger)column;
++(void)initComboBox:(NSComboBox*)comboBox withString:(NSString*)value;
 +(void)initTextField:(NSTextField*)textField withString:(NSString*)value;
 +(void)initTextView:(NSTextView*)textView withString:(NSString*)value;
 +(void)initFormCell:(NSFormCell*)formCell withDate:(NSDate*)date;

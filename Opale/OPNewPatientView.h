@@ -12,7 +12,7 @@
 
 @class OPAdultMalePatientView;
 
-@interface OPNewPatientView : OPView<NSComboBoxDelegate>{
+@interface OPNewPatientView : OPView <NSComboBoxDelegate>{
     IBOutlet NSFormCell*    cellFirstName;
     IBOutlet NSImageView*   errorImageFirstName;
     IBOutlet NSFormCell*    cellLastName;

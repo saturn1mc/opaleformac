@@ -6,6 +6,7 @@
 //
 //
 
+#import "CorePlot/CorePlot.h"
 #import "OPGraphView.h"
 
 @interface OPWeightGraphView : OPGraphView

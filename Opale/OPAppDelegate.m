@@ -18,7 +18,6 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
-    //TODO load postal codes / towns
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "CaM.Opale" in the user's Application Support directory.

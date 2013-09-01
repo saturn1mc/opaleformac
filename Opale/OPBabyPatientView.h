@@ -12,6 +12,8 @@
 @class OPHeightGraphView, OPWeightGraphView, OPHCGraphView;
 
 @interface OPBabyPatientView : OPExistingPatientView{
+    NSArray* sortedMeasures;
+    
     //General tab : Additionals
     IBOutlet NSFormCell*  cellCorrectedAge;
     IBOutlet NSTextField* termWeeks;
@@ -33,6 +35,11 @@
     IBOutlet NSTextView*  otherSphere;
     
     //Graphs tab
+    IBOutlet NSTableView* measuresTable;
+    IBOutlet NSTableColumn* colMeasureDate;
+    IBOutlet NSTableColumn* colHeight;
+    IBOutlet NSTableColumn* colWeight;
+    IBOutlet NSTableColumn* colCP;
     IBOutlet OPHeightGraphView* heightGraphView;
     IBOutlet OPWeightGraphView* weightGraphView;
     IBOutlet OPHCGraphView* hcGraphView;
@@ -56,11 +63,20 @@
 @property (nonatomic, retain) IBOutlet NSTextView* sleepSphere;
 @property (nonatomic, retain) IBOutlet NSTextView* otherSphere;
 
+@property (nonatomic, retain) IBOutlet NSTableView* measuresTable;
+@property (nonatomic, retain) IBOutlet NSTableColumn* colMeasureDate;
+@property (nonatomic, retain) IBOutlet NSTableColumn* colHeight;
+@property (nonatomic, retain) IBOutlet NSTableColumn* colWeight;
+@property (nonatomic, retain) IBOutlet NSTableColumn* colCP;
 @property (nonatomic, retain) IBOutlet OPHeightGraphView* heightGraphView;
 @property (nonatomic, retain) IBOutlet OPWeightGraphView* weightGraphView;
 @property (nonatomic, retain) IBOutlet OPHCGraphView* hcGraphView;
 
 -(IBAction)updateCorrectedAge:(id)sender;
 -(IBAction)updateGraphs:(id)sender;
+-(IBAction)addRow:(id)sender;
+-(IBAction)removeRow:(id)sender;
+
+-(void)sortMeasures;
 
 @end

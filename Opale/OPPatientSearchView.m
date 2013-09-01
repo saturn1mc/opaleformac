@@ -22,6 +22,19 @@
     searchResults = [[NSMutableArray alloc] init];
 }
 
+-(void)resetView{
+    [cellFirstName setStringValue:@""];
+    [cellLastName setStringValue:@""];
+    [cellTel setStringValue:@""];
+    [cellAddress setStringValue:@""];
+    [cellTown setStringValue:@""];
+    [cellPostalCode setStringValue:@""];
+    [cellCountry setStringValue:@""];
+    
+    [searchResults removeAllObjects];
+    [resultsTable reloadData];
+}
+
 -(IBAction)searchPatients:(id)sender{
     [searchResults removeAllObjects];
     

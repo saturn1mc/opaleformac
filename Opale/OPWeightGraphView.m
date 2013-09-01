@@ -8,7 +8,7 @@
 
 #import "OPWeightGraphView.h"
 #import "OPPatient.h"
-#import "OPConsultation.h"
+#import "OPMeasure.h"
 
 @implementation OPWeightGraphView
 
@@ -32,7 +32,7 @@
         case CPTScatterPlotFieldY:
         {
             if(patient.birthWeight){
-                return [NSDecimalNumber numberWithInteger:[patient.birthWeight integerValue]];
+                return [NSDecimalNumber numberWithFloat:[patient.birthWeight floatValue]];
             }
             else{
                 return [NSDecimalNumber zero];
@@ -46,7 +46,7 @@
 
 -(NSNumber*)patientNumberForPlot:(CPTPlot*)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index{
     
-    OPConsultation* consultation = (OPConsultation*)[sortedConsultations objectAtIndex:index - 1];
+    OPMeasure* measure = (OPMeasure*)[sortedMeasures objectAtIndex:index - 1];
     
     switch(fieldEnum){
         case CPTScatterPlotFieldX:
@@ -54,14 +54,14 @@
             NSCalendar *sysCalendar = [NSCalendar currentCalendar];
             unsigned int unitFlags = NSDayCalendarUnit;
             
-            NSDateComponents *breakdownInfo = [sysCalendar components:unitFlags fromDate:patient.birthday  toDate:consultation.date options:0];
+            NSDateComponents *breakdownInfo = [sysCalendar components:unitFlags fromDate:patient.birthday  toDate:measure.date options:0];
             
             return [NSDecimalNumber numberWithDouble:((double)breakdownInfo.day / 30.0)];
         }
         case CPTScatterPlotFieldY:
         {
-            if(consultation.weight){
-                return [NSDecimalNumber numberWithInteger:[consultation.weight integerValue]];
+            if(measure.weight){
+                return measure.weight;
             }
             else{
                 return [NSDecimalNumber zero];

@@ -8,12 +8,12 @@
 
 #import "OPMainWindow.h"
 #import "OPInvoicePanel.h"
-#import "OPAdultChildConsultationView.h"
+#import "OPConsultationView.h"
 #import "OPPatient.h"
 #import "OPConsultation.h"
 #import "OPInvoice.h"
 
-@implementation OPAdultChildConsultationView
+@implementation OPConsultationView
 
 @synthesize modified, invoicePanel, consultation, consultationDate, textTests, textTreatments, textAdvises, textMotives, invoiceFlag;
 
@@ -77,6 +77,12 @@
     }
     
     return YES;
+}
+
+-(IBAction)returnToPatient:(id)sender{
+    if([self quitView]){
+        [parent showPatientViewFor:consultation.patient];
+    }
 }
 
 -(IBAction)showInvoicePanel:(id)sender{

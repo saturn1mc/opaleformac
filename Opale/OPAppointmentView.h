@@ -8,13 +8,14 @@
 
 #import "OPView.h"
 
-@class OPAppointment, OPDayView;
+@class OPAppointment, OPDayView, OPTrackingArea;
 
 @interface OPAppointmentView : OPView{
     BOOL hovered;
     
     OPDayView* dayView;
     OPAppointment* appointment;
+    OPTrackingArea* correspondingArea;
     
     NSTextField* patientField;
     NSTextField* hoursField;
@@ -25,6 +26,7 @@
 
 @property (nonatomic, retain) OPDayView* dayView;
 @property (nonatomic, retain) OPAppointment* appointment;
+@property (nonatomic, retain) OPTrackingArea* correspondingArea;
 
 @property (nonatomic, retain) NSTextField* patientField;
 @property (nonatomic, retain) NSTextField* hoursField;

@@ -6,15 +6,18 @@
 //
 //
 
+#import "OPMainWindow.h"
 #import "OPBabyPatientView.h"
 #import "OPPatient.h"
 #import "OPHeightGraphView.h"
 #import "OPWeightGraphView.h"
 #import "OPHCGraphView.h"
+#import "OPPatient.h"
+#import "OPMeasure.h"
 
 @implementation OPBabyPatientView
 
-@synthesize cellCorrectedAge, termWeeks, termDays, cellBirthPlace, cellBirthWeight, cellBirtHeight, cellBirtHeadCircumference, cellParity, cellFatherJob, cellMotherJob, cellCareMode, cellAfterCare,pregnancyAndBirthSphere, feedingAndStoolSphere, sleepSphere, otherSphere, heightGraphView, weightGraphView, hcGraphView;
+@synthesize cellCorrectedAge, termWeeks, termDays, cellBirthPlace, cellBirthWeight, cellBirtHeight, cellBirtHeadCircumference, cellParity, cellFatherJob, cellMotherJob, cellCareMode, cellAfterCare,pregnancyAndBirthSphere, feedingAndStoolSphere, sleepSphere, otherSphere, measuresTable, colMeasureDate, colHeight, colWeight, colCP, heightGraphView, weightGraphView, hcGraphView;
 
 -(void)awakeFromNib{
     [super awakeFromNib];
@@ -31,6 +34,8 @@
     [self addEditableObject:cellMotherJob];
     [self addEditableObject:cellCareMode];
     [self addEditableObject:cellAfterCare];
+    
+    sortedMeasures = [[NSMutableArray alloc] init];
 }
 
 -(void)loadPatient:(OPPatient *)patientToLoad{
@@ -57,6 +62,7 @@
     
     [self updateCorrectedAge:self];
     
+    [self sortMeasures];
     [heightGraphView loadPatient:patient];
     [weightGraphView loadPatient:patient];
     [hcGraphView loadPatient:patient];
@@ -89,9 +95,26 @@
 
 
 -(IBAction)updateGraphs:(id)sender{
-    [weightGraphView.graph reloadData];
-    [heightGraphView.graph reloadData];
-    [hcGraphView.graph reloadData];
+    [weightGraphView update];
+    [heightGraphView update];
+    [hcGraphView update];
+}
+
+-(IBAction)addRow:(id)sender{
+    OPMeasure* nMeasure = [NSEntityDescription insertNewObjectForEntityForName:@"Measure" inManagedObjectContext:[self managedObjectContext]];
+    
+    nMeasure.patient = patient;
+    nMeasure.date = [NSDate date];
+    nMeasure.height = 0;
+    nMeasure.weight = 0;
+    nMeasure.cranianPerimeter = 0;
+    
+    [self saveAction];
+    [self sortMeasures];
+}
+
+-(IBAction)removeRow:(id)sender{
+    //TODO
 }
 
 -(void)applyModifications{
@@ -112,6 +135,84 @@
     patient.feedingAndStoolSphere = [[NSString alloc] initWithString:[feedingAndStoolSphere string]];
     patient.sleepSphere = [[NSString alloc] initWithString:[sleepSphere string]];
     patient.otherSphere = [[NSString alloc] initWithString:[otherSphere string]];
+}
+
+#pragma mark - Tables management
+
+-(void)sortMeasures{
+    NSArray* measures = [patient.measures allObjects];
+    
+    sortedMeasures = [measures sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        OPMeasure* measure1 = (OPMeasure*) obj1;
+        OPMeasure* measure2 = (OPMeasure*) obj2;
+        
+        return [measure1.date compare:measure2.date];
+    }];
+    
+    [measuresTable reloadData];
+    [self updateGraphs:self];
+}
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
+{
+    NSInteger count = [super numberOfRowsInTableView:tableView];
+    
+    if(tableView == measuresTable){
+        if (sortedMeasures){
+            count = [sortedMeasures count];
+        }
+    }
+    
+    return count;
+}
+
+-(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
+    
+    NSString* value = [super tableView:tableView objectValueForTableColumn:tableColumn row:row];
+    
+    if(tableView == measuresTable){
+        
+        OPMeasure* measure = (OPMeasure*) [sortedMeasures objectAtIndex:row];
+        
+        if(tableColumn == colMeasureDate){
+            return measure.date;
+        }
+        else if (tableColumn == colHeight){
+            return measure.height;
+        }
+        else if (tableColumn == colWeight){
+            return measure.weight;
+        }
+        else if (tableColumn == colCP){
+            return measure.cranianPerimeter;
+        }
+    }
+    
+    return value;
+}
+
+-(void)tableView:(NSTableView *)tableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{    
+    if(tableView == measuresTable){
+        modified = YES;
+        OPMeasure* measure = (OPMeasure*) [sortedMeasures objectAtIndex:row];
+        
+        if(tableColumn == colMeasureDate){
+            measure.date = (NSDate*)object;
+        }
+        else if (tableColumn == colHeight){
+            measure.height = [NSNumber numberWithFloat:[object floatValue]];
+        }
+        else if (tableColumn == colWeight){
+            measure.weight = [NSNumber numberWithFloat:[object floatValue]];
+        }
+        else if (tableColumn == colCP){
+            measure.cranianPerimeter = [NSNumber numberWithFloat:[object floatValue]];
+        }
+        
+        [self saveAction];
+        [self sortMeasures];
+    }
 }
 
 @end

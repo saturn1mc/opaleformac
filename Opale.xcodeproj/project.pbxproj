@@ -18,8 +18,20 @@
 		912C0ED716208D7D009A5090 /* OPHeightGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 912C0ED616208D7D009A5090 /* OPHeightGraphView.m */; };
 		91360C8D150E6FA1000E00D2 /* OPNewPatientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91360C8C150E6FA1000E00D2 /* OPNewPatientView.m */; };
 		9136E87016A88F06007BAE82 /* OPDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9136E86F16A88F05007BAE82 /* OPDayView.m */; };
+		913DC79F17D28DD4001F31B8 /* OPProfessional.m in Sources */ = {isa = PBXBuildFile; fileRef = 913DC79E17D28DD4001F31B8 /* OPProfessional.m */; };
+		913DC7A217D28DD5001F31B8 /* OPInvoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 913DC7A117D28DD5001F31B8 /* OPInvoice.m */; };
+		913DC7A517D28DD5001F31B8 /* OPAppointment.m in Sources */ = {isa = PBXBuildFile; fileRef = 913DC7A417D28DD5001F31B8 /* OPAppointment.m */; };
+		913DC7A817D28DD6001F31B8 /* OPMail.m in Sources */ = {isa = PBXBuildFile; fileRef = 913DC7A717D28DD5001F31B8 /* OPMail.m */; };
+		913DC7AB17D28DD6001F31B8 /* OPConsultation.m in Sources */ = {isa = PBXBuildFile; fileRef = 913DC7AA17D28DD6001F31B8 /* OPConsultation.m */; };
+		913DC7AE17D28DD7001F31B8 /* OPPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = 913DC7AD17D28DD7001F31B8 /* OPPatient.m */; };
+		913DC7B117D28DD7001F31B8 /* OPDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 913DC7B017D28DD7001F31B8 /* OPDocument.m */; };
+		913DC7B417D28DD7001F31B8 /* OPTown.m in Sources */ = {isa = PBXBuildFile; fileRef = 913DC7B317D28DD7001F31B8 /* OPTown.m */; };
+		913DC7B717D28DD7001F31B8 /* OPMeasure.m in Sources */ = {isa = PBXBuildFile; fileRef = 913DC7B617D28DD7001F31B8 /* OPMeasure.m */; };
 		914594B816962C9E003016FF /* OPPhoneNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 914594B716962C9E003016FF /* OPPhoneNumberFormatter.m */; };
 		914594BA169651E7003016FF /* fr_postal_codes.csv in Resources */ = {isa = PBXBuildFile; fileRef = 914594B9169651E7003016FF /* fr_postal_codes.csv */; };
+		9150AC23177F6D7100E12915 /* OPProfessionalsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9150AC22177F6D7100E12915 /* OPProfessionalsView.m */; };
+		9150AC26177F6E2300E12915 /* OPNewProfessionalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9150AC25177F6E2300E12915 /* OPNewProfessionalView.m */; };
+		9150AC29177F6FEB00E12915 /* OPProfessionalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9150AC28177F6FEA00E12915 /* OPProfessionalView.m */; };
 		9157711015067B73009E2B73 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9157710F15067B73009E2B73 /* Cocoa.framework */; };
 		9157711A15067B73009E2B73 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9157711815067B73009E2B73 /* InfoPlist.strings */; };
 		9157711C15067B73009E2B73 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9157711B15067B73009E2B73 /* main.m */; };
@@ -39,14 +51,8 @@
 		916244AD166A6FE30000D50A /* OPProfessionalSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 916244AC166A6FE30000D50A /* OPProfessionalSearchView.m */; };
 		916244BE166A7C210000D50A /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 916244BD166A7C210000D50A /* AddressBook.framework */; };
 		9166DDD61698A3E500583379 /* OPGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9166DDD51698A3E400583379 /* OPGraphView.m */; };
-		9166DDD91698FF4800583379 /* OPBabyConsultationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9166DDD81698FF4700583379 /* OPBabyConsultationView.m */; };
-		9166DDDC1698FFCE00583379 /* OPConsultation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9166DDDB1698FFCE00583379 /* OPConsultation.m */; };
 		91680CD71690F7FA00A3C67E /* OPInvoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91680CD61690F7FA00A3C67E /* OPInvoiceView.m */; };
 		9171736E1535E2E100D1D702 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9171736D1535E2E100D1D702 /* libsqlite3.dylib */; };
-		9174A6901695F91E00575B69 /* OPDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 9174A68F1695F91E00575B69 /* OPDocument.m */; };
-		9174A6931695F91E00575B69 /* OPMail.m in Sources */ = {isa = PBXBuildFile; fileRef = 9174A6921695F91E00575B69 /* OPMail.m */; };
-		9174A6961695F91E00575B69 /* OPInvoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9174A6951695F91E00575B69 /* OPInvoice.m */; };
-		9174A69C1695F91E00575B69 /* OPProfessionnal.m in Sources */ = {isa = PBXBuildFile; fileRef = 9174A69B1695F91E00575B69 /* OPProfessionnal.m */; };
 		9174A6A616960C8B00575B69 /* OPSexFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9174A6A516960C8B00575B69 /* OPSexFormatter.m */; };
 		9176B2C116EB599D00F51FD3 /* OPTownsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9176B2C016EB599D00F51FD3 /* OPTownsDataSource.m */; };
 		9176B2C716EBA22C00F51FD3 /* valid.png in Resources */ = {isa = PBXBuildFile; fileRef = 9176B2C516EBA22C00F51FD3 /* valid.png */; };
@@ -55,11 +61,8 @@
 		91773DBA163B0C66000F8673 /* OPHCGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91773DB9163B0C66000F8673 /* OPHCGraphView.m */; };
 		91773DBD163B11E2000F8673 /* OPBabyPatientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91773DBC163B11E2000F8673 /* OPBabyPatientView.m */; };
 		917C607B16AB1DD700A5EAC0 /* new_appointment.png in Resources */ = {isa = PBXBuildFile; fileRef = 917C607A16AB1DD700A5EAC0 /* new_appointment.png */; };
-		917C608116AB2D4200A5EAC0 /* OPPatient.m in Sources */ = {isa = PBXBuildFile; fileRef = 917C608016AB2D4200A5EAC0 /* OPPatient.m */; };
-		917C608F16AB5E8500A5EAC0 /* OPTown.m in Sources */ = {isa = PBXBuildFile; fileRef = 917C608E16AB5E8500A5EAC0 /* OPTown.m */; };
 		918738FB16A7376400D079E7 /* OPAppointmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 918738FA16A7376400D079E7 /* OPAppointmentView.m */; };
 		9187390116A73E1200D079E7 /* OPEditAppointmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9187390016A73E1200D079E7 /* OPEditAppointmentView.m */; };
-		918A44BC16A9D961008DB974 /* OPAppointment.m in Sources */ = {isa = PBXBuildFile; fileRef = 918A44BB16A9D961008DB974 /* OPAppointment.m */; };
 		91959F951690A1B4008EF47E /* OPInvoicePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 91959F941690A1B4008EF47E /* OPInvoicePanel.m */; };
 		919F2A7116B5B66E00D1A72E /* OPTrackingArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 919F2A7016B5B66E00D1A72E /* OPTrackingArea.m */; };
 		91A7DEF016A5EE6C008FEEA6 /* OPWeekAppointmentsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A7DEEF16A5EE6C008FEEA6 /* OPWeekAppointmentsView.m */; };
@@ -83,7 +86,7 @@
 		91B31AB8168B54F500416CF1 /* ImageCaptureCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B31AB7168B54F500416CF1 /* ImageCaptureCore.framework */; };
 		91BD268916B40C7F0010E102 /* OPAppointmentPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD268816B40C7E0010E102 /* OPAppointmentPanel.m */; };
 		91CAD6CB1598B71B00163FB1 /* OPExistingPatientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CAD6CA1598B71B00163FB1 /* OPExistingPatientView.m */; };
-		91CEF6F2159C618A001D5265 /* OPAdultChildConsultationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CEF6F1159C618A001D5265 /* OPAdultChildConsultationView.m */; };
+		91CEF6F2159C618A001D5265 /* OPConsultationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CEF6F1159C618A001D5265 /* OPConsultationView.m */; };
 		91D3AA7C1629BAC300941E2C /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91D3AA761629BA8800941E2C /* CorePlot.framework */; };
 		91E7320D150E2D0300F74EBB /* OPPatientsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7320C150E2D0300F74EBB /* OPPatientsView.m */; };
 		91E73210150E2D6C00F74EBB /* OPPatientSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91E7320F150E2D6C00F74EBB /* OPPatientSearchView.m */; };
@@ -142,9 +145,33 @@
 		91360C8C150E6FA1000E00D2 /* OPNewPatientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPNewPatientView.m; sourceTree = "<group>"; };
 		9136E86E16A88F05007BAE82 /* OPDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPDayView.h; sourceTree = "<group>"; };
 		9136E86F16A88F05007BAE82 /* OPDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPDayView.m; sourceTree = "<group>"; };
+		913DC79D17D28DD4001F31B8 /* OPProfessional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPProfessional.h; sourceTree = "<group>"; };
+		913DC79E17D28DD4001F31B8 /* OPProfessional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPProfessional.m; sourceTree = "<group>"; };
+		913DC7A017D28DD5001F31B8 /* OPInvoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPInvoice.h; sourceTree = "<group>"; };
+		913DC7A117D28DD5001F31B8 /* OPInvoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPInvoice.m; sourceTree = "<group>"; };
+		913DC7A317D28DD5001F31B8 /* OPAppointment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPAppointment.h; sourceTree = "<group>"; };
+		913DC7A417D28DD5001F31B8 /* OPAppointment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPAppointment.m; sourceTree = "<group>"; };
+		913DC7A617D28DD5001F31B8 /* OPMail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPMail.h; sourceTree = "<group>"; };
+		913DC7A717D28DD5001F31B8 /* OPMail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPMail.m; sourceTree = "<group>"; };
+		913DC7A917D28DD6001F31B8 /* OPConsultation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPConsultation.h; sourceTree = "<group>"; };
+		913DC7AA17D28DD6001F31B8 /* OPConsultation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPConsultation.m; sourceTree = "<group>"; };
+		913DC7AC17D28DD7001F31B8 /* OPPatient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPPatient.h; sourceTree = "<group>"; };
+		913DC7AD17D28DD7001F31B8 /* OPPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPPatient.m; sourceTree = "<group>"; };
+		913DC7AF17D28DD7001F31B8 /* OPDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPDocument.h; sourceTree = "<group>"; };
+		913DC7B017D28DD7001F31B8 /* OPDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPDocument.m; sourceTree = "<group>"; };
+		913DC7B217D28DD7001F31B8 /* OPTown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPTown.h; sourceTree = "<group>"; };
+		913DC7B317D28DD7001F31B8 /* OPTown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPTown.m; sourceTree = "<group>"; };
+		913DC7B517D28DD7001F31B8 /* OPMeasure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPMeasure.h; sourceTree = "<group>"; };
+		913DC7B617D28DD7001F31B8 /* OPMeasure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPMeasure.m; sourceTree = "<group>"; };
 		914594B616962C9E003016FF /* OPPhoneNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPPhoneNumberFormatter.h; sourceTree = "<group>"; };
 		914594B716962C9E003016FF /* OPPhoneNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPPhoneNumberFormatter.m; sourceTree = "<group>"; };
 		914594B9169651E7003016FF /* fr_postal_codes.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fr_postal_codes.csv; sourceTree = "<group>"; };
+		9150AC21177F6D7000E12915 /* OPProfessionalsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPProfessionalsView.h; sourceTree = "<group>"; };
+		9150AC22177F6D7100E12915 /* OPProfessionalsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPProfessionalsView.m; sourceTree = "<group>"; };
+		9150AC24177F6E2200E12915 /* OPNewProfessionalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPNewProfessionalView.h; sourceTree = "<group>"; };
+		9150AC25177F6E2300E12915 /* OPNewProfessionalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPNewProfessionalView.m; sourceTree = "<group>"; };
+		9150AC27177F6FE900E12915 /* OPProfessionalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPProfessionalView.h; sourceTree = "<group>"; };
+		9150AC28177F6FEA00E12915 /* OPProfessionalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPProfessionalView.m; sourceTree = "<group>"; };
 		9157710B15067B73009E2B73 /* Opale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Opale.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9157710F15067B73009E2B73 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9157711315067B73009E2B73 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -178,22 +205,10 @@
 		916244BD166A7C210000D50A /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		9166DDD41698A3E300583379 /* OPGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPGraphView.h; sourceTree = "<group>"; };
 		9166DDD51698A3E400583379 /* OPGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPGraphView.m; sourceTree = "<group>"; };
-		9166DDD71698FF4500583379 /* OPBabyConsultationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPBabyConsultationView.h; sourceTree = "<group>"; };
-		9166DDD81698FF4700583379 /* OPBabyConsultationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPBabyConsultationView.m; sourceTree = "<group>"; };
-		9166DDDA1698FFCE00583379 /* OPConsultation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPConsultation.h; sourceTree = "<group>"; };
-		9166DDDB1698FFCE00583379 /* OPConsultation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPConsultation.m; sourceTree = "<group>"; };
 		91680CD51690F7FA00A3C67E /* OPInvoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPInvoiceView.h; sourceTree = "<group>"; };
 		91680CD61690F7FA00A3C67E /* OPInvoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPInvoiceView.m; sourceTree = "<group>"; };
 		9171736D1535E2E100D1D702 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		917173781535EB0600D1D702 /* Maquette.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Maquette.xlsx; sourceTree = "<group>"; };
-		9174A68E1695F91E00575B69 /* OPDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPDocument.h; sourceTree = "<group>"; };
-		9174A68F1695F91E00575B69 /* OPDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPDocument.m; sourceTree = "<group>"; };
-		9174A6911695F91E00575B69 /* OPMail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPMail.h; sourceTree = "<group>"; };
-		9174A6921695F91E00575B69 /* OPMail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPMail.m; sourceTree = "<group>"; };
-		9174A6941695F91E00575B69 /* OPInvoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPInvoice.h; sourceTree = "<group>"; };
-		9174A6951695F91E00575B69 /* OPInvoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPInvoice.m; sourceTree = "<group>"; };
-		9174A69A1695F91E00575B69 /* OPProfessionnal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPProfessionnal.h; sourceTree = "<group>"; };
-		9174A69B1695F91E00575B69 /* OPProfessionnal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPProfessionnal.m; sourceTree = "<group>"; };
 		9174A6A416960C8B00575B69 /* OPSexFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPSexFormatter.h; sourceTree = "<group>"; };
 		9174A6A516960C8B00575B69 /* OPSexFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPSexFormatter.m; sourceTree = "<group>"; };
 		9176B2BF16EB599D00F51FD3 /* OPTownsDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPTownsDataSource.h; sourceTree = "<group>"; };
@@ -207,16 +222,10 @@
 		91773DBB163B11E2000F8673 /* OPBabyPatientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPBabyPatientView.h; sourceTree = "<group>"; };
 		91773DBC163B11E2000F8673 /* OPBabyPatientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPBabyPatientView.m; sourceTree = "<group>"; };
 		917C607A16AB1DD700A5EAC0 /* new_appointment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_appointment.png; sourceTree = "<group>"; };
-		917C607F16AB2D4200A5EAC0 /* OPPatient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPPatient.h; sourceTree = "<group>"; };
-		917C608016AB2D4200A5EAC0 /* OPPatient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPPatient.m; sourceTree = "<group>"; };
-		917C608D16AB5E8500A5EAC0 /* OPTown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPTown.h; sourceTree = "<group>"; };
-		917C608E16AB5E8500A5EAC0 /* OPTown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPTown.m; sourceTree = "<group>"; };
 		918738F916A7376400D079E7 /* OPAppointmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPAppointmentView.h; sourceTree = "<group>"; };
 		918738FA16A7376400D079E7 /* OPAppointmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPAppointmentView.m; sourceTree = "<group>"; };
 		918738FF16A73E1200D079E7 /* OPEditAppointmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPEditAppointmentView.h; sourceTree = "<group>"; };
 		9187390016A73E1200D079E7 /* OPEditAppointmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPEditAppointmentView.m; sourceTree = "<group>"; };
-		918A44BA16A9D961008DB974 /* OPAppointment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPAppointment.h; sourceTree = "<group>"; };
-		918A44BB16A9D961008DB974 /* OPAppointment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPAppointment.m; sourceTree = "<group>"; };
 		91959F931690A1B4008EF47E /* OPInvoicePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPInvoicePanel.h; sourceTree = "<group>"; };
 		91959F941690A1B4008EF47E /* OPInvoicePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPInvoicePanel.m; sourceTree = "<group>"; };
 		919F2A6F16B5B66E00D1A72E /* OPTrackingArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPTrackingArea.h; sourceTree = "<group>"; };
@@ -250,8 +259,8 @@
 		91BD268816B40C7E0010E102 /* OPAppointmentPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPAppointmentPanel.m; sourceTree = "<group>"; };
 		91CAD6C91598B71B00163FB1 /* OPExistingPatientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPExistingPatientView.h; sourceTree = "<group>"; };
 		91CAD6CA1598B71B00163FB1 /* OPExistingPatientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPExistingPatientView.m; sourceTree = "<group>"; };
-		91CEF6F0159C618A001D5265 /* OPAdultChildConsultationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPAdultChildConsultationView.h; sourceTree = "<group>"; };
-		91CEF6F1159C618A001D5265 /* OPAdultChildConsultationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPAdultChildConsultationView.m; sourceTree = "<group>"; };
+		91CEF6F0159C618A001D5265 /* OPConsultationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPConsultationView.h; sourceTree = "<group>"; };
+		91CEF6F1159C618A001D5265 /* OPConsultationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPConsultationView.m; sourceTree = "<group>"; };
 		91D3AA6C1629BA8800941E2C /* CorePlot.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CorePlot.xcodeproj; path = CorePlot/Source/framework/CorePlot.xcodeproj; sourceTree = "<group>"; };
 		91E7320B150E2D0300F74EBB /* OPPatientsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPPatientsView.h; sourceTree = "<group>"; };
 		91E7320C150E2D0300F74EBB /* OPPatientsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPPatientsView.m; sourceTree = "<group>"; };
@@ -469,12 +478,10 @@
 				91B128641598A4BB00AFC5B9 /* OPAdultMalePatientView.m */,
 				911E7F8215B4133000FC2A3F /* OPAdultFemalePatientView.h */,
 				911E7F8315B4133000FC2A3F /* OPAdultFemalePatientView.m */,
-				91CEF6F0159C618A001D5265 /* OPAdultChildConsultationView.h */,
-				91CEF6F1159C618A001D5265 /* OPAdultChildConsultationView.m */,
 				91773DBB163B11E2000F8673 /* OPBabyPatientView.h */,
 				91773DBC163B11E2000F8673 /* OPBabyPatientView.m */,
-				9166DDD71698FF4500583379 /* OPBabyConsultationView.h */,
-				9166DDD81698FF4700583379 /* OPBabyConsultationView.m */,
+				91CEF6F0159C618A001D5265 /* OPConsultationView.h */,
+				91CEF6F1159C618A001D5265 /* OPConsultationView.m */,
 				9166DDD41698A3E300583379 /* OPGraphView.h */,
 				9166DDD51698A3E400583379 /* OPGraphView.m */,
 				912C0ED516208D7D009A5090 /* OPHeightGraphView.h */,
@@ -505,8 +512,14 @@
 				9187390016A73E1200D079E7 /* OPEditAppointmentView.m */,
 				91BD268716B40C7E0010E102 /* OPAppointmentPanel.h */,
 				91BD268816B40C7E0010E102 /* OPAppointmentPanel.m */,
+				9150AC21177F6D7000E12915 /* OPProfessionalsView.h */,
+				9150AC22177F6D7100E12915 /* OPProfessionalsView.m */,
 				916244AB166A6FE30000D50A /* OPProfessionalSearchView.h */,
 				916244AC166A6FE30000D50A /* OPProfessionalSearchView.m */,
+				9150AC24177F6E2200E12915 /* OPNewProfessionalView.h */,
+				9150AC25177F6E2300E12915 /* OPNewProfessionalView.m */,
+				9150AC27177F6FE900E12915 /* OPProfessionalView.h */,
+				9150AC28177F6FEA00E12915 /* OPProfessionalView.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -543,22 +556,24 @@
 			isa = PBXGroup;
 			children = (
 				9157712715067B74009E2B73 /* Opale.xcdatamodeld */,
-				917C607F16AB2D4200A5EAC0 /* OPPatient.h */,
-				917C608016AB2D4200A5EAC0 /* OPPatient.m */,
-				918A44BA16A9D961008DB974 /* OPAppointment.h */,
-				918A44BB16A9D961008DB974 /* OPAppointment.m */,
-				9166DDDA1698FFCE00583379 /* OPConsultation.h */,
-				9166DDDB1698FFCE00583379 /* OPConsultation.m */,
-				9174A6941695F91E00575B69 /* OPInvoice.h */,
-				9174A6951695F91E00575B69 /* OPInvoice.m */,
-				9174A6911695F91E00575B69 /* OPMail.h */,
-				9174A6921695F91E00575B69 /* OPMail.m */,
-				9174A68E1695F91E00575B69 /* OPDocument.h */,
-				9174A68F1695F91E00575B69 /* OPDocument.m */,
-				9174A69A1695F91E00575B69 /* OPProfessionnal.h */,
-				9174A69B1695F91E00575B69 /* OPProfessionnal.m */,
-				917C608D16AB5E8500A5EAC0 /* OPTown.h */,
-				917C608E16AB5E8500A5EAC0 /* OPTown.m */,
+				913DC7B517D28DD7001F31B8 /* OPMeasure.h */,
+				913DC7B617D28DD7001F31B8 /* OPMeasure.m */,
+				913DC7B217D28DD7001F31B8 /* OPTown.h */,
+				913DC7B317D28DD7001F31B8 /* OPTown.m */,
+				913DC7AF17D28DD7001F31B8 /* OPDocument.h */,
+				913DC7B017D28DD7001F31B8 /* OPDocument.m */,
+				913DC7AC17D28DD7001F31B8 /* OPPatient.h */,
+				913DC7AD17D28DD7001F31B8 /* OPPatient.m */,
+				913DC7A917D28DD6001F31B8 /* OPConsultation.h */,
+				913DC7AA17D28DD6001F31B8 /* OPConsultation.m */,
+				913DC7A617D28DD5001F31B8 /* OPMail.h */,
+				913DC7A717D28DD5001F31B8 /* OPMail.m */,
+				913DC7A317D28DD5001F31B8 /* OPAppointment.h */,
+				913DC7A417D28DD5001F31B8 /* OPAppointment.m */,
+				913DC7A017D28DD5001F31B8 /* OPInvoice.h */,
+				913DC7A117D28DD5001F31B8 /* OPInvoice.m */,
+				913DC79D17D28DD4001F31B8 /* OPProfessional.h */,
+				913DC79E17D28DD4001F31B8 /* OPProfessional.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -745,7 +760,7 @@
 				91360C8D150E6FA1000E00D2 /* OPNewPatientView.m in Sources */,
 				91B128651598A4BB00AFC5B9 /* OPAdultMalePatientView.m in Sources */,
 				91CAD6CB1598B71B00163FB1 /* OPExistingPatientView.m in Sources */,
-				91CEF6F2159C618A001D5265 /* OPAdultChildConsultationView.m in Sources */,
+				91CEF6F2159C618A001D5265 /* OPConsultationView.m in Sources */,
 				911E7F8415B4133000FC2A3F /* OPAdultFemalePatientView.m in Sources */,
 				912C0ED716208D7D009A5090 /* OPHeightGraphView.m in Sources */,
 				91773DB7163B0C09000F8673 /* OPWeightGraphView.m in Sources */,
@@ -755,27 +770,30 @@
 				91595525166A923E0084D837 /* OPScanningView.m in Sources */,
 				91959F951690A1B4008EF47E /* OPInvoicePanel.m in Sources */,
 				91680CD71690F7FA00A3C67E /* OPInvoiceView.m in Sources */,
-				9174A6901695F91E00575B69 /* OPDocument.m in Sources */,
-				9174A6931695F91E00575B69 /* OPMail.m in Sources */,
-				9174A6961695F91E00575B69 /* OPInvoice.m in Sources */,
-				9174A69C1695F91E00575B69 /* OPProfessionnal.m in Sources */,
 				9174A6A616960C8B00575B69 /* OPSexFormatter.m in Sources */,
 				914594B816962C9E003016FF /* OPPhoneNumberFormatter.m in Sources */,
 				9166DDD61698A3E500583379 /* OPGraphView.m in Sources */,
-				9166DDD91698FF4800583379 /* OPBabyConsultationView.m in Sources */,
-				9166DDDC1698FFCE00583379 /* OPConsultation.m in Sources */,
 				915DE40E16A49B9D00D17737 /* OPCalendarView.m in Sources */,
 				91A7DEF016A5EE6C008FEEA6 /* OPWeekAppointmentsView.m in Sources */,
 				91A7DEF316A5EE96008FEEA6 /* OPDayAppointmentsView.m in Sources */,
 				918738FB16A7376400D079E7 /* OPAppointmentView.m in Sources */,
 				9187390116A73E1200D079E7 /* OPEditAppointmentView.m in Sources */,
 				9136E87016A88F06007BAE82 /* OPDayView.m in Sources */,
-				918A44BC16A9D961008DB974 /* OPAppointment.m in Sources */,
-				917C608116AB2D4200A5EAC0 /* OPPatient.m in Sources */,
-				917C608F16AB5E8500A5EAC0 /* OPTown.m in Sources */,
 				91BD268916B40C7F0010E102 /* OPAppointmentPanel.m in Sources */,
 				919F2A7116B5B66E00D1A72E /* OPTrackingArea.m in Sources */,
 				9176B2C116EB599D00F51FD3 /* OPTownsDataSource.m in Sources */,
+				9150AC23177F6D7100E12915 /* OPProfessionalsView.m in Sources */,
+				9150AC26177F6E2300E12915 /* OPNewProfessionalView.m in Sources */,
+				9150AC29177F6FEB00E12915 /* OPProfessionalView.m in Sources */,
+				913DC79F17D28DD4001F31B8 /* OPProfessional.m in Sources */,
+				913DC7A217D28DD5001F31B8 /* OPInvoice.m in Sources */,
+				913DC7A517D28DD5001F31B8 /* OPAppointment.m in Sources */,
+				913DC7A817D28DD6001F31B8 /* OPMail.m in Sources */,
+				913DC7AB17D28DD6001F31B8 /* OPConsultation.m in Sources */,
+				913DC7AE17D28DD7001F31B8 /* OPPatient.m in Sources */,
+				913DC7B117D28DD7001F31B8 /* OPDocument.m in Sources */,
+				913DC7B417D28DD7001F31B8 /* OPTown.m in Sources */,
+				913DC7B717D28DD7001F31B8 /* OPMeasure.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,10 +16,12 @@
 @synthesize searchView, nPatientView;
 
 -(IBAction)openSearchView:(id)sender{
+    [searchView resetView];
     [parent pushSubview:searchView];
 }
 
 -(IBAction)openNewPatientForm:(id)sender{
+    [nPatientView resetView];
     [parent pushSubview:nPatientView];
 }
 

@@ -16,16 +16,19 @@
 #import "OPAppointment.h"
 #import "OPAppointmentPanel.h"
 #import "OPEditAppointmentView.h"
+#import "OPTownsDataSource.h"
 
 @implementation OPExistingPatientView
 
 @dynamic locked;
 
-@synthesize modified, patient, sortedConsultations, editableObjects, switchLockButton, addressedByBox, cellFirstName, cellLastName, cellBirthday, cellSex, cellTel1, cellTel2, cellAddress, cellTown, cellPostalCode, cellCountry, generalComments, previousHistoryComments, familyHistory, medicalHistory,traumaticHistory, surgicalHistory, entAndOphtalmologicSphere, dentalSphere, digestiveSphere,urinarySphere, deleteConsultationButton, consultationsTable, colDate, colMotives, deleteDocumentButton, documentsTable, colDocumentTitle, colDocumentFilePath, deleteMailButton, mailsTable, colMailName, colMailFilePath, appointmentPanel, appointmentsTable, colAppointmentDate, colAppointmentDetails, deleteAppointmentButton;
+@synthesize modified, patient, sortedConsultations, editableObjects, switchLockButton, addressedByBox, cellFirstName, cellLastName, birthdayPicker, matrixSex, cellTel1, cellTel2, cellAddress, cellTown, postalCodeComboBox, cellCountry, generalComments, previousHistoryComments, familyHistory, medicalHistory,traumaticHistory, surgicalHistory, entAndOphtalmologicSphere, dentalSphere, digestiveSphere,urinarySphere, deleteConsultationButton, consultationsTable, colConsultationDate, colMotives, deleteDocumentButton, documentsTable, colDocumentTitle, colDocumentFilePath, deleteMailButton, mailsTable, colMailName, colMailFilePath, appointmentPanel, appointmentsTable, colAppointmentDate, colAppointmentDetails, deleteAppointmentButton;
 
 - (void)awakeFromNib{
     
     modified = NO;
+    
+    [postalCodeComboBox setDataSource:[OPTownsDataSource getInstance]];
     
     //Editable objects
     editableObjects = [[NSMutableArray alloc] init];
@@ -33,13 +36,13 @@
     [self addEditableObject:addressedByBox];
     [self addEditableObject:cellFirstName];
     [self addEditableObject:cellLastName];
-    [self addEditableObject:cellBirthday];
-    [self addEditableObject:cellSex];
+    [self addEditableObject:birthdayPicker];
+    [self addEditableObject:matrixSex];
     [self addEditableObject:cellTel1];
     [self addEditableObject:cellTel2];
     [self addEditableObject:cellAddress];
     [self addEditableObject:cellTown];
-    [self addEditableObject:cellPostalCode];
+    [self addEditableObject:postalCodeComboBox];
     [self addEditableObject:cellCountry];
     [self addEditableObject:generalComments];
     [self addEditableObject:previousHistoryComments];
@@ -56,30 +59,36 @@
     [self addEditableObject:deleteConsultationButton];
     [consultationsTable setDoubleAction:@selector(showConsultation:)];
     sortedConsultations = [[NSMutableArray alloc] init];
-    [colDate setIdentifier:@"consDate"];
-    [colMotives setIdentifier:@"motives"];
     
     //Documents tab
     [self addEditableObject:deleteDocumentButton];
     [documentsTable setDoubleAction:@selector(openDocument:)];
-    [colDocumentTitle setIdentifier:@"title"];
-    [colDocumentFilePath setIdentifier:@"docPath"];
     
     //Mails tab
     [self addEditableObject:deleteMailButton];
     [mailsTable setDoubleAction:@selector(openMail:)];
-    [colMailName setIdentifier:@"name"];
-    [colMailFilePath setIdentifier:@"path"];
     
     //Appointments tab
     [self addEditableObject:deleteAppointmentButton];
     [appointmentsTable setDoubleAction:@selector(openCalendar:)];
-    [colAppointmentDate setIdentifier:@"name"];
-    [colAppointmentDetails setIdentifier:@"details"];
+}
+
+-(void)controlTextDidChange:(NSNotification *)obj{
+    modified = YES;
+    
+    NSString* town = [[OPTownsDataSource getInstance] getTownForPostalCode:[postalCodeComboBox stringValue]];
+    
+    if(town){
+        [cellTown setStringValue:town];
+    }
+    else{
+        [cellTown setStringValue:@""];
+    }
 }
 
 -(IBAction)switchLock:(id)sender{
     if(locked){
+        modified = YES;
         [self setLocked:NO];
     }
     else{
@@ -130,6 +139,15 @@
             [(NSFormCell*)obj setBezeled:!lock];
         }
         
+        else if([obj isKindOfClass:[NSDatePicker class]]){
+            [(NSDatePicker*)obj setEnabled:!lock];
+        }
+        
+        
+        else if([obj isKindOfClass:[NSMatrix class]]){
+            [(NSMatrix*)obj setEnabled:!lock];
+        }
+        
         else if([obj isKindOfClass:[NSComboBox class]]){
             [(NSComboBox*)obj setEditable:!lock];
             [(NSComboBox*)obj setSelectable:!lock];
@@ -153,10 +171,6 @@
     }
 }
 
--(void)controlTextDidChange:(NSNotification *)obj{
-    modified = YES;
-}
-
 -(void)textDidChange:(NSNotification *)notification{
     modified = YES;
 }
@@ -172,13 +186,13 @@
     //General tab
     [OPView initFormCell:cellFirstName withString:patient.firstName];
     [OPView initFormCell:cellLastName withString:patient.lastName];
-    [OPView initFormCell:cellBirthday withDate:patient.birthday];
-    [OPView initFormCell:cellSex withString:patient.sex];
+    [OPView initDatePicker:birthdayPicker withDate:patient.birthday];
+    [OPView initMatrix:matrixSex selectingRow:[patient.sex integerValue] andColumn:0];
     [OPView initFormCell:cellTel1 withString:patient.tel1];
     [OPView initFormCell:cellTel2 withString:patient.tel2];
     [OPView initFormCell:cellAddress withString:patient.address];
     [OPView initFormCell:cellTown withString:patient.town];
-    [OPView initFormCell:cellPostalCode withString:patient.postalCode];
+    [OPView initComboBox:postalCodeComboBox withString:patient.postalCode];
     [OPView initFormCell:cellCountry withString:patient.country];
     
     [OPView initTextView:generalComments withString:patient.generalComments];
@@ -503,12 +517,12 @@
         
         OPConsultation* consultation = (OPConsultation*)[sortedConsultations objectAtIndex:row];
         
-        if([[tableColumn identifier] isEqualToString:colDate.identifier]){
+        if(tableColumn == colConsultationDate){
             NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
             [dateFormatter setDateFormat:@"dd/MM/yyyy"];
             value = [dateFormatter stringFromDate:consultation.date];
         }
-        else if([[tableColumn identifier] isEqualToString:colMotives.identifier]){
+        else if(tableColumn  == colMotives){
             if(consultation.motives){
                 value = [[NSString alloc] initWithString:consultation.motives];
             }
@@ -521,11 +535,11 @@
         
         OPDocument* document = (OPDocument*)[[patient.documents allObjects] objectAtIndex:row];
         
-        if([[tableColumn identifier] isEqualToString:colDocumentTitle.identifier]){
+        if(tableColumn == colDocumentTitle){
             NSURL* documentURL = [NSURL fileURLWithPath:document.filePath];
             value = [[documentURL lastPathComponent] stringByDeletingPathExtension];
         }
-        else if ([[tableColumn identifier] isEqualToString:colDocumentFilePath.identifier]){
+        else if (tableColumn  == colDocumentFilePath){
             value = document.filePath;
         }
     }
@@ -533,22 +547,22 @@
         OPMail* mail = (OPMail*)[[patient.mails allObjects]objectAtIndex:row];
         NSURL* mailURL = [NSURL fileURLWithPath:mail.filePath];
         
-        if([tableColumn.identifier isEqualToString:colMailName.identifier]){
+        if(tableColumn == colMailName){
             value = [[mailURL lastPathComponent] stringByDeletingPathExtension];
         }
-        else if([tableColumn.identifier isEqualToString:colMailFilePath.identifier]){
+        else if(tableColumn == colMailFilePath){
             value = [mailURL path];
         }
     }
     else if(tableView == appointmentsTable){
         OPAppointment* appointment = (OPAppointment*)[[patient.appointments allObjects]objectAtIndex:row];
         
-        if([tableColumn.identifier isEqualToString:colAppointmentDate.identifier]){
+        if(tableColumn == colAppointmentDate){
             NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
             [dateFormatter setDateFormat:@"dd/MM/yyyy"];
             value = [dateFormatter stringFromDate:appointment.start];
         }
-        else if([tableColumn.identifier isEqualToString:colAppointmentDetails.identifier]){
+        else if(tableColumn == colAppointmentDetails){
             NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
             [dateFormatter setDateFormat:@"HH:mm"];
             
@@ -578,14 +592,14 @@
     [dateFormatter setDateStyle:NSDateFormatterShortStyle];
     [dateFormatter setDateFormat:@"dd/MM/yyyy"];
     [dateFormatter setLocale:frLocale];
-    patient.birthday = [dateFormatter dateFromString:[cellBirthday stringValue]];
+    patient.birthday = [birthdayPicker dateValue];
     
-    patient.sex = [[NSString alloc] initWithString:[cellSex stringValue]];
+    patient.sex = [NSNumber numberWithInteger:[matrixSex selectedRow]];
     patient.tel1 = [[NSString alloc] initWithString:[cellTel1 stringValue]];
     patient.tel2 = [[NSString alloc] initWithString:[cellTel2 stringValue]];
     patient.address = [[NSString alloc] initWithString:[cellAddress stringValue]];
     patient.town = [[NSString alloc] initWithString:[cellTown stringValue]];
-    patient.postalCode = [[NSString alloc] initWithString:[cellPostalCode stringValue]];
+    patient.postalCode = [[NSString alloc] initWithString:[postalCodeComboBox stringValue]];
     patient.country = [[NSString alloc] initWithString:[cellCountry stringValue]];
     patient.generalComments = [[NSString alloc] initWithString:[generalComments string]];
     
@@ -609,7 +623,7 @@
 
 -(BOOL)quitView{
     if(modified){
-        NSAlert *alert = [NSAlert alertWithMessageText:@"Sauvegarder ?" defaultButton:@"Oui" alternateButton:@"Non" otherButton:nil informativeTextWithFormat:@"La fiche patient a été modifiée. Sauvegarder ?"];
+        NSAlert *alert = [NSAlert alertWithMessageText:@"Sauvegarder ?" defaultButton:@"Oui" alternateButton:@"Non" otherButton:nil informativeTextWithFormat:@"La fiche du patient a été modifiée. Sauvegarder ?"];
         [alert setAlertStyle:NSCriticalAlertStyle];
         
         if([alert runModal] == NSAlertDefaultReturn){

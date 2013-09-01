@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import <Quartz/Quartz.h>
 
-@class OPView, OPPatient, OPConsultation, OPMail, OPDocument, OPPatientsView, OPCalendarView, OPAdultMalePatientView, OPAdultFemalePatientView, OPBabyPatientView, OPAdultChildConsultationView, OPBabyConsultationView, OPProfessionalSearchView, OPScanningView;
+@class OPView, OPPatient, OPConsultation, OPProfessional, OPMail, OPDocument, OPPatientsView, OPCalendarView, OPAdultMalePatientView, OPAdultFemalePatientView, OPBabyPatientView, OPConsultationView, OPProfessionalsView, OPProfessionalView, OPScanningView;
 
 @interface OPMainWindow : NSWindow {
     
@@ -24,13 +24,13 @@
     IBOutlet OPCalendarView* calendarView;
     IBOutlet OPView* accountingView;
     IBOutlet OPView* statsView;
-    IBOutlet OPProfessionalSearchView* professionalListView;
+    IBOutlet OPProfessionalsView* professionalsView;
     
     IBOutlet OPAdultMalePatientView* adultMalePatientView;
     IBOutlet OPAdultFemalePatientView* adultFemalePatientView;
-    IBOutlet OPBabyPatientView* babyPatientView;
-    IBOutlet OPAdultChildConsultationView* adultChildConsultationView;
-    IBOutlet OPBabyConsultationView* babyConsultationView;
+    IBOutlet OPConsultationView* consultationView;
+    
+    IBOutlet OPProfessionalView* professionalView;
     
     IBOutlet OPScanningView* scanningView;
     
@@ -49,14 +49,15 @@
 @property (nonatomic, retain) IBOutlet OPCalendarView* calendarView;
 @property (nonatomic, retain) IBOutlet OPView* accountingView;
 @property (nonatomic, retain) IBOutlet OPView* statsView;
-@property (nonatomic, retain) IBOutlet OPProfessionalSearchView* professionalListView;
+@property (nonatomic, retain) IBOutlet OPProfessionalsView* professionalsView;
 
 @property (nonatomic, retain) IBOutlet OPAdultMalePatientView* adultMalePatientView;
 @property (nonatomic, retain) IBOutlet OPAdultFemalePatientView* adultFemalePatientView;
 @property (nonatomic, retain) IBOutlet OPBabyPatientView* babyPatientView;
 
-@property (nonatomic, retain) IBOutlet OPAdultChildConsultationView* adultChildConsultationView;
-@property (nonatomic, retain) IBOutlet OPAdultChildConsultationView* babyConsultationView;
+@property (nonatomic, retain) IBOutlet OPConsultationView* consultationView;
+
+@property (nonatomic, retain) IBOutlet OPProfessionalView* professionalView;
 
 @property (nonatomic, retain) IBOutlet OPScanningView* scanningView;
 
@@ -75,7 +76,10 @@
 -(IBAction)showCalendarView:(id)sender;
 -(IBAction)showAccountingView:(id)sender;
 -(IBAction)showStatsView:(id)sender;
--(IBAction)showProfessionalView:(id)sender;
+-(IBAction)showProfessionalsView:(id)sender;
+
+-(IBAction)showProfessionalViewFor:(OPProfessional*)professional;
+-(IBAction)showProfessionalViewFor:(OPProfessional*)professional withLockState:(BOOL)locked;
 
 -(IBAction)showPatientViewFor:(OPPatient*)patient;
 -(IBAction)showPatientViewFor:(OPPatient*)patient withLockState:(BOOL)locked;

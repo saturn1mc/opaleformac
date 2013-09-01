@@ -8,15 +8,15 @@
 
 #import "OPGraphView.h"
 #import "OPPatient.h"
-#import "OPConsultation.h"
+#import "OPMeasure.h"
 
 @implementation OPGraphView
 
-@synthesize patient, sortedConsultations, patientPlot, title, plotNames, plotData, plotColors, plotLineStyles, graph, xMin, yMin, xMax, yMax, patientPlotId, defaultFont, titleFont, majorIncrement, minorIncrement;
+@synthesize patient, sortedMeasures, patientPlot, title, plotNames, plotData, plotColors, plotLineStyles, graph, xMin, yMin, xMax, yMax, patientPlotId, defaultFont, titleFont, majorIncrement, minorIncrement;
 
 - (void)awakeFromNib{
     
-    sortedConsultations = [[NSArray alloc] init];
+    sortedMeasures = [[NSArray alloc] init];
     
     plotColors = [NSMutableArray arrayWithObjects:[CPTColor purpleColor], [CPTColor blueColor], [CPTColor blueColor], [CPTColor purpleColor], nil];
     
@@ -40,17 +40,34 @@
 
 -(void)loadPatient:(OPPatient*)patientToLoad{
     patient = patientToLoad;
-    [self sortConsultations];
+    [self sortMeasures];
 }
 
--(void)sortConsultations{
-    NSArray* consultations = [patient.consultations allObjects];
+-(void)update{
+    [self sortMeasures];
+    [graph reloadData];
     
-    sortedConsultations = [consultations sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        OPConsultation* consultation1 = (OPConsultation*) obj1;
-        OPConsultation* consultation2 = (OPConsultation*) obj2;
+    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
+    [plotSpace scaleToFitPlots:graph.allPlots];
+    
+    CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
+    [xRange expandRangeByFactor:CPTDecimalFromCGFloat(1.1f)];
+    plotSpace.xRange = xRange;
+    
+    CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
+    [yRange expandRangeByFactor:CPTDecimalFromCGFloat(1.1f)];
+    
+    plotSpace.yRange = yRange;
+}
+
+-(void)sortMeasures{
+    NSArray* measures = [patient.measures allObjects];
+    
+    sortedMeasures = [measures sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        OPMeasure* measure1 = (OPMeasure*) obj1;
+        OPMeasure* measure2 = (OPMeasure*) obj2;
         
-        return [consultation1.date compare:consultation2.date];
+        return [measure1.date compare:measure2.date];
     }];
 }
 
@@ -159,24 +176,13 @@
             [plots addObject:linePlot];
         }
     }
-    
-    [plotSpace scaleToFitPlots:plots];
-    
-    CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
-    [xRange expandRangeByFactor:CPTDecimalFromCGFloat(1.1f)];
-    plotSpace.xRange = xRange;
-    
-    CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
-    [yRange expandRangeByFactor:CPTDecimalFromCGFloat(1.1f)];
-    
-    plotSpace.yRange = yRange;
 }
 
 -(void)initPatientPlots{
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
     
     patientPlot = [[CPTScatterPlot alloc] init];
-    patientPlot.identifier = patientPlotId; //TODO switch with patient name
+    patientPlot.identifier = patientPlotId;
     patientPlot.cachePrecision = CPTPlotCachePrecisionDouble;
     patientPlot.interpolation = CPTScatterPlotInterpolationLinear;
     
@@ -240,7 +246,7 @@
     x.majorTickLength = 4.0f;
     x.minorTickLength = 2.0f;
     x.tickDirection = CPTSignPositive;
-    x.orthogonalCoordinateDecimal = CPTDecimalFromFloat(yMin);
+    x.orthogonalCoordinateDecimal = CPTDecimalFromFloat(0);
     
     CGFloat xCount = [plotData count];
     NSMutableSet *xLabels = [NSMutableSet setWithCapacity:xCount];
@@ -360,7 +366,7 @@
     NSInteger count=0;
     
     if([plot.identifier isEqual:patientPlotId]){
-        count = [sortedConsultations count] + 1;
+        count = [sortedMeasures count] + 1;
     }
     else{
         count = plotData.count;
@@ -375,7 +381,7 @@
         if(index == 0){ //Birth point
             return [self birthNumberForPlot:plot field:fieldEnum recordIndex:index];
         }
-        else{ //Consultations
+        else{ //Measures
             return [self patientNumberForPlot:plot field:fieldEnum recordIndex:index];
         }
         

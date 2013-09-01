@@ -10,7 +10,7 @@
 
 @class OPPatient, OPAppointmentPanel;
 
-@interface OPExistingPatientView : OPView <NSTableViewDelegate, NSTableViewDataSource, NSTextFieldDelegate, NSTextViewDelegate, NSControlTextEditingDelegate>{
+@interface OPExistingPatientView : OPView <NSTableViewDelegate, NSTableViewDataSource, NSTextFieldDelegate, NSTextViewDelegate, NSControlTextEditingDelegate, NSComboBoxDelegate>{
     OPPatient* patient;
     NSArray* sortedConsultations;
     
@@ -22,17 +22,19 @@
     
     IBOutlet NSComboBox* addressedByBox;
     
+    //Header
+    IBOutlet NSFormCell*   cellFirstName;
+    IBOutlet NSFormCell*   cellLastName;
+    IBOutlet NSDatePicker* birthdayPicker;
+    IBOutlet NSMatrix*     matrixSex;
+    IBOutlet NSFormCell*   cellTel1;
+    IBOutlet NSFormCell*   cellTel2;
+    IBOutlet NSFormCell*   cellAddress;
+    IBOutlet NSFormCell*   cellTown;
+    IBOutlet NSComboBox*   postalCodeComboBox;
+    IBOutlet NSFormCell*   cellCountry;
+    
     //General tab
-    IBOutlet NSFormCell* cellFirstName;
-    IBOutlet NSFormCell* cellLastName;
-    IBOutlet NSFormCell* cellBirthday;
-    IBOutlet NSFormCell* cellSex;
-    IBOutlet NSFormCell* cellTel1;
-    IBOutlet NSFormCell* cellTel2;
-    IBOutlet NSFormCell* cellAddress;
-    IBOutlet NSFormCell* cellTown;
-    IBOutlet NSFormCell* cellPostalCode;
-    IBOutlet NSFormCell* cellCountry;
     IBOutlet NSTextView* generalComments;
     
     //Previous history
@@ -51,7 +53,7 @@
     //Consultations tab
     IBOutlet NSButton* deleteConsultationButton;
     IBOutlet NSTableView* consultationsTable;
-    IBOutlet NSTableColumn* colDate;
+    IBOutlet NSTableColumn* colConsultationDate;
     IBOutlet NSTableColumn* colMotives;
     
     //Documents tab
@@ -85,17 +87,17 @@
 
 @property (nonatomic, retain) IBOutlet NSComboBox* addressedByBox;
 
-@property (nonatomic, retain) IBOutlet NSFormCell*  cellFirstName;
-@property (nonatomic, retain) IBOutlet NSFormCell*  cellLastName;
-@property (nonatomic, retain) IBOutlet NSFormCell*  cellBirthday;
-@property (nonatomic, retain) IBOutlet NSFormCell*  cellSex;
-@property (nonatomic, retain) IBOutlet NSFormCell*  cellTel1;
-@property (nonatomic, retain) IBOutlet NSFormCell*  cellTel2;
-@property (nonatomic, retain) IBOutlet NSFormCell*  cellAddress;
-@property (nonatomic, retain) IBOutlet NSFormCell*  cellTown;
-@property (nonatomic, retain) IBOutlet NSFormCell*  cellPostalCode;
-@property (nonatomic, retain) IBOutlet NSFormCell*  cellCountry;
-@property (nonatomic, retain) IBOutlet NSTextView*  generalComments;
+@property (nonatomic, retain) IBOutlet NSFormCell*   cellFirstName;
+@property (nonatomic, retain) IBOutlet NSFormCell*   cellLastName;
+@property (nonatomic, retain) IBOutlet NSDatePicker* birthdayPicker;
+@property (nonatomic, retain) IBOutlet NSMatrix*     matrixSex;
+@property (nonatomic, retain) IBOutlet NSFormCell*   cellTel1;
+@property (nonatomic, retain) IBOutlet NSFormCell*   cellTel2;
+@property (nonatomic, retain) IBOutlet NSFormCell*   cellAddress;
+@property (nonatomic, retain) IBOutlet NSFormCell*   cellTown;
+@property (nonatomic, retain) IBOutlet NSComboBox*   postalCodeComboBox;
+@property (nonatomic, retain) IBOutlet NSFormCell*   cellCountry;
+@property (nonatomic, retain) IBOutlet NSTextView*   generalComments;
 
 @property (nonatomic, retain) IBOutlet NSTextView* previousHistoryComments;
 @property (nonatomic, retain) IBOutlet NSTextView* familyHistory;
@@ -110,7 +112,7 @@
 
 @property (nonatomic, retain) IBOutlet NSButton* deleteConsultationButton;
 @property (nonatomic, retain) IBOutlet NSTableView*   consultationsTable;
-@property (nonatomic, retain) IBOutlet NSTableColumn* colDate;
+@property (nonatomic, retain) IBOutlet NSTableColumn* colConsultationDate;
 @property (nonatomic, retain) IBOutlet NSTableColumn* colMotives;
 
 @property (nonatomic, retain) IBOutlet NSButton* deleteDocumentButton;
