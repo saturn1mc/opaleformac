@@ -19,6 +19,7 @@
 #import "OPPatientsView.h"
 #import "OPAdultMalePatientView.h"
 #import "OPAdultFemalePatientView.h"
+#import "OPChildPatientView.h"
 #import "OPBabyPatientView.h"
 #import "OPConsultationView.h"
 #import "OPCalendarView.h"
@@ -31,7 +32,7 @@ static const NSInteger childAgeLimit = 17;
 
 @implementation OPMainWindow
 
-@synthesize nextButton, previousButton, currentScrollView, currentView, homeView, patientsView, calendarView, accountingView, statsView, adultMalePatientView, adultFemalePatientView, babyPatientView, consultationView, professionalsView, professionalView, scanningView, transition;
+@synthesize nextButton, previousButton, currentScrollView, currentView, homeView, patientsView, calendarView, accountingView, statsView, adultMalePatientView, adultFemalePatientView, childPatientView, babyPatientView, consultationView, professionalsView, professionalView, scanningView, transition;
 
 - (void)awakeFromNib{
     
@@ -178,21 +179,9 @@ static const NSInteger childAgeLimit = 17;
         [babyPatientView setLocked:locked];
         [self fadeSubview:babyPatientView];
     }else if (ageInYears < childAgeLimit){ //Child
-        
-        //!!!!!!!!!!!!!!!!!!!!!!!!
-        //TODO Child patient view
-        //!!!!!!!!!!!!!!!!!!!!!!!!
-        
-        if([patient.sex integerValue] == 0){ //Male
-            [adultMalePatientView loadPatient:patient];
-            [adultMalePatientView setLocked:locked];
-            [self fadeSubview:adultMalePatientView];
-        }
-        else{ //Female
-            [adultFemalePatientView loadPatient:patient];
-            [adultFemalePatientView setLocked:locked];
-            [self fadeSubview:adultFemalePatientView];
-        }
+        [childPatientView loadPatient:patient];
+        [childPatientView setLocked:locked];
+        [self fadeSubview:childPatientView];
     }else{ //Adult
         
         if([patient.sex integerValue] == 0){ //Male

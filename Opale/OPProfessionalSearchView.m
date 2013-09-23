@@ -18,7 +18,7 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     
-    [resultsTable setDoubleAction:@selector(selectPatient:)];
+    [resultsTable setDoubleAction:@selector(selectProfessional:)];
     searchResults = [[NSMutableArray alloc] init];
 }
 
