@@ -2,7 +2,7 @@
 //  OPMeasure.h
 //  Opale
 //
-//  Created by Camille on 31/08/13.
+//  Created by Camille on 04/01/2014.
 //
 //
 
@@ -13,10 +13,10 @@
 
 @interface OPMeasure : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * height;
-@property (nonatomic, retain) NSNumber * weight;
 @property (nonatomic, retain) NSNumber * cranianPerimeter;
 @property (nonatomic, retain) NSDate * date;
+@property (nonatomic, retain) NSNumber * height;
+@property (nonatomic, retain) NSNumber * weight;
 @property (nonatomic, retain) OPPatient *patient;
 
 @end

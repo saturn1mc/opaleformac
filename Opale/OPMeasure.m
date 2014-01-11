@@ -2,7 +2,7 @@
 //  OPMeasure.m
 //  Opale
 //
-//  Created by Camille on 31/08/13.
+//  Created by Camille on 04/01/2014.
 //
 //
 
@@ -12,10 +12,10 @@
 
 @implementation OPMeasure
 
-@dynamic height;
-@dynamic weight;
 @dynamic cranianPerimeter;
 @dynamic date;
+@dynamic height;
+@dynamic weight;
 @dynamic patient;
 
 @end

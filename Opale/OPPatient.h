@@ -2,14 +2,14 @@
 //  OPPatient.h
 //  Opale
 //
-//  Created by Camille on 31/08/13.
+//  Created by Camille on 04/01/2014.
 //
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class OPAppointment, OPConsultation, OPDocument, OPMail, OPMeasure;
+@class OPConsultation, OPDocument, OPMail, OPMeasure;
 
 @interface OPPatient : NSManagedObject
 
@@ -59,7 +59,7 @@
 @property (nonatomic, retain) NSString * traumaticHistory;
 @property (nonatomic, retain) NSString * urinarySphere;
 @property (nonatomic, retain) NSNumber * weight;
-@property (nonatomic, retain) NSSet *appointments;
+@property (nonatomic, retain) NSString * csp;
 @property (nonatomic, retain) NSSet *consultations;
 @property (nonatomic, retain) NSSet *documents;
 @property (nonatomic, retain) NSSet *mails;
@@ -67,11 +67,6 @@
 @end
 
 @interface OPPatient (CoreDataGeneratedAccessors)
-
-- (void)addAppointmentsObject:(OPAppointment *)value;
-- (void)removeAppointmentsObject:(OPAppointment *)value;
-- (void)addAppointments:(NSSet *)values;
-- (void)removeAppointments:(NSSet *)values;
 
 - (void)addConsultationsObject:(OPConsultation *)value;
 - (void)removeConsultationsObject:(OPConsultation *)value;

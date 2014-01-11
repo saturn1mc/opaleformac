@@ -2,12 +2,11 @@
 //  OPPatient.m
 //  Opale
 //
-//  Created by Camille on 31/08/13.
+//  Created by Camille on 04/01/2014.
 //
 //
 
 #import "OPPatient.h"
-#import "OPAppointment.h"
 #import "OPConsultation.h"
 #import "OPDocument.h"
 #import "OPMail.h"
@@ -62,7 +61,7 @@
 @dynamic traumaticHistory;
 @dynamic urinarySphere;
 @dynamic weight;
-@dynamic appointments;
+@dynamic csp;
 @dynamic consultations;
 @dynamic documents;
 @dynamic mails;
